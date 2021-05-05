@@ -23,6 +23,7 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        // 'js/pdfobject.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
