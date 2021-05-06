@@ -39,6 +39,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'Bài toán', 'url' => ['/question1']],
             ['label' => 'Danh mục tính toán', 'url' => ['/dm-tinhtoan']],
             ['label' => 'File', 'url' => ['/files']],
             Yii::$app->user->isGuest ? (
