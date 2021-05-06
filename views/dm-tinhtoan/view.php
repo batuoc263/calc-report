@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\DmTinhtoan */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Dm Tinhtoans', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Cấu hình danh mục tính toán', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -29,7 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'ten_bai_toan',
             'duong_dan',
         ],
