@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\DmTinhtoan */
 
-$this->title = 'Create Dm Tinhtoan';
-$this->params['breadcrumbs'][] = ['label' => 'Dm Tinhtoans', 'url' => ['index']];
+$this->title = 'Thêm mới danh mục';
+$this->params['breadcrumbs'][] = ['label' => 'Cấu hình danh mục tính toán', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dm-tinhtoan-create">

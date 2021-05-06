@@ -41,7 +41,7 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Bài toán', 'url' => ['/question1']],
             ['label' => 'Danh mục tính toán', 'url' => ['/dm-tinhtoan']],
-            ['label' => 'File', 'url' => ['/files']],
+            ['label' => 'Danh mục TCVN', 'url' => ['/dmtcvn']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (

@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\DmTinhtoanSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Dm Tinhtoans';
+$this->title = 'Cấu hình đường dẫn dm tính toán';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dm-tinhtoan-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Dm Tinhtoan', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Thêm mới', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -26,9 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'ten_bai_toan',
             'duong_dan',
+            'luot_giai',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -10,6 +10,7 @@ use Yii;
  * @property int $id
  * @property string|null $ten_bai_toan
  * @property string|null $duong_dan
+ * @property int|null $luot_giai
  */
 class DmTinhtoan extends \yii\db\ActiveRecord
 {
@@ -27,6 +28,7 @@ class DmTinhtoan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['luot_giai'], 'integer'],
             [['ten_bai_toan', 'duong_dan'], 'string', 'max' => 1000],
         ];
     }
@@ -38,8 +40,9 @@ class DmTinhtoan extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'ten_bai_toan' => 'Ten Bai Toan',
-            'duong_dan' => 'Duong Dan',
+            'ten_bai_toan' => 'Tên bài toán',
+            'duong_dan' => 'Đường dẫn',
+            'luot_giai' => 'Lượt giải',
         ];
     }
 }
