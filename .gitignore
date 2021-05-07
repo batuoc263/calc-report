@@ -34,3 +34,6 @@ tests/_support/_generated
 
 #upload files
 /web/uploads/*
+
+#ouput files
+/web/file-tinh-toan/output/*
