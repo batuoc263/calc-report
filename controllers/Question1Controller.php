@@ -63,26 +63,47 @@ class Question1Controller extends Controller
             /* Note: any element you append to a document must reside inside of a Section. */
     
             // Adding an empty Section to the document...
-            $section = $phpWord->addSection();
+            // $section = $phpWord->addSection();
 
-            $section->addText(
-                'THUYẾT MINH TÍNH TOÁN',
-                array('name' => 'Tahoma', 'size' => 13, 'color' => '1B2232', 'bold' => true)
+            // $section->addText(
+            //     'THUYẾT MINH TÍNH TOÁN',
+            //     array('name' => 'Tahoma', 'size' => 13, 'color' => '1B2232', 'bold' => true)
+            // );
+
+            // $section->addText(
+            //     "Việc tính toán được thực hiện theo TCVN 10304-2014 mục 7.4.2. có tính đến sự điều chỉnh của hệ số β ".
+            //     "Số liệu ban đầu: N = ".$_POST['varN']."MH, A = ".$_POST['varA']."m2, l = ".$_POST['varl']."m, E = ".$_POST['varE']."MPa, ν1 =".$_POST['varv1'].", ν2 =".$_POST['varv2'].", E1 = ".$_POST['varE1']." MPa, E2 = ".$_POST['varE2']." MPa"
+            //     ,
+            //     array('name' => 'Tahoma', 'size' => 12,)
+            // );
+
+
+            // $section->addText(
+            //     "Tính toán: "
+            //     ,
+            //     array('name' => 'Tahoma', 'size' => 12,)
+            // );
+
+
+            
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('template.docx');
+            $templateProcessor->setValues(
+                [
+                    'varN' => $_POST['varN'],
+                    'varA' => $_POST['varA']
+                ]
             );
 
-            $section->addText(
-                "Việc tính toán được thực hiện theo TCVN 10304-2014 mục 7.4.2. có tính đến sự điều chỉnh của hệ số β ".
-                "Số liệu ban đầu: N = ".$_POST['varN']."MH, A = ".$_POST['varA']."m2, l = ".$_POST['varl']."m, E = ".$_POST['varE']."MPa, ν1 =".$_POST['varv1'].", ν2 =".$_POST['varv2'].", E1 = ".$_POST['varE1']." MPa, E2 = ".$_POST['varE2']." MPa"
-                ,
-                array('name' => 'Tahoma', 'size' => 12,)
-            );
 
             $date = date_create();
 
             $timestamp = date_timestamp_get($date);
+            $filename = 'question1_'.$timestamp.'.docx';
+            $templateProcessor->saveAs($filename);
+            // $phpWord = \PhpOffice\PhpWord\IOFactory::load($filename); 
 
-            $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-            $objWriter->save('helloWorld'.$timestamp.'.docx');
+            // $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($templateProcessor, 'Word2007');
+            // $objWriter->save($filename);
             return 1;
 
         }

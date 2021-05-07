@@ -82,6 +82,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div id="menu1" class="tab-pane fade">
         <h3>Giải thích</h3>
         <p>Giải thích</p>
+        
         </div>
         <div id="menu2" class="tab-pane fade">
         <h3>Menu 2</h3>
