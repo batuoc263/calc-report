@@ -66,6 +66,54 @@ class TinhToanController extends \yii\web\Controller
             echo "sigma2 = $sigma2 <br>" ;
             echo "sigma3 = $sigma3 <br>" ;
             echo "sigma4 = $sigma4 <br>" ;
+
+
+            $phpWord = new \PhpOffice\PhpWord\PhpWord();
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\01.docx');
+            $templateProcessor->setValues(
+                [
+                    'varGama' => $input["varGamma"],
+                    'varB' => $input["varB"],
+                    'varL'=> $input["varL"],
+                    'varHd'=> $input["varHd"],
+                    'G'=> $G,
+                    'varN'=> $input["varN"],
+                    'A'=> $A,
+                    'W_x'=> $W_x,
+                    'W_y'=> $W_y,
+                    'M_x'=> $M_x,
+                    'M_y'=> $M_y,
+                    'varMx' => $input["varMy"],
+                    'varMy' => $input["varMy"],
+                    'varQx' => $input["varQx"],
+                    'varQy' => $input["varQy"],
+                    'varHm' => $input["varHm"],
+                    'e_x' => $e_x,
+                    'e_y' => $e_y,
+                    'half_l' => $half_l,
+                    'half_b' => $half_b,
+                    'sigma1' => $sigma1,
+                    'sigma2' => $sigma2,
+                    'sigma3' => $sigma3,
+                    'sigma4' => $sigma4,
+                    'kl_e_x' => $kl_e_x,
+                    'kl_e_y' => $kl_e_y,
+                    'N' => $N,
+
+
+                ]
+            );
+
+
+            $date = date_create();
+
+            $timestamp = date_timestamp_get($date);
+            $filename = 'xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat_'.$timestamp.'.docx';
+            $templateProcessor->saveAs('file-tinh-toan\output\\'.$filename);
+       
+            return 1;
+
+
             die;
         }
         return $this->render('xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat');

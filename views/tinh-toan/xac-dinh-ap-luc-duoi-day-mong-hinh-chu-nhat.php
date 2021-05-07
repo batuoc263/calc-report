@@ -33,35 +33,35 @@ $this->params['breadcrumbs'][] = $this->title;
             <td>Tải trọng đứng </td>
             <td> N= </td>
             <td>
-                <input type="number" name="varN" id="varN"> kN
+                <input type="number" step="0.01" name="varN" id="varN"> kN
             </td>
         </tr>
         <tr>
             <td>Momen uốn, xoay quanh trục x </td>
             <td> Mx= </td>
             <td>
-                <input type="number" name="varMx" id="varMx"> kN.m
+                <input type="number" step="0.01" name="varMx" id="varMx"> kN.m
             </td>
         </tr>
         <tr>
             <td>Lực ngang dọc theo trục y </td>
             <td> Qy= </td>
             <td>
-                <input type="number" name="varQy" id="varQy"> kN
+                <input type="number" step="0.01" name="varQy" id="varQy"> kN
             </td>
         </tr>
         <tr>
             <td>Momen uốn, xoay quanh trục y </td>
             <td> My= </td>
             <td>
-                <input type="number" name="varMy" id="varMy"> kN.m
+                <input type="number" step="0.01" name="varMy" id="varMy"> kN.m
             </td>
         </tr>
         <tr>
             <td>Lực ngang dọc theo trục x </td>
             <td> Qx= </td>
             <td>
-                <input type="number" name="varQx" id="varQx"> kN
+                <input type="number" step="0.01" name="varQx" id="varQx"> kN
             </td>
         </tr>
         <!-- ============ -->
@@ -72,35 +72,35 @@ $this->params['breadcrumbs'][] = $this->title;
             <td>Chiều dài đáy móng </td>
             <td> N= </td>
             <td>
-                <input type="number" name="varL" id="varL"> kN
+                <input type="number" step="0.01" name="varL" id="varL"> kN
             </td>
         </tr>
         <tr>
             <td>Chiều rộng đáy móng </td>
             <td> Mx= </td>
             <td>
-                <input type="number" name="varB" id="varB"> kN.m
+                <input type="number" step="0.01" name="varB" id="varB"> kN.m
             </td>
         </tr>
         <tr>
             <td>Chiều sâu từ mặt đất đến đáy móng </td>
             <td> Qy= </td>
             <td>
-                <input type="number" name="varHd" id="varHd"> kN
+                <input type="number" step="0.01" name="varHd" id="varHd"> kN
             </td>
         </tr>
         <tr>
             <td style="width: 420px">Khoảng cách từ điểm đặt lực đến đáy móng </td>
             <td style="width: 50px"> My= </td>
             <td>
-                <input type="number" name="varHm" id="varHm"> kN.m
+                <input type="number" step="0.01" name="varHm" id="varHm"> kN.m
             </td>
         </tr>
         <tr>
             <td>Trọng lương trung bình giữa đất và móng </td>
             <td> &gamma; <sub>tb</sub> = </td>
             <td>
-                <input type="number" name="varGamma" id="varGamma"> kN
+                <input type="number" step="0.01" name="varGamma" id="varGamma"> kN
             </td>
         </tr>
     </table>
