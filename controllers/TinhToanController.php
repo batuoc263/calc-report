@@ -128,10 +128,10 @@ class TinhToanController extends \yii\web\Controller
 
             $timestamp = date_timestamp_get($date);
             $filename = 'xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat_'.$timestamp.'.docx';
-            $fileStorage = 'file-tinh-toan\output\\'.$filename;
+            $fileStorage = 'file-tinh-toan/output/'.$filename;
             $templateProcessor->saveAs($fileStorage);
 
-            $filePath = '\\'.$fileStorage;
+            $filePath = '/'.$fileStorage;
         }
         return $this->render('xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat', [
             'dmtt' => $dmtt,
