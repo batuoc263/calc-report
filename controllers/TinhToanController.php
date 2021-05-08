@@ -47,9 +47,35 @@ class TinhToanController extends \yii\web\Controller
 
             // Kiểm tra độ lệch tâm:
             $e_x = round($M_y / $N, 4); $half_l = $input['varL'] / 2;
-            $kl_e_x = ($e_x < $half_l) ? 'Thỏa/Tăng chiều dài móng' : 'Không thỏa/Chiều dài bla bla';
+            if ($e_x < $half_l) {
+                $kl_e_x = 'Thỏa/Tăng chiều dài móng';
+                $compare1 = "<";
+            } elseif ($e_x == $half_l) {
+                $kl_e_x = 'Tăng chiều dài móng';
+                $compare1 = "=";
+            } else {
+                $kl_e_x = 'Tăng chiều dài móng';
+                $compare1 = ">";
+            }
+            
             $e_y = round($M_x / $N, 4); $half_b = $input['varB'] / 2;
-            $kl_e_y = ($e_y < $half_b) ? 'Thỏa/Tăng chiều rộng móng' : 'Không thỏa/Chiều rộng bla bla';
+            if ($e_y < $half_b) {
+                $kl_e_y = 'Thỏa/Tăng chiều rộng móng';
+                $compare2 = "<";
+            } elseif ($e_y == $half_b) {
+                $kl_e_x = 'Tăng chiều rộng móng';
+                $compare2 = "=";
+            } else {
+                $kl_e_x = 'Tăng chiều rộng móng';
+                $compare2 = ">";
+            }
+
+            if (($e_x < $half_l) && ($e_y < $half_b)) {
+                $templateFile = 'file-tinh-toan/sample/01.docx';
+            } else {
+                $templateFile = 'file-tinh-toan/sample/01_fail.docx';
+            }
+            
 
             // Ứng suất tại các góc của đáy móng:
             $sigma1 = round(($N / $A) + ($M_y / $W_y) + ($M_x / $W_x), 1);
@@ -57,35 +83,11 @@ class TinhToanController extends \yii\web\Controller
             $sigma3 = round(($N / $A) - ($M_y / $W_y) + ($M_x / $W_x), 1);
             $sigma4 = round(($N / $A) - ($M_y / $W_y) - ($M_x / $W_x), 1);
 
-            // echo '[varN] => 260
-            //     [varMx] => 260
-            //     [varQy] => 5
-            //     [varMy] => 97
-            //     [varQx] => 90
-            //     [varL] => 2.4
-            //     [varB] => 1.8
-            //     [varHd] => 2.0
-            //     [varHm] => 1.6
-            //     [varGamma] => 20 <br>';
-
-            // echo "G = $G <br>" ;
-            // echo "N = $N <br>" ;
-            // echo "A = $A <br>" ;
-            // echo "W_y = $W_y <br>" ;
-            // echo "W_x = $W_x <br>" ;
-            // echo "W_y = $M_x <br>" ;
-            // echo "W_x = $M_y <br>" ;
-            // echo "e_x = $e_x <br>" ;
-            // echo "e_y = $e_y <br>" ;
             
-            // echo "sigma1 = ($N / $A) + ($M_y / $W_y) + ($M_x / $W_x) = $sigma1 <br>" ;
-            // echo "sigma2 = $sigma2 <br>" ;
-            // echo "sigma3 = $sigma3 <br>" ;
-            // echo "sigma4 = $sigma4 <br>" ;
-
-
+            \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
-            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\01.docx');
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\01.docx');
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
             $templateProcessor->setValues(
                 [
                     'varGamma' => $input["varGamma"],
@@ -115,7 +117,8 @@ class TinhToanController extends \yii\web\Controller
                     'kl_e_x' => $kl_e_x,
                     'kl_e_y' => $kl_e_y,
                     'N' => $N,
-
+                    'ss1' => $compare1,
+                    'ss2' => $compare2,
 
                 ]
             );
