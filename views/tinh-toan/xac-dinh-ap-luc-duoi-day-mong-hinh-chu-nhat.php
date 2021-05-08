@@ -134,7 +134,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="col-md-3">Lượt tính: <?= $dmtt->luot_giai ?></div>
                 <div class="col-md-3">
-                <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?=  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+
+                    <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small">
+                        <a data-label="Facebook" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="noopener noreferrer nofollow" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="fb-xfbml-parse-ignore">
+                            <img src="/images/fbshare.PNG" alt="Share Facebook">
+                        </a>
+                    </div>
                 </div>
             </div>
         </form>
