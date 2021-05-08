@@ -1,78 +1,94 @@
 <?php
 
 namespace app\controllers;
+
+use app\models\DmTinhtoan;
+use app\models\DmTinhtoanSearch;
 use Yii;
 class TinhToanController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-        return $this->render('index');
+        $searchModel = new DmTinhtoanSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     public function actionXacDinhApLucDuoiDayMongHinhChuNhat()
     {
+        $dmtt = DmTinhtoan::findOne(['id' => 1]);
+        $searchModel = new DmTinhtoanSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $filePath = '';
+
         // Sample 01 
         if ($input = Yii::$app->request->post()) {
+            $dmtt->luot_giai++;
+            $dmtt->save();
+
             // Trọng lượng bản thân của móng và đất:
-            $G = $input["varGamma"] * $input["varB"] * $input["varL"] * $input["varHd"];
+            $G = round($input["varGamma"] * $input["varB"] * $input["varL"] * $input["varHd"], 1);
             // Tải trọng thẳng đứng có tính đến trọng lượng bản thân của móng và đất:
             $N = $input['varN'] + $G;
             
             // Diện tích đáy móng:
-            $A = $input['varB'] * $input['varL'];
+            $A = round($input['varB'] * $input['varL'], 3);
             
             // Monmen kháng uốn:
-            $W_y = ($input['varB'] * pow($input['varL'], 2)) / 6;
-            $W_x = ($input['varL'] * pow($input['varB'], 2)) / 6;
+            $W_y = round((($input['varB'] * pow($input['varL'], 2)) / 6), 3);
+            $W_x = round((($input['varL'] * pow($input['varB'], 2)) / 6), 3);
 
             // Monmen uốn tại đáy móng:
             $M_x = $input['varMx'] + $input['varQy'] * $input['varHm'];
             $M_y = $input['varMy'] + $input['varQx'] * $input['varHm'];
 
             // Kiểm tra độ lệch tâm:
-            $e_x = $M_y / $N; $half_l = $input['varL'] / 2;
+            $e_x = round($M_y / $N, 4); $half_l = $input['varL'] / 2;
             $kl_e_x = ($e_x < $half_l) ? 'Thỏa/Tăng chiều dài móng' : 'Không thỏa/Chiều dài bla bla';
-            $e_y = $M_x / $N; $half_b = $input['varB'] / 2;
+            $e_y = round($M_x / $N, 4); $half_b = $input['varB'] / 2;
             $kl_e_y = ($e_y < $half_b) ? 'Thỏa/Tăng chiều rộng móng' : 'Không thỏa/Chiều rộng bla bla';
 
             // Ứng suất tại các góc của đáy móng:
-            $sigma1 = ($N / $A) + ($M_y / $W_y) + ($M_x / $W_x);
-            $sigma2 = ($N / $A) + ($M_y / $W_y) - ($M_x / $W_x);
-            $sigma3 = ($N / $A) - ($M_y / $W_y) + ($M_x / $W_x);
-            $sigma4 = ($N / $A) - ($M_y / $W_y) - ($M_x / $W_x);
+            $sigma1 = round(($N / $A) + ($M_y / $W_y) + ($M_x / $W_x), 1);
+            $sigma2 = round(($N / $A) + ($M_y / $W_y) - ($M_x / $W_x), 1);
+            $sigma3 = round(($N / $A) - ($M_y / $W_y) + ($M_x / $W_x), 1);
+            $sigma4 = round(($N / $A) - ($M_y / $W_y) - ($M_x / $W_x), 1);
 
-            echo '[varN] => 260
-                [varMx] => 260
-                [varQy] => 5
-                [varMy] => 97
-                [varQx] => 90
-                [varL] => 2.4
-                [varB] => 1.8
-                [varHd] => 2.0
-                [varHm] => 1.6
-                [varGamma] => 20 <br>';
+            // echo '[varN] => 260
+            //     [varMx] => 260
+            //     [varQy] => 5
+            //     [varMy] => 97
+            //     [varQx] => 90
+            //     [varL] => 2.4
+            //     [varB] => 1.8
+            //     [varHd] => 2.0
+            //     [varHm] => 1.6
+            //     [varGamma] => 20 <br>';
 
-            echo "G = $G <br>" ;
-            echo "N = $N <br>" ;
-            echo "A = $A <br>" ;
-            echo "W_y = $W_y <br>" ;
-            echo "W_x = $W_x <br>" ;
-            echo "W_y = $M_x <br>" ;
-            echo "W_x = $M_y <br>" ;
-            echo "e_x = $e_x <br>" ;
-            echo "e_y = $e_y <br>" ;
+            // echo "G = $G <br>" ;
+            // echo "N = $N <br>" ;
+            // echo "A = $A <br>" ;
+            // echo "W_y = $W_y <br>" ;
+            // echo "W_x = $W_x <br>" ;
+            // echo "W_y = $M_x <br>" ;
+            // echo "W_x = $M_y <br>" ;
+            // echo "e_x = $e_x <br>" ;
+            // echo "e_y = $e_y <br>" ;
             
-            echo "sigma1 = ($N / $A) + ($M_y / $W_y) + ($M_x / $W_x) = $sigma1 <br>" ;
-            echo "sigma2 = $sigma2 <br>" ;
-            echo "sigma3 = $sigma3 <br>" ;
-            echo "sigma4 = $sigma4 <br>" ;
+            // echo "sigma1 = ($N / $A) + ($M_y / $W_y) + ($M_x / $W_x) = $sigma1 <br>" ;
+            // echo "sigma2 = $sigma2 <br>" ;
+            // echo "sigma3 = $sigma3 <br>" ;
+            // echo "sigma4 = $sigma4 <br>" ;
 
 
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\01.docx');
             $templateProcessor->setValues(
                 [
-                    'varGama' => $input["varGamma"],
+                    'varGamma' => $input["varGamma"],
                     'varB' => $input["varB"],
                     'varL'=> $input["varL"],
                     'varHd'=> $input["varHd"],
@@ -109,14 +125,17 @@ class TinhToanController extends \yii\web\Controller
 
             $timestamp = date_timestamp_get($date);
             $filename = 'xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat_'.$timestamp.'.docx';
-            $templateProcessor->saveAs('file-tinh-toan\output\\'.$filename);
-       
-            return 1;
+            $fileStorage = 'file-tinh-toan\output\\'.$filename;
+            $templateProcessor->saveAs($fileStorage);
 
-
-            die;
+            $filePath = '\\'.$fileStorage;
         }
-        return $this->render('xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat');
+        return $this->render('xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat', [
+            'dmtt' => $dmtt,
+            'filePath' => $filePath,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
 }
