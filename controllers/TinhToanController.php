@@ -124,9 +124,9 @@ class TinhToanController extends \yii\web\Controller
             );
 
 
-            $date = date_create();
+            
 
-            $timestamp = date_timestamp_get($date);
+            $timestamp = date('Ymd_His');
             $filename = 'xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat_'.$timestamp.'.docx';
             $fileStorage = 'file-tinh-toan/output/'.$filename;
             $templateProcessor->saveAs($fileStorage);
