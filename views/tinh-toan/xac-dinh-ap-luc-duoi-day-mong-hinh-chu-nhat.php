@@ -2,6 +2,7 @@
 
 use yii\grid\GridView;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
@@ -9,6 +10,7 @@ use yii\widgets\Pjax;
 $this->title = 'Xác định áp lực dưới đáy móng hình chữ nhật';
 $this->params['breadcrumbs'][] = ['label' => 'Tính toán', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="tinhtoan-content">
 
@@ -43,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <td style="width: 420px">Tải trọng đứng </td>
                     <td style="width: 50px"> N = </td>
                     <td>
-                        <input required type="number" value="260.0" step="0.01" name="varN" id="varN"> kN
+                        <input required type="number" lang="en" value="260.0" step="0.01" name="varN" id="varN"> kN
                     </td>
                 </tr>
                 <tr>
@@ -127,12 +129,14 @@ $this->params['breadcrumbs'][] = $this->title;
             </div> -->
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <button type="submit" class="btn btn-primary">Tính toán</button>
                 </div>
-                <div class="col-md-4">Lượt tính: <?= $dmtt->luot_giai ?></div>
+                <div class="col-md-3">Lượt tính: <?= $dmtt->luot_giai ?></div>
+                <div class="col-md-3">
+                <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?=  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+                </div>
             </div>
-
         </form>
     </div>
 

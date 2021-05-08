@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Setting;
 
 class SiteController extends Controller
 {
@@ -61,7 +62,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = Setting::findOne(['id' => 1]);
+        return $this->render('index', [
+            'model' => $model
+        ]);
     }
 
     /**
@@ -103,16 +107,16 @@ class SiteController extends Controller
      *
      * @return Response|string
      */
-    public function actionContact()
+    public function actionSetting()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
+        $model = Setting::findOne(['id' => 1]);
 
-            return $this->refresh();
+        if ($model->load(Yii::$app->request->post())) {
+            $model->save();
         }
-        return $this->render('contact', [
-            'model' => $model,
+        
+        return $this->render('setting', [
+            'model' => $model
         ]);
     }
 

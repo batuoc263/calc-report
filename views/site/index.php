@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'TiTool.vn';
+$this->title = $model->title;
 ?>
 <div class="site-index">
     
