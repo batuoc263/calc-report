@@ -101,7 +101,7 @@ class TinhToanController extends \yii\web\Controller
                     'W_y'=> $W_y,
                     'M_x'=> $M_x,
                     'M_y'=> $M_y,
-                    'varMx' => $input["varMy"],
+                    'varMx' => $input["varMx"],
                     'varMy' => $input["varMy"],
                     'varQx' => $input["varQx"],
                     'varQy' => $input["varQy"],
@@ -123,15 +123,15 @@ class TinhToanController extends \yii\web\Controller
                 ]
             );
 
-
-            
-
             $timestamp = date('Ymd_His');
             $filename = 'xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat_'.$timestamp.'.docx';
             $fileStorage = 'file-tinh-toan/output/'.$filename;
             $templateProcessor->saveAs($fileStorage);
 
             $filePath = '/'.$fileStorage;
+
+            echo json_encode(['filePath' => $filePath]);
+            return;
         }
         return $this->render('xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat', [
             'dmtt' => $dmtt,
