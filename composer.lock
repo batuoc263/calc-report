@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "172acd87af4db69badb88bc99d297264",
+    "content-hash": "b7f5081ee2b5095d711be6fd78e03322",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -369,123 +369,174 @@
             "time": "2020-06-29T00:56:53+00:00"
         },
         {
-            "name": "kartik-v/yii2-editors",
-            "version": "dev-master",
+            "name": "fortawesome/font-awesome",
+            "version": "5.15.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kartik-v/yii2-editors.git",
-                "reference": "86d6d0bd2dbcee05c9c816c221c23674f8abaa6d"
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "d79d85c3fad85ad1885e87ed558f4afd6fce8289"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-editors/zipball/86d6d0bd2dbcee05c9c816c221c23674f8abaa6d",
-                "reference": "86d6d0bd2dbcee05c9c816c221c23674f8abaa6d",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/d79d85c3fad85ad1885e87ed558f4afd6fce8289",
+                "reference": "d79d85c3fad85ad1885e87ed558f4afd6fce8289",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC-BY-4.0",
+                "OFL-1.1",
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Travis Chase",
+                    "homepage": "http://twitter.com/supercodepoet"
+                },
+                {
+                    "name": "Dave Gandy",
+                    "homepage": "http://twitter.com/davegandy"
+                },
+                {
+                    "name": "Rob Madole",
+                    "homepage": "http://twitter.com/robmadole"
+                },
+                {
+                    "name": "Jory Raphael",
+                    "homepage": "http://twitter.com/sensibleworld"
+                },
+                {
+                    "name": "Geremia Taglialatela",
+                    "homepage": "http://twitter.com/gtagliala"
+                },
+                {
+                    "name": "Brian Talbot",
+                    "homepage": "http://twitter.com/talbs"
+                },
+                {
+                    "name": "Mike Wilkerson",
+                    "homepage": "http://twitter.com/mw77"
+                }
+            ],
+            "description": "The iconic font, CSS, and SVG framework",
+            "homepage": "https://fontawesome.com",
+            "keywords": [
+                "FontAwesome",
+                "awesome",
+                "bootstrap",
+                "font",
+                "icon",
+                "svg"
+            ],
+            "support": {
+                "docs": "http://fontawesome.com/how-to-use",
+                "email": "hello@fontawesome.com",
+                "issues": "https://github.com/FortAwesome/Font-Awesome/issues",
+                "source": "https://github.com/FortAwesome/Font-Awesome"
+            },
+            "time": "2021-03-16T18:57:33+00:00"
+        },
+        {
+            "name": "froala/wysiwyg-editor",
+            "version": "v3.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/froala/wysiwyg-editor.git",
+                "reference": "955e52436f454cb97488a0ec2f0ca274d290c523"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/froala/wysiwyg-editor/zipball/955e52436f454cb97488a0ec2f0ca274d290c523",
+                "reference": "955e52436f454cb97488a0ec2f0ca274d290c523",
+                "shasum": ""
+            },
+            "type": "component",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Froala Labs",
+                    "email": "support@froala.com"
+                }
+            ],
+            "description": "A beautiful jQuery WYSIWYG HTML rich text editor. High performance and modern design make it easy to use for developers and loved by users.",
+            "homepage": "https://www.froala.com/wysiwyg-editor",
+            "keywords": [
+                "editor",
+                "froala",
+                "froala-editor",
+                "froala-wysiwyg",
+                "html",
+                "javascript",
+                "jquery",
+                "jquery-plugin",
+                "rich editor",
+                "rich text editor",
+                "rte",
+                "text",
+                "wysiwyg"
+            ],
+            "support": {
+                "issues": "https://www.froala.com/wysiwyg-editor/contact",
+                "source": "https://github.com/froala/wysiwyg-editor/tree/v3.2.6"
+            },
+            "time": "2021-01-25T05:27:18+00:00"
+        },
+        {
+            "name": "froala/yii2-froala-editor",
+            "version": "3.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/froala/yii2-froala-editor.git",
+                "reference": "cbda7d567ebf448b9430eb1bab3649e3439c1d05"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/froala/yii2-froala-editor/zipball/cbda7d567ebf448b9430eb1bab3649e3439c1d05",
+                "reference": "cbda7d567ebf448b9430eb1bab3649e3439c1d05",
                 "shasum": ""
             },
             "require": {
-                "kartik-v/yii2-krajee-base": ">=2.0.0"
+                "froala/wysiwyg-editor": "3.2.6",
+                "rmrevin/yii2-fontawesome": "^2.0 | ^3.0",
+                "yiisoft/yii2": "^2.0"
             },
-            "default-branch": true,
             "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
-                    "kartik\\editors\\": "src"
+                    "froala\\froalaeditor\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
+                    "name": "dungphanxuan",
+                    "email": "dungphanxuan999@gmail.com"
                 }
             ],
-            "description": "Editor widgets Yii2 framework. Summernote WYSIWYG editor, Codemirror code editor and PlainText editor for Bootstrap 3.x & 4.x.",
-            "homepage": "https://github.com/kartik-v/yii2-editors",
+            "description": "A beautiful WYSIWYG HTML text editor based on HTML5 technology. Cross browser, with mobile support, high performance and Retina Ready modern design.",
             "keywords": [
-                "bootstrap",
-                "code",
-                "codemirror",
                 "editor",
-                "extension",
-                "file",
+                "froala",
                 "html",
-                "input",
-                "rich",
-                "summernote",
-                "widget",
-                "wysiwyg",
-                "yii2"
+                "javascript",
+                "rich editor",
+                "rich text editor",
+                "rte",
+                "text",
+                "wysiwyg"
             ],
             "support": {
-                "issues": "https://github.com/kartik-v/yii2-editors/issues",
-                "source": "https://github.com/kartik-v/yii2-editors/tree/master"
+                "issues": "https://github.com/froala/yii2-froala-editor/issues",
+                "source": "https://github.com/froala/yii2-froala-editor/tree/v3.2.6"
             },
-            "time": "2021-01-10T05:00:51+00:00"
-        },
-        {
-            "name": "kartik-v/yii2-krajee-base",
-            "version": "v2.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-krajee-base.git",
-                "reference": "9b6bc8335e8e561e3953826efefd57b1df7bdce0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/9b6bc8335e8e561e3953826efefd57b1df7bdce0",
-                "reference": "9b6bc8335e8e561e3953826efefd57b1df7bdce0",
-                "shasum": ""
-            },
-            "suggest": {
-                "yiisoft/yii2-bootstrap": "for Krajee extensions to work with Bootstrap 3.x version",
-                "yiisoft/yii2-bootstrap4": "for Krajee extensions to work with Bootstrap 4.x version"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "kartik\\base\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "Base library and foundation components for all Yii2 Krajee extensions.",
-            "homepage": "https://github.com/kartik-v/yii2-krajee-base",
-            "keywords": [
-                "base",
-                "extension",
-                "foundation",
-                "krajee",
-                "widget",
-                "yii2"
-            ],
-            "support": {
-                "issues": "https://github.com/kartik-v/yii2-krajee-base/issues",
-                "source": "https://github.com/kartik-v/yii2-krajee-base/tree/v2.0.6"
-            },
-            "time": "2021-04-08T18:07:22+00:00"
+            "time": "2021-01-25T11:07:29+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
@@ -715,6 +766,67 @@
                 "source": "https://github.com/PHPOffice/PHPWord/tree/0.18.1"
             },
             "time": "2021-03-08T01:06:35+00:00"
+        },
+        {
+            "name": "rmrevin/yii2-fontawesome",
+            "version": "3.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rmrevin/yii2-fontawesome.git",
+                "reference": "4a1c6b60773ffdbac87de3e6ae1d97ec07cc81e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/4a1c6b60773ffdbac87de3e6ae1d97ec07cc81e1",
+                "reference": "4a1c6b60773ffdbac87de3e6ae1d97ec07cc81e1",
+                "shasum": ""
+            },
+            "require": {
+                "fortawesome/font-awesome": "^5.15.0",
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "^2.0.0"
+            },
+            "require-dev": {
+                "doctrine/instantiator": "1.0.*",
+                "phpdocumentor/reflection-docblock": "~3.1.0",
+                "phpunit/phpunit": "^6.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "rmrevin\\yii\\fontawesome\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Revin Roman",
+                    "email": "roman@rmrevin.com",
+                    "homepage": "https://rmrevin.com/"
+                }
+            ],
+            "description": "Asset Bundle for Yii2 with Font Awesome",
+            "keywords": [
+                "asset",
+                "awesome",
+                "bundle",
+                "font",
+                "yii"
+            ],
+            "support": {
+                "issues": "https://github.com/rmrevin/yii2-fontawesome/issues",
+                "source": "https://github.com/rmrevin/yii2-fontawesome"
+            },
+            "time": "2021-01-13T13:58:04+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5643,9 +5755,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "kartik-v/yii2-editors": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

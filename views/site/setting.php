@@ -6,8 +6,6 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use kartik\editors\Summernote;
-use mihaildev\ckeditor\CKEditor;
 
 $this->title = 'Setting';
 $this->params['breadcrumbs'][] = $this->title;
@@ -25,17 +23,19 @@ CKEditor::widget([
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
 
-    <?= Summernote::widget([
+    <?= froala\froalaeditor\FroalaEditorWidget::widget([
         'model' => $model,
         'attribute' => 'description',
-        'value' => '',
-        'useKrajeeStyle' => true,
-        'useKrajeePresets' => true,
-        'enableFullScreen' => true,
-        'enableCodeView' => false,
-        'enableHelp' => false,
-        'enableHintEmojis' => true,
-        'hintMentions' => ['jayden', 'sam', 'alvin', 'david']
+        'options' => [
+            // html attributes
+            'id' => 'description'
+        ],
+        'excludedPlugins'=>['markdown', 'track_changes'],
+        'clientOptions' => [
+            'toolbarInline' => false,
+            'theme' => 'royal', //optional: dark, red, gray, royal
+            'language' => 'en_gb' // optional: ar, bs, cs, da, de, en_ca, en_gb, en_us ...
+        ]
     ]); ?>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

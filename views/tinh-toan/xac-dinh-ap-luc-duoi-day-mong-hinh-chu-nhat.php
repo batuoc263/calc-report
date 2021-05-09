@@ -13,8 +13,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="tinhtoan-content">
-
-    <h1 class="text-uppercase" style="font-size: 25px;"><?= Html::encode($this->title) ?></h1>
+    <div class="text-center">
+        <h1 class="text-uppercase" style="font-size: 25px;"><?= Html::encode($this->title) ?></h1>
+    </div>
 
     <div class="col-md-9">
         <div id="result">

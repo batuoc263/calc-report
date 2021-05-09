@@ -48,7 +48,7 @@ class TinhToanController extends \yii\web\Controller
             // Kiểm tra độ lệch tâm:
             $e_x = round($M_y / $N, 4); $half_l = $input['varL'] / 2;
             if ($e_x < $half_l) {
-                $kl_e_x = 'Thỏa/Tăng chiều dài móng';
+                $kl_e_x = 'Thỏa';
                 $compare1 = "<";
             } elseif ($e_x == $half_l) {
                 $kl_e_x = 'Tăng chiều dài móng';
@@ -60,7 +60,7 @@ class TinhToanController extends \yii\web\Controller
             
             $e_y = round($M_x / $N, 4); $half_b = $input['varB'] / 2;
             if ($e_y < $half_b) {
-                $kl_e_y = 'Thỏa/Tăng chiều rộng móng';
+                $kl_e_y = 'Thỏa';
                 $compare2 = "<";
             } elseif ($e_y == $half_b) {
                 $kl_e_x = 'Tăng chiều rộng móng';
