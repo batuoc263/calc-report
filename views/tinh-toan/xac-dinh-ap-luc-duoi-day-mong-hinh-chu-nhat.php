@@ -114,12 +114,12 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <p class="text-center"><i>Hình 1. Quy ước hướng của tải trọng tác dụng và kích thước hình học móng</i></p>
 
-        <!-- <div class="checkbox">
+        <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="newTabResult" value="">
+                    <input type="checkbox" id="newTabResult" value="">
                     Mở kết quả trên tab mới
                 </label>
-            </div> -->
+            </div>
         <hr>
         <div class="row">
             <div class="col-md-6">
@@ -189,8 +189,14 @@ $this->params['breadcrumbs'][] = $this->title;
             }
         }).done(function(msg) {
             rs = JSON.parse(msg);
-            $('#result').html('<div class="alert alert-success" role="alert">Báo cáo của bạn đã sẵn sàng để tải xuống. <a href="' + rs.filePath + '">Tải xuống</a></div>')
-            $('#luot_tinh').html(rs.luot_tinh)
+            newTabResult = $("#newTabResult");
+            if (newTabResult[0].checked == false) {
+                $('#result').html('<div class="alert alert-success" role="alert">Báo cáo của bạn đã sẵn sàng để tải xuống. <a href="' + rs.filePath + '">Tải xuống</a></div>')
+                $('#luot_tinh').html(rs.luot_tinh)
+            } else {
+                window.open('/tinh-toan/result?filePath=<?= $_SERVER['HTTP_HOST'] ?>'+rs.filePath,'_blank');
+            }
+
         });
     }
 </script>
