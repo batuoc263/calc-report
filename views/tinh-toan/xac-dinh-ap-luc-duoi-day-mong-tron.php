@@ -165,23 +165,26 @@ $this->params['breadcrumbs'][] = $this->title;
         varHd = $('#varHd').val()
         varHm = $('#varHm').val()
         varGamma = $('#varGamma').val()
-        $.ajax({
-            method: "POST",
-            url: "/tinh-toan/xac-dinh-ap-luc-duoi-day-mong-tron",
-            data: {
+        data= {
                 _token: CSRF_TOKEN,
                 varN: varN,
                 varMx: varMx,
                 varQy: varQy,
                 varMy: varMy,
                 varQx: varQx,
-                varL: varL,
-                varB: varB,
+                varD: varD,
                 varHd: varHd,
                 varHm: varHm,
                 varGamma: varGamma
-            }
+            };
+
+        console.log(data);
+        $.ajax({
+            method: "POST",
+            url: "/tinh-toan/xac-dinh-ap-luc-duoi-day-mong-tron",
+            data: data
         }).done(function(msg) {
+           
             rs = JSON.parse(msg);
             $('#result').html('<div class="alert alert-success" role="alert">Báo cáo của bạn đã sẵn sàng để tải xuống. <a href="' + rs.filePath + '">Tải xuống</a></div>')
             $('#luot_tinh').html(rs.luot_tinh)
