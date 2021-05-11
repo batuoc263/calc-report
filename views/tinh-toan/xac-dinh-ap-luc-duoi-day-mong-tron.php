@@ -189,7 +189,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 $('#result').html('<div class="alert alert-success" role="alert">Báo cáo của bạn đã sẵn sàng để tải xuống. <a href="' + rs.filePath + '">Tải xuống</a></div>')
                 $('#luot_tinh').html(rs.luot_tinh)
             } else {
-                window.open('/tinh-toan/result?filePath=<?= $_SERVER['HTTP_HOST'] ?>'+rs.filePath,'_blank');
+                window.open('/tinh-toan/result?filePath='+rs.filePath,'_blank');
             }
         });
     }
