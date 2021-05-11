@@ -39,4 +39,4 @@ tests/_support/_generated
 /web/file-tinh-toan/output/*
 
 #db config
-config/db.php
+#config/db.php
