@@ -107,12 +107,12 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <p class="text-center"><i>Hình 1. Quy ước hướng của tải trọng tác dụng và kích thước hình học móng</i></p>
 
-        <!-- <div class="checkbox">
+        <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="newTabResult" value="">
+                    <input type="checkbox" id="newTabResult" value="">
                     Mở kết quả trên tab mới
                 </label>
-            </div> -->
+            </div>
         <hr>
         <div class="row">
             <div class="col-md-6">
