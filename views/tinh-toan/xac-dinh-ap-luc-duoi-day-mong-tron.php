@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Xác định áp lực dưới đáy móng hình chữ nhật';
+$this->title = 'Xác định áp lực dưới đáy móng tròn';
 $this->params['breadcrumbs'][] = ['label' => 'Tính toán', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </div>
 
-        <p>Phương pháp này có thể xác định áp lực tại đáy móng dưới tác động của tải trọng ngang và momen theo hai phương x,y.</p>
+        <p>Phương pháp này có thể xác định áp lực tại đáy móng tròn dưới tác động của tải trọng ngang và momen theo hai hướng x,y.</p>
         <p><u>Quy ước: </u></p>
         <ul>
             <li>Chiều dương của lực ngang Qx(y), tương ứng với chiều dương của của trục x (y);</li>
@@ -32,10 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <h3>THÔNG SỐ ĐẦU VÀO</h3>
         <table>
             <tr>
-                <td><strong>Tải trọng tác dụng lên móng</strong></td>
+                <td><strong>Lực tác dụng lên móng</strong></td>
             </tr>
             <tr>
-                <td style="width: 420px">Tải trọng đứng </td>
+                <td style="width: 420px">Lực đứng </td>
                 <td style="width: 50px"> N = </td>
                 <td>
                     <input required pattern="[0-9]*.[0-9]+" lang="en" value="260.0" step="0.01" name="varN" id="varN"> kN
@@ -74,17 +74,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td><strong>Đặc trưng móng</strong></td>
             </tr>
             <tr>
-                <td>Chiều dài đáy móng </td>
-                <td> l = </td>
+                <td>Đường kính đáy móng </td>
+                <td> D = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="2.4" step="0.01" name="varL" id="varL"> kN
-                </td>
-            </tr>
-            <tr>
-                <td>Chiều rộng đáy móng </td>
-                <td> b = </td>
-                <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="1.8" step="0.01" name="varB" id="varB"> kN.m
+                    <input required pattern="[0-9]*.[0-9]+" value="2.4" step="0.01" name="varD" id="varD"> kN
                 </td>
             </tr>
             <tr>
@@ -110,7 +103,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </tr>
         </table>
         <div class="text-center" style="margin-top: 10px">
-            <img src="/images/01/h1.png" alt="Hình 1. Quy ước hướng của tải trọng tác dụng và kích thước hình học móng" width="500px">
+            <img src="/images/02/h1.png" alt="Hình 1. Quy ước hướng của tải trọng tác dụng và kích thước hình học móng" width="500px">
         </div>
         <p class="text-center"><i>Hình 1. Quy ước hướng của tải trọng tác dụng và kích thước hình học móng</i></p>
 
@@ -168,14 +161,13 @@ $this->params['breadcrumbs'][] = $this->title;
         varQy = $('#varQy').val()
         varMy = $('#varMy').val()
         varQx = $('#varQx').val()
-        varL = $('#varL').val()
-        varB = $('#varB').val()
+        varD = $('#varD').val()
         varHd = $('#varHd').val()
         varHm = $('#varHm').val()
         varGamma = $('#varGamma').val()
         $.ajax({
             method: "POST",
-            url: "/tinh-toan/xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat",
+            url: "/tinh-toan/xac-dinh-ap-luc-duoi-day-mong-tron",
             data: {
                 _token: CSRF_TOKEN,
                 varN: varN,

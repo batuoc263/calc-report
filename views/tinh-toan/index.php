@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Tính toán', 'url' => ['index']];
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
+            'summary' => '',
             'columns' => [
                 [
                     'attribute' => 'ten_bai_toan',
