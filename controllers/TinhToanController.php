@@ -17,6 +17,13 @@ class TinhToanController extends \yii\web\Controller
         ]);
     }
 
+    public function actionResult($filePath)
+    {
+        return $this->render('result', [
+            'filePath' => $filePath
+        ]);
+    }
+
     public function actionXacDinhApLucDuoiDayMongHinhChuNhat()
     {
         $dmtt = DmTinhtoan::findOne(['id' => 1]);
