@@ -110,7 +110,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </tr>
         </table>
         <div class="text-center" style="margin-top: 10px">
-            <img src="/images/01/h1.png" alt="Hình 1. Quy ước hướng của tải trọng tác dụng và kích thước hình học móng" width="500px">
+            <img src="/images/01/day-mong-hinh-chu-nhat.png" alt="Hình 1. Quy ước hướng của tải trọng tác dụng và kích thước hình học móng" width="500px">
         </div>
         <p class="text-center"><i>Hình 1. Quy ước hướng của tải trọng tác dụng và kích thước hình học móng</i></p>
 
