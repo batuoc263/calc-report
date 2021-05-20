@@ -124,3 +124,13 @@ a.desc:after {
 p {
     text-align: justify;
 }
+
+td {
+    padding: 5px;
+}
+
+.tooltip-inner {
+    max-width: 500px;
+    /* If max-width does not work, try using width instead */
+    width: 500px;
+}
