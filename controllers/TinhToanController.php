@@ -26,7 +26,7 @@ class TinhToanController extends \yii\web\Controller
 
     public function actionXacDinhApLucDuoiDayMongHinhChuNhat()
     {
-        $dmtt = DmTinhtoan::findOne(['id' => 1]);
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat']);
         $searchModel = new DmTinhtoanSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $filePath = '';
@@ -150,7 +150,7 @@ class TinhToanController extends \yii\web\Controller
 
     public function actionXacDinhApLucDuoiDayMongTron()
     {
-        $dmtt = DmTinhtoan::findOne(['id' => 2]);
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/xac-dinh-ap-luc-duoi-day-mong-tron']);
         $searchModel = new DmTinhtoanSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -244,10 +244,9 @@ class TinhToanController extends \yii\web\Controller
         ]);
     }
 
-
     public function actionXacDinhApLucTinhToanTacDungLenNen()
     {
-        $dmtt = DmTinhtoan::findOne(['id' => 3]);
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/xac-dinh-ap-luc-tinh-toan-tac-dung-len-nen']);
         $searchModel = new DmTinhtoanSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -357,8 +356,279 @@ class TinhToanController extends \yii\web\Controller
         ]);
     }
 
-    
 
-    
+    public function actionXacDinhSucChiuTaiCocChong()
+    {
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/xac-dinh-suc-chiu-tai-coc-chong']);
+        $searchModel = new DmTinhtoanSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $capdoben = [
+            'B10' => [
+                'Rb' => 6000,
+                'Rbt' => 560,
+                'E' => 1.90E+07
+            ],
+            'B15' => [
+                'Rb' => 8500,
+                'Rbt' => 750,
+                'E' => 2.40E+07
+            ],
+            'B20' => [
+                'Rb' => 11500,
+                'Rbt' => 900,
+                'E' => 2.75E+07
+            ],
+            'B25' => [
+                'Rb' => 14500,
+                'Rbt' => 1050,
+                'E' => 3.00E+07
+            ],
+            'B30' => [
+                'Rb' => 17000,
+                'Rbt' => 1150,
+                'E' => 3.25E+07
+            ],
+            'B35' => [
+                'Rb' => 19000,
+                'Rbt' => 1300,
+                'E' => 3.45E+07
+            ],
+            'B40' => [
+                'Rb' => 22000,
+                'Rbt' => 1400,
+                'E' => 3.60E+07
+            ],
+            'B45' => [
+                'Rb' => 25000,
+                'Rbt' => 1500,
+                'E' => 3.70E+07
+            ],
+            'B50' => [
+                'Rb' => 27500,
+                'Rbt' => 1600,
+                'E' => 3.80E+07
+            ],
+            'B55' => [
+                'Rb' => 30000,
+                'Rbt' => 1700,
+                'E' => 3.90E+07
+            ],
+            'B60' => [
+                'Rb' => 33000,
+                'Rbt' => 1800,
+                'E' => 3.95E+07
+            ],
+        ];
+
+        $loaithep = [
+            'SD390' => [
+                'Rs' => 3.45E+05,
+                'Rsc' => 3.45E+05,
+                'Es' => 2.00E+08
+            ],
+            'SD490' => [
+                'Rs' => 4.21E+05,
+                'Rsc' => 4.21E+05,
+                'Es' => 1.90E+08
+            ],
+            'SR235' => [
+                'Rs' => 2.14E+05,
+                'Rsc' => 2.14E+05,
+                'Es' => 2.10E+08
+            ],
+            'SR295' => [
+                'Rs' => 2.68E+05,
+                'Rsc' => 2.68E+05,
+                'Es' => 2.10E+08
+            ],
+            'CB240-T' => [
+                'Rs' => 2.28E+05,
+                'Rsc' => 2.28E+05,
+                'Es' => 2.10E+08
+            ],
+            'CB300-T' => [
+                'Rs' => 2.85E+05,
+                'Rsc' => 2.85E+05,
+                'Es' => 2.10E+08
+            ],
+            'CB400-V' => [
+                'Rs' => 3.73E+05,
+                'Rsc' => 3.73E+05,
+                'Es' => 2.00E+08
+            ],
+            'CB500-V' => [
+                'Rs' => 4.34E+05,
+                'Rsc' => 4.50E+05,
+                'Es' => 1.90E+08
+            ],
+            'CI, A-I' => [
+                'Rs' => 2.25E+05,
+                'Rsc' => 2.25E+05,
+                'Es' => 2.10E+08
+            ],
+            'CII, A-II' => [
+                'Rs' => 2.80E+05,
+                'Rsc' => 2.80E+05,
+                'Es' => 2.10E+08
+            ],
+            'CIII, A-III' => [
+                'Rs' => 3.65E+05,
+                'Rsc' => 3.65E+05,
+                'Es' => 2.00E+08
+            ],
+            'CIV, A-IV' => [
+                'Rs' => 5.10E+05,
+                'Rsc' => 4.50E+05,
+                'Es' => 1.90E+08
+            ],
+            'A-V' => [
+                'Rs' => 6.80E+05,
+                'Rsc' => 5.00E+05,
+                'Es' => 1.90E+08
+            ],
+            'A-VI' => [
+                'Rs' => 8.15E+05,
+                'Rsc' => 5.00E+05,
+                'Es' => 1.90E+08
+            ],
+            'AT-VII' => [
+                'Rs' => 9.80E+05,
+                'Rsc' => 5.00E+05,
+                'Es' => 1.90E+08
+            ],
+            'A-IIIB' => [
+                'Rs' => 4.50E+05,
+                'Rsc' => 2.00E+05,
+                'Es' => 1.80E+08
+            ],
+        ];
+
+        // Sample 08
+        if ($input = Yii::$app->request->post()) {
+            $dmtt->luot_giai++;
+            $dmtt->save();
+
+            
+
+            $templateFile = 'file-tinh-toan/sample/08.docx';
+            \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
+            $phpWord = new \PhpOffice\PhpWord\PhpWord();
+            
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\01.docx');
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
+            $templateProcessor->setValues(
+                [
+                    // 'varGamma' => $input["varGamma"],
+                    
+
+                ]
+            );
+
+            $timestamp = date('Ymd_His');
+            $filename = 'xac-dinh-suc-chiu-tai-coc-chong_'.$timestamp.'.docx';
+            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $templateProcessor->saveAs($fileStorage);
+
+            $filePath = '/'.$fileStorage;
+
+            echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
+            return;
+         }
+        return $this->render('xac-dinh-suc-chiu-tai-coc-chong', [
+            'dmtt' => $dmtt,
+            'cap_do_ben_arr' => $capdoben,
+            'cap_do_ben_json' => json_encode($capdoben),
+            'loai_thep_arr' => $loaithep,
+            'loai_thep_json' => json_encode($loaithep),
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionXacDinhTaiTrongTacDungLenDauCoc()
+    {
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => "/tinh-toan/xac-dinh-tai-trong-tac-dung-len-dau-coc"]);
+        $searchModel = new DmTinhtoanSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        // Sample 01 
+        if ($input = Yii::$app->request->post()) {
+            $dmtt->luot_giai++;
+            $dmtt->save();
+
+            $N = $input["varN"];
+
+            $sumX = 0;
+            $sumY = 0;
+            $sumX2 = 0;
+            $sumY2 = 0;
+            foreach ($input['list'] as $item) {
+                $sumX += $item[0];
+                $sumY += $item[1];
+            }
+
+            $xC = $sumX / $input["lineNo"];
+            $yC = $sumY / $input["lineNo"];
+            $textSumX = "";
+            $textSumY = "";
+
+            $textSumX2 = "";
+            $textSumY2 = "";
+
+            $fa_euro = utf8(html_entity_decode('&#xf153;', 0, 'UTF-8'));
+            $section->addText(utf8($fa_euro));
+
+            foreach ($input['list'] as $key => $item) {
+                $xp = $item[0] - $xC;
+                $yp = $item[1] - $yC;
+                array_push($input['list'][$key], $xp);
+                array_push($input['list'][$key], $yp);
+                $sumX2 += pow( $xp, 2);
+                $sumY2 += pow( $yp, 2); 
+                if ($key >= 1) {
+                    $textSumX .= "+ (" .$item[0]. ") ";
+                    $textSumY .= "+ (" .$item[1]. ") ";
+                    $textSumX2 .= "+ (" .$xp. ")2 "."&#178;"."";
+                    $textSumY2 .= "+ (" .$yp. ")2 ";
+                } else {
+                    $textSumX .= "(" .$item[0]. ") ";
+                    $textSumY .= "(" .$item[1]. ") ";
+                    $textSumX2 .= "(" .$xp. ")2 ";
+                    $textSumY2 .= "(" .$yp. ")2 ";
+                }
+               
+            }
+            
+            \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
+            $phpWord = new \PhpOffice\PhpWord\PhpWord();
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\06.docx');
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
+            $inline = new \PhpOffice\PhpWord\Element\TextRun();
+            $inline->addText("2", array( 'italic' => true , 'padding-bottom' => '10px'));
+            $templateProcessor->setComplexValue('textSumX2', $inline);
+
+            // $templateProcessor->setValues(
+            //     [
+            //         "textSumX2"=> $textSumX2,
+
+            //     ]
+            // );
+            $timestamp = date('Ymd_His');
+            $filename = 'xac-dinh-tai-trong-tac-dung-len-dau-coc_'.$timestamp.'.docx';
+            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $templateProcessor->saveAs($fileStorage);
+
+            $filePath = '/'.$fileStorage;
+
+            echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
+            return;
+         }
+        return $this->render('xac-dinh-tai-trong-tac-dung-len-dau-coc', [
+            'dmtt' => $dmtt,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
 }
