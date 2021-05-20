@@ -243,4 +243,115 @@ class TinhToanController extends \yii\web\Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+
+    public function actionXacDinhApLucTinhToanTacDungLenNen()
+    {
+        $dmtt = DmTinhtoan::findOne(['id' => 3]);
+        $searchModel = new DmTinhtoanSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        // Sample 01 
+        if ($input = Yii::$app->request->post()) {
+            $dmtt->luot_giai++;
+            $dmtt->save();
+
+            //khối lượng thể tích của nước
+            $GammaW = 10;
+
+            // hệ số e
+            $e = 0.7;
+
+            //  trị tính toán trung bình của trọng lượng thể tích của kết cấu sàn hầm
+            $Gammakc = 25;
+
+            // góc ma sát trong
+            $phi = deg2rad($input["varPhiII"]);
+            $cotangPhi =  1/tan($phi);
+            
+            if($input["varPhiII"] == 0) {
+                $cotangPhi = 0;
+            }
+            
+            // Hệ số không thứ nguyên
+            $A = round( (0.25 * PI()) / ($cotangPhi + $phi - PI()/2), 2); 
+            $B = round( (PI() / ($cotangPhi + $phi - PI()/2)) + 1, 2);
+            $D = round( (PI() * $cotangPhi) / ($cotangPhi + $phi - PI()/2), 2);
+            
+
+            // chiều sâu đặt móng tính đổi kể từ nền tầng hầm bên trong nhà có tầng hầm 
+            $Htd = round( $input["varH1"] + $input['varH2'] * ($Gammakc / $input["varGamma1"]), 2 );
+
+            //trọng lượng thể tích trung bình nằm dưới đáy móng
+            $Gamma2 = $input['varGamma2'];
+
+            // chiều sâu đến tầng hầm
+            $H0 = $input["varH"] - $Htd;
+
+            if ($input['check_day_noi'] =='no' && $input['check_tang_ham'] == 'no') {
+                $H0  =  0;
+                $templateFile = "file-tinh-toan/sample/04_TH1.docx";
+                
+            } elseif ($input['check_day_noi'] =='no' && $input['check_tang_ham'] == 'yes') {
+                $templateFile = "file-tinh-toan/sample/04_TH2.docx";
+            } elseif ($input['check_day_noi'] =='yes' && $input['check_tang_ham'] == 'no') {
+                $Gamma2 = 10;
+                $H0  = 0;
+                $Gamma2 = ($input["varGammaS"] - $GammaW) / (1+$e);
+                $templateFile = "file-tinh-toan/sample/04_TH3.docx";
+            } else {
+                $templateFile = "file-tinh-toan/sample/04_TH4.docx";
+            }
+
+            // Áp lực tính toán tác dụng lên nền
+            $R = round( ( ($input['varM1'] * $input['varM2']) / $input['varKtc'] ) * ($A * $input['varB'] * $Gamma2 + $B * $input['varH'] * $input['varGamma1'] +$D * $input['varCII'] - $input['varGamma1']*$H0 ), 2 );
+
+
+            \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
+            $phpWord = new \PhpOffice\PhpWord\PhpWord();
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\01.docx');
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
+            $templateProcessor->setValues(
+                [
+                    "varPhiII"=> $input["varPhiII"],
+                    "varCII"=> $input["varCII"],
+                    "varGamma1"=> $input["varGamma1"],
+                    "varGamma2"=> $Gamma2,
+                   "varGammaS"=>$input["varGammaS"],
+                   "varE"=> $input["varE"],
+                    "varH"=> $input["varH"],
+                    "varB"=> $input["varB"],
+                    "varH1"=> $input["varH1"],
+                    "varH2"=> $input["varH2"],
+                    "varM1"=> $input["varM1"],
+                    "varM2"=> $input["varM2"],
+                   "varKtc"=> $input["varKtc"],
+                    "A"=> $A,
+                    "B" => $B,
+                    "D" => $D,
+                    "R"=> $R,
+                    "H0" => $H0,
+                    "Htd" => $Htd,
+                    "Gammakc" => $Gammakc,
+                    "GammaW" => $GammaW,
+                    "e" => $e,
+
+                ]
+            );
+            $timestamp = date('Ymd_His');
+            $filename = 'xac-dinh-ap-luc-tinh-toan-tac-dung-len-nen_'.$timestamp.'.docx';
+            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $templateProcessor->saveAs($fileStorage);
+
+            $filePath = '/'.$fileStorage;
+
+            echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
+            return;
+         }
+        return $this->render('xac-dinh-ap-luc-tinh-toan-tac-dung-len-nen', [
+            'dmtt' => $dmtt,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
 }
