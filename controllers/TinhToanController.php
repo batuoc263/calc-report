@@ -297,9 +297,10 @@ class TinhToanController extends \yii\web\Controller
             } elseif ($input['check_day_noi'] =='yes' && $input['check_tang_ham'] == 'no') {
                 $Gamma2 = 10;
                 $H0  = 0;
-                $Gamma2 = ($input["varGammaS"] - $GammaW) / (1+$e);
+                $Gamma2 = round( ($input["varGammaS"] - $GammaW) / (1+$e), 2 );
                 $templateFile = "file-tinh-toan/sample/04_TH3.docx";
             } else {
+                $Gamma2 = round( ($input["varGammaS"] - $GammaW) / (1+$e), 2 );
                 $templateFile = "file-tinh-toan/sample/04_TH4.docx";
             }
 
@@ -316,7 +317,7 @@ class TinhToanController extends \yii\web\Controller
                     "varPhiII"=> $input["varPhiII"],
                     "varCII"=> $input["varCII"],
                     "varGamma1"=> $input["varGamma1"],
-                    "varGamma2"=> $Gamma2,
+                    "varGamma2"=> $input["varGamma2"],
                    "varGammaS"=>$input["varGammaS"],
                    "varE"=> $input["varE"],
                     "varH"=> $input["varH"],
@@ -335,6 +336,7 @@ class TinhToanController extends \yii\web\Controller
                     "Gammakc" => $Gammakc,
                     "GammaW" => $GammaW,
                     "e" => $e,
+                    "Gamma2" => $Gamma2
 
                 ]
             );
@@ -354,5 +356,92 @@ class TinhToanController extends \yii\web\Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+
+    public function actionXacDinhTaiTrongTacDungLenDauCoc()
+    {
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => "/tinh-toan/xac-dinh-tai-trong-tac-dung-len-dau-coc"]);
+        $searchModel = new DmTinhtoanSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        // Sample 01 
+        if ($input = Yii::$app->request->post()) {
+            $dmtt->luot_giai++;
+            $dmtt->save();
+
+            $N = $input["varN"];
+
+            $sumX = 0;
+            $sumY = 0;
+            $sumX2 = 0;
+            $sumY2 = 0;
+            foreach ($input['list'] as $item) {
+                $sumX += $item[0];
+                $sumY += $item[1];
+            }
+
+            $xC = $sumX / $input["lineNo"];
+            $yC = $sumY / $input["lineNo"];
+            $textSumX = "";
+            $textSumY = "";
+
+            $textSumX2 = "";
+            $textSumY2 = "";
+
+            $fa_euro = utf8(html_entity_decode('&#xf153;', 0, 'UTF-8'));
+            $section->addText(utf8($fa_euro));
+
+            foreach ($input['list'] as $key => $item) {
+                $xp = $item[0] - $xC;
+                $yp = $item[1] - $yC;
+                array_push($input['list'][$key], $xp);
+                array_push($input['list'][$key], $yp);
+                $sumX2 += pow( $xp, 2);
+                $sumY2 += pow( $yp, 2); 
+                if ($key >= 1) {
+                    $textSumX .= "+ (" .$item[0]. ") ";
+                    $textSumY .= "+ (" .$item[1]. ") ";
+                    $textSumX2 .= "+ (" .$xp. ")2 "."&#178;"."";
+                    $textSumY2 .= "+ (" .$yp. ")2 ";
+                } else {
+                    $textSumX .= "(" .$item[0]. ") ";
+                    $textSumY .= "(" .$item[1]. ") ";
+                    $textSumX2 .= "(" .$xp. ")2 ";
+                    $textSumY2 .= "(" .$yp. ")2 ";
+                }
+               
+            }
+            
+            \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
+            $phpWord = new \PhpOffice\PhpWord\PhpWord();
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\06.docx');
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
+            $inline = new \PhpOffice\PhpWord\Element\TextRun();
+            $inline->addText("2", array( 'italic' => true , 'padding-bottom' => '10px'));
+            $templateProcessor->setComplexValue('textSumX2', $inline);
+
+            // $templateProcessor->setValues(
+            //     [
+            //         "textSumX2"=> $textSumX2,
+
+            //     ]
+            // );
+            $timestamp = date('Ymd_His');
+            $filename = 'xac-dinh-tai-trong-tac-dung-len-dau-coc_'.$timestamp.'.docx';
+            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $templateProcessor->saveAs($fileStorage);
+
+            $filePath = '/'.$fileStorage;
+
+            echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
+            return;
+         }
+        return $this->render('xac-dinh-tai-trong-tac-dung-len-dau-coc', [
+            'dmtt' => $dmtt,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    
 
 }

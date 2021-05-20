@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Xác định áp lực dưới đáy móng tròn';
+$this->title = 'XÁC ĐỊNH TẢI TRỌNG TÁC DỤNG LÊN ĐẦU CỌC';
 $this->params['breadcrumbs'][] = ['label' => 'Tính toán', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -31,31 +31,78 @@ $this->params['breadcrumbs'][] = $this->title;
             </tr>
             <tr>
                 <td style="width: 420px">Tải trọng thẳng đứng  </td>
-                <td style="width: 50px"> &#966; <sub> N </sub> = </td>
+                <td style="width: 50px"> N   = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" lang="en" value="5000" step="0.1" name="varPhiII" id="varPhiII"> kN
+                    <input required pattern="[0-9]*.[0-9]+" lang="en" value="5000" step="0.1" name="varN" id="varN"> kN
                 </td>
             </tr>
             <tr>
                 <td>Mômen uốn, xoay quanh trục  x tại cao trình đáy đài </td>
-                <td> M<sub> x </sub> = </td>
+                <td> M<sub>x </sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="120" step="0.1" name="varCII" id="varCII"> kN.m
+                    <input required pattern="[0-9]*.[0-9]+" value="120" step="0.1" name="varMx" id="varMx"> kN.m
                 </td>
             </tr>
             <tr>
                 <td>Mômen uốn, xoay quanh trục y tại cao trình đáy đài </td>
-                <td> M <sub> y </sub> = </td>
+                <td> M<sub>y </sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="150" step="0.1" name="varGamma1" id="varGamma1"> kN.m
+                    <input required pattern="[0-9]*.[0-9]+" value="150" step="0.1" name="varMy" id="varMy"> kN.m
                 </td>
             </tr>
             
         </table>
         <div class="text-center" style="margin-top: 10px">
-            <img src="/images/06/quyuochuong.png" alt="Hình 1. Quy ước hướng" width="500px">
+            <img src="/images/06/quy-uoc-huong.jpg" alt="Hình 1. Quy ước hướng" width="500px">
         </div>
         <p class="text-center"><i>Hình 1. Quy ước hướng và vị trí đặt lực của tải trọng tác dụng</i></p>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <table id="input-table">
+
+                    <thead>
+                        <tr>
+                            <th>Cọc i</th>
+                            <th>x<sub>i</sub> (m)</th>
+                            <th>y<sub>i</sub> (m)</th>
+                        </tr>
+                    </thead>
+                        <tr><td>1</td><td > <input  id="x1" name="x1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01"/> </td><td><input type="text" id="y1" name="y1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01"/></td></tr> 
+                        <tr><td>2</td><td > <input  id="x2" name="x1" required pattern="[0-9]*.[0-9]+" value="3.00" step="0.01"/> </td><td><input type="text" id="y2" name="y1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01"/></td></tr> 
+                        <tr><td>3</td><td > <input  id="x3" name="x1" required pattern="[0-9]*.[0-9]+" value="3.00" step="0.01"/> </td><td><input type="text" id="y3" name="y1" required pattern="[0-9]*.[0-9]+" value="1.80" step="0.01"/></td></tr> 
+                        <tr><td>4</td><td > <input  id="x4" name="x1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01"/> </td><td><input type="text" id="y4" name="y1" required pattern="[0-9]*.[0-9]+" value="1.80" step="0.01"/></td></tr> 
+                        <tr><td>5</td><td > <input  id="x5" name="x1" required pattern="[0-9]*.[0-9]+" value="1.50" step="0.01"/> </td><td><input type="text" id="y5" name="y1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01"/></td></tr> 
+                        <tr><td>6</td><td > <input  id="x6" name="x1" required pattern="[0-9]*.[0-9]+" value="1.50" step="0.01"/> </td><td><input type="text" id="y6" name="y1" required pattern="[0-9]*.[0-9]+" value="1.80" step="0.01"/></td></tr> 
+                        <tr><td>7</td><td > <input  id="x7" name="x1" required pattern="[0-9]*.[0-9]+" value="0.75" step="0.01"/> </td><td><input type="text" id="y7" name="y1" required pattern="[0-9]*.[0-9]+" value="0.90" step="0.01"/></td></tr> 
+                        <tr><td>8</td><td > <input  id="x8" name="x1" required pattern="[0-9]*.[0-9]+" value="2.25" step="0.01"/> </td><td><input type="text" id="y8" name="y1" required pattern="[0-9]*.[0-9]+" value="0.90" step="0.01"/></td></tr> 
+                    <tbody id="tbl_posts_body">
+
+                    </tbody>
+                </table>
+
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <button id="add-coc" type="button" class="btn btn-primary">Thêm cọc</button>
+                    </div>
+                    <div class="btn-group mr-2" role="group" aria-label="Second group">
+                        <button id="del-coc" type="button" class="btn btn-danger">Xóa cọc</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+                <!-- <canvas id="myCanvas" width="400px" height="300px" style="border:1px solid #000000;"></canvas> -->
+                <Canvas id="myCanvas" width="400px" height="300px" style="border:1px solid #000000;">
+                    <Canvas.LayoutTransform>
+                        <ScaleTransform ScaleX="1" ScaleY="-1" CenterX=".5" CenterY=".5" />
+                    </Canvas.LayoutTransform>
+                </Canvas>
+            </div>
+        </div>
+
+
 
         <div class="checkbox">
                 <label>
@@ -66,7 +113,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <hr>
         <div class="row">
             <div class="col-md-6">
-                <button onclick="tinhtoan()" class="btn btn-primary">Tính toán</button>
+                <button id="btn-tinhtoan" class="btn btn-primary">Tính toán</button>
             </div>
             <div class="col-md-3">Lượt tính: <span id="luot_tinh"><?= $dmtt->luot_giai ?></span></div>
             <div class="col-md-3">
@@ -101,67 +148,70 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <script>
-    $(document).ready(function() {
-        $("#check-day-noi").change(function() { showItem("#check-day-noi", ".check-day-noi-item"); });
-        $("#check-tang-ham").change(function() { showItem("#check-tang-ham", ".check-tang-ham-item"); });
-    });
+        let lineNo = 8;
 
-    function showItem(className, itemName) {
-        
-        var selected_option = $(className).val();
+        $(document).ready(function () {
+            $("#add-coc").click(function () {
+                markup = '<tr><td>'+lineNo+'</td><td > <input type="text" id="x'+lineNo+'" name="x'+lineNo+'" /> </td><td><input type="text" id="y'+lineNo+'" name="y'+lineNo+'" /></td></tr> ';
+                tableBody = $("#input-table tbody");
+                tableBody.append(markup);
+                lineNo++;
+            });
 
-        if (selected_option == 'yes') {
-            $(itemName).show();
-        } else {
-            $(itemName).hide();
-        }
+            $('#del-coc').on("click", function(){
+                $('#input-table tr:last').remove();
+                lineNo--;
+            })
+
+            var c = document.getElementById("myCanvas");
+            var transX = c.width ,
+            transY = c.height;
+
+            var ctx = c.getContext("2d");
+            ctx.transform(1, 0, 0, -1, 0, c.height)
             
-        
-    }
+            for(var i = 1; i <= lineNo; i++) {
+                x = $("#x"+i+"").val();
+                y = $("#y"+i+"").val();
+                ctx.fillRect(x*100 + 30, y*100 + 30,5,5);
+                ctx.fillText(i, x*100 +35, y*100  +35 );
+                ctx.save();
+            }
+            ctx.restore();
 
-    function tinhtoan() {
+
+            $("#btn-tinhtoan").click(function() {
+                tinhtoan(lineNo);
+            })
+        }); 
+
+   
+    function tinhtoan(lineNo) {
 
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
-        varPhiII = $('#varPhiII').val()
-        varCII = $('#varCII').val()
-        varGamma1 = $('#varGamma1').val()
-        varGamma2 = $('#varGamma2').val()
-        varGammaS = $('#varGammaS').val()
-        varE = $('#varE').val()
-        varH = $('#varH').val()
-        varB = $('#varB').val()
-        varH1 = $('#varH1').val()
-        varH2 = $('#varH2').val()
-        varM1 = $('#varM1').val()
-        varM2 = $('#varM2').val()
-        varKtc = $('#varKtc').val()
-        check_day_noi = $("#check-day-noi").val()
-        check_tang_ham = $("#check-tang-ham").val()
+        varN = $('#varN').val()
+        varMx = $('#varMx').val()
+        varMy = $('#varMy').val()
+        lineNo = lineNo
+        list = [];
+        for (var i = 1; i<= lineNo; i ++) {
+            list.push([ $("#x"+i).val(), $("#y"+i).val()]);
+        }
 
         data= {
                 _token: CSRF_TOKEN,
-                varPhiII: varPhiII,
-                varCII: varCII,
-                varGamma1: varGamma1,
-                varGamma2: varGamma2,
-                varGammaS: varGammaS,
-                varE: varE,
-                varH: varH,
-                varB: varB,
-                varH1: varH1,
-                varH2: varH2,
-                varM1: varM1,
-                varM2: varM2,
-                varKtc: varKtc,
-                check_day_noi: check_day_noi,
-                check_tang_ham: check_tang_ham
+                varN: varN,
+                varMx: varMx,
+                varMy: varMy,
+                lineNo: lineNo,
+                list: list
             };
 
         console.log(data);
         $.ajax({
             method: "POST",
-            url: "/tinh-toan/xac-dinh-ap-luc-tinh-toan-tac-dung-len-nen",
+            url: "/tinh-toan/xac-dinh-tai-trong-tac-dung-len-dau-coc",
             data: data
         }).done(function(msg) {
             console.log(msg)
