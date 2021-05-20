@@ -26,7 +26,7 @@ class TinhToanController extends \yii\web\Controller
 
     public function actionXacDinhApLucDuoiDayMongHinhChuNhat()
     {
-        $dmtt = DmTinhtoan::findOne(['id' => 1]);
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat']);
         $searchModel = new DmTinhtoanSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $filePath = '';
@@ -150,7 +150,7 @@ class TinhToanController extends \yii\web\Controller
 
     public function actionXacDinhApLucDuoiDayMongTron()
     {
-        $dmtt = DmTinhtoan::findOne(['id' => 2]);
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/xac-dinh-ap-luc-duoi-day-mong-tron']);
         $searchModel = new DmTinhtoanSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -246,7 +246,7 @@ class TinhToanController extends \yii\web\Controller
 
     public function actionXacDinhApLucTinhToanTacDungLenNen()
     {
-        $dmtt = DmTinhtoan::findOne(['id' => 3]);
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/xac-dinh-ap-luc-tinh-toan-tac-dung-len-nen']);
         $searchModel = new DmTinhtoanSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

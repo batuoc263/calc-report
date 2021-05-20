@@ -38,36 +38,41 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="width: 420px">Tải trọng đứng </td>
                 <td style="width: 50px"> N = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" lang="en" value="260.0" step="0.01" name="varN" id="varN"> kN
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="260.0" step="0.01" name="varN" id="varN">
                 </td>
+                <td> kN </td>
             </tr>
             <tr>
                 <td>Momen uốn, xoay quanh trục x </td>
                 <td> Mx = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="20.0" step="0.01" name="varMx" id="varMx"> kN.m
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="20.0" step="0.01" name="varMx" id="varMx">
                 </td>
+                <td> kN.m </td>
             </tr>
             <tr>
                 <td>Lực ngang dọc theo trục y </td>
                 <td> Qy = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="5.0" step="0.01" name="varQy" id="varQy"> kN
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="5.0" step="0.01" name="varQy" id="varQy">
                 </td>
+                <td> kN </td>
             </tr>
             <tr>
                 <td>Momen uốn, xoay quanh trục y </td>
                 <td> My = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="97.0" step="0.01" name="varMy" id="varMy"> kN.m
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="97.0" step="0.01" name="varMy" id="varMy">
                 </td>
+                <td> kN.m </td>
             </tr>
             <tr>
                 <td>Lực ngang dọc theo trục x </td>
                 <td> Qx = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="90.0" step="0.01" name="varQx" id="varQx"> kN
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="90.0" step="0.01" name="varQx" id="varQx">
                 </td>
+                <td> kN </td>
             </tr>
             <!-- ============ -->
             <tr>
@@ -77,36 +82,41 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Chiều dài đáy móng </td>
                 <td> l = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="2.4" step="0.01" name="varL" id="varL"> kN
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="2.4" step="0.01" name="varL" id="varL">
                 </td>
+                <td> kN </td>
             </tr>
             <tr>
                 <td>Chiều rộng đáy móng </td>
                 <td> b = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="1.8" step="0.01" name="varB" id="varB"> kN.m
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1.8" step="0.01" name="varB" id="varB">
                 </td>
+                <td> kN.m </td>
             </tr>
             <tr>
                 <td>Chiều sâu từ mặt đất đến đáy móng </td>
                 <td> h<sub>d</sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="2.0" step="0.01" name="varHd" id="varHd"> kN
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="2.0" step="0.01" name="varHd" id="varHd">
                 </td>
+                <td> kN </td>
             </tr>
             <tr>
                 <td>Khoảng cách từ điểm đặt lực đến đáy móng </td>
                 <td> h<sub>m</sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="1.6" step="0.01" name="varHm" id="varHm"> kN.m
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1.6" step="0.01" name="varHm" id="varHm">
                 </td>
+                <td> kN.m </td>
             </tr>
             <tr>
                 <td>Trọng lương trung bình giữa đất và móng </td>
                 <td> &gamma;<sub>tb</sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="20.0" step="0.01" name="varGamma" id="varGamma"> kN
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="20.0" step="0.01" name="varGamma" id="varGamma">
                 </td>
+                <td> kN </td>
             </tr>
         </table>
         <div class="text-center" style="margin-top: 10px">

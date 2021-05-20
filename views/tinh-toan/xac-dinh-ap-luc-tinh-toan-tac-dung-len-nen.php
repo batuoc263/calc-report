@@ -36,37 +36,41 @@ $this->params['breadcrumbs'][] = $this->title;
             </tr>
             <tr>
                 <td style="width: 420px">Góc ma sát trong </td>
-                <td style="width: 50px"> &#966; <sub> II </sub> = </td>
+                <td style="width: 70px"> &#966; <sub> II </sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" lang="en" value="20.0" step="0.01" name="varPhiII" id="varPhiII"> 0
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="20.0" step="0.01" name="varPhiII" id="varPhiII"> 
                 </td>
+                <td> 0 </td>
             </tr>
             <tr>
                 <td>Lực dính đơn vị của đất nằm trực tiếp dưới đáy móng </td>
                 <td> c<sub> II </sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="18" step="18.0" name="varCII" id="varCII"> kN/m<sup>2</sup>
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="18" step="18.0" name="varCII" id="varCII"> 
                 </td>
+                <td> kN/m<sup>2</sup> </td>
             </tr>
             <tr>
                 <td>Khối lượng thể tích của đất trên đáy móng </td>
                 <td> &gamma;'<sub> II </sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="18.5" step="0.01" name="varGamma1" id="varGamma1"> kN/m<sup>3</sup>
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="18.5" step="0.01" name="varGamma1" id="varGamma1"> 
                 </td>
+                <td> kN/m<sup>3</sup> </td>
             </tr>
             <tr>
                 <td>Khối lượng thể tích của đất dưới đáy móng </td>
                 <td> &gamma;<sub> II </sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="19.0" step="0.01" name="varGamma2" id="varGamma2"> kN/m<sup>3</sup>
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="19.0" step="0.01" name="varGamma2" id="varGamma2"> 
                 </td>
+                <td> kN/m<sup>3</sup> </td>
             </tr>
             <tr>
                 <td><i> Có tính đến hiện tượng đẩy nổi của đất (có/không)</i> </td>
                 <td>  </td>
                 <td>
-                    <select id="check-day-noi" name="check-day-noi" style="width: 80%;">
+                    <select id="check-day-noi" class="form-control" name="check-day-noi" style="width: 80%;">
                         <option value="yes">&#10003;</option>
                         <option value="no"></option>
                     </select>
@@ -77,15 +81,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="padding-left: 50px;">Khối lượng thể tích hạt đất </td>
                 <td>&gamma;<sub>s</sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="27" step="0.01" name="varGammaS" id="varGammaS"> kN/m<sup>3</sup>
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="27" step="0.01" name="varGammaS" id="varGammaS"> 
                 </td>
+                <td> kN/m<sup>3</sup> </td>
             </tr>
             <tr class="check-day-noi-item">
                 <td style="padding-left: 50px;">Hệ số rỗng</td>
                 <td> e = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="0.7" step="0.01" name="varE" id="varE"> -
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="0.7" step="0.01" name="varE" id="varE"> 
                 </td>
+                <td> - </td>
             </tr>
             <!-- ============ -->
             <tr>
@@ -95,21 +101,23 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Chiều rộng đáy móng </td>
                 <td> b = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="2.5" step="0.01" name="varB" id="varB"> m
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="2.5" step="0.01" name="varB" id="varB"> 
                 </td>
+                <td> m </td>
             </tr>
             <tr>
                 <td>Chiều sâu đặt móng </td>
                 <td> h = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="1.5" step="0.01" name="varH" id="varH"> m
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1.5" step="0.01" name="varH" id="varH"> 
                 </td>
+                <td> m </td>
             </tr>
             <tr>
                 <td><i> Tầng hầm (có/không)</i> </td>
                 <td>  </td>
                 <td>
-                    <select id="check-tang-ham" name="check-tang-ham" style="width: 80%;">
+                    <select id="check-tang-ham" class="form-control" name="check-tang-ham" style="width: 80%;">
                         <option value="yes">&#10003;</option>
                         <option value="no"></option>
                     </select>
@@ -119,15 +127,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="padding-left: 50px;">Chiều dày lớp đất ở phía trên đáy móng</td>
                 <td> h<sub>1</sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="0.5" step="0.01" name="varH1" id="varH1"> -
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="0.5" step="0.01" name="varH1" id="varH1"> 
                 </td>
+                <td> - </td>
             </tr>
             <tr class="check-tang-ham-item">
                 <td style="padding-left: 50px;">Chiều dày kết cấu sàn hầm ở phía trên đáy móng</td>
                 <td> h<sub>2</sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="0.3" step="0.01" name="varH2" id="varH2"> -
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="0.3" step="0.01" name="varH2" id="varH2"> 
                 </td>
+                <td> - </td>
             </tr>
             <!-- ============ -->
             <tr>
@@ -137,22 +147,25 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Hệ số điều kiện làm việc của nền đất </td>
                 <td> m<sub>1</sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="1.2" step="0.01" name="varM1" id="varM1"> -
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1.2" step="0.01" name="varM1" id="varM1"> 
                 </td>
+                <td> - </td>
             </tr>
             <tr>
                 <td>Hệ số điều kiện làm việc của công trình tương tác với nền </td>
                 <td> m<sub>2</sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="1" step="0.01" name="varM2" id="varM2"> -
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1" step="0.01" name="varM2" id="varM2"> 
                 </td>
+                <td> - </td>
             </tr>
             <tr>
                 <td>Hệ số tin cậy </td>
                 <td> k<sub>tc</sub> = </td>
                 <td>
-                    <input required pattern="[0-9]*.[0-9]+" value="1" step="0.01" name="varKtc" id="varKtc"> -
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1" step="0.01" name="varKtc" id="varKtc"> 
                 </td>
+                <td> - </td>
             </tr>
             
         </table>
