@@ -13,18 +13,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="tinhtoan-content">
+    <div class="col-md-9">    
     <div class="text-center">
         <h1 class="text-uppercase" style="font-size: 25px;"><?= Html::encode($this->title) ?></h1>
     </div>
-
-    <div class="col-md-9">
         <div id="result">
 
         </div>
 
         <p><i>Phương pháp tính toán dựa theo TCVN 10304:2014 Móng cọc – Tiêu chuẩn thiết kế, mục 7.2.1. Sức chịu tải của cọc chống theo chỉ tiêu cơ lý đất, đá. Ngoài ra, so sánh kết quả nhận được với sức chịu tải của cọc theo vật liệu nhằm tối ưu hóa kích thước cọc thiết kế.</i></p>
 
-        <h3>THÔNG SỐ ĐẦU VÀO</h3>
+        <h3 style="font-size: 20px;">THÔNG SỐ ĐẦU VÀO</h3>
         <table>
             <tr>
                 <td><strong>Lực tác dụng lên móng</strong></td>
@@ -245,7 +244,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Chỉ số chất lượng đá </td>
                 <td> RQD = </td>
                 <td>
-                    <input class="form-control" required value="50" pattern="[0-9]*.[0-9]+" step="0.01" name="varRQD" id="varRQD" data-toggle="tooltip" data-html="true" data-container="body" title="<img width='250px' src='/images/08/chi_so_chat_luong_da.png' alt='Chỉ số chất lượng đá'>">
+                    <input class="form-control" required value="50" pattern="[0-9]*.[0-9]+" name="varRQD" id="varRQD" data-toggle="tooltip" data-html="true" data-container="body" title="<img width='250px' src='/images/08/chi_so_chat_luong_da.png' alt='Chỉ số chất lượng đá'>">
                 </td>
                 <td> % </td>
             </tr>
@@ -303,21 +302,35 @@ $this->params['breadcrumbs'][] = $this->title;
 
         data = {
             _token: CSRF_TOKEN,
-            varN: varN,
-            varMx: varMx,
-            varQy: varQy,
-            varMy: varMy,
-            varQx: varQx,
-            varD: varD,
-            varHd: varHd,
-            varHm: varHm,
-            varGamma: varGamma
+            loai_coc: $('#loai_coc').val(),
+            tiet_dien_coc: $('#tiet_dien_coc').val(),
+            varAD: $('#varAD').val(),
+            varD: $('#varD').val(),
+            varLd: $('#varLd').val(),
+            varDf: $('#varDf').val(),
+            cap_do_ben: $('#cap_do_ben').val(),
+            loai_thep: $('#loai_thep').val(),
+            varN: $('#varN').val(),
+            varDt: $('#varDt').val(),
+            varAs: $('#varAs').val(),
+            varAb: $('#varAb').val(),
+            varRsc: $('#varRsc').val(),
+            varRb: $('#varRb').val(),
+            varGammaC: $('#varGammaC').val(),
+            varPhi: $('#varPhi').val(),
+            varGammaCb: $('#varGammaCb').val(),
+            varGammaCbsub: $('#varGammaCbsub').val(),
+            varGammaS: $('#varGammaS').val(),
+            varRvl: $('#varRvl').val(),
+            varGammaG: $('#varGammaG').val(),
+            varRcn: $('#varRcn').val(),
+            varRQD: $('#varRQD').val()
         };
 
         console.log(data);
         $.ajax({
             method: "POST",
-            url: "/tinh-toan/xac-dinh-ap-luc-duoi-day-mong-tron",
+            url: "/tinh-toan/xac-dinh-suc-chiu-tai-coc-chong",
             data: data
         }).done(function(msg) {
             rs = JSON.parse(msg);

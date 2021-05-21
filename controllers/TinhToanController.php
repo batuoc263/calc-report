@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\DmTinhtoan;
 use app\models\DmTinhtoanSearch;
 use Yii;
+
 class TinhToanController extends \yii\web\Controller
 {
     public function actionIndex()
@@ -40,10 +41,10 @@ class TinhToanController extends \yii\web\Controller
             $G = round($input["varGamma"] * $input["varB"] * $input["varL"] * $input["varHd"], 1);
             // Tải trọng thẳng đứng có tính đến trọng lượng bản thân của móng và đất:
             $N = $input['varN'] + $G;
-            
+
             // Diện tích đáy móng:
             $A = round($input['varB'] * $input['varL'], 3);
-            
+
             // Monmen kháng uốn:
             $W_y = round((($input['varB'] * pow($input['varL'], 2)) / 6), 3);
             $W_x = round((($input['varL'] * pow($input['varB'], 2)) / 6), 3);
@@ -53,7 +54,8 @@ class TinhToanController extends \yii\web\Controller
             $M_y = $input['varMy'] + $input['varQx'] * $input['varHm'];
 
             // Kiểm tra độ lệch tâm:
-            $e_x = round($M_y / $N, 4); $half_l = $input['varL'] / 2;
+            $e_x = round($M_y / $N, 4);
+            $half_l = $input['varL'] / 2;
             if ($e_x < $half_l) {
                 $kl_e_x = 'Thỏa';
                 $compare1 = "<";
@@ -64,8 +66,9 @@ class TinhToanController extends \yii\web\Controller
                 $kl_e_x = 'Tăng chiều dài móng';
                 $compare1 = ">";
             }
-            
-            $e_y = round($M_x / $N, 4); $half_b = $input['varB'] / 2;
+
+            $e_y = round($M_x / $N, 4);
+            $half_b = $input['varB'] / 2;
             if ($e_y < $half_b) {
                 $kl_e_y = 'Thỏa';
                 $compare2 = "<";
@@ -82,7 +85,7 @@ class TinhToanController extends \yii\web\Controller
             } else {
                 $templateFile = 'file-tinh-toan/sample/01_fail.docx';
             }
-            
+
 
             // Ứng suất tại các góc của đáy móng:
             $sigma1 = round(($N / $A) + ($M_y / $W_y) + ($M_x / $W_x), 1);
@@ -90,7 +93,7 @@ class TinhToanController extends \yii\web\Controller
             $sigma3 = round(($N / $A) - ($M_y / $W_y) + ($M_x / $W_x), 1);
             $sigma4 = round(($N / $A) - ($M_y / $W_y) - ($M_x / $W_x), 1);
 
-            
+
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
             // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\01.docx');
@@ -99,15 +102,15 @@ class TinhToanController extends \yii\web\Controller
                 [
                     'varGamma' => $input["varGamma"],
                     'varB' => $input["varB"],
-                    'varL'=> $input["varL"],
-                    'varHd'=> $input["varHd"],
-                    'G'=> $G,
-                    'varN'=> $input["varN"],
-                    'A'=> $A,
-                    'W_x'=> $W_x,
-                    'W_y'=> $W_y,
-                    'M_x'=> $M_x,
-                    'M_y'=> $M_y,
+                    'varL' => $input["varL"],
+                    'varHd' => $input["varHd"],
+                    'G' => $G,
+                    'varN' => $input["varN"],
+                    'A' => $A,
+                    'W_x' => $W_x,
+                    'W_y' => $W_y,
+                    'M_x' => $M_x,
+                    'M_y' => $M_y,
                     'varMx' => $input["varMx"],
                     'varMy' => $input["varMy"],
                     'varQx' => $input["varQx"],
@@ -131,11 +134,11 @@ class TinhToanController extends \yii\web\Controller
             );
 
             $timestamp = date('Ymd_His');
-            $filename = 'xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat_'.$timestamp.'.docx';
-            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $filename = 'xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat_' . $timestamp . '.docx';
+            $fileStorage = 'file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
-            $filePath = '/'.$fileStorage;
+            $filePath = '/' . $fileStorage;
 
             echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
             return;
@@ -160,13 +163,13 @@ class TinhToanController extends \yii\web\Controller
             $dmtt->save();
 
             // Diện tích đáy móng (A) và momen kháng uốn (W):
-            $A = round( (PI()*pow($input["varD"], 2)) / 4, 3);
+            $A = round((PI() * pow($input["varD"], 2)) / 4, 3);
 
-            $W = round( (PI()*pow($input["varD"], 3)) / 32, 3);
+            $W = round((PI() * pow($input["varD"], 3)) / 32, 3);
 
             // Trọng lượng bản thân của móng và đất:
             $G = $input['varGamma'] * $A * $input['varHd'];
-            
+
             // Tải trọng thẳng đứng có tính đến trọng lượng bản thân của móng và đất:
             $N = round($input['varN'] + $G, 3);
 
@@ -177,7 +180,8 @@ class TinhToanController extends \yii\web\Controller
             $M = round(sqrt(pow($M_x, 2) + pow($M_y, 2)), 3);
 
             // Kiểm tra độ lệch tâm:
-            $e = round($M / $N, 3);  $halfD = $input['varD'] / 2;
+            $e = round($M / $N, 3);
+            $halfD = $input['varD'] / 2;
             if ($e < $halfD) {
                 $kl = 'Thỏa';
                 $ss = '<';
@@ -187,12 +191,12 @@ class TinhToanController extends \yii\web\Controller
                 $ss = '>';
                 $templateFile = 'file-tinh-toan/sample/02_fail.docx';
             }
-            
-            
+
+
 
             // Ứng suất tại các góc của đáy móng:
-            $sigma_max = round(($N / $A) + ($M / $W) , 1);
-            $sigma_min = round(($N / $A) - ($M / $W) , 1);
+            $sigma_max = round(($N / $A) + ($M / $W), 1);
+            $sigma_min = round(($N / $A) - ($M / $W), 1);
 
 
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
@@ -202,15 +206,15 @@ class TinhToanController extends \yii\web\Controller
             $templateProcessor->setValues(
                 [
                     'varGamma' => $input["varGamma"],
-                    'varD'=> $input["varD"],
-                    'varHd'=> $input["varHd"],
-                    'G'=> $G,
-                    'varN'=> $input["varN"],
-                    'A'=> $A,
-                    'W'=> $W,
-                    'M'=> $M,
-                    'M_x'=> $M_x,
-                    'M_y'=> $M_y,
+                    'varD' => $input["varD"],
+                    'varHd' => $input["varHd"],
+                    'G' => $G,
+                    'varN' => $input["varN"],
+                    'A' => $A,
+                    'W' => $W,
+                    'M' => $M,
+                    'M_x' => $M_x,
+                    'M_y' => $M_y,
                     'varMx' => $input["varMx"],
                     'varMy' => $input["varMy"],
                     'varQx' => $input["varQx"],
@@ -228,15 +232,15 @@ class TinhToanController extends \yii\web\Controller
             );
 
             $timestamp = date('Ymd_His');
-            $filename = 'xac-dinh-ap-luc-duoi-day-mong-tron_'.$timestamp.'.docx';
-            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $filename = 'xac-dinh-ap-luc-duoi-day-mong-tron_' . $timestamp . '.docx';
+            $fileStorage = 'file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
-            $filePath = '/'.$fileStorage;
+            $filePath = '/' . $fileStorage;
 
             echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
             return;
-         }
+        }
         return $this->render('xac-dinh-ap-luc-duoi-day-mong-tron', [
             'dmtt' => $dmtt,
             'searchModel' => $searchModel,
@@ -258,28 +262,25 @@ class TinhToanController extends \yii\web\Controller
             //khối lượng thể tích của nước
             $GammaW = 10;
 
-            // hệ số e
-            $e = 0.7;
-
             //  trị tính toán trung bình của trọng lượng thể tích của kết cấu sàn hầm
             $Gammakc = 25;
 
             // góc ma sát trong
             $phi = deg2rad($input["varPhiII"]);
-            $cotangPhi =  1/tan($phi);
-            
-            if($input["varPhiII"] == 0) {
+            $cotangPhi =  1 / tan($phi);
+
+            if ($input["varPhiII"] == 0) {
                 $cotangPhi = 0;
             }
-            
+
             // Hệ số không thứ nguyên
-            $A = round( (0.25 * PI()) / ($cotangPhi + $phi - PI()/2), 2); 
-            $B = round( (PI() / ($cotangPhi + $phi - PI()/2)) + 1, 2);
-            $D = round( (PI() * $cotangPhi) / ($cotangPhi + $phi - PI()/2), 2);
-            
+            $A = round((0.25 * PI()) / ($cotangPhi + $phi - PI() / 2), 2);
+            $B = round((PI() / ($cotangPhi + $phi - PI() / 2)) + 1, 2);
+            $D = round((PI() * $cotangPhi) / ($cotangPhi + $phi - PI() / 2), 2);
+
 
             // chiều sâu đặt móng tính đổi kể từ nền tầng hầm bên trong nhà có tầng hầm 
-            $Htd = round( $input["varH1"] + $input['varH2'] * ($Gammakc / $input["varGamma1"]), 2 );
+            $Htd = round($input["varH1"] + $input['varH2'] * ($Gammakc / $input["varGamma1"]), 2);
 
             //trọng lượng thể tích trung bình nằm dưới đáy móng
             $Gamma2 = $input['varGamma2'];
@@ -287,23 +288,22 @@ class TinhToanController extends \yii\web\Controller
             // chiều sâu đến tầng hầm
             $H0 = $input["varH"] - $Htd;
 
-            if ($input['check_day_noi'] =='no' && $input['check_tang_ham'] == 'no') {
+            if ($input['check_day_noi'] == 'no' && $input['check_tang_ham'] == 'no') {
                 $H0  =  0;
                 $templateFile = "file-tinh-toan/sample/04_TH1.docx";
-                
-            } elseif ($input['check_day_noi'] =='no' && $input['check_tang_ham'] == 'yes') {
+            } elseif ($input['check_day_noi'] == 'no' && $input['check_tang_ham'] == 'yes') {
                 $templateFile = "file-tinh-toan/sample/04_TH2.docx";
-            } elseif ($input['check_day_noi'] =='yes' && $input['check_tang_ham'] == 'no') {
+            } elseif ($input['check_day_noi'] == 'yes' && $input['check_tang_ham'] == 'no') {
                 $Gamma2 = 10;
                 $H0  = 0;
-                $Gamma2 = ($input["varGammaS"] - $GammaW) / (1+$e);
+                $Gamma2 = ($input["varGammaS"] - $GammaW) / (1 + $input['varE']);
                 $templateFile = "file-tinh-toan/sample/04_TH3.docx";
             } else {
                 $templateFile = "file-tinh-toan/sample/04_TH4.docx";
             }
 
             // Áp lực tính toán tác dụng lên nền
-            $R = round( ( ($input['varM1'] * $input['varM2']) / $input['varKtc'] ) * ($A * $input['varB'] * $Gamma2 + $B * $input['varH'] * $input['varGamma1'] +$D * $input['varCII'] - $input['varGamma1']*$H0 ), 2 );
+            $R = round((($input['varM1'] * $input['varM2']) / $input['varKtc']) * ($A * $input['varB'] * $Gamma2 + $B * $input['varH'] * $input['varGamma1'] + $D * $input['varCII'] - $input['varGamma1'] * $H0), 2);
 
 
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
@@ -312,41 +312,40 @@ class TinhToanController extends \yii\web\Controller
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
             $templateProcessor->setValues(
                 [
-                    "varPhiII"=> $input["varPhiII"],
-                    "varCII"=> $input["varCII"],
-                    "varGamma1"=> $input["varGamma1"],
-                    "varGamma2"=> $Gamma2,
-                   "varGammaS"=>$input["varGammaS"],
-                   "varE"=> $input["varE"],
-                    "varH"=> $input["varH"],
-                    "varB"=> $input["varB"],
-                    "varH1"=> $input["varH1"],
-                    "varH2"=> $input["varH2"],
-                    "varM1"=> $input["varM1"],
-                    "varM2"=> $input["varM2"],
-                   "varKtc"=> $input["varKtc"],
-                    "A"=> $A,
+                    "varPhiII" => $input["varPhiII"],
+                    "varCII" => $input["varCII"],
+                    "varGamma1" => $input["varGamma1"],
+                    "varGamma2" => $Gamma2,
+                    "varGammaS" => $input["varGammaS"],
+                    "varE" => $input["varE"],
+                    "varH" => $input["varH"],
+                    "varB" => $input["varB"],
+                    "varH1" => $input["varH1"],
+                    "varH2" => $input["varH2"],
+                    "varM1" => $input["varM1"],
+                    "varM2" => $input["varM2"],
+                    "varKtc" => $input["varKtc"],
+                    "A" => $A,
                     "B" => $B,
                     "D" => $D,
-                    "R"=> $R,
+                    "R" => $R,
                     "H0" => $H0,
                     "Htd" => $Htd,
                     "Gammakc" => $Gammakc,
-                    "GammaW" => $GammaW,
-                    "e" => $e,
+                    "GammaW" => $GammaW
 
                 ]
             );
             $timestamp = date('Ymd_His');
-            $filename = 'xac-dinh-ap-luc-tinh-toan-tac-dung-len-nen_'.$timestamp.'.docx';
-            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $filename = 'xac-dinh-ap-luc-tinh-toan-tac-dung-len-nen_' . $timestamp . '.docx';
+            $fileStorage = 'file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
-            $filePath = '/'.$fileStorage;
+            $filePath = '/' . $fileStorage;
 
             echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
             return;
-         }
+        }
         return $this->render('xac-dinh-ap-luc-tinh-toan-tac-dung-len-nen', [
             'dmtt' => $dmtt,
             'searchModel' => $searchModel,
@@ -354,7 +353,7 @@ class TinhToanController extends \yii\web\Controller
         ]);
     }
 
-    
+
     public function actionXacDinhSucChiuTaiCocChong()
     {
         $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/xac-dinh-suc-chiu-tai-coc-chong']);
@@ -502,37 +501,115 @@ class TinhToanController extends \yii\web\Controller
             ],
         ];
 
+        $chisochatluongda = [
+            [
+                'RQD' => [
+                    'max' => 100,
+                    'min' => 90
+                ],
+                'Ks' => [
+                    'max' => 1.00,
+                    'min' => 1.00
+                ]
+            ],
+            [
+                'RQD' => [
+                    'max' => 90,
+                    'min' => 75
+                ],
+                'Ks' => [
+                    'max' => 1.00,
+                    'min' => 0.60
+                ]
+            ],
+            [
+                'RQD' => [
+                    'max' => 75,
+                    'min' => 50
+                ],
+                'Ks' => [
+                    'max' => 0.60,
+                    'min' => 0.32
+                ]
+            ],
+            [
+                'RQD' => [
+                    'max' => 50,
+                    'min' => 25
+                ],
+                'Ks' => [
+                    'max' => 0.32,
+                    'min' => 0.15
+                ]
+            ],
+            [
+                'RQD' => [
+                    'max' => 25,
+                    'min' => 0
+                ],
+                'Ks' => [
+                    'max' => 0.15,
+                    'min' => 0.05
+                ]
+            ],
+        ];
+
+        
+        
         // Sample 08
         if ($input = Yii::$app->request->post()) {
             $dmtt->luot_giai++;
-            $dmtt->save();
-
+            // $dmtt->save();
             
+            if ($input['varRQD'] > 100 || $input['varRQD'] < 0) {
+                echo "Chỉ số chất lượng đá không phù hợp";
+                return;
+            } else {
+                foreach ($chisochatluongda as $key => $chiso) {
+                    if ($input['varRQD'] < $chiso['RQD']['max'] && $input['varRQD'] >= $chiso['RQD']['min']) {
+                        $Ks = (($input['varRQD'] - $chiso['RQD']['min']) / ($chiso['RQD']['max'] - $chiso['RQD']['min']))* ($chiso['Ks']['max'] - $chiso['Ks']['min']) + $chiso['Ks']['min'];
+                        break;
+                    }
+                }
+            }
+
+            if ($input['varLd'] < 0.5 ) {
+                $q_b = $input['varRcn'] * $Ks / $input['varGammaG'];
+                echo "qb tinhs theo cong thuc 1<br>\n";
+            } else {
+                $q_b = ($input['varRcn'] * $Ks / $input['varGammaG']) * (1 + 4*($input['varLd']/$input['varDf']));
+                echo "qb tinhs theo cong thuc 2<br>\n";
+                echo "(".$input['varRcn'] ."*". $Ks ."/". $input['varGammaG'].") * (1 + 4 *(".$input['varLd']."/".$input['varDf']."))<br>\n";
+            }
+
+            $R_cu = $input['varGammaC'] * $q_b * 1000 * $input['varAb'];
+
+            echo "Ks = $Ks \t| qb = $q_b \t| Rcu = $R_cu"; die;
 
             $templateFile = 'file-tinh-toan/sample/08.docx';
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
-            
+
             // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\01.docx');
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
             $templateProcessor->setValues(
                 [
                     // 'varGamma' => $input["varGamma"],
-                    
+
 
                 ]
             );
 
             $timestamp = date('Ymd_His');
-            $filename = 'xac-dinh-suc-chiu-tai-coc-chong_'.$timestamp.'.docx';
-            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $filename = 'xac-dinh-suc-chiu-tai-coc-chong_' . $timestamp . '.docx';
+            $fileStorage = 'file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
-            $filePath = '/'.$fileStorage;
+            $filePath = '/' . $fileStorage;
 
             echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
             return;
-         }
+        }
         return $this->render('xac-dinh-suc-chiu-tai-coc-chong', [
             'dmtt' => $dmtt,
             'cap_do_ben_arr' => $capdoben,
@@ -543,5 +620,4 @@ class TinhToanController extends \yii\web\Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
 }

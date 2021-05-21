@@ -13,18 +13,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="tinhtoan-content">
+    <div class="col-md-9">    
     <div class="text-center">
         <h1 class="text-uppercase" style="font-size: 25px;"><?= Html::encode($this->title) ?></h1>
     </div>
-
-    <div class="col-md-9">
         <div id="result">
 
         </div>
 
         <p>Phương pháp tính toán dựa theo TCVN 10304:2014 Móng cọc – Tiêu chuẩn thiết kế, mục 7.1.13. Xác định giá trị tải trọng truyền lên cọc.</p>
         </br>
-        <h3>THÔNG SỐ ĐẦU VÀO</h3>
+        <h3 style="font-size: 20px;">THÔNG SỐ ĐẦU VÀO</h3>
         <table>
             <tr>
                 <td><strong>Tải trọng tác dụng tại cao trình đáy đài </strong></td>

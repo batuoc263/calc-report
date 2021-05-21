@@ -13,11 +13,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="tinhtoan-content">
+    <div class="col-md-9">    
     <div class="text-center">
         <h1 class="text-uppercase" style="font-size: 25px;"><?= Html::encode($this->title) ?></h1>
     </div>
-
-    <div class="col-md-9">
         <div id="result">
 
         </div>
@@ -29,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <li>Chiều dương của momen Mx(y) xoay quanh trục x (y), tương ứng với chiều dương của trục y (x);</li>
             <li>Nếu trường hợp tính toán có tải trọng đứng, ngang hoặc momen uốn ngược chiều với hình 1 thì số liệu nhập vào bảng tính sẽ là giá trị âm.</li>
         </ul>
-        <h3>THÔNG SỐ ĐẦU VÀO</h3>
+        <h3 style="font-size: 20px;">THÔNG SỐ ĐẦU VÀO</h3>
         <table>
             <tr>
                 <td><strong>Lực tác dụng lên móng</strong></td>
