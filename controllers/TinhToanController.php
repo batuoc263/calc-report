@@ -576,8 +576,8 @@ class TinhToanController extends \yii\web\Controller
             $textSumX2 = "";
             $textSumY2 = "";
 
-            $fa_euro = utf8(html_entity_decode('&#xf153;', 0, 'UTF-8'));
-            $section->addText(utf8($fa_euro));
+            $textAllXY = "";
+            $N = "";
 
             foreach ($input['list'] as $key => $item) {
                 $xp = $item[0] - $xC;
@@ -586,16 +586,19 @@ class TinhToanController extends \yii\web\Controller
                 array_push($input['list'][$key], $yp);
                 $sumX2 += pow( $xp, 2);
                 $sumY2 += pow( $yp, 2); 
+                $textAllXY .= "x<sub>".$key++."</sub> = ".$xp. ", y<sub>".$key++."</sub> = ".$yp. "; "; 
+
+
                 if ($key >= 1) {
                     $textSumX .= "+ (" .$item[0]. ") ";
                     $textSumY .= "+ (" .$item[1]. ") ";
-                    $textSumX2 .= "+ (" .$xp. ")2 "."&#178;"."";
-                    $textSumY2 .= "+ (" .$yp. ")2 ";
+                    $textSumX2 .= "+ (" .$xp. ")<sup>2</sup> ";
+                    $textSumY2 .= "+ (" .$yp. ")<sup>2</sup> ";
                 } else {
                     $textSumX .= "(" .$item[0]. ") ";
                     $textSumY .= "(" .$item[1]. ") ";
-                    $textSumX2 .= "(" .$xp. ")2 ";
-                    $textSumY2 .= "(" .$yp. ")2 ";
+                    $textSumX2 .= "(" .$xp. ")<sup>2</sup> ";
+                    $textSumY2 .= "(" .$yp. ")<sup>2</sup> ";
                 }
                
             }
@@ -605,8 +608,14 @@ class TinhToanController extends \yii\web\Controller
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\06.docx');
             // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
             $inline = new \PhpOffice\PhpWord\Element\TextRun();
-            $inline->addText("2", array( 'italic' => true , 'padding-bottom' => '10px'));
+
+            \PhpOffice\PhpWord\Shared\Html::addHtml($inline, $textSumX2);
             $templateProcessor->setComplexValue('textSumX2', $inline);
+
+            $inline2 = new \PhpOffice\PhpWord\Element\TextRun();
+            \PhpOffice\PhpWord\Shared\Html::addHtml($inline2, $N);
+            $templateProcessor->setComplexValue('textAllXY', $inline2);
+
 
             // $templateProcessor->setValues(
             //     [
