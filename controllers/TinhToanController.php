@@ -739,4 +739,48 @@ class TinhToanController extends \yii\web\Controller
         ]);
     }
 
+
+    public function actionXacDinhDoLunCuaMongCocTheoKinhNghiem()
+    {
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => "/tinh-toan/xac-dinh-tai-trong-tac-dung-len-dau-coc"]);
+        $searchModel = new DmTinhtoanSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        // Sample 01 
+        if ($input = Yii::$app->request->post()) {
+            $dmtt->luot_giai++;
+            $dmtt->save();
+
+            
+
+            
+            
+            \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
+            $phpWord = new \PhpOffice\PhpWord\PhpWord();
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\06.docx');
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
+
+            // $templateProcessor->setValues(
+            //     [
+            //         "textSumX2"=> $textSumX2,
+
+            //     ]
+            // );
+            $timestamp = date('Ymd_His');
+            $filename = 'xac-dinh-tai-trong-tac-dung-len-dau-coc_'.$timestamp.'.docx';
+            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $templateProcessor->saveAs($fileStorage);
+
+            $filePath = '/'.$fileStorage;
+
+            echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
+            return;
+         }
+        return $this->render('xac-dinh-do-lun-cua-mong-coc-theo-kinh-nghiem', [
+            'dmtt' => $dmtt,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
 }
