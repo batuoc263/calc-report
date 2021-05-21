@@ -71,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>
                     <select id="check-day-noi" class="form-control" name="check-day-noi">
                         <option value="yes">&#10003;</option>
-                        <option value="no"></option>
+                        <option value="no">&#10005;</option>
                     </select>
                 </td>
             </tr>
@@ -118,7 +118,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>
                     <select id="check-tang-ham" class="form-control" name="check-tang-ham">
                         <option value="yes">&#10003;</option>
-                        <option value="no"></option>
+                        <option value="no">&#10005;</option>
                     </select>
                 </td>
             </tr>
