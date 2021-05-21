@@ -622,8 +622,6 @@ class TinhToanController extends \yii\web\Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-<<<<<<< HEAD
-=======
 
     public function actionXacDinhTaiTrongTacDungLenDauCoc()
     {
@@ -655,8 +653,8 @@ class TinhToanController extends \yii\web\Controller
             $textSumX2 = "";
             $textSumY2 = "";
 
-            $fa_euro = utf8(html_entity_decode('&#xf153;', 0, 'UTF-8'));
-            $section->addText(utf8($fa_euro));
+            // $fa_euro = utf8(html_entity_decode('&#xf153;', 0, 'UTF-8'));
+            // $section->addText(utf8($fa_euro));
 
             foreach ($input['list'] as $key => $item) {
                 $xp = $item[0] - $xC;
@@ -710,5 +708,4 @@ class TinhToanController extends \yii\web\Controller
         ]);
     }
 
->>>>>>> 58e68ef5ce6d77eefc5db0c52cee134cdc0699d4
 }
