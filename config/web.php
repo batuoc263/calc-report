@@ -5,7 +5,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
-    'name' => 'TiTool',
+    'name' => 'Oxyz.vn',
     "language" => "en",
     'timeZone' => 'Asia/Ho_Chi_Minh',
     'basePath' => dirname(__DIR__),

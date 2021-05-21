@@ -556,6 +556,16 @@ class TinhToanController extends \yii\web\Controller
             ],
         ];
 
+        $loaicoc_arr = [
+            1 => 'Khoan nhồi',
+            2 => 'Đóng - ép'
+        ];
+        $tietdiencoc_arr = [
+            1 => 'Tròn',
+            2 => 'Vuông',
+            3 => 'Ống'
+        ];
+
         
         
         // Sample 08
@@ -577,18 +587,14 @@ class TinhToanController extends \yii\web\Controller
 
             if ($input['varLd'] < 0.5 ) {
                 $q_b = $input['varRcn'] * $Ks / $input['varGammaG'];
-                echo "qb tinhs theo cong thuc 1<br>\n";
+                $templateFile = 'file-tinh-toan/sample/08_TH1.docx';
             } else {
-                $q_b = ($input['varRcn'] * $Ks / $input['varGammaG']) * (1 + 4*($input['varLd']/$input['varDf']));
-                echo "qb tinhs theo cong thuc 2<br>\n";
-                echo "(".$input['varRcn'] ."*". $Ks ."/". $input['varGammaG'].") * (1 + 4 *(".$input['varLd']."/".$input['varDf']."))<br>\n";
+                $q_b = ($input['varRcn'] * $Ks / $input['varGammaG']) * (1 + 0.4*($input['varLd']/$input['varDf']));
+                $templateFile = 'file-tinh-toan/sample/08_TH2.docx';
             }
 
             $R_cu = $input['varGammaC'] * $q_b * 1000 * $input['varAb'];
-
-            echo "Ks = $Ks \t| qb = $q_b \t| Rcu = $R_cu"; die;
-
-            $templateFile = 'file-tinh-toan/sample/08.docx';
+            
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
 
@@ -596,9 +602,32 @@ class TinhToanController extends \yii\web\Controller
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
             $templateProcessor->setValues(
                 [
-                    // 'varGamma' => $input["varGamma"],
-
-
+                    'loai_coc' => $loaicoc_arr[$input['loai_coc']],
+                    'tiet_dien_coc' => $tietdiencoc_arr[$input['tiet_dien_coc']],
+                    'varAD' => $input['varAD'],
+                    'varD' => $input['varD'],
+                    'varLd' => $input['varLd'],
+                    'varDf' => $input['varDf'],
+                    'cap_do_ben' => $input['cap_do_ben'],
+                    'loai_thep' => $input['loai_thep'],
+                    'varN' => $input['varN'],
+                    'varDt' => $input['varDt'],
+                    'varAs' => $input['varAs'],
+                    'varAb' => $input['varAb'],
+                    'varRsc' => $input['varRsc'],
+                    'varRb' => $input['varRb'],
+                    'varGammaC' => $input['varGammaC'],
+                    'varPhi' => $input['varPhi'],
+                    'varGammaCb' => $input['varGammaCb'],
+                    'varGammaCbsub' => $input['varGammaCbsub'],
+                    'varGammaS' => $input['varGammaS'],
+                    'varRvl' => $input['varRvl'],
+                    'varGammaG' => $input['varGammaG'],
+                    'varRcn' => $input['varRcn'],
+                    'varRQD' => $input['varRQD'],
+                    'Ks' => $Ks,
+                    'q_b' => round($q_b, 2),
+                    'R_cu' => round($R_cu, 0)
                 ]
             );
 
@@ -614,6 +643,8 @@ class TinhToanController extends \yii\web\Controller
         }
         return $this->render('xac-dinh-suc-chiu-tai-coc-chong', [
             'dmtt' => $dmtt,
+            'loaicoc_arr' => $loaicoc_arr,
+            'tietdiencoc_arr' => $tietdiencoc_arr,
             'cap_do_ben_arr' => $capdoben,
             'cap_do_ben_json' => json_encode($capdoben),
             'loai_thep_arr' => $loaithep,

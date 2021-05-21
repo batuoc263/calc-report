@@ -33,8 +33,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="width: 70px"> </td>
                 <td>
                     <select name="loai_coc" id="loai_coc" class="form-control" required="required">
-                        <option value="1">Khoan nhồi</option>
-                        <option value="2">Đóng - ép</option>
+                        <?php
+                            foreach ($loaicoc_arr as $key => $value) {
+                                echo "<option value='$key'>$value</option>";
+                            }
+                        ?>
                     </select>
                 </td>
                 <td> - </td>
@@ -44,9 +47,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td> </td>
                 <td>
                     <select name="tiet_dien_coc" id="tiet_dien_coc" class="form-control" onchange="tietdien_changed(this.value)" required="required">
-                        <option value="1">Tròn</option>
-                        <option value="2">Vuông</option>
-                        <option value="3">Ống</option>
+                        <?php
+                            foreach ($tietdiencoc_arr as $key => $value) {
+                                echo "<option value='$key'>$value</option>";
+                            }
+                        ?>
                     </select>
                 </td>
                 <td> - </td>
@@ -63,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Đường kính trong của cọc (nếu là cọc ống) </td>
                 <td> d = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" disabled value="" step="0.01" name="varD" id="varD">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" disabled value="-" step="0.01" name="varD" id="varD">
                 </td>
                 <td> m </td>
             </tr>
@@ -327,7 +332,6 @@ $this->params['breadcrumbs'][] = $this->title;
             varRQD: $('#varRQD').val()
         };
 
-        console.log(data);
         $.ajax({
             method: "POST",
             url: "/tinh-toan/xac-dinh-suc-chiu-tai-coc-chong",

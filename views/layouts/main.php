@@ -74,7 +74,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; TiTool.vn <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Oxyz.vn <?= date('Y') ?></p>
 
         <p class="pull-right">Dev by <a href="https://fb.com/vmn243">DC</a></p>
     </div>
