@@ -32,7 +32,7 @@ $this->title = $model->title;
                 <img src="/images/home/h3.jpg" class="sidebar-img" alt="Hình 3">
                 <img src="/images/home/h4.jpg" class="sidebar-img" alt="Hình 4">
                 <img src="/images/home/h5.jpg" class="sidebar-img" alt="Hình 5">
-                <img src="/images/home/h6.jpg" class="sidebar-img" alt="Hình 6">
+                <!-- <img src="/images/home/h6.jpg" class="sidebar-img" alt="Hình 6"> -->
             </div>
         </div>
     </div>

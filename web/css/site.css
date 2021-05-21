@@ -5,7 +5,7 @@ body {
 
 .site-index {
     /* font-family: 'Times New Roman', Times, serif; */
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .wrap {
@@ -151,6 +151,6 @@ p {
 
 .sidebar-img {
     width: 80%;
-    height: 135px;
+    height: 130px;
     margin: 3px;
 }

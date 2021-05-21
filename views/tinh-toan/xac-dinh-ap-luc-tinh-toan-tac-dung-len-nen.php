@@ -270,7 +270,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 check_tang_ham: check_tang_ham
             };
 
-        console.log(data);
         $.ajax({
             method: "POST",
             url: "/tinh-toan/xac-dinh-ap-luc-tinh-toan-tac-dung-len-nen",
