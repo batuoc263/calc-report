@@ -299,7 +299,7 @@ class TinhToanController extends \yii\web\Controller
                 $Gamma2 = ($input["varGammaS"] - $GammaW) / (1 + $input['varE']);
                 $templateFile = "file-tinh-toan/sample/04_TH3.docx";
             } else {
-                $Gamma2 = round( ($input["varGammaS"] - $GammaW) / (1+$e), 2 );
+                $Gamma2 = round( ($input["varGammaS"] - $GammaW) / (1 + $input['varE']), 2 );
                 $templateFile = "file-tinh-toan/sample/04_TH4.docx";
             }
 
