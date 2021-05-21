@@ -8,10 +8,10 @@ $this->title = $model->title;
     <div class="body-content">
         <div class="row">
             <div class="col-md-2 text-center">
-                <img height="88px" src="/images/home/logo.png" alt="logo">
+                <img height="100px" src="/images/home/logo.png" alt="logo">
             </div>
             <div class="col-md-10">
-                <h3 style="margin-top: 10px; font-weight: bold">Oxyz.vn</h3>
+                <h3 style="margin-top: 8px; font-weight: bold">Oxyz.vn</h3>
                 <p>Website này là một nền tảng để thực hiện các tính toán thiết kế điển hình khác nhau về kỹ thuật xây dựng theo hệ thống Tiêu chuẩn Việt Nam (TCVN). Kết quả tính toán là một báo cáo hoàn thiện được trình bày dưới dạng *.docx.</p>
             </div>
         </div>
@@ -26,12 +26,13 @@ $this->title = $model->title;
                 <p class="text-right">Tác giả</p>
                 <p class="text-right">LÊ VĂN TRỌNG</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 text-center">
                 <img src="/images/home/h1.jpg" class="sidebar-img" alt="Hình 1">
                 <img src="/images/home/h2.jpg" class="sidebar-img" alt="Hình 2">
                 <img src="/images/home/h3.jpg" class="sidebar-img" alt="Hình 3">
-                <!-- <img src="/images/home/h4.jpg" class="sidebar-img" alt="Hình 4">
-                <img src="/images/home/h5.jpg" class="sidebar-img" alt="Hình 5"> -->
+                <img src="/images/home/h4.jpg" class="sidebar-img" alt="Hình 4">
+                <img src="/images/home/h5.jpg" class="sidebar-img" alt="Hình 5">
+                <img src="/images/home/h6.jpg" class="sidebar-img" alt="Hình 6">
             </div>
         </div>
     </div>

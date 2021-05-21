@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <li>Nếu trường hợp tính toán có tải trọng đứng, ngang hoặc momen uốn ngược chiều với hình 1 thì số liệu nhập vào bảng tính sẽ là giá trị âm.</li>
         </ul>
         <h3 style="font-size: 20px;">THÔNG SỐ ĐẦU VÀO</h3>
-        <table>
+        <table class="input-table">
             <tr>
                 <td><strong>Tải trọng tác dụng lên móng</strong></td>
             </tr>

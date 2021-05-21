@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <p>Phương pháp tính toán dựa theo TCVN 10304:2014 Móng cọc – Tiêu chuẩn thiết kế, mục 7.1.13. Xác định giá trị tải trọng truyền lên cọc.</p>
         </br>
         <h3 style="font-size: 20px;">THÔNG SỐ ĐẦU VÀO</h3>
-        <table>
+        <table class="input-table">
             <tr>
                 <td><strong>Tải trọng tác dụng tại cao trình đáy đài </strong></td>
             </tr>

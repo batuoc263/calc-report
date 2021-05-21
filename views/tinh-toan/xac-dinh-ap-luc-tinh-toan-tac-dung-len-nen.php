@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Xác định áp lực dưới đáy móng tròn';
+$this->title = 'Xác định áp lực tính toán tác dụng lên nền, R';
 $this->params['breadcrumbs'][] = ['label' => 'Tính toán', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -21,15 +21,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </div>
 
-        <p>Phương pháp này có thể xác định áp lực tại đáy móng tròn dưới tác động của tải trọng ngang và momen theo hai hướng x,y.</p>
-        <p><u>Quy ước: </u></p>
-        <ul>
-            <li>Chiều dương của lực ngang Qx(y), tương ứng với chiều dương của của trục x (y);</li>
-            <li>Chiều dương của momen Mx(y) xoay quanh trục x (y), tương ứng với chiều dương của trục y (x);</li>
-            <li>Nếu trường hợp tính toán có tải trọng đứng, ngang hoặc momen uốn ngược chiều với hình 1 thì số liệu nhập vào bảng tính sẽ là giá trị âm.</li>
-        </ul>
-        <h3 style="font-size: 20px;">THÔNG SỐ ĐẦU VÀO</h3>
-        <table>
+        <p><i>Phương pháp tính toán dựa theo TCVN 9362-2012 Thiết kế nền nhà và công trình, mục 4.6.9.</i></p>
+        <p>Mục đích của tính toán này là hạn chế biến dạng của nền, móng và kết cấu trên móng trong phạm vi đảm bảo không xảy ra tình hình cản trở việc sử dụng bình thường của nhà và công trình nói chung, hay của từng kết cấu hoặc giảm tính bền vững lâu dài của chúng do xuất hiện các chuyển vị không cho phép (độ lún, nghiêng, thay đổi cao độ thiết kế và vị trí kết cấu, phá hoại các liên kết của chúng,…).</p>
+        
+        <h3 class="text-center" style="font-size: 20px;">THÔNG SỐ ĐẦU VÀO</h3>
+        <table class="input-table">
             <tr>
                 <td><strong>Đặc trưng đất nền (Tính theo TTGH II) </strong></td>
             </tr>

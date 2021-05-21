@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <p><i>Phương pháp tính toán dựa theo TCVN 10304:2014 Móng cọc – Tiêu chuẩn thiết kế, mục 7.2.1. Sức chịu tải của cọc chống theo chỉ tiêu cơ lý đất, đá. Ngoài ra, so sánh kết quả nhận được với sức chịu tải của cọc theo vật liệu nhằm tối ưu hóa kích thước cọc thiết kế.</i></p>
 
         <h3 style="font-size: 20px;">THÔNG SỐ ĐẦU VÀO</h3>
-        <table>
+        <table class="input-table">
             <tr>
                 <td><strong>Lực tác dụng lên móng</strong></td>
             </tr>

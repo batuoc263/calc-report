@@ -296,7 +296,7 @@ class TinhToanController extends \yii\web\Controller
             } elseif ($input['check_day_noi'] == 'yes' && $input['check_tang_ham'] == 'no') {
                 $Gamma2 = 10;
                 $H0  = 0;
-                $Gamma2 = ($input["varGammaS"] - $GammaW) / (1 + $input['varE']);
+                $Gamma2 = round( ($input["varGammaS"] - $GammaW) / (1 + $input['varE']), 2);
                 $templateFile = "file-tinh-toan/sample/04_TH3.docx";
             } else {
                 $Gamma2 = round( ($input["varGammaS"] - $GammaW) / (1 + $input['varE']), 2 );
