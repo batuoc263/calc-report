@@ -191,7 +191,7 @@ $this->params['breadcrumbs'][] = $this->title;
             url: "/tinh-toan/xac-dinh-ap-luc-duoi-day-mong-tron",
             data: data
         }).done(function(msg) {
-            rs = JSON.parse(msg);
+            $(window).scrollTop(0); rs = JSON.parse(msg); 
             newTabResult = $("#newTabResult");
             if (newTabResult[0].checked == false) {
                 $('#result').html('<div class="alert alert-success" role="alert">Báo cáo của bạn đã sẵn sàng để tải xuống. <a href="' + rs.filePath + '">Tải xuống</a></div>')
