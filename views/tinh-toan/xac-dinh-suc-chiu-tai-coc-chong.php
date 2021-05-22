@@ -23,15 +23,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <p><i>Phương pháp tính toán dựa theo TCVN 10304:2014 Móng cọc – Tiêu chuẩn thiết kế, mục 7.2.1. Sức chịu tải của cọc chống theo chỉ tiêu cơ lý đất, đá. Ngoài ra, so sánh kết quả nhận được với sức chịu tải của cọc theo vật liệu nhằm tối ưu hóa kích thước cọc thiết kế.</i></p>
 
-        <h3 style="font-size: 20px;">THÔNG SỐ ĐẦU VÀO</h3>
+        <h3 style="font-size: 20px;" class="text-center">THÔNG SỐ ĐẦU VÀO</h3>
         <table class="input-table">
             <tr>
-                <td><strong>Lực tác dụng lên móng</strong></td>
+                <td><strong>Đặc trưng cọc</strong></td>
             </tr>
             <tr>
                 <td style="width: 420px">Loại cọc </td>
                 <td style="width: 70px"> </td>
-                <td>
+                <td style="width: 200px">
                     <select name="loai_coc" id="loai_coc" class="form-control" required="required">
                         <?php
                             foreach ($loaicoc_arr as $key => $value) {
@@ -84,7 +84,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Đường kính ngoài của phần cọc ngàm vào đá </td>
                 <td> d<sub>f</sub> = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="0.60" step="0.01" name="varDf" id="varDf">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="0.60" step="0.01" name="varDf" id="varDf">
                 </td>
                 <td> m </td>
             </tr>
@@ -169,10 +169,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td> kPa </td>
             </tr>
             <tr>
-                <td style="padding-left: 20px;">Hệ số điều kiện làm việc của cọc trong nền </td>
+                <td style="padding-left: 20px;">Hệ số điều kiện làm việc của cọc </td>
                 <td> &gamma;<sub>c</sub> = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="1.00" step="0.01" name="varGammaC" id="varGammaC">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="1.00" step="0.01" onblur="auto_tinh()" name="varGammaC" id="varGammaC" data-toggle="tooltip" data-html="true" data-container="body" title="<p>1.0 - a(D) > 0.2 m</p><p>0.9 - a(D) < 0.2 m</p>">
                 </td>
                 <td> - </td>
             </tr>
@@ -180,7 +180,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="padding-left: 20px;">Hệ số uốn dọc, đối với cọc đài thấp lấy bằng 1 </td>
                 <td> &#966; = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="1.00" step="0.01" name="varPhi" id="varPhi">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="1.00" step="0.01" onblur="auto_tinh()" name="varPhi" id="varPhi">
                 </td>
                 <td> - </td>
             </tr>
@@ -188,7 +188,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="padding-left: 20px;">Hệ số chiết giảm điều kiện làm việc của bê tông </td>
                 <td> &gamma;<sub>cb</sub> = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="0.85" step="0.01" name="varGammaCb" id="varGammaCb">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="0.85" step="0.01" onblur="auto_tinh()" name="varGammaCb" id="varGammaCb" data-toggle="tooltip" data-html="true" data-container="body" title="<p>1.00 - Đóng-ép</p><p>0.85 - Khoan nhồi, barrette</p>">
                 </td>
                 <td> - </td>
             </tr>
@@ -196,7 +196,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="padding-left: 20px;">Hệ số chiết giảm thêm kể đến phương pháp thi công cọc </td>
                 <td> &gamma;'<sub>cb</sub> = </td>
                 <td>
-                    <input class="form-control" style="color: red" data-toggle="tooltip" data-html="true" data-container="body" title="<p style='font-size:13px;text-align:justify;'>Đối với cọc thi c&ocirc;ng tại chổ c&oacute; kể đến việc đổ b&ecirc; t&ocirc;ng trong khoảng kh&ocirc;ng gian chật hẹp của hố v&agrave; ống v&aacute;ch:</p><p style='font-size:13px;'>1.0 - MNN thấp hơn mũi cọc;</p><p style='font-size:13px;'>0.9 - D&ugrave;ng ống v&aacute;ch hoặc guồng xoắn rỗng ruột;</p><p style='font-size:13px;'>0.8 - Dưới nước, c&oacute; d&ugrave;ng ống v&aacute;ch giữ th&agrave;nh;</p><p style='font-size:13px;'>0.7 - Dung dịch khoan, dưới nước, kh&ocirc;ng d&ugrave;ng ống v&aacute;ch giữ th&agrave;nh</p>" required pattern="[0-9]*.[0-9]+" value="0.80" step="0.01" name="varGammaCbsub" id="varGammaCbsub">
+                    <input class="form-control" data-toggle="tooltip" data-html="true" data-container="body" title="<p style='font-size:13px;text-align:justify;'>Đối với cọc thi c&ocirc;ng tại chổ c&oacute; kể đến việc đổ b&ecirc; t&ocirc;ng trong khoảng kh&ocirc;ng gian chật hẹp của hố v&agrave; ống v&aacute;ch:</p><p style='font-size:13px;'>1.0 - MNN thấp hơn mũi cọc;</p><p style='font-size:13px;'>0.9 - D&ugrave;ng ống v&aacute;ch hoặc guồng xoắn rỗng ruột;</p><p style='font-size:13px;'>0.8 - Dưới nước, c&oacute; d&ugrave;ng ống v&aacute;ch giữ th&agrave;nh;</p><p style='font-size:13px;'>0.7 - Dung dịch khoan, dưới nước, kh&ocirc;ng d&ugrave;ng ống v&aacute;ch giữ th&agrave;nh</p>" required pattern="[0-9]*.[0-9]+" value="0.80" step="0.01" onblur="auto_tinh()" name="varGammaCbsub" id="varGammaCbsub">
                 </td>
                 <td> - </td>
             </tr>
@@ -204,7 +204,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="padding-left: 20px;">Hệ số điều kiện làm việc của thép </td>
                 <td> &gamma;<sub>s</sub> = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="1.00" step="0.01" name="varGammaS" id="varGammaS">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="1.00" step="0.01" onblur="auto_tinh()" name="varGammaS" id="varGammaS">
                 </td>
                 <td> - </td>
             </tr>
@@ -253,6 +253,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 </td>
                 <td> % </td>
             </tr>
+            
+            <input type="hidden" name="varA" id="varA" class="form-control" value="0.283">
+            
 
         </table>
         
@@ -329,7 +332,8 @@ $this->params['breadcrumbs'][] = $this->title;
             varRvl: $('#varRvl').val(),
             varGammaG: $('#varGammaG').val(),
             varRcn: $('#varRcn').val(),
-            varRQD: $('#varRQD').val()
+            varRQD: $('#varRQD').val(),
+            varA: $('#varA').val()
         };
 
         $.ajax({
@@ -380,6 +384,28 @@ $this->params['breadcrumbs'][] = $this->title;
 
             console.log("Input Ab = " + $('#varAb').val());
         }
+        ////////
+        varDf = $('#varDf').val();
+        if (varDf != '') {
+            tietdien = $('#tiet_dien_coc').val(); //tron - vuong - ong
+            console.log("tiet dien = " + tietdien);
+
+            if (tietdien == 1) {
+                varA = 0.25 * Math.PI * Math.pow(varDf, 2);
+            }
+            if (tietdien == 2) {
+                varA = Math.pow(varDf, 2);
+            }
+            if (tietdien == 3) {
+                varD = $('#varD').val()
+                varA = 0.25 * Math.PI * (Math.pow(varDf, 2) - Math.pow(varD, 2));
+            }
+
+            console.log("Ab = " + varA);
+            $('#varA').val(varA.toFixed(3))
+
+            console.log("Input A = " + $('#varA').val());
+        }
         //////////
         varN = $('#varN').val();
         varDt = $('#varDt').val() / 1000;
@@ -414,11 +440,17 @@ $this->params['breadcrumbs'][] = $this->title;
     }
 
     window.onload = function() {
+        $('#varGammaC').popover({
+            trigger: 'focus hover'
+        });
+        $('#varGammaCb').popover({
+            trigger: 'focus hover'
+        });
         $('#varGammaCbsub').popover({
-            trigger: 'focus'
+            trigger: 'focus hover'
         });
         $('#varRQD').popover({
-            trigger: 'focus'
+            trigger: 'focus hover'
         });
         auto_tinh();
     }

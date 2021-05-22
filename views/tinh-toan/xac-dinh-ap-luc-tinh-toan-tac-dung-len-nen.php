@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <tr>
                 <td style="width: 420px">Góc ma sát trong </td>
                 <td style="width: 70px"> &#966; <sub> II </sub> = </td>
-                <td>
+                <td style="width: 200px">
                     <input required class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="20.0" step="0.01" name="varPhiII" id="varPhiII"> 
                 </td>
                 <td> 0 </td>

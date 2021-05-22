@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <p>Phương pháp tính toán dựa theo TCVN 10304:2014 Móng cọc – Tiêu chuẩn thiết kế, mục 7.1.13. Xác định giá trị tải trọng truyền lên cọc.</p>
         </br>
-        <h3 style="font-size: 20px;">THÔNG SỐ ĐẦU VÀO</h3>
+        <h3 style="font-size: 20px;" class="text-center">THÔNG SỐ ĐẦU VÀO</h3>
         <table class="input-table">
             <tr>
                 <td><strong>Tải trọng tác dụng tại cao trình đáy đài </strong></td>
@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <tr>
                 <td style="width: 420px">Tải trọng thẳng đứng  </td>
                 <td style="width: 50px"> N   = </td>
-                <td>
+                <td style="width: 200px">
                     <input required pattern="[0-9]*.[0-9]+" lang="en" value="5000" step="0.1" name="varN" id="varN"> kN
                 </td>
             </tr>

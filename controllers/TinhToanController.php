@@ -571,7 +571,7 @@ class TinhToanController extends \yii\web\Controller
         // Sample 08
         if ($input = Yii::$app->request->post()) {
             $dmtt->luot_giai++;
-            // $dmtt->save();
+            $dmtt->save();
             
             if ($input['varRQD'] > 100 || $input['varRQD'] < 0) {
                 echo "Chỉ số chất lượng đá không phù hợp";
@@ -586,14 +586,27 @@ class TinhToanController extends \yii\web\Controller
             }
 
             if ($input['varLd'] < 0.5 ) {
-                $q_b = $input['varRcn'] * $Ks / $input['varGammaG'];
-                $templateFile = 'file-tinh-toan/sample/08_TH1.docx';
-            } else {
-                $q_b = ($input['varRcn'] * $Ks / $input['varGammaG']) * (1 + 0.4*($input['varLd']/$input['varDf']));
+                $qb = $input['varRcn'] * $Ks / $input['varGammaG'];
                 $templateFile = 'file-tinh-toan/sample/08_TH2.docx';
+            } else {
+                $temp = (1 + 0.4*($input['varLd']/$input['varDf']));
+                $temp > 3 ? $temp = 3 : $temp = $temp;
+                $qb = ($input['varRcn'] * $Ks / $input['varGammaG']) * $temp;
+                $templateFile = 'file-tinh-toan/sample/08_TH3.docx';
+            }
+            
+            if ($input['loai_coc'] == 2) {
+                $templateFile = 'file-tinh-toan/sample/08_TH1.docx';
             }
 
-            $R_cu = $input['varGammaC'] * $q_b * 1000 * $input['varAb'];
+
+            if ($qb > 20) {
+                $qbFinal = 20;
+            } else {
+                $qbFinal = $qb;
+            }
+
+            $Rcu = $input['varGammaC'] * $qb * 1000 * $input['varAb'];
             
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
@@ -625,9 +638,11 @@ class TinhToanController extends \yii\web\Controller
                     'varGammaG' => $input['varGammaG'],
                     'varRcn' => $input['varRcn'],
                     'varRQD' => $input['varRQD'],
-                    'Ks' => $Ks,
-                    'q_b' => round($q_b, 2),
-                    'R_cu' => round($R_cu, 0)
+                    'varA' => $input['varA'],
+                    'Ks' => round($Ks, 2),
+                    'qb' => round($qb, 2),
+                    'qbFinal' => round($qbFinal, 2),
+                    'Rcu' => round($Rcu, 0)
                 ]
             );
 

@@ -28,15 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
             <li>Chiều dương của momen Mx(y) xoay quanh trục x (y), tương ứng với chiều dương của trục y (x);</li>
             <li>Nếu trường hợp tính toán có tải trọng đứng, ngang hoặc momen uốn ngược chiều với hình 1 thì số liệu nhập vào bảng tính sẽ là giá trị âm.</li>
         </ul>
-        <h3 style="font-size: 20px;">THÔNG SỐ ĐẦU VÀO</h3>
+        <h3 style="font-size: 20px;" class="text-center">THÔNG SỐ ĐẦU VÀO</h3>
         <table class="input-table">
             <tr>
                 <td><strong>Lực tác dụng lên móng</strong></td>
             </tr>
             <tr>
                 <td style="width: 420px">Lực đứng </td>
-                <td style="width: 57px"> N = </td>
-                <td>
+                <td style="width: 70px"> N = </td>
+                <td style="width: 200px">
                     <input required class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="260.0" step="0.01" name="varN" id="varN"> 
                 </td>
                 <td> kN </td>
