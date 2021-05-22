@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="width: 420px">Loại cọc </td>
                 <td style="width: 70px"> </td>
                 <td style="width: 200px">
-                    <select name="loai_coc" id="loai_coc" class="form-control" required="required">
+                    <select name="loai_coc" id="loai_coc" class="form-control" onchange="loaicoc_changed(this.value)" required="required">
                         <?php
                             foreach ($loaicoc_arr as $key => $value) {
                                 echo "<option value='$key'>$value</option>";
@@ -357,6 +357,17 @@ $this->params['breadcrumbs'][] = $this->title;
             $('#varD').prop('disabled', false);
         } else {
             $('#varD').prop('disabled', true);
+        }
+        auto_tinh();
+    }
+
+    function loaicoc_changed(value) {
+        if (value == 1) {
+            $('#varRcn').prop('disabled', false);
+            $('#varRQD').prop('disabled', false);
+        } else {
+            $('#varRcn').prop('disabled', true);
+            $('#varRQD').prop('disabled', true);
         }
         auto_tinh();
     }
