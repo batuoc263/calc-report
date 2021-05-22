@@ -606,7 +606,7 @@ class TinhToanController extends \yii\web\Controller
                 $qbFinal = $qb;
             }
 
-            $Rcu = $input['varGammaC'] * $qb * 1000 * $input['varAb'];
+            $Rcu = $input['varGammaC'] * $qbFinal * 1000 * $input['varAb'];
             
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
@@ -629,7 +629,7 @@ class TinhToanController extends \yii\web\Controller
                     'varAb' => $input['varAb'],
                     'varRsc' => $input['varRsc'],
                     'varRb' => $input['varRb'],
-                    'varGammaC' => $input['varGammaC'],
+                    'varGammaC' => 1,
                     'varPhi' => $input['varPhi'],
                     'varGammaCb' => $input['varGammaCb'],
                     'varGammaCbsub' => $input['varGammaCbsub'],
