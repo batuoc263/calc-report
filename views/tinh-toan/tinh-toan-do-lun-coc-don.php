@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Xác định sức chịu tải của cọc chống';
+$this->title = 'Tính toán độ lún cọc đơn';
 $this->params['breadcrumbs'][] = ['label' => 'Tính toán', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 

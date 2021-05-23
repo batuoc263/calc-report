@@ -755,9 +755,9 @@ class TinhToanController extends \yii\web\Controller
         ]);
     }
 
-    public function actionXacDinhDoLunCocDon()
+    public function actionTinhToanDoLunCocDon()
     {
-        $dmtt = DmTinhtoan::findOne(['duong_dan' => "/tinh-toan/xac-dinh-do-lun-coc-don"]);
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => "/tinh-toan/tinh-toan-do-lun-coc-don"]);
         $searchModel = new DmTinhtoanSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -865,7 +865,7 @@ class TinhToanController extends \yii\web\Controller
             }
             
             $timestamp = date('Ymd_His');
-            $filename = 'xac-dinh-do-lun-coc-don_'.$timestamp.'.docx';
+            $filename = 'tinh-toan-do-lun-coc-don_'.$timestamp.'.docx';
             $fileStorage = 'file-tinh-toan/output/'.$filename;
             $templateProcessor->saveAs($fileStorage);
 
@@ -874,7 +874,7 @@ class TinhToanController extends \yii\web\Controller
             echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
             return;
          }
-        return $this->render('xac-dinh-do-lun-coc-don', [
+        return $this->render('tinh-toan-do-lun-coc-don', [
             'coctreodon_arr' => $coctreodon_arr,
             'tietdiencoc_arr' => $tietdiencoc_arr,
             'dmtt' => $dmtt,
