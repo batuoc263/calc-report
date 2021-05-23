@@ -233,7 +233,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         $.ajax({
             method: "POST",
-            url: "/tinh-toan/xac-dinh-do-lun-coc-don",
+            url: "/tinh-toan/tinh-toan-do-lun-coc-don",
             data: data
         }).done(function(msg) {
             $(window).scrollTop(0); rs = JSON.parse(msg); 
