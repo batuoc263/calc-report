@@ -755,4 +755,132 @@ class TinhToanController extends \yii\web\Controller
         ]);
     }
 
+    public function actionXacDinhDoLunCocDon()
+    {
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => "/tinh-toan/xac-dinh-do-lun-coc-don"]);
+        $searchModel = new DmTinhtoanSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $coctreodon_arr = [
+            1 => 'Không mở rộng mũi',
+            2 => 'Có mở rộng mũi'
+        ];
+        $tietdiencoc_arr = [
+            1 => 'Tròn',
+            2 => 'Vuông',
+            3 => 'Ống'
+        ];
+
+        // Sample 15
+        if ($input = Yii::$app->request->post()) {
+            $dmtt->luot_giai++;
+            $dmtt->save();
+
+            if ($input['coc_treo_don'] == 1) {
+                //Cong thuc 7 -> 12
+                $v = ($input['varV1'] + $input['varV2']) / 2; //(7)
+                
+                $kv = 2.82 - 3.78*$v + 2.18*pow($v, 2); //(8)
+                $kv1 = 2.82 - 3.78 * $input['varV1'] + 2.18 * pow($input['varV1'], 2); //(10)
+
+                $G1 = $input['varE1'] / (2*(1 + $input['varV1'])); // (11)
+                $G2 = $input['varE2'] / (2*(1 + $input['varV2'])); // (12)
+                //CT 5 
+                $chi = ($input['varE'] * $input['varA']) / ($G1 * pow($input['varL'],2));
+                
+                //CT 6
+                $lamda1 = (2.12 * pow($chi, 3/4)) / (1 + 2.12 * pow($chi, 3/4));
+                
+                //CT 3 
+                $betasub = 0.17*log(($kv * $G1 *$input['varL']) / ($G2 * $input['varD']));
+                
+                //CT 4
+                $alphasub = 0.17*log($kv1*$input['varL']/$input['varD']);
+                
+                //CT 2
+                $beta = $betasub/$lamda1 + (1 - $betasub/$alphasub)/$chi;
+
+                //CT 1 
+                $s = $beta * $input['varN'] / ($G1 * $input['varL']);
+                $smm = $s / 1000;
+                $templateFile = 'file-tinh-toan\sample\15_TH1.docx';
+            } else {
+                // CT 2
+                $G2 = $input['varE2'] / (2 * (1 + $input['varV2']));
+                
+                //CT 1
+                $s  = ((0.22 * $input['varN']) / ($G2 * $input['varDb'])) + ($input['varN'] * $input['varL']) / ($input['varE'] * $input['varA']);
+                $smm = $s/1000;
+                $templateFile = 'file-tinh-toan\sample\15_TH2.docx';
+            }
+                        
+            \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
+            $phpWord = new \PhpOffice\PhpWord\PhpWord();
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\15.docx');
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
+            
+
+            $templateProcessor->setValues(
+                [
+                    "varN" => $input['varN'],
+                    "coc_treo_don" => $coctreodon_arr[$input['coc_treo_don']],
+                    "tiet_dien_coc" => $tietdiencoc_arr[$input['tiet_dien_coc']],
+                    "varD" => $input['varD'],
+                    "varDt" => $input['varDt'],
+                    "varDb" => $input['varDb'],
+                    "varL" => $input['varL'],
+                    "varE" => $input['varE'],
+                    "varE1" => $input['varE1'],
+                    "varE2" => $input['varE2'],
+                    "varV1" => $input['varV1'],
+                    "varV2" => $input['varV2'],
+                    "varA" => round($input['varA'], 3),
+                ]
+            );
+            if ($input['coc_treo_don'] == 1) {
+                $templateProcessor->setValues(
+                    [
+                        "v" => $v,
+                        "kv" => round($kv, 2),
+                        "kv1" => round($kv1, 2),
+                        "G1" => round($G1, 2),
+                        "G2" => round($G2, 2),
+                        "chi" => round($chi, 1),
+                        "lamda1" => round($lamda1, 3),
+                        "betasub" => round($betasub, 3),
+                        "alphasub" => round($alphasub, 3),
+                        "beta" => round($beta, 3),
+                        "s" => round($s, 4),
+                        "smm" => round($smm, 1),
+                    ]
+                );
+            } else {
+                $templateProcessor->setValues(
+                    [
+                        "G2" => round($G2, 2),
+                        "s" => round($s, 1),
+                        "smm" => round($smm, 1),
+                    ]
+                );
+            }
+            
+            $timestamp = date('Ymd_His');
+            $filename = 'xac-dinh-do-lun-coc-don_'.$timestamp.'.docx';
+            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $templateProcessor->saveAs($fileStorage);
+
+            $filePath = '/'.$fileStorage;
+
+            echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
+            return;
+         }
+        return $this->render('xac-dinh-do-lun-coc-don', [
+            'coctreodon_arr' => $coctreodon_arr,
+            'tietdiencoc_arr' => $tietdiencoc_arr,
+            'dmtt' => $dmtt,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
 }
