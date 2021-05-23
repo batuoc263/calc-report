@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>
                     <input class="form-control" required pattern="[0-9]*.[0-9]+" value="1.000" name="varN" id="varN">
                 </td>
-                <td> m </td>
+                <td> MN </td>
             </tr>
             <tr>
                 <td><strong>Đặc trưng cọc</strong></td>
@@ -106,7 +106,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>
                     <input class="form-control" required pattern="[0-9]*.[0-9]+" value="30000" name="varE" id="varE">
                 </td>
-                <td> MPA </td>
+                <td> MPa </td>
             </tr>
             <!-- ============ -->
             <tr>
@@ -118,7 +118,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>
                     <input class="form-control" required pattern="[0-9]*.[0-9]+" value="18.0" name="varE1" id="varE1">
                 </td>
-                <td> MPA </td>
+                <td> MPa </td>
             </tr>
             <tr>
                 <td>Môđun biến dạng của đất được lấy trong phạm vi bằng 0,5l, từ độ sâu l đến độ sâu 1,5l kể từ mũi cọc </td>
@@ -126,7 +126,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>
                     <input class="form-control" required pattern="[0-9]*.[0-9]+" value="22.0" name="varE2" id="varE2">
                 </td>
-                <td> MPA </td>
+                <td> MPa </td>
             </tr>
             <tr>
                 <td>Hệ số poisson của đất dọc thân cọc l </td>
