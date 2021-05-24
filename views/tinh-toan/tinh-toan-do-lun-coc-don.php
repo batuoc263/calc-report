@@ -88,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Đường kính mũi mở rộng (cho cọc mở rộng mũi) </td>
                 <td> d<sub>b</sub> = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" disabled value="0.8" name="varDb" id="varDb">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" disabled value="-" name="varDb" id="varDb">
                 </td>
                 <td> m </td>
             </tr>
@@ -250,18 +250,22 @@ $this->params['breadcrumbs'][] = $this->title;
     function tietdien_changed(value) {
         if (value == 3) {
             $('#varDt').prop('disabled', false);
+            $('#varDt').val('');
         } else {
             $('#varDt').prop('disabled', true);
+            $('#varDt').val('-');
         }
     }
 
     function coctreodon_changed(value) {
         if (value == 1) {
             $('#varDb').prop('disabled', true);
+            $('#varDb').val("-");
             $('#varE1').prop('disabled', false);
             $('#varV1').prop('disabled', false);
         } else {
             $('#varDb').prop('disabled', false);
+            $('#varDb').val("");
             $('#varE1').prop('disabled', true);
             $('#varV1').prop('disabled', true);
         }

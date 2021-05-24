@@ -802,7 +802,7 @@ class TinhToanController extends \yii\web\Controller
 
                 //CT 1 
                 $s = $beta * $input['varN'] / ($G1 * $input['varL']);
-                $smm = $s / 1000;
+                $smm = $s * 1000;
                 $templateFile = 'file-tinh-toan/sample/15_TH1.docx';
             } else {
                 // CT 2
@@ -810,7 +810,7 @@ class TinhToanController extends \yii\web\Controller
                 
                 //CT 1
                 $s  = ((0.22 * $input['varN']) / ($G2 * $input['varDb'])) + ($input['varN'] * $input['varL']) / ($input['varE'] * $input['varA']);
-                $smm = $s/1000;
+                $smm = $s*1000;
                 $templateFile = 'file-tinh-toan/sample/15_TH2.docx';
             }
                         
