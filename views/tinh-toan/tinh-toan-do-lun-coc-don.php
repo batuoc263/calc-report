@@ -263,11 +263,15 @@ $this->params['breadcrumbs'][] = $this->title;
             $('#varDb').val("-");
             $('#varE1').prop('disabled', false);
             $('#varV1').prop('disabled', false);
+            $('#varE1').val('18.0');
+            $('#varV1').val('0.35');
         } else {
             $('#varDb').prop('disabled', false);
-            $('#varDb').val("");
+            $('#varDb').val("0.80");
             $('#varE1').prop('disabled', true);
             $('#varV1').prop('disabled', true);
+            $('#varE1').val('-');
+            $('#varV1').val('-');
         }
     }
 

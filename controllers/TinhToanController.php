@@ -858,7 +858,7 @@ class TinhToanController extends \yii\web\Controller
                 $templateProcessor->setValues(
                     [
                         "G2" => round($G2, 2),
-                        "s" => round($s, 1),
+                        "s" => round($s, 4),
                         "smm" => round($smm, 1),
                     ]
                 );
