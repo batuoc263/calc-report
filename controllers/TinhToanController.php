@@ -883,4 +883,132 @@ class TinhToanController extends \yii\web\Controller
         ]);
     }
 
+    public function actionXacDinhSucChiuTaiCocTheoDoChoiSa()
+    {
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => "/tinh-toan/xac-dinh-suc-chiu-tai-coc-theo-do-choi-sa"]);
+        $searchModel = new DmTinhtoanSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $loaibua_arr = [
+            1 => "Búa treo hay búa tác dụng đơn",
+            2 => "Búa diezen dạng ống",
+            3 => "Búa diezen dạng cân",
+            4 => "Búa diezen khi đóng vỗ kiểm tra cho quả búa rơi tự do không tiếp liệu"
+        ];
+        $tietdiencoc_arr = [
+            2 => 'Vuông',
+            1 => 'Tròn',
+            3 => 'Ống'
+        ];
+
+        // Sample 13_14
+        if ($input = Yii::$app->request->post()) {
+            $dmtt->luot_giai++;
+            $dmtt->save();
+
+            $h_kytu = '';
+            $h_p1 = '';
+            $h_p2 = '';
+            switch ($input['loaibua']) {
+                case '1':
+                    $Ed = $input['varG']*$input['varH'];
+                    $ct_Ed = "G × H = ".$input['varG']." × ".$input['varH'];
+                    break;
+                case '2':
+                    $Ed = 0.9*$input['varG']*$input['varH'];
+                    $ct_Ed = "0.9 × G × H = 0.9 × ".$input['varG']." × ".$input['varH'];
+                    break;
+                case '3':
+                    $Ed = 0.4*$input['varG']*$input['varH'];
+                    $ct_Ed = "0.4 × G × H = 0.4 × ".$input['varG']." × ".$input['varH'];
+                    break;
+                case '4':
+                    $Ed = $input['varG']*($input['varH'] - $input['varh']);
+                    $ct_Ed = "G × (H - h) = ".$input['varG']." × (".$input['varH']." - ".$input['varH'].")";
+                    $h_kytu = 'h';
+                    $h_p1 = '- chiều cao bật lần thứ nhất của quả búa diezen,';
+                    $h_p2 = '= 0 m.';
+                    break;
+            }
+            
+            if ($input['varSa'] < 0.002) {
+                $np = 0.00025;
+                $nf = 0.025;
+                
+                $g = 9.81; //gia tốc trọng trường
+                $theta = 1/4 * ($np/$input['varA'] + $nf/$input['varAf']) * $input['varm4']/($input['varm4'] + $input['varm2']) * sqrt(2*$g * ($input['varH'] - $input['varh']));
+                
+
+                $Rcu = 1/(2*$theta) * ((2*$input['varSa'] + $input['varSel'])/($input['varSa'] + $input['varSel'])) * (sqrt(1 + (8*$Ed*($input['varSa'] + $input['varSel']))/pow((2*$input['varSa'] + $input['varSel']), 2) * $input['varm4']/($input['varm4'] + $input['varm2']) *$theta) - 1);
+                $Rcu = round($Rcu, 1);
+
+                $templateFile = 'file-tinh-toan/sample/13_14_TH1.docx';
+            } else {
+                $Rcu = $input['varEta']*$input['varA']*$input['varM']/2*( sqrt(1+4*$Ed/($input['varEta']*$input['varA']*$input['varSa']) * ($input['varm1'] + $input['varEpsilon_sqr']*($input['varm2'] + $input['varm3']) )/( $input['varm1'] + $input['varm2'] + $input['varm3'] ) ) -1 );
+                
+                $Rcu = round($Rcu, 1);
+                
+                $templateFile = 'file-tinh-toan/sample/13_14_TH2.docx';
+            }
+                        
+            \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
+            $phpWord = new \PhpOffice\PhpWord\PhpWord();
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
+            
+            $templateProcessor->setValues(
+                [
+                    "tiet_dien_coc" => $tietdiencoc_arr[$input['tiet_dien_coc']],
+                    "loaibua" => $loaibua_arr[$input["loaibua"]],
+                    "varSa" => $input["varSa"],
+                    "varSel" => $input["varSel"],
+                    "varAD" => $input["varAD"],
+                    "varD" => $input["varD"],
+                    "varA" => $input["varA"],
+                    "varAf" => $input["varAf"],
+                    "varEta" => $input["varEta"],
+                    "varM" => $input["varM"],
+                    "varG" => $input["varG"],
+                    "varH" => $input["varH"],
+                    "varh" => $input["varh"],
+                    "varm1" => $input["varm1"],
+                    "varm2" => $input["varm2"],
+                    "varm3" => $input["varm3"],
+                    "varm4" => $input["varm4"],
+                    "varEpsilon_sqr" => $input["varEpsilon_sqr"],
+                    "Rcu" => $Rcu,
+                    "Ed" => $Ed,
+                    "ct_Ed" => $ct_Ed,
+                    "h_kytu" => $h_kytu,
+                    "h_p1" => $h_p1,
+                    "h_p2" => $h_p2
+                ]
+            );
+            if ($input['varSa'] < 0.002) {
+                $templateProcessor->setValues(
+                    [
+                        "theta" => round($theta, 5),
+                        "np" => $np,
+                        "nf" => $nf,
+                    ]
+                );
+            }
+            
+            $timestamp = date('Ymd_His');
+            $filename = 'xac-dinh-suc-chiu-tai-coc-theo-do-choi-sa_'.$timestamp.'.docx';
+            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $templateProcessor->saveAs($fileStorage);
+
+            $filePath = '/'.$fileStorage;
+
+            echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
+            return;
+         }
+        return $this->render('xac-dinh-suc-chiu-tai-coc-theo-do-choi-sa', [
+            'loaibua_arr' => $loaibua_arr,
+            'tietdiencoc_arr' => $tietdiencoc_arr,
+            'dmtt' => $dmtt,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 }
