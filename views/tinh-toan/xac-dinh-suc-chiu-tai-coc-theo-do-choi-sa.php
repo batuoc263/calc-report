@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Xác định sức chịu tải của cọc theo số liệu thử động cọc búa đóng với độ chối dư thực tế';
+$this->title = 'Xác định sức chịu tải của cọc theo số liệu thử động cọc bằng búa đóng với độ chối dư thực tế';
 $this->params['breadcrumbs'][] = ['label' => 'Tính toán', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="width: 420px">Độ chối dư thực tế, lấy bằng chuyển vị của cọc do một nhát búa đập hoặc sau một phút rung </td>
                 <td style="width: 70px"> S<sub>a</sub>= </td>
                 <td style="width: 200px">
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="0.0018" step="0.01" name="varSa" id="varSa">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="0.0018" name="varSa" id="varSa">
                 </td>
                 <td> m </td>
             </tr>
@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Độ chối đàn hồi của cọc (chuyển vị đàn hồi của đất và của cọc) xác định bằng máy đo chuyển vị </td>
                 <td> S<sub>el</sub> = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="0.0006" step="0.01" name="varSel" id="varSel">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="0.0006" name="varSel" id="varSel">
                 </td>
                 <td> m </td>
             </tr>
@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Cạnh cọc vuông (hoặc đường kính ngoài của cọc tròn, ống) </td>
                 <td> a(D) = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="0.30" step="0.01" name="varAD" id="varAD">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="0.30" name="varAD" id="varAD">
                 </td>
                 <td> m </td>
             </tr>
@@ -70,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Đường kính trong của cọc (cho cọc ống) </td>
                 <td> d = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" disabled value="-" step="0.01" name="varD" id="varD">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" disabled value="-" name="varD" id="varD">
                 </td>
                 <td> m </td>
             </tr>
@@ -78,7 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Diện tích tiết diện ngang thân cọc (không tính tại mũi cọc) </td>
                 <td> A = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" disabled value="" step="0.01" name="varA" id="varA">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" disabled value="" name="varA" id="varA">
                 </td>
                 <td> m<sup>2</sup> </td>
             </tr>
@@ -86,7 +86,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Diện tích tiếp xúc giữa thân cọc với đất </td>
                 <td> A<sub>f</sub> = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="10.00" step="0.01" name="varAf" id="varAf" data-toggle="tooltip" data-html="true" data-container="body" title="<p>π*D*L nếu cọc tròn, cọc ống</p><p>4*a*L nếu cọc vuông</p>">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="10.00" name="varAf" id="varAf" data-toggle="tooltip" data-html="true" data-container="body" title="<p>π*D*L nếu cọc tròn, cọc ống</p><p>4*a*L nếu cọc vuông</p>">
                 </td>
                 <td> m<sup>2</sup> </td>
             </tr>
@@ -94,15 +94,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Hệ số phụ thuộc vào vật liệu làm cọc </td>
                 <td> &eta; = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="1500" step="0.01" name="varEta" id="varEta" data-toggle="tooltip" data-html="true" data-container="body" title="<p>Cọc BTCT: 1500</p><p>Cọc gỗ: 1000</p>">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="1500" name="varEta" id="varEta" data-toggle="tooltip" data-html="true" data-container="body" title="<p>Cọc BTCT: 1500</p><p>Cọc gỗ: 1000</p>">
                 </td>
                 <td> - </td>
             </tr>
             <tr class="sa_lon">
-                <td>Hệ số phụ thuộc vào đất dưới mũi cọc (búa đóng lấy bằng 1, búa rung thì tra bảng 11) </td>
+                <td>Hệ số phụ thuộc vào đất dưới mũi cọc (búa đóng lấy bằng 1)</td>
                 <td> M = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="1.0" step="0.01" name="varM" id="varM" data-toggle="tooltip" data-html="true" data-container="body" title="<p>Nếu là búa rung (trong ngoặc là dành cho cát chặt)</p><p>1.3 - Hòn vụn thô lẫn cát;</p><p>1.2(1.92) - Cát hạt vừa và cát to chặt vừa và cát pha cứng;</p><p>1.1(1.76) - Cát hạt nhỏ chặt vừa;</p><p>1.0(1.6) - Cát bụi chặt vừa;</p><p>0.9 - Cát pha dẻo, sét pha và sét cứng;</p><p>0.8 - Sét pha và sét pha nửa cứng;">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="1.0" name="varM" id="varM">
                 </td>
                 <td> - </td>
             </tr>
@@ -127,7 +127,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Trọng lượng quả búa </td>
                 <td> G = </td>
                 <td>
-                    <input class="form-control" required onblur="auto_tinh()" pattern="[0-9]*.[0-9]+" value="30.00" step="0.01" name="varG" id="varG">
+                    <input class="form-control" required onblur="auto_tinh()" pattern="[0-9]*.[0-9]+" value="30.00" name="varG" id="varG">
                 </td>
                 <td> kN </td>
             </tr>
@@ -135,7 +135,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Chiều cao rơi thực tế của quả búa </td>
                 <td> H = </td>
                 <td>
-                    <input class="form-control" required onblur="auto_tinh()" pattern="[0-9]*.[0-9]+" value="1.8" step="0.01" name="varH" id="varH">
+                    <input class="form-control" required onblur="auto_tinh()" pattern="[0-9]*.[0-9]+" value="1.80" name="varH" id="varH">
                 </td>
                 <td> m </td>
             </tr>
@@ -143,7 +143,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Chiều cao bật lần thứ nhất của quả búa diezen (búa khác h = 0 m) </td>
                 <td> h = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01" name="varh" id="varh" data-toggle="tooltip" data-html="true" data-container="body" title="<p>Búa dạng cân: 0.6m</p><p>Búa dạng ống: 0.4m</p><p>Búa dạng khác: 0.0m</p>">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="0.00" name="varh" id="varh" data-toggle="tooltip" data-html="true" data-container="body" title="<p>Búa dạng cân: 0.6m</p><p>Búa dạng ống: 0.4m</p><p>Búa dạng khác: 0.0m</p>">
                 </td>
                 <td> m </td>
             </tr>
@@ -151,7 +151,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Khối lượng của búa máy hay búa rung </td>
                 <td> m<sub>1</sub> = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="5.0" step="0.01" name="varm1" id="varm1">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="5.00" name="varm1" id="varm1">
                 </td>
                 <td> tấn </td>
             </tr>
@@ -159,7 +159,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Khối lượng của cọc và đệm đầu cọc </td>
                 <td> m<sub>2</sub> = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="2.70" step="0.01" name="varm2" id="varm2">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="2.70" name="varm2" id="varm2">
                 </td>
                 <td> tấn </td>
             </tr>
@@ -167,7 +167,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Trọng lượng cọc dẫn (khi dùng búa rung m = 0) </td>
                 <td> m<sub>3</sub> = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01" name="varm3" id="varm3">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="0.00" name="varm3" id="varm3">
                 </td>
                 <td> tấn </td>
             </tr>
@@ -175,15 +175,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Khối lượng quả búa </td>
                 <td> m<sub>4</sub> = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="3.0" step="0.01" disabled name="varm4" id="varm4">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="3.00" disabled name="varm4" id="varm4">
                 </td>
                 <td> tấn </td>
             </tr>
             <tr class="sa_lon">
                 <td>Hệ số phục hồi xung kích </td>
-                <td> &epsilon;<sub>2</sub> = </td>
+                <td> &epsilon;<sup>2</sup> = </td>
                 <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="0.20" step="0.01" name="varEpsilon_sqr" id="varEpsilon_sqr" data-toggle="tooltip" data-html="true" data-container="body" title="<p>Cọc BTCT có dùng đệm đầu cọc bằng gỗ: 0,2</p>">
+                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="0.20" name="varEpsilon_sqr" id="varEpsilon_sqr" data-toggle="tooltip" data-html="true" data-container="body" title="<p>Cọc BTCT có dùng đệm đầu cọc bằng gỗ: 0,2</p>">
                 </td>
                 <td> - </td>
             </tr>
@@ -280,6 +280,7 @@ $this->params['breadcrumbs'][] = $this->title;
         if (value == 3) {
             $('#varD').prop('disabled', false);
         } else {
+            $('#varD').val("-");
             $('#varD').prop('disabled', true);
         }
         auto_tinh();
@@ -335,6 +336,9 @@ $this->params['breadcrumbs'][] = $this->title;
             trigger: 'focus hover'
         });
         $('#varh').popover({
+            trigger: 'focus hover'
+        });
+        $('#varEpsilon_sqr').popover({
             trigger: 'focus hover'
         });
         auto_tinh();

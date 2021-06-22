@@ -924,10 +924,10 @@ class TinhToanController extends \yii\web\Controller
                     break;
                 case '4':
                     $Ed = $input['varG']*($input['varH'] - $input['varh']);
-                    $ct_Ed = "G × (H - h) = ".$input['varG']." × (".$input['varH']." - ".$input['varH'].")";
+                    $ct_Ed = "G × (H - h) = ".$input['varG']." × (".$input['varH']." - ".$input['varh'].")";
                     $h_kytu = 'h';
                     $h_p1 = '- chiều cao bật lần thứ nhất của quả búa diezen,';
-                    $h_p2 = '= 0 m.';
+                    $h_p2 = '= '.$input['varh'].' m.';
                     break;
             }
             
