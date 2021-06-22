@@ -50,9 +50,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Tiết diện cọc </td>
                 <td>  </td>
                 <td>
-                    <select id="check-tang-ham" class="form-control" name="check-tang-ham">
-                        <option value="yes">&#10003;</option>
-                        <option value="no">&#10005;</option>
+                    <select id="check-tiet-dien" class="form-control" name="check-tiet-dien">
+                        <option value="vuong">Vuông</option>
+                        <option value="tron">Tròn</option>
+                        <option value="ong">Ống</option>
                     </select>
                 </td>
                 <td>  </td>
@@ -85,7 +86,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Mô đun đàn hồi của vật liệu cọc </td>
                 <td> E = </td>
                 <td>
-                    <input required class="form-control"  value="20.0"  name="varL" id="varL"> 
+                    <input required class="form-control" type="text" value="3*10^7"  name="varL" id="varL"> 
                 </td>
                 <td> kPa </td>
             </tr>
@@ -98,10 +99,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td> m </td>
             </tr>
         </table>
-        <div class="text-center" style="margin-top: 10px">
-            <img src="/images/02/day-mong-tron.png" alt="Hình 1. Quy ước hướng của tải trọng tác dụng và kích thước hình học móng" width="500px">
-        </div>
-        <p class="text-center"><i>Hình 1. Quy ước hướng của tải trọng tác dụng và kích thước hình học móng</i></p>
+        
 
         <div class="checkbox">
                 <label>
