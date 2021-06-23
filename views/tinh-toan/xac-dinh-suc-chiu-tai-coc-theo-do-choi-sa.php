@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td><strong>Đặc trưng cọc</strong></td>
             </tr>
             <tr>
-                <td style="width: 420px">Độ chối dư thực tế, lấy bằng chuyển vị của cọc do một nhát búa đập hoặc sau một phút rung </td>
+                <td style="width: 420px">Độ chối dư thực tế, lấy bằng chuyển vị của cọc do một nhát búa đập</td>
                 <td style="width: 70px"> S<sub>a</sub>= </td>
                 <td style="width: 200px">
                     <input class="form-control" required pattern="[0-9]*.[0-9]+" onblur="auto_tinh()" value="0.0018" name="varSa" id="varSa">
@@ -148,7 +148,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td> m </td>
             </tr>
             <tr class="sa_lon">
-                <td>Khối lượng của búa máy hay búa rung </td>
+                <td>Khối lượng của búa máy </td>
                 <td> m<sub>1</sub> = </td>
                 <td>
                     <input class="form-control" required pattern="[0-9]*.[0-9]+" value="5.00" name="varm1" id="varm1">
@@ -164,7 +164,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td> tấn </td>
             </tr>
             <tr class="sa_lon">
-                <td>Trọng lượng cọc dẫn (khi dùng búa rung m = 0) </td>
+                <td>Trọng lượng cọc dẫn </td>
                 <td> m<sub>3</sub> = </td>
                 <td>
                     <input class="form-control" required pattern="[0-9]*.[0-9]+" value="0.00" name="varm3" id="varm3">
