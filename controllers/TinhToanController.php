@@ -883,4 +883,54 @@ class TinhToanController extends \yii\web\Controller
         ]);
     }
 
+
+    public function actionKiemTraUngSuatTaiMaiCuaLopDatYeu()
+    {
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => "/tinh-toan/kiem-tra-ung-suat-tai-mai-cua-lop-dat-yeu"]);
+        $searchModel = new DmTinhtoanSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        
+
+        // Sample 15
+        if ($input = Yii::$app->request->post()) {
+            $dmtt->luot_giai++;
+            $dmtt->save();
+
+            $varNII = $input['varNII'];
+            $varPhiII = $input['varPhiII'];
+            $varCII = $input['varCII'];
+            $varGammaII = $input['varGammaII'];
+            $varGammaIIPhay = $input['varGammaIIPhay'];
+            $varGammaII2Phay = $input['varGammaII2Phay'];
+            $varB = $input['varB'];
+            $varL = $input['varL'];
+            $varH = $input['varH'];
+            $varZ = $input['varZ'];
+            $varM1 = $input['varM1'];
+            $varM2 = $input['varM2'];
+            $varKtc = $input['varKtc'];
+            $varM2 = $input['varM2'];
+            $check_tang_ham = $input['check_tang_ham'];
+
+            $Rz = 
+            $a = 
+           
+            
+            $timestamp = date('Ymd_His');
+            $filename = 'tinh-toan-do-lun-coc-don_'.$timestamp.'.docx';
+            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $templateProcessor->saveAs($fileStorage);
+
+            $filePath = '/'.$fileStorage;
+
+            echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
+            return;
+         }
+        return $this->render('kiem-tra-ung-suat-tai-mai-cua-lop-dat-yeu', [
+            'dmtt' => $dmtt,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 }
