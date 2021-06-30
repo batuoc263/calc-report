@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 
-$this->title = 'KIỂM TRA ỨNG SUẤT TẠI MÁI CỦA LỚP ĐẤT YẾU NẰM DƯỚI ĐÁY MÓNG';
+$this->title = 'Kiểm tra ứng suất tại mái của lớp đất yếu nằm dưới đáy móng';
 $this->params['breadcrumbs'][] = ['label' => 'Tính toán', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
