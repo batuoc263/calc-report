@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="width: 420px">Tải trọng tác dụng lên móng </td>
                 <td style="width: 70px"> N <sub> II </sub> = </td>
                 <td style="width: 200px">
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="20000" step="1" name="varNII" id="varNII"> 
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="2000" step="1" name="varNII" id="varNII"> 
                 </td>
                 <td> kN </td>
             </tr>
@@ -223,7 +223,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <script>
     $(document).ready(function() {
-        $("#check-day-noi").change(function() { showItem("#check-day-noi", ".check-day-noi-item"); });
         $("#check-tang-ham").change(function() { showItem("#check-tang-ham", ".check-tang-ham-item"); });
     });
 
