@@ -1061,8 +1061,8 @@ class TinhToanController extends \yii\web\Controller
             $p = round($varNII / ($varL*$varB), 2 );
             $pd = round($varGammaIIPhay * $varH, 2);
             $po = $p - $pd;
-            $m = round(2*$varZ/$varB);
-            $n = round($varL/$varB);
+            $m = round(2*$varZ/$varB, 2);
+            $n = round($varL/$varB, 2);
             $pdz = round($pd + $varGammaII2Phay*$varZ, 2 );
             $poz = round($anpha * $po, 2 );
             $sumb = $pdz+$poz;
@@ -1079,16 +1079,18 @@ class TinhToanController extends \yii\web\Controller
             }
             
 
-             $gammaIItb =  ($varGammaIIPhay*$varH + $varGammaII2Phay*$varZ) / ($varH + $varZ) ;
+             $gammaIItb = round( ($varGammaIIPhay*$varH + $varGammaII2Phay*$varZ) / ($varH + $varZ), 2 );
 
              $R = round((($varM1 * $varM2) / $varKtc) * ($A * $bz * $varGammaII + $B * ($varH + $varZ) * $gammaIItb  + $D * $varCII - $varGammaII * $h0), 2);
 
             if ($sumb > $R) {
-                $kl ="Điều kiện kiểm tra không thõa mãn:";
+                $kl ="Điều kiện kiểm tra không thỏa mãn: ";
+                $dau = ">";
             } else {
-                $kl ="Điều kiện kiểm tra thõa mãn:";
+                $kl ="Điều kiện kiểm tra thỏa mãn: ";
+                $dau = "≤";
             }
-
+            
              \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
              $phpWord = new \PhpOffice\PhpWord\PhpWord();
              // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\15.docx');
@@ -1132,7 +1134,8 @@ class TinhToanController extends \yii\web\Controller
                     "D" => $D,
                     "htd" => $htd,
                     "gammatc" => $gammatc,
-                    "kl" => $kl
+                    "kl" => $kl,
+                    "dau" => $dau
                      
                  ]
              );
