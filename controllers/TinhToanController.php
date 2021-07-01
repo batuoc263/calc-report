@@ -1043,7 +1043,8 @@ class TinhToanController extends \yii\web\Controller
 
             $gammatc = 25;
             $anpha = (2/PI())  *(atan(($varB*$varL)/ (2*$varZ*sqrt(pow($varB, 2) + pow($varL, 2) + 4*pow($varZ, 2))))    +  (  (2*$varB*$varL*$varZ*(  pow($varB, 2) + pow($varL, 2) + 8*pow($varZ, 2) ))   /   (  (pow($varB, 2) + 4*pow($varZ, 2)) * ( pow($varL, 2) + 4*pow($varZ, 2)) * sqrt(pow($varB, 2) + pow($varL, 2) + 4*pow($varZ, 2))  )        )             );
-            $anpha = round ($anpha, 2);
+            
+            
             $phi = deg2rad($varPhiII);
             $cotangPhi =  1 / tan($phi);
 
@@ -1090,7 +1091,7 @@ class TinhToanController extends \yii\web\Controller
                 $kl ="Điều kiện kiểm tra thỏa mãn: ";
                 $dau = "≤";
             }
-            
+            $anpha = round ($anpha, 4);
              \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
              $phpWord = new \PhpOffice\PhpWord\PhpWord();
              // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\15.docx');

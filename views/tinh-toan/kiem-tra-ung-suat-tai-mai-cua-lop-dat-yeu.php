@@ -159,7 +159,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Hệ số điều kiện làm việc của công trình tương tác với nền </td>
                 <td> m<sub>2</sub> = </td>
                 <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1" step="0.01" name="varM2" id="varM2"> 
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1.0" step="0.01" name="varM2" id="varM2"> 
                 </td>
                 <td> - </td>
             </tr>
@@ -167,7 +167,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Hệ số tin cậy </td>
                 <td> k<sub>tc</sub> = </td>
                 <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1" step="0.01" name="varKtc" id="varKtc"> 
+                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1.0" step="0.01" name="varKtc" id="varKtc"> 
                 </td>
                 <td> - </td>
             </tr>
@@ -279,7 +279,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 varKtc: varKtc,
                 check_tang_ham: check_tang_ham
             };
-
+        console.log(data);
         $.ajax({
             method: "POST",
             url: "/tinh-toan/kiem-tra-ung-suat-tai-mai-cua-lop-dat-yeu",
