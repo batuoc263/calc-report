@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>
                     <input required class="form-control" pattern="[0-9]*.[0-9]+" value="20" step="0.1" name="varPhiII" id="varPhiII"> 
                 </td>
-                <td> o</td>
+                <td> <sup>o</sup></td>
             </tr>
             <tr>
                 <td>Lực dính của đất yếu </td>
@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </tr>
             <tr>
                 <td>Khối lượng thể tích của đất dưới đáy móng nhưng trên lớp đất yếu</td>
-                <td> &gamma;<sub> II </sub> = </td>
+                <td> &gamma;"<sub> II </sub> = </td>
                 <td>
                     <input required class="form-control" pattern="[0-9]*.[0-9]+" value="19.0" step="0.1" name="varGammaII2Phay" id="varGammaII2Phay"> 
                 </td>
