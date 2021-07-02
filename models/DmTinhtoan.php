@@ -11,6 +11,9 @@ use Yii;
  * @property string|null $ten_bai_toan
  * @property string|null $duong_dan
  * @property int|null $luot_giai
+ * @property int|null $nhom_id
+ *
+ * @property DmNhomBai $nhom
  */
 class DmTinhtoan extends \yii\db\ActiveRecord
 {
@@ -28,8 +31,9 @@ class DmTinhtoan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['luot_giai'], 'integer'],
+            [['luot_giai', 'nhom_id'], 'integer'],
             [['ten_bai_toan', 'duong_dan'], 'string', 'max' => 1000],
+            [['nhom_id'], 'exist', 'skipOnError' => true, 'targetClass' => DmNhomBai::className(), 'targetAttribute' => ['nhom_id' => 'id']],
         ];
     }
 
@@ -43,6 +47,17 @@ class DmTinhtoan extends \yii\db\ActiveRecord
             'ten_bai_toan' => 'Tên bài toán',
             'duong_dan' => 'Đường dẫn',
             'luot_giai' => 'Lượt giải',
+            'nhom_id' => 'Nhóm bài tập',
         ];
+    }
+
+    /**
+     * Gets query for [[Nhom]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getNhom()
+    {
+        return $this->hasOne(DmNhomBai::className(), ['id' => 'nhom_id']);
     }
 }
