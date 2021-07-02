@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\DmNhomBai;
 use app\models\DmTinhtoan;
 use app\models\DmTinhtoanSearch;
 use Yii;
@@ -10,11 +11,12 @@ class TinhToanController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-        $searchModel = new DmTinhtoanSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $menu = DmNhomBai::find()->asArray()->all();
+        foreach ($menu as $key => $value) {
+            $menu[$key]['children'] = DmTinhtoan::find()->where(['nhom_id' => $value['id']])->asArray()->all();
+        }
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'menu' => $menu,
         ]);
     }
 
@@ -28,8 +30,10 @@ class TinhToanController extends \yii\web\Controller
     public function actionXacDinhApLucDuoiDayMongHinhChuNhat()
     {
         $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat']);
-        $searchModel = new DmTinhtoanSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $menu = DmNhomBai::find()->asArray()->all();
+        foreach ($menu as $key => $value) {
+            $menu[$key]['children'] = DmTinhtoan::find()->where(['nhom_id' => $value['id']])->asArray()->all();
+        }
         $filePath = '';
 
         // Sample 01 
@@ -146,16 +150,17 @@ class TinhToanController extends \yii\web\Controller
         return $this->render('xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat', [
             'dmtt' => $dmtt,
             'filePath' => $filePath,
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'menu' => $menu,
         ]);
     }
 
     public function actionXacDinhApLucDuoiDayMongTron()
     {
         $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/xac-dinh-ap-luc-duoi-day-mong-tron']);
-        $searchModel = new DmTinhtoanSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $menu = DmNhomBai::find()->asArray()->all();
+        foreach ($menu as $key => $value) {
+            $menu[$key]['children'] = DmTinhtoan::find()->where(['nhom_id' => $value['id']])->asArray()->all();
+        }
 
         // Sample 01 
         if ($input = Yii::$app->request->post()) {
@@ -243,16 +248,17 @@ class TinhToanController extends \yii\web\Controller
         }
         return $this->render('xac-dinh-ap-luc-duoi-day-mong-tron', [
             'dmtt' => $dmtt,
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'menu' => $menu,
         ]);
     }
 
     public function actionXacDinhApLucTinhToanTacDungLenNen()
     {
         $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/xac-dinh-ap-luc-tinh-toan-tac-dung-len-nen']);
-        $searchModel = new DmTinhtoanSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $menu = DmNhomBai::find()->asArray()->all();
+        foreach ($menu as $key => $value) {
+            $menu[$key]['children'] = DmTinhtoan::find()->where(['nhom_id' => $value['id']])->asArray()->all();
+        }
 
         // Sample 01 
         if ($input = Yii::$app->request->post()) {
@@ -350,8 +356,7 @@ class TinhToanController extends \yii\web\Controller
         }
         return $this->render('xac-dinh-ap-luc-tinh-toan-tac-dung-len-nen', [
             'dmtt' => $dmtt,
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'menu' => $menu,
         ]);
     }
 
@@ -359,8 +364,10 @@ class TinhToanController extends \yii\web\Controller
     public function actionXacDinhSucChiuTaiCocChong()
     {
         $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/xac-dinh-suc-chiu-tai-coc-chong']);
-        $searchModel = new DmTinhtoanSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $menu = DmNhomBai::find()->asArray()->all();
+        foreach ($menu as $key => $value) {
+            $menu[$key]['children'] = DmTinhtoan::find()->where(['nhom_id' => $value['id']])->asArray()->all();
+        }
 
         $capdoben = [
             'B10' => [
@@ -665,16 +672,17 @@ class TinhToanController extends \yii\web\Controller
             'cap_do_ben_json' => json_encode($capdoben),
             'loai_thep_arr' => $loaithep,
             'loai_thep_json' => json_encode($loaithep),
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'menu' => $menu,
         ]);
     }
 
     public function actionXacDinhTaiTrongTacDungLenDauCoc()
     {
         $dmtt = DmTinhtoan::findOne(['duong_dan' => "/tinh-toan/xac-dinh-tai-trong-tac-dung-len-dau-coc"]);
-        $searchModel = new DmTinhtoanSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $menu = DmNhomBai::find()->asArray()->all();
+        foreach ($menu as $key => $value) {
+            $menu[$key]['children'] = DmTinhtoan::find()->where(['nhom_id' => $value['id']])->asArray()->all();
+        }
 
         // Sample 01 
         if ($input = Yii::$app->request->post()) {
@@ -750,16 +758,17 @@ class TinhToanController extends \yii\web\Controller
          }
         return $this->render('xac-dinh-tai-trong-tac-dung-len-dau-coc', [
             'dmtt' => $dmtt,
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'menu' => $menu,
         ]);
     }
 
     public function actionTinhToanDoLunCocDon()
     {
         $dmtt = DmTinhtoan::findOne(['duong_dan' => "/tinh-toan/tinh-toan-do-lun-coc-don"]);
-        $searchModel = new DmTinhtoanSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $menu = DmNhomBai::find()->asArray()->all();
+        foreach ($menu as $key => $value) {
+            $menu[$key]['children'] = DmTinhtoan::find()->where(['nhom_id' => $value['id']])->asArray()->all();
+        }
 
         $coctreodon_arr = [
             1 => 'Không mở rộng mũi',
@@ -878,16 +887,17 @@ class TinhToanController extends \yii\web\Controller
             'coctreodon_arr' => $coctreodon_arr,
             'tietdiencoc_arr' => $tietdiencoc_arr,
             'dmtt' => $dmtt,
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'menu' => $menu,
         ]);
     }
 
     public function actionXacDinhSucChiuTaiCocTheoDoChoiSa()
     {
         $dmtt = DmTinhtoan::findOne(['duong_dan' => "/tinh-toan/xac-dinh-suc-chiu-tai-coc-theo-do-choi-sa"]);
-        $searchModel = new DmTinhtoanSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $menu = DmNhomBai::find()->asArray()->all();
+        foreach ($menu as $key => $value) {
+            $menu[$key]['children'] = DmTinhtoan::find()->where(['nhom_id' => $value['id']])->asArray()->all();
+        }
 
         $loaibua_arr = [
             1 => "Búa treo hay búa tác dụng đơn",
@@ -1007,16 +1017,17 @@ class TinhToanController extends \yii\web\Controller
             'loaibua_arr' => $loaibua_arr,
             'tietdiencoc_arr' => $tietdiencoc_arr,
             'dmtt' => $dmtt,
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'menu' => $menu,
         ]);
     }
 
     public function actionKiemTraUngSuatTaiMaiCuaLopDatYeu()
     {
         $dmtt = DmTinhtoan::findOne(['duong_dan' => "/tinh-toan/kiem-tra-ung-suat-tai-mai-cua-lop-dat-yeu"]);
-        $searchModel = new DmTinhtoanSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $menu = DmNhomBai::find()->asArray()->all();
+        foreach ($menu as $key => $value) {
+            $menu[$key]['children'] = DmTinhtoan::find()->where(['nhom_id' => $value['id']])->asArray()->all();
+        }
 
 
         if ($input = Yii::$app->request->post()) {
@@ -1151,8 +1162,7 @@ class TinhToanController extends \yii\web\Controller
          }
         return $this->render('kiem-tra-ung-suat-tai-mai-cua-lop-dat-yeu', [
             'dmtt' => $dmtt,
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'menu' => $menu,
         ]);
     }
 }

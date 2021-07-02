@@ -29,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'ten_bai_toan',
             'duong_dan',
             'luot_giai',
+            'nhom.ten',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
