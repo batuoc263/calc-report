@@ -302,10 +302,10 @@ class TinhToanController extends \yii\web\Controller
             } elseif ($input['check_day_noi'] == 'yes' && $input['check_tang_ham'] == 'no') {
                 $Gamma2 = 10;
                 $H0  = 0;
-                $Gamma2 = round( ($input["varGammaS"] - $GammaW) / (1 + $input['varE']), 2);
+                $Gamma2 = round(($input["varGammaS"] - $GammaW) / (1 + $input['varE']), 2);
                 $templateFile = "file-tinh-toan/sample/04_TH3.docx";
             } else {
-                $Gamma2 = round( ($input["varGammaS"] - $GammaW) / (1 + $input['varE']), 2 );
+                $Gamma2 = round(($input["varGammaS"] - $GammaW) / (1 + $input['varE']), 2);
                 $templateFile = "file-tinh-toan/sample/04_TH4.docx";
             }
 
@@ -319,20 +319,20 @@ class TinhToanController extends \yii\web\Controller
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
             $templateProcessor->setValues(
                 [
-                    "varPhiII"=> $input["varPhiII"],
-                    "varCII"=> $input["varCII"],
-                    "varGamma1"=> $input["varGamma1"],
-                    "varGamma2"=> $input["varGamma2"],
-                   "varGammaS"=>$input["varGammaS"],
-                   "varE"=> $input["varE"],
-                    "varH"=> $input["varH"],
-                    "varB"=> $input["varB"],
-                    "varH1"=> $input["varH1"],
-                    "varH2"=> $input["varH2"],
-                    "varM1"=> $input["varM1"],
-                    "varM2"=> $input["varM2"],
-                   "varKtc"=> $input["varKtc"],
-                    "A"=> $A,
+                    "varPhiII" => $input["varPhiII"],
+                    "varCII" => $input["varCII"],
+                    "varGamma1" => $input["varGamma1"],
+                    "varGamma2" => $input["varGamma2"],
+                    "varGammaS" => $input["varGammaS"],
+                    "varE" => $input["varE"],
+                    "varH" => $input["varH"],
+                    "varB" => $input["varB"],
+                    "varH1" => $input["varH1"],
+                    "varH2" => $input["varH2"],
+                    "varM1" => $input["varM1"],
+                    "varM2" => $input["varM2"],
+                    "varKtc" => $input["varKtc"],
+                    "A" => $A,
                     "B" => $B,
                     "D" => $D,
                     "R" => $R,
@@ -574,34 +574,34 @@ class TinhToanController extends \yii\web\Controller
         ];
 
         $gammaC = 1;
-        
+
         // Sample 08
         if ($input = Yii::$app->request->post()) {
             $dmtt->luot_giai++;
             $dmtt->save();
-            
+
             if ($input['varRQD'] > 100 || $input['varRQD'] < 0) {
                 echo "Chỉ số chất lượng đá không phù hợp";
                 return;
             } else {
                 foreach ($chisochatluongda as $key => $chiso) {
                     if ($input['varRQD'] < $chiso['RQD']['max'] && $input['varRQD'] >= $chiso['RQD']['min']) {
-                        $Ks = (($input['varRQD'] - $chiso['RQD']['min']) / ($chiso['RQD']['max'] - $chiso['RQD']['min']))* ($chiso['Ks']['max'] - $chiso['Ks']['min']) + $chiso['Ks']['min'];
+                        $Ks = (($input['varRQD'] - $chiso['RQD']['min']) / ($chiso['RQD']['max'] - $chiso['RQD']['min'])) * ($chiso['Ks']['max'] - $chiso['Ks']['min']) + $chiso['Ks']['min'];
                         break;
                     }
                 }
             }
 
-            if ($input['varLd'] < 0.5 ) {
+            if ($input['varLd'] < 0.5) {
                 $qb = $input['varRcn'] * $Ks / $input['varGammaG'];
                 $templateFile = 'file-tinh-toan/sample/08_TH2.docx';
             } else {
-                $temp = (1 + 0.4*($input['varLd']/$input['varDf']));
+                $temp = (1 + 0.4 * ($input['varLd'] / $input['varDf']));
                 $temp > 3 ? $temp = 3 : $temp = $temp;
                 $qb = ($input['varRcn'] * $Ks / $input['varGammaG']) * $temp;
                 $templateFile = 'file-tinh-toan/sample/08_TH3.docx';
             }
-            
+
             if ($input['loai_coc'] == 2) {
                 $templateFile = 'file-tinh-toan/sample/08_TH1.docx';
             }
@@ -614,7 +614,7 @@ class TinhToanController extends \yii\web\Controller
             }
 
             $Rcu = $gammaC * $qbFinal * 1000 * $input['varA'];
-            
+
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
 
@@ -716,28 +716,27 @@ class TinhToanController extends \yii\web\Controller
                 $yp = $item[1] - $yC;
                 array_push($input['list'][$key], $xp);
                 array_push($input['list'][$key], $yp);
-                $sumX2 += pow( $xp, 2);
-                $sumY2 += pow( $yp, 2); 
+                $sumX2 += pow($xp, 2);
+                $sumY2 += pow($yp, 2);
                 if ($key >= 1) {
-                    $textSumX .= "+ (" .$item[0]. ") ";
-                    $textSumY .= "+ (" .$item[1]. ") ";
-                    $textSumX2 .= "+ (" .$xp. ")2 "."&#178;"."";
-                    $textSumY2 .= "+ (" .$yp. ")2 ";
+                    $textSumX .= "+ (" . $item[0] . ") ";
+                    $textSumY .= "+ (" . $item[1] . ") ";
+                    $textSumX2 .= "+ (" . $xp . ")2 " . "&#178;" . "";
+                    $textSumY2 .= "+ (" . $yp . ")2 ";
                 } else {
-                    $textSumX .= "(" .$item[0]. ") ";
-                    $textSumY .= "(" .$item[1]. ") ";
-                    $textSumX2 .= "(" .$xp. ")2 ";
-                    $textSumY2 .= "(" .$yp. ")2 ";
+                    $textSumX .= "(" . $item[0] . ") ";
+                    $textSumY .= "(" . $item[1] . ") ";
+                    $textSumX2 .= "(" . $xp . ")2 ";
+                    $textSumY2 .= "(" . $yp . ")2 ";
                 }
-               
             }
-            
+
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\06.docx');
             // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
             $inline = new \PhpOffice\PhpWord\Element\TextRun();
-            $inline->addText("2", array( 'italic' => true , 'padding-bottom' => '10px'));
+            $inline->addText("2", array('italic' => true, 'padding-bottom' => '10px'));
             $templateProcessor->setComplexValue('textSumX2', $inline);
 
             // $templateProcessor->setValues(
@@ -747,15 +746,15 @@ class TinhToanController extends \yii\web\Controller
             //     ]
             // );
             $timestamp = date('Ymd_His');
-            $filename = 'xac-dinh-tai-trong-tac-dung-len-dau-coc_'.$timestamp.'.docx';
-            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $filename = 'xac-dinh-tai-trong-tac-dung-len-dau-coc_' . $timestamp . '.docx';
+            $fileStorage = 'file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
-            $filePath = '/'.$fileStorage;
+            $filePath = '/' . $fileStorage;
 
             echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
             return;
-         }
+        }
         return $this->render('xac-dinh-tai-trong-tac-dung-len-dau-coc', [
             'dmtt' => $dmtt,
             'menu' => $menu,
@@ -788,26 +787,26 @@ class TinhToanController extends \yii\web\Controller
             if ($input['coc_treo_don'] == 1) {
                 //Cong thuc 7 -> 12
                 $v = ($input['varV1'] + $input['varV2']) / 2; //(7)
-                
-                $kv = 2.82 - 3.78*$v + 2.18*pow($v, 2); //(8)
+
+                $kv = 2.82 - 3.78 * $v + 2.18 * pow($v, 2); //(8)
                 $kv1 = 2.82 - 3.78 * $input['varV1'] + 2.18 * pow($input['varV1'], 2); //(10)
 
-                $G1 = $input['varE1'] / (2*(1 + $input['varV1'])); // (11)
-                $G2 = $input['varE2'] / (2*(1 + $input['varV2'])); // (12)
+                $G1 = $input['varE1'] / (2 * (1 + $input['varV1'])); // (11)
+                $G2 = $input['varE2'] / (2 * (1 + $input['varV2'])); // (12)
                 //CT 5 
-                $chi = ($input['varE'] * $input['varA']) / ($G1 * pow($input['varL'],2));
-                
+                $chi = ($input['varE'] * $input['varA']) / ($G1 * pow($input['varL'], 2));
+
                 //CT 6
-                $lamda1 = (2.12 * pow($chi, 3/4)) / (1 + 2.12 * pow($chi, 3/4));
-                
+                $lamda1 = (2.12 * pow($chi, 3 / 4)) / (1 + 2.12 * pow($chi, 3 / 4));
+
                 //CT 3 
-                $betasub = 0.17*log(($kv * $G1 *$input['varL']) / ($G2 * $input['varD']));
-                
+                $betasub = 0.17 * log(($kv * $G1 * $input['varL']) / ($G2 * $input['varD']));
+
                 //CT 4
-                $alphasub = 0.17*log($kv1*$input['varL']/$input['varD']);
-                
+                $alphasub = 0.17 * log($kv1 * $input['varL'] / $input['varD']);
+
                 //CT 2
-                $beta = $betasub/$lamda1 + (1 - $betasub/$alphasub)/$chi;
+                $beta = $betasub / $lamda1 + (1 - $betasub / $alphasub) / $chi;
 
                 //CT 1 
                 $s = $beta * $input['varN'] / ($G1 * $input['varL']);
@@ -816,18 +815,18 @@ class TinhToanController extends \yii\web\Controller
             } else {
                 // CT 2
                 $G2 = $input['varE2'] / (2 * (1 + $input['varV2']));
-                
+
                 //CT 1
                 $s  = ((0.22 * $input['varN']) / ($G2 * $input['varDb'])) + ($input['varN'] * $input['varL']) / ($input['varE'] * $input['varA']);
-                $smm = $s*1000;
+                $smm = $s * 1000;
                 $templateFile = 'file-tinh-toan/sample/15_TH2.docx';
             }
-                        
+
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
             // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\15.docx');
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
-            
+
 
             $templateProcessor->setValues(
                 [
@@ -872,17 +871,17 @@ class TinhToanController extends \yii\web\Controller
                     ]
                 );
             }
-            
+
             $timestamp = date('Ymd_His');
-            $filename = 'tinh-toan-do-lun-coc-don_'.$timestamp.'.docx';
-            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $filename = 'tinh-toan-do-lun-coc-don_' . $timestamp . '.docx';
+            $fileStorage = 'file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
-            $filePath = '/'.$fileStorage;
+            $filePath = '/' . $fileStorage;
 
             echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
             return;
-         }
+        }
         return $this->render('tinh-toan-do-lun-coc-don', [
             'coctreodon_arr' => $coctreodon_arr,
             'tietdiencoc_arr' => $tietdiencoc_arr,
@@ -921,50 +920,50 @@ class TinhToanController extends \yii\web\Controller
             $h_p2 = '';
             switch ($input['loaibua']) {
                 case '1':
-                    $Ed = $input['varG']*$input['varH'];
-                    $ct_Ed = "G × H = ".$input['varG']." × ".$input['varH'];
+                    $Ed = $input['varG'] * $input['varH'];
+                    $ct_Ed = "G × H = " . $input['varG'] . " × " . $input['varH'];
                     break;
                 case '2':
-                    $Ed = 0.9*$input['varG']*$input['varH'];
-                    $ct_Ed = "0.9 × G × H = 0.9 × ".$input['varG']." × ".$input['varH'];
+                    $Ed = 0.9 * $input['varG'] * $input['varH'];
+                    $ct_Ed = "0.9 × G × H = 0.9 × " . $input['varG'] . " × " . $input['varH'];
                     break;
                 case '3':
-                    $Ed = 0.4*$input['varG']*$input['varH'];
-                    $ct_Ed = "0.4 × G × H = 0.4 × ".$input['varG']." × ".$input['varH'];
+                    $Ed = 0.4 * $input['varG'] * $input['varH'];
+                    $ct_Ed = "0.4 × G × H = 0.4 × " . $input['varG'] . " × " . $input['varH'];
                     break;
                 case '4':
-                    $Ed = $input['varG']*($input['varH'] - $input['varh']);
-                    $ct_Ed = "G × (H - h) = ".$input['varG']." × (".$input['varH']." - ".$input['varh'].")";
+                    $Ed = $input['varG'] * ($input['varH'] - $input['varh']);
+                    $ct_Ed = "G × (H - h) = " . $input['varG'] . " × (" . $input['varH'] . " - " . $input['varh'] . ")";
                     $h_kytu = 'h';
                     $h_p1 = '- chiều cao bật lần thứ nhất của quả búa diezen,';
-                    $h_p2 = '= '.$input['varh'].' m.';
+                    $h_p2 = '= ' . $input['varh'] . ' m.';
                     break;
             }
-            
+
             if ($input['varSa'] < 0.002) {
                 $np = 0.00025;
                 $nf = 0.025;
-                
-                $g = 9.81; //gia tốc trọng trường
-                $theta = 1/4 * ($np/$input['varA'] + $nf/$input['varAf']) * $input['varm4']/($input['varm4'] + $input['varm2']) * sqrt(2*$g * ($input['varH'] - $input['varh']));
-                
 
-                $Rcu = 1/(2*$theta) * ((2*$input['varSa'] + $input['varSel'])/($input['varSa'] + $input['varSel'])) * (sqrt(1 + (8*$Ed*($input['varSa'] + $input['varSel']))/pow((2*$input['varSa'] + $input['varSel']), 2) * $input['varm4']/($input['varm4'] + $input['varm2']) *$theta) - 1);
+                $g = 9.81; //gia tốc trọng trường
+                $theta = 1 / 4 * ($np / $input['varA'] + $nf / $input['varAf']) * $input['varm4'] / ($input['varm4'] + $input['varm2']) * sqrt(2 * $g * ($input['varH'] - $input['varh']));
+
+
+                $Rcu = 1 / (2 * $theta) * ((2 * $input['varSa'] + $input['varSel']) / ($input['varSa'] + $input['varSel'])) * (sqrt(1 + (8 * $Ed * ($input['varSa'] + $input['varSel'])) / pow((2 * $input['varSa'] + $input['varSel']), 2) * $input['varm4'] / ($input['varm4'] + $input['varm2']) * $theta) - 1);
                 $Rcu = round($Rcu, 1);
 
                 $templateFile = 'file-tinh-toan/sample/13_14_TH1.docx';
             } else {
-                $Rcu = $input['varEta']*$input['varA']*$input['varM']/2*( sqrt(1+4*$Ed/($input['varEta']*$input['varA']*$input['varSa']) * ($input['varm1'] + $input['varEpsilon_sqr']*($input['varm2'] + $input['varm3']) )/( $input['varm1'] + $input['varm2'] + $input['varm3'] ) ) -1 );
-                
+                $Rcu = $input['varEta'] * $input['varA'] * $input['varM'] / 2 * (sqrt(1 + 4 * $Ed / ($input['varEta'] * $input['varA'] * $input['varSa']) * ($input['varm1'] + $input['varEpsilon_sqr'] * ($input['varm2'] + $input['varm3'])) / ($input['varm1'] + $input['varm2'] + $input['varm3'])) - 1);
+
                 $Rcu = round($Rcu, 1);
-                
+
                 $templateFile = 'file-tinh-toan/sample/13_14_TH2.docx';
             }
-                        
+
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
-            
+
             $templateProcessor->setValues(
                 [
                     "tiet_dien_coc" => $tietdiencoc_arr[$input['tiet_dien_coc']],
@@ -1002,17 +1001,17 @@ class TinhToanController extends \yii\web\Controller
                     ]
                 );
             }
-            
+
             $timestamp = date('Ymd_His');
-            $filename = 'xac-dinh-suc-chiu-tai-coc-theo-do-choi-sa_'.$timestamp.'.docx';
-            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $filename = 'xac-dinh-suc-chiu-tai-coc-theo-do-choi-sa_' . $timestamp . '.docx';
+            $fileStorage = 'file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
-            $filePath = '/'.$fileStorage;
+            $filePath = '/' . $fileStorage;
 
             echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
             return;
-         }
+        }
         return $this->render('xac-dinh-suc-chiu-tai-coc-theo-do-choi-sa', [
             'loaibua_arr' => $loaibua_arr,
             'tietdiencoc_arr' => $tietdiencoc_arr,
@@ -1053,9 +1052,9 @@ class TinhToanController extends \yii\web\Controller
             $check_tang_ham = $input['check_tang_ham'];
 
             $gammatc = 25;
-            $anpha = (2/PI())  *(atan(($varB*$varL)/ (2*$varZ*sqrt(pow($varB, 2) + pow($varL, 2) + 4*pow($varZ, 2))))    +  (  (2*$varB*$varL*$varZ*(  pow($varB, 2) + pow($varL, 2) + 8*pow($varZ, 2) ))   /   (  (pow($varB, 2) + 4*pow($varZ, 2)) * ( pow($varL, 2) + 4*pow($varZ, 2)) * sqrt(pow($varB, 2) + pow($varL, 2) + 4*pow($varZ, 2))  )        )             );
-            
-            
+            $anpha = (2 / PI())  * (atan(($varB * $varL) / (2 * $varZ * sqrt(pow($varB, 2) + pow($varL, 2) + 4 * pow($varZ, 2))))    +  ((2 * $varB * $varL * $varZ * (pow($varB, 2) + pow($varL, 2) + 8 * pow($varZ, 2)))   /   ((pow($varB, 2) + 4 * pow($varZ, 2)) * (pow($varL, 2) + 4 * pow($varZ, 2)) * sqrt(pow($varB, 2) + pow($varL, 2) + 4 * pow($varZ, 2)))));
+
+
             $phi = deg2rad($varPhiII);
             $cotangPhi =  1 / tan($phi);
 
@@ -1069,51 +1068,51 @@ class TinhToanController extends \yii\web\Controller
             $D = round((PI() * $cotangPhi) / ($cotangPhi + $phi - PI() / 2), 2);
 
 
-            $a = 0.5*($varL - $varB);
-            $p = round($varNII / ($varL*$varB), 2 );
+            $a = 0.5 * ($varL - $varB);
+            $p = round($varNII / ($varL * $varB), 2);
             $pd = round($varGammaIIPhay * $varH, 2);
             $po = $p - $pd;
-            $m = round(2*$varZ/$varB, 2);
-            $n = round($varL/$varB, 2);
-            $pdz = round($pd + $varGammaII2Phay*$varZ, 2 );
-            $poz = round($anpha * $po, 2 );
-            $sumb = $pdz+$poz;
-            $Az = round ($varNII / $poz, 2 );
-            $bz = round(sqrt($Az + pow($a, 2)) - $a, 2 );
+            $m = round(2 * $varZ / $varB, 2);
+            $n = round($varL / $varB, 2);
+            $pdz = round($pd + $varGammaII2Phay * $varZ, 2);
+            $poz = round($anpha * $po, 2);
+            $sumb = $pdz + $poz;
+            $Az = round($varNII / $poz, 2);
+            $bz = round(sqrt($Az + pow($a, 2)) - $a, 2);
             $h0 = 0;
             $htd = 0;
             if ($check_tang_ham == 'no') {
                 $templateFile = 'file-tinh-toan/sample/21_TH1.docx';
             } else {
-                $htd = round($varH1 + $varH2 * ($gammatc/ $varGammaIIPhay), 2 );
+                $htd = round($varH1 + $varH2 * ($gammatc / $varGammaIIPhay), 2);
                 $h0 = $varH - $htd;
                 $templateFile = 'file-tinh-toan/sample/21_TH2.docx';
             }
-            
 
-             $gammaIItb = round( ($varGammaIIPhay*$varH + $varGammaII2Phay*$varZ) / ($varH + $varZ), 2 );
 
-             $R = round((($varM1 * $varM2) / $varKtc) * ($A * $bz * $varGammaII + $B * ($varH + $varZ) * $gammaIItb  + $D * $varCII - $varGammaII * $h0), 2);
+            $gammaIItb = round(($varGammaIIPhay * $varH + $varGammaII2Phay * $varZ) / ($varH + $varZ), 2);
+
+            $R = round((($varM1 * $varM2) / $varKtc) * ($A * $bz * $varGammaII + $B * ($varH + $varZ) * $gammaIItb  + $D * $varCII - $varGammaII * $h0), 2);
 
             if ($sumb > $R) {
-                $kl ="Điều kiện kiểm tra không thỏa mãn: ";
+                $kl = "Điều kiện kiểm tra không thỏa mãn: ";
                 $dau = ">";
             } else {
-                $kl ="Điều kiện kiểm tra thỏa mãn: ";
+                $kl = "Điều kiện kiểm tra thỏa mãn: ";
                 $dau = "≤";
             }
-            $anpha = round ($anpha, 4);
-             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
-             $phpWord = new \PhpOffice\PhpWord\PhpWord();
-             // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\15.docx');
-             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
-             
- 
-             $templateProcessor->setValues(
-                 [
+            $anpha = round($anpha, 4);
+            \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
+            $phpWord = new \PhpOffice\PhpWord\PhpWord();
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\15.docx');
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
+
+
+            $templateProcessor->setValues(
+                [
                     "varNII" => $varNII,
                     "varPhiII" => $varPhiII,
-                    "varCII"=> $varCII,
+                    "varCII" => $varCII,
                     "varGammaII" => $varGammaII,
                     "varGammaIIPhay" => $varGammaIIPhay,
                     "varGammaII2Phay" => $varGammaII2Phay,
@@ -1148,19 +1147,257 @@ class TinhToanController extends \yii\web\Controller
                     "gammatc" => $gammatc,
                     "kl" => $kl,
                     "dau" => $dau
-                     
-                 ]
-             );
+
+                ]
+            );
             $timestamp = date('Ymd_His');
-            $filename = 'kiem-tra-ung-suat-tai-mai-cua-lop-dat-mem_'.$timestamp.'.docx';
-            $fileStorage = 'file-tinh-toan/output/'.$filename;
+            $filename = 'kiem-tra-ung-suat-tai-mai-cua-lop-dat-mem_' . $timestamp . '.docx';
+            $fileStorage = 'file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
-            $filePath = '/'.$fileStorage;
+            $filePath = '/' . $fileStorage;
             echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
             return;
-         }
+        }
         return $this->render('kiem-tra-ung-suat-tai-mai-cua-lop-dat-yeu', [
+            'dmtt' => $dmtt,
+            'menu' => $menu,
+        ]);
+    }
+
+    public function actionTinhNenTheoSucChiuTai()
+    {
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/tinh-nen-theo-suc-chiu-tai']);
+        $menu = DmNhomBai::find()->asArray()->all();
+        foreach ($menu as $key => $value) {
+            $menu[$key]['children'] = DmTinhtoan::find()->where(['nhom_id' => $value['id']])->asArray()->all();
+        }
+
+        // Sample 01 
+        if ($input = Yii::$app->request->post()) {
+            $dmtt->luot_giai++;
+            $dmtt->save();
+
+            $Fv = $input['varFv'];
+            $Fh = $input['varFh'];
+            $Mb = $input['varMb'];
+            $Ml = $input['varMl'];
+            $phiI = deg2rad($input['varphiI']);
+            $CI = $input['varCI'];
+            $GammaIPhay = $input['varGammaIPhay'];
+            $GammaI = $input['varGammaI'];
+            $MNN = $input['varMNN'];
+            $b = $input['varb'];
+            $l = $input['varl'];
+            $h = $input['varh'];
+            $h1 = $input['varh1'];
+            $ktc = $input['varktc'];
+
+            $tanDelta = tan($Fh / $Fv);
+            $delta = atan($Fh / $Fv);
+            $sinphiI = sin($phiI);
+            
+            if ($tanDelta < $sinphiI) {
+                $templateFile = "file-tinh-toan/sample/25_TH1.docx";
+                // Tinh toan
+
+                $eb = $Mb / $Fv;
+                $el = $Ml / $Fv;
+                $bngang = $b - 2 * $eb;
+                $lngang = $l - 2 * $el;
+
+                $eta = $lngang / $bngang;
+                
+                if ($eta < 1) {
+                    $eta = 1;
+                }
+                $nykq = 1 - 0.25 / $eta;
+                $nqkq = 1 + 1.50 / $eta;
+                $nckq = 1 + 0.30 / $eta;
+                if ($eta > 5) {
+                    $ny = 1;
+                    $nc = 1;
+                    $nq = 1; //móng băng
+                } else {
+                    $ny = $nykq;
+                    $nq = $nqkq;
+                    $nc = $nckq;
+                }
+
+                $lamda = 1 / 2 * (M_PI - $delta - asin(sin($delta) / sin($phiI)));
+
+                for ($i = 0; $i < 3; $i++) {
+                    switch ($i) {
+                        case 0:
+                            $alpha[0] = $phiI;
+                            break;
+
+                        case 1:
+                            $alpha[1] = 2 * $lamda + $phiI;
+                            break;
+
+                        case 2:
+                            $alpha[2] = 2 * $lamda - $phiI;
+                            break;
+                    }
+
+                    $M[$i] = (1 + sin($alpha[$i])) / cos($alpha[$i]);
+                }
+
+                $E = exp($lamda * tan($phiI));
+
+                $F = 1 - $M[2] * $tanDelta;
+
+                $I = (cos($lamda) - $M[0] * sin($lamda)) * $E;
+
+                $a = (1 - $I) / ($I * $M[1] - $M[0]);
+
+                $R = (1 + $M[1] * $a) * (1 + sin($phiI) - 2 * pow(sin($lamda), 2));
+
+                $cotphiI = 1 / tan($phiI);
+
+                $Ny = 1 / (4 * $F) * (cos($alpha[1]) * (1 / sin($phiI) - $M[0] * pow($E, 2) * ($cotphiI + $a)) / $R + 2 * pow(cos($lamda), 2) / cos($phiI) - $M[0]);
+
+                $Nq = $I / ($F * $R) * cos($phiI) * $M[1] * (1 + $M[0] * $a);
+
+                $Nc = ($Nq - 1) / tan($phiI);
+
+                $Phi = $bngang * $lngang * ($Ny * $ny * $bngang * $GammaI + $Nq * $nq * $h * $GammaIPhay + $Nc * $nc * $CI);
+
+                $dk = $Phi / $ktc;
+                if ($Fv <= $dk) {
+                    $kl = "đảm bảo";
+                } else {
+                    $kl = "không đảm bảo";
+                }
+            } else {
+                $templateFile = "file-tinh-toan/sample/25_TH2.docx";
+
+                $lamdaa = pow(tan(deg2rad(45) - $phiI / 2), 2);
+                $lamdap = pow(tan(deg2rad(45) + $phiI / 2), 2);
+
+                $hc = 2 * $CI * sqrt($lamdaa) / ($GammaIPhay * $lamdaa);
+
+                $Eakq = 1 / 2 * ($GammaIPhay * $h1 * $lamdaa - 2 * $CI * $lamdaa) * ($h1 - $hc);
+                $Ea = $Eakq < 0 ? 0 : $Eakq;
+
+                $Ep = 1 / 2 * ($GammaIPhay * $h * $lamdap + ($CI * $h) / tan($phiI)) * ($lamdap - 1);
+
+                $tongFgt = $Fh + $Ea;
+
+                $ukq = 10 * ($h - $MNN);
+                $u = $ukq < 0 ? 0 : $ukq;
+
+                $A = $b * $l;
+
+                $tongFct = ($Fv - $u * $A) * tan($phiI) + $A * $CI + $Ep;
+
+                $dk = $tongFct / $tongFgt;
+                
+                $kl = $dk >= $ktc ? 'đảm bảo' : 'không đảm bảo';
+                
+            }
+
+
+            \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
+            $phpWord = new \PhpOffice\PhpWord\PhpWord();
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
+            $templateProcessor->setValues(
+                [
+                    "Fv" => $Fv,
+                    "Fh" => $Fh,
+                    "Mb" => $Mb,
+                    "Ml" => $Ml,
+                    "phiI" => $phiI,
+                    "phi1" => $input['varphiI'],
+                    "CI" => $CI,
+                    "GammaIPhay" => $GammaIPhay,
+                    "GammaI" => $GammaI,
+                    "MNN" => $MNN,
+                    "b" => $b,
+                    "l" => $l,
+                    "h" => $h,
+                    "h1" => $h1,
+                    "ktc" => $ktc,
+                    "tanDelta" => round($tanDelta, 2),
+                    "delta" => round($delta, 2),
+                    "sinphiI" => round($sinphiI, 3),
+                    "dk" => round($dk, 2),
+                    "kl" => $kl,
+                    'thuong' => 'chữ thường',
+                    'Thuong' => 'chữ cái đầu viết hoa',
+                ]
+            );
+
+            if ($tanDelta < $sinphiI) {
+                if ($eta > 5) {
+                    $templateProcessor->replaceBlock('mongthuong', '');
+                } else {
+                    $templateProcessor->replaceBlock('mongbang', '');
+                }
+
+                $templateProcessor->setValues(
+                    [
+                        "eb" => round($eb, 2),
+                        "el" => round($el, 2),
+                        "bngang" => round($bngang, 2),
+                        "lngang" => round($lngang, 2),
+                        "eta" => round($eta, 2),
+                        "ny" => round($ny, 2),
+                        "nc" => round($nc, 2),
+                        "nq" => round($nq, 2),
+                        "nykq" => round($nykq, 2),
+                        "nqkq" => round($nqkq, 2),
+                        "nckq" => round($nckq, 2),
+                        "lamda" => round($lamda, 2),
+                        "alpha[0]" => round($alpha[0], 2),
+                        "alpha[1]" => round($alpha[1], 2),
+                        "alpha[2]" => round($alpha[2], 2),
+                        "M[0]" => round($M[0], 2),
+                        "M[1]" => round($M[1], 2),
+                        "M[2]" => round($M[2], 2),
+                        "E" => round($E, 2),
+                        "F" => round($F, 2),
+                        "I" => round($I, 2),
+                        "a" => round($a, 2),
+                        "R" => round($R, 2),
+                        "cotphiI" => round($cotphiI, 2),
+                        "Ny" => round($Ny, 2),
+                        "Nq" => round($Nq, 2),
+                        "Nc" => round($Nc, 2),
+                        "Phi" => round($Phi, 0),
+                    ]
+                );
+            } else {
+                $templateProcessor->setValues(
+                    [
+                        "lamdaa" => round($lamdaa, 3),
+                        "lamdap" => round($lamdap, 3),
+                        "hc" => round($hc, 2),
+                        "Eakq" => round($Eakq, 2),
+                        "Ea" => round($Ea, 2),
+                        "Ep" => round($Ep, 2),
+                        "tongFgt" => round($tongFgt, 2),
+                        "u" => $u,
+                        "ukq" => $ukq,
+                        "A" => round($A, 2),
+                        "tongFct" => round($tongFct, 2),
+                    ]
+                );
+            }
+
+
+            $timestamp = date('Ymd_His');
+            $filename = 'tinh-nen-theo-suc-chiu-tai_' . $timestamp . '.docx';
+            $fileStorage = 'file-tinh-toan/output/' . $filename;
+            $templateProcessor->saveAs($fileStorage);
+
+            $filePath = '/' . $fileStorage;
+
+            echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
+            return;
+        }
+        return $this->render('tinh-nen-theo-suc-chiu-tai', [
             'dmtt' => $dmtt,
             'menu' => $menu,
         ]);
