@@ -85,9 +85,9 @@ class TinhToanController extends \yii\web\Controller
             }
 
             if (($e_x < $half_l) && ($e_y < $half_b)) {
-                $templateFile = 'file-tinh-toan/sample/01.docx';
+                $templateFile = './file-tinh-toan/sample/01.docx';
             } else {
-                $templateFile = 'file-tinh-toan/sample/01_fail.docx';
+                $templateFile = './file-tinh-toan/sample/01_fail.docx';
             }
 
 
@@ -100,7 +100,7 @@ class TinhToanController extends \yii\web\Controller
 
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
-            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\01.docx');
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('./file-tinh-toan\sample\01.docx');
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
             $templateProcessor->setValues(
                 [
@@ -139,7 +139,7 @@ class TinhToanController extends \yii\web\Controller
 
             $timestamp = date('Ymd_His');
             $filename = 'xac-dinh-ap-luc-duoi-day-mong-hinh-chu-nhat_' . $timestamp . '.docx';
-            $fileStorage = 'file-tinh-toan/output/' . $filename;
+            $fileStorage = './file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
             $filePath = '/' . $fileStorage;
@@ -190,11 +190,11 @@ class TinhToanController extends \yii\web\Controller
             if ($e < $halfD) {
                 $kl = 'Thỏa';
                 $ss = '<';
-                $templateFile = 'file-tinh-toan/sample/02.docx';
+                $templateFile = './file-tinh-toan/sample/02.docx';
             } else {
                 $kl = 'Tăng đường kính móng';
                 $ss = '>';
-                $templateFile = 'file-tinh-toan/sample/02_fail.docx';
+                $templateFile = './file-tinh-toan/sample/02_fail.docx';
             }
 
 
@@ -206,7 +206,7 @@ class TinhToanController extends \yii\web\Controller
 
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
-            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\01.docx');
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('./file-tinh-toan\sample\01.docx');
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
             $templateProcessor->setValues(
                 [
@@ -238,7 +238,7 @@ class TinhToanController extends \yii\web\Controller
 
             $timestamp = date('Ymd_His');
             $filename = 'xac-dinh-ap-luc-duoi-day-mong-tron_' . $timestamp . '.docx';
-            $fileStorage = 'file-tinh-toan/output/' . $filename;
+            $fileStorage = './file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
             $filePath = '/' . $fileStorage;
@@ -296,17 +296,17 @@ class TinhToanController extends \yii\web\Controller
 
             if ($input['check_day_noi'] == 'no' && $input['check_tang_ham'] == 'no') {
                 $H0  =  0;
-                $templateFile = "file-tinh-toan/sample/04_TH1.docx";
+                $templateFile = "./file-tinh-toan/sample/04_TH1.docx";
             } elseif ($input['check_day_noi'] == 'no' && $input['check_tang_ham'] == 'yes') {
-                $templateFile = "file-tinh-toan/sample/04_TH2.docx";
+                $templateFile = "./file-tinh-toan/sample/04_TH2.docx";
             } elseif ($input['check_day_noi'] == 'yes' && $input['check_tang_ham'] == 'no') {
                 $Gamma2 = 10;
                 $H0  = 0;
                 $Gamma2 = round(($input["varGammaS"] - $GammaW) / (1 + $input['varE']), 2);
-                $templateFile = "file-tinh-toan/sample/04_TH3.docx";
+                $templateFile = "./file-tinh-toan/sample/04_TH3.docx";
             } else {
                 $Gamma2 = round(($input["varGammaS"] - $GammaW) / (1 + $input['varE']), 2);
-                $templateFile = "file-tinh-toan/sample/04_TH4.docx";
+                $templateFile = "./file-tinh-toan/sample/04_TH4.docx";
             }
 
             // Áp lực tính toán tác dụng lên nền
@@ -315,7 +315,7 @@ class TinhToanController extends \yii\web\Controller
 
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
-            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\01.docx');
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('./file-tinh-toan\sample\01.docx');
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
             $templateProcessor->setValues(
                 [
@@ -346,7 +346,7 @@ class TinhToanController extends \yii\web\Controller
             );
             $timestamp = date('Ymd_His');
             $filename = 'xac-dinh-ap-luc-tinh-toan-tac-dung-len-nen_' . $timestamp . '.docx';
-            $fileStorage = 'file-tinh-toan/output/' . $filename;
+            $fileStorage = './file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
             $filePath = '/' . $fileStorage;
@@ -594,16 +594,16 @@ class TinhToanController extends \yii\web\Controller
 
             if ($input['varLd'] < 0.5) {
                 $qb = $input['varRcn'] * $Ks / $input['varGammaG'];
-                $templateFile = 'file-tinh-toan/sample/08_TH2.docx';
+                $templateFile = './file-tinh-toan/sample/08_TH2.docx';
             } else {
                 $temp = (1 + 0.4 * ($input['varLd'] / $input['varDf']));
                 $temp > 3 ? $temp = 3 : $temp = $temp;
                 $qb = ($input['varRcn'] * $Ks / $input['varGammaG']) * $temp;
-                $templateFile = 'file-tinh-toan/sample/08_TH3.docx';
+                $templateFile = './file-tinh-toan/sample/08_TH3.docx';
             }
 
             if ($input['loai_coc'] == 2) {
-                $templateFile = 'file-tinh-toan/sample/08_TH1.docx';
+                $templateFile = './file-tinh-toan/sample/08_TH1.docx';
             }
 
 
@@ -618,7 +618,7 @@ class TinhToanController extends \yii\web\Controller
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
 
-            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\01.docx');
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('./file-tinh-toan\sample\01.docx');
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
             $templateProcessor->setValues(
                 [
@@ -656,7 +656,7 @@ class TinhToanController extends \yii\web\Controller
 
             $timestamp = date('Ymd_His');
             $filename = 'xac-dinh-suc-chiu-tai-coc-chong_' . $timestamp . '.docx';
-            $fileStorage = 'file-tinh-toan/output/' . $filename;
+            $fileStorage = './file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
             $filePath = '/' . $fileStorage;
@@ -733,7 +733,7 @@ class TinhToanController extends \yii\web\Controller
 
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
-            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\06.docx');
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('./file-tinh-toan\sample\06.docx');
             // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
             $inline = new \PhpOffice\PhpWord\Element\TextRun();
             $inline->addText("2", array('italic' => true, 'padding-bottom' => '10px'));
@@ -747,7 +747,7 @@ class TinhToanController extends \yii\web\Controller
             // );
             $timestamp = date('Ymd_His');
             $filename = 'xac-dinh-tai-trong-tac-dung-len-dau-coc_' . $timestamp . '.docx';
-            $fileStorage = 'file-tinh-toan/output/' . $filename;
+            $fileStorage = './file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
             $filePath = '/' . $fileStorage;
@@ -811,7 +811,7 @@ class TinhToanController extends \yii\web\Controller
                 //CT 1 
                 $s = $beta * $input['varN'] / ($G1 * $input['varL']);
                 $smm = $s * 1000;
-                $templateFile = 'file-tinh-toan/sample/15_TH1.docx';
+                $templateFile = './file-tinh-toan/sample/15_TH1.docx';
             } else {
                 // CT 2
                 $G2 = $input['varE2'] / (2 * (1 + $input['varV2']));
@@ -819,12 +819,12 @@ class TinhToanController extends \yii\web\Controller
                 //CT 1
                 $s  = ((0.22 * $input['varN']) / ($G2 * $input['varDb'])) + ($input['varN'] * $input['varL']) / ($input['varE'] * $input['varA']);
                 $smm = $s * 1000;
-                $templateFile = 'file-tinh-toan/sample/15_TH2.docx';
+                $templateFile = './file-tinh-toan/sample/15_TH2.docx';
             }
 
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
-            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\15.docx');
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('./file-tinh-toan\sample\15.docx');
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
 
 
@@ -874,7 +874,7 @@ class TinhToanController extends \yii\web\Controller
 
             $timestamp = date('Ymd_His');
             $filename = 'tinh-toan-do-lun-coc-don_' . $timestamp . '.docx';
-            $fileStorage = 'file-tinh-toan/output/' . $filename;
+            $fileStorage = './file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
             $filePath = '/' . $fileStorage;
@@ -951,13 +951,13 @@ class TinhToanController extends \yii\web\Controller
                 $Rcu = 1 / (2 * $theta) * ((2 * $input['varSa'] + $input['varSel']) / ($input['varSa'] + $input['varSel'])) * (sqrt(1 + (8 * $Ed * ($input['varSa'] + $input['varSel'])) / pow((2 * $input['varSa'] + $input['varSel']), 2) * $input['varm4'] / ($input['varm4'] + $input['varm2']) * $theta) - 1);
                 $Rcu = round($Rcu, 1);
 
-                $templateFile = 'file-tinh-toan/sample/13_14_TH1.docx';
+                $templateFile = './file-tinh-toan/sample/13_14_TH1.docx';
             } else {
                 $Rcu = $input['varEta'] * $input['varA'] * $input['varM'] / 2 * (sqrt(1 + 4 * $Ed / ($input['varEta'] * $input['varA'] * $input['varSa']) * ($input['varm1'] + $input['varEpsilon_sqr'] * ($input['varm2'] + $input['varm3'])) / ($input['varm1'] + $input['varm2'] + $input['varm3'])) - 1);
 
                 $Rcu = round($Rcu, 1);
 
-                $templateFile = 'file-tinh-toan/sample/13_14_TH2.docx';
+                $templateFile = './file-tinh-toan/sample/13_14_TH2.docx';
             }
 
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
@@ -1004,7 +1004,7 @@ class TinhToanController extends \yii\web\Controller
 
             $timestamp = date('Ymd_His');
             $filename = 'xac-dinh-suc-chiu-tai-coc-theo-do-choi-sa_' . $timestamp . '.docx';
-            $fileStorage = 'file-tinh-toan/output/' . $filename;
+            $fileStorage = './file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
             $filePath = '/' . $fileStorage;
@@ -1082,11 +1082,11 @@ class TinhToanController extends \yii\web\Controller
             $h0 = 0;
             $htd = 0;
             if ($check_tang_ham == 'no') {
-                $templateFile = 'file-tinh-toan/sample/21_TH1.docx';
+                $templateFile = './file-tinh-toan/sample/21_TH1.docx';
             } else {
                 $htd = round($varH1 + $varH2 * ($gammatc / $varGammaIIPhay), 2);
                 $h0 = $varH - $htd;
-                $templateFile = 'file-tinh-toan/sample/21_TH2.docx';
+                $templateFile = './file-tinh-toan/sample/21_TH2.docx';
             }
 
 
@@ -1104,7 +1104,7 @@ class TinhToanController extends \yii\web\Controller
             $anpha = round($anpha, 4);
             \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
-            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('file-tinh-toan\sample\15.docx');
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('./file-tinh-toan\sample\15.docx');
             $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
 
 
@@ -1152,7 +1152,7 @@ class TinhToanController extends \yii\web\Controller
             );
             $timestamp = date('Ymd_His');
             $filename = 'kiem-tra-ung-suat-tai-mai-cua-lop-dat-mem_' . $timestamp . '.docx';
-            $fileStorage = 'file-tinh-toan/output/' . $filename;
+            $fileStorage = './file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
             $filePath = '/' . $fileStorage;
@@ -1198,7 +1198,7 @@ class TinhToanController extends \yii\web\Controller
             $sinphiI = sin($phiI);
             
             if ($tanDelta < $sinphiI) {
-                $templateFile = "file-tinh-toan/sample/25_TH1.docx";
+                $templateFile = "./file-tinh-toan/sample/25_TH1.docx";
                 // Tinh toan
 
                 $eb = $Mb / $Fv;
@@ -1271,7 +1271,7 @@ class TinhToanController extends \yii\web\Controller
                     $kl = "không đảm bảo";
                 }
             } else {
-                $templateFile = "file-tinh-toan/sample/25_TH2.docx";
+                $templateFile = "./file-tinh-toan/sample/25_TH2.docx";
 
                 $lamdaa = pow(tan(deg2rad(45) - $phiI / 2), 2);
                 $lamdap = pow(tan(deg2rad(45) + $phiI / 2), 2);
@@ -1389,7 +1389,7 @@ class TinhToanController extends \yii\web\Controller
 
             $timestamp = date('Ymd_His');
             $filename = 'tinh-nen-theo-suc-chiu-tai_' . $timestamp . '.docx';
-            $fileStorage = 'file-tinh-toan/output/' . $filename;
+            $fileStorage = './file-tinh-toan/output/' . $filename;
             $templateProcessor->saveAs($fileStorage);
 
             $filePath = '/' . $fileStorage;
