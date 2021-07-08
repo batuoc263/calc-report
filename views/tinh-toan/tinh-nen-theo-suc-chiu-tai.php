@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td> kNm </td>
             </tr>
             <tr>
-                <td>Momen uốn, xoay quanh cạnh b</td>
+                <td>Momen uốn, xoay quanh cạnh l</td>
                 <td> M<sub>l</sub> = </td>
                 <td>
                     <input class="form-control" required pattern="[0-9]*.[0-9]+" value="88" name="varMl" id="varMl">

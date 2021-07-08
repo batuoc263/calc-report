@@ -1196,18 +1196,17 @@ class TinhToanController extends \yii\web\Controller
             $tanDelta = tan($Fh / $Fv);
             $delta = atan($Fh / $Fv);
             $sinphiI = sin($phiI);
-            
+
             if ($tanDelta < $sinphiI) {
-                $templateFile = "./file-tinh-toan/sample/25_TH1.docx";
                 // Tinh toan
 
-                $eb = $Mb / $Fv;
-                $el = $Ml / $Fv;
+                $eb = abs($Mb) / $Fv;
+                $el = abs($Ml) / $Fv;
                 $bngang = $b - 2 * $eb;
                 $lngang = $l - 2 * $el;
 
                 $eta = $lngang / $bngang;
-                
+
                 if ($eta < 1) {
                     $eta = 1;
                 }
@@ -1218,10 +1217,12 @@ class TinhToanController extends \yii\web\Controller
                     $ny = 1;
                     $nc = 1;
                     $nq = 1; //móng băng
+                    $templateFile = "./file-tinh-toan/sample/25_TH1_2.docx";
                 } else {
                     $ny = $nykq;
                     $nq = $nqkq;
                     $nc = $nckq;
+                    $templateFile = "./file-tinh-toan/sample/25_TH1_1.docx";
                 }
 
                 $lamda = 1 / 2 * (M_PI - $delta - asin(sin($delta) / sin($phiI)));
@@ -1267,8 +1268,10 @@ class TinhToanController extends \yii\web\Controller
                 $dk = $Phi / $ktc;
                 if ($Fv <= $dk) {
                     $kl = "đảm bảo";
+                    $dau = "≤";
                 } else {
                     $kl = "không đảm bảo";
+                    $dau = ">";
                 }
             } else {
                 $templateFile = "./file-tinh-toan/sample/25_TH2.docx";
@@ -1293,8 +1296,14 @@ class TinhToanController extends \yii\web\Controller
                 $tongFct = ($Fv - $u * $A) * tan($phiI) + $A * $CI + $Ep;
 
                 $dk = $tongFct / $tongFgt;
-                
-                $kl = $dk >= $ktc ? 'đảm bảo' : 'không đảm bảo';
+
+                if ($dk >= $ktc) {
+                    $kl = 'Điều kiện trượt tại đáy móng đảm bảo, móng không bị trượt';
+                    $dau = "≥";
+                } else {
+                    $kl =  'Điều kiện trượt tại đáy móng không đảm bảo, móng bị trượt';
+                    $dau = '<';
+                }
                 
             }
 
@@ -1324,18 +1333,12 @@ class TinhToanController extends \yii\web\Controller
                     "sinphiI" => round($sinphiI, 3),
                     "dk" => round($dk, 2),
                     "kl" => $kl,
-                    'thuong' => 'chữ thường',
-                    'Thuong' => 'chữ cái đầu viết hoa',
+                    'dau' => $dau
                 ]
             );
 
             if ($tanDelta < $sinphiI) {
-                if ($eta > 5) {
-                    $templateProcessor->replaceBlock('mongthuong', '');
-                } else {
-                    $templateProcessor->replaceBlock('mongbang', '');
-                }
-
+                
                 $templateProcessor->setValues(
                     [
                         "eb" => round($eb, 2),
@@ -1401,5 +1404,23 @@ class TinhToanController extends \yii\web\Controller
             'dmtt' => $dmtt,
             'menu' => $menu,
         ]);
+    }
+
+    public function actionTest($th = 1)
+    {
+        echo date('H:i:s'), ' Creating new TemplateProcessor instance...', PHP_EOL;
+        $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('./file-tinh-toan/sample/Sample_23_TemplateBlock.docx');
+
+        if ($th==1) {
+            # code...
+            $templateProcessor->deleteBlock('BLOCK1');
+            $templateProcessor->cloneBlock('BLOCK2', 1, true, false, [['bien1' => 'Bien 1', 'bien2' => 'bien222222', 'bien3' => 'varrrrrrrrr33333']]);
+        } else {
+            $templateProcessor->deleteBlock('BLOCK2');
+            $templateProcessor->cloneBlock('BLOCK1', 1, true, false, [['bien1' => 'Bien 1', 'bien2' => 'bien222222', 'bien3' => 'varrrrrrrrr33333']]);
+        }
+
+        $templateProcessor->saveAs("./file-tinh-toan/output/Sample_23_TemplateBlock_$th.docx");
+        echo date('H:i:s'), ' Saving the result document...', PHP_EOL;
     }
 }
