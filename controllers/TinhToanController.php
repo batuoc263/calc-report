@@ -1402,4 +1402,36 @@ class TinhToanController extends \yii\web\Controller
             'menu' => $menu,
         ]);
     }
+
+
+    public function actionTinhToanCopPha()
+    {
+        $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/tinh-toan-cop-pha']);
+        $menu = DmNhomBai::find()->asArray()->all();
+        foreach ($menu as $key => $value) {
+            $menu[$key]['children'] = DmTinhtoan::find()->where(['nhom_id' => $value['id']])->asArray()->all();
+        }
+
+        // Sample 01 
+        if ($input = Yii::$app->request->post()) {
+            $dmtt->luot_giai++;
+            $dmtt->save();
+
+           
+
+            // $timestamp = date('Ymd_His');
+            // $filename = 'tinh-nen-theo-suc-chiu-tai_' . $timestamp . '.docx';
+            // $fileStorage = './file-tinh-toan/output/' . $filename;
+            // $templateProcessor->saveAs($fileStorage);
+
+            // $filePath = '/' . $fileStorage;
+
+            // echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
+            return;
+        }
+        return $this->render('tinh-toan-cop-pha', [
+            'dmtt' => $dmtt,
+            'menu' => $menu,
+        ]);
+    }
 }
