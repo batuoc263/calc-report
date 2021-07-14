@@ -54,146 +54,258 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td><i>Sàn bê tông cốt thép</i></td>
             </tr>
             <tr>
-                <td style="width: 420px">Chiều dày </td>
-                <td style="width: 70px"> h<sub>s</sub> = </td>
-                <td style="width: 200px">
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="0.25" step="0.01" name="varHs" id="varHs"> 
+                <td style="width: 30%">Chiều dày </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> h<sub>s</sub> = </td>
+                <td style="width: 10%">
+                    <input class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="0.25" step="0.01" name="varHs" id="varHs">
                 </td>
-                <td> m </td>
+                <td style="width: 10%"> m </td>
             </tr>
             <tr>
                 <td>Trọng lượng riêng</td>
-                <td> 	&gamma;<sub>b</sub> = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="25" step="0.1" name="varGammab" id="varGammab"> 
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > &gamma;<sub>b</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="25" step="0.1" name="varGammab" id="varGammab"> 
                 </td>
-                <td>  kN/m<sup>3</sup></td>
+                <td >  kN/m<sup>3</sup> </td>
             </tr>
             <tr>
                 <td><i>Ván ép</i></td>
             </tr>
             <tr>
                 <td>Chiều dày</td>
-                <td> h<sub>1</sub> = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="0.018" step="0.001" name="varH1" id="varH1"> 
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > h<sub>1</sub> = </td>
+                <td >
+                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="0.018" step="0.001" name="varH1" id="varH1">
                 </td>
-                <td> m</td>
+                <td > m </td>
             </tr>
             <tr>
                 <td>Trọng lượng riêng </td>
-                <td> &gamma;'<sub>1</sub> = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="7.0" step="0.1" name="varGamma1" id="varGamma1"> 
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > &gamma;'<sub>1</sub> = </td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="7.0" step="0.1" name="varGamma1" id="varGamma1"> 
                 </td>
-                <td> kN/m<sup>3</sup> </td>
+                <td >kN/m<sup>3</sup> </td>
             </tr>
             <tr>
                 <td>Bề rộng dải tính toán</td>
-                <td> b = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="19.0" step="0.1" name="varB" id="varB"> 
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >b =</td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="19.0" step="0.1" name="varB" id="varB">
                 </td>
-                <td> m </td>
+                <td >m</td>
             </tr>
             <tr>
                 <td>Mô men quán tính</td>
-                <td> I<sub>1 </sub> = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="48.6" step="0.1" name="varI1" id="varI1"> 
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >I<sub>1</sub> =</td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="48.6" step="0.1" name="varI1" id="varI1">
                 </td>
-                <td> cm<sup>4</sup> </td>
+                <td >  cm<sup>4</sup> </td>
+            </tr>
+            <tr>
+                <td>Mô men kháng uốn</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >W<sub>1 </sub> =</td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="54" step="0.1" name="varW1" id="varW1"> 
+                </td>
+                <td > cm<sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td>Cường độ vật liệu</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >[&sigma;<sub>1 </sub>] =</td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="18000" step="1" name="varSigma1" id="varSigma1"> 
+                </td>
+                <td > kN/m<sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td>Mô đun đàn hồi</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >[E<sub>1 </sub>] = </td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="5000000" step="1000" name="varE1" id="varE1">
+                </td>
+                <td > kN/m<sup>2</sup> </td>
             </tr>
 
             <!-- ============ -->
+
             <tr>
-                <td><strong>Đặc trưng hình học móng</strong></td>
+                <td><i>Đà</i></td>
+                <td colspan="3"  style="text-align: center;"> Đà phụ</td>
+
+                <td colspan="4" style="text-align: center;"> Đà chính </td>
             </tr>
+
             <tr>
-                <td>Chiều rộng đáy móng </td>
-                <td> b = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="2.5" step="0.1" name="varB" id="varB"> 
+                <td>Loại Đà</td>
+                <td colspan="3" style="text-align: center;">
+                    <select id="loai" class="form-control" name="loai">
+                        <option value="san">Box steel 50x50x1.5</option>
+                    </select>
                 </td>
-                <td> m </td>
-            </tr>
-            <tr>
-                <td>Chiều dài đáy móng (l ≥ b)</td>
-                <td> l = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="3" step="0.1" name="varL" id="varL"> 
-                </td>
-                <td> m </td>
-            </tr>
-            <tr>
-                <td>Chiều sâu đặt móng </td>
-                <td> h = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1.5" step="0.01" name="varH" id="varH"> 
-                </td>
-                <td> m </td>
-            </tr>
-            <tr>
-                <td>Khoảng cách từ đáy móng đến mái của lớp đất yếu </td>
-                <td> z = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1.0" step="0.01" name="varZ" id="varZ"> 
-                </td>
-                <td> m </td>
-            </tr>
-            <tr>
-                <td><i> Tầng hầm (có/không)</i> </td>
-                <td>  </td>
-                <td>
-                    <select id="check-tang-ham" class="form-control" name="check-tang-ham">
-                        <option value="yes">&#10003;</option>
-                        <option value="no">&#10005;</option>
+                <td colspan="4" style="text-align: center;">
+                    <select id="loai" class="form-control" name="loai">
+                        <option value="san">Box steel 50x50x1.5</option>
                     </select>
                 </td>
             </tr>
-            <tr class="check-tang-ham-item">
-                <td style="padding-left: 50px;">Chiều dày lớp đất ở phía trên đáy móng</td>
-                <td> h<sub>1</sub> = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="0.5" step="0.01" name="varH1" id="varH1"> 
-                </td>
-                <td> m </td>
-            </tr>
-            <tr class="check-tang-ham-item">
-                <td style="padding-left: 50px;">Chiều dày kết cấu sàn hầm ở phía trên đáy móng</td>
-                <td> h<sub>2</sub> = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="0.3" step="0.01" name="varH2" id="varH2"> 
-                </td>
-                <td> m </td>
-            </tr>
-            <!-- ============ -->
+
             <tr>
-                <td><strong>Các hệ số điều kiện làm việc</strong></td>
+                <td>Trọng lượng riêng </td>
+                <td> &gamma;<sub>2</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="varGamma2" id="varGamma2"> </td>
+                <td> kN/m <sup>3</sup> </td>
+                <td> </td>
+                <td> &gamma;<sub>3</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="varGamma3" id="varGamma3"> </td>
+                <td>  kN/m <sup>3</sup> </td>
             </tr>
             <tr>
-                <td>Hệ số điều kiện làm việc của nền đất </td>
-                <td> m<sub>1</sub> = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1.2" step="0.01" name="varM1" id="varM1"> 
-                </td>
-                <td> - </td>
+                <td>Mô men quán tính </td>
+                <td> I<sub>2</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="11.42" step="0.1" name="varI2" id="varI2"> </td>
+                <td> cm <sup>4</sup> </td>
+                <td> </td>
+                <td> I<sub>3</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="112.11" step="0.1" name="varI3" id="varI3"> </td>
+                <td>  cm <sup>4</sup> </td>
             </tr>
             <tr>
-                <td>Hệ số điều kiện làm việc của công trình tương tác với nền </td>
-                <td> m<sub>2</sub> = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1.0" step="0.01" name="varM2" id="varM2"> 
-                </td>
-                <td> - </td>
+                <td>Mô men kháng uốn</td>
+                <td> W<sub>2</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="4.75" step="0.1" name="varW2" id="varW2"> </td>
+                <td> cm <sup>3</sup> </td>
+                <td> </td>
+                <td> W<sub>3</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="24.91" step="0.1" name="varW3" id="varW3"> </td>
+                <td>  cm <sup>3</sup> </td>
             </tr>
             <tr>
-                <td>Hệ số tin cậy </td>
-                <td> k<sub>tc</sub> = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="1.0" step="0.01" name="varKtc" id="varKtc"> 
+                <td>Cường độ chịu uốn </td>
+                <td> [&sigma;<sub>2 </sub>] = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="varSigma2" id="varSigma2"> </td>
+                <td> kN/m <sup>2</sup> </td>
+                <td> </td>
+                <td> [&sigma;<sub>3 </sub>] = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="varSigma3" id="varSigma3"> </td>
+                <td>  kN/m <sup>2</sup> </td>
+            </tr>
+            <tr>
+                <td>Mô đun đàn hồi </td>
+                <td> E<sub>2</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="varE2" id="varE2"> </td>
+                <td> kN/m <sup>2</sup> </td>
+                <td> </td>
+                <td> E<sub>3</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="varE3" id="varE3"> </td>
+                <td>  kN/m <sup>2</sup> </td>
+            </tr>
+
+
+            <tr>
+                <td><i>Cây chống</i></td>
+            </tr>
+            <tr>
+                <td colspan="3">Diện tích truyền tải lên 1 cây chống</td>
+                <td > </td>
+                <td > </td>
+                <td > S = </td>
+                <td >
+                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="0.4" step="0.1" name="varS" id="varS">
                 </td>
-                <td> - </td>
+                <td > m<sup>2</sup> </td>
+            </tr>
+            <tr>
+                <td colspan="2">Sức chịu nén (1 chống)</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > {P] = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="60" step="0.1" name="varP" id="varP">
+                </td>
+                <td > m<sup>2</sup> </td>
+            </tr>
+            <tr>
+                <td colspan="2">Khoảng cách đà phụ</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > L<sub>1</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.25" step="0.1" name="varL1" id="varL1">
+                </td>
+                <td > m </td>
+            </tr>
+            <tr>
+                <td colspan="2">Khoảng cách đà chính</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > L<sub>2</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.8" step="0.1" name="varL2" id="varL2">
+                </td>
+                <td > m<sup>2</sup> </td>
+            </tr>
+            <tr>
+                <td colspan="2">Khoảng cách cây chống</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > L<sub>3</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.4" step="0.1" name="varL3" id="varL3">
+                </td>
+                <td > m<sup>2</sup> </td>
+            </tr>
+
+
+            <tr>
+                <td><strong>Tải trọng tác dụng</strong></td>
+                <td colspan="3" > hệ số vượt tải </td>
+                <td > </td>
+                <td style="text-align: center;"> q <sup> tc </sup> </td>
+                <td style="text-align: center;"> q <sup> tt </sup> </td>
+                <td > - </td>
             </tr>
             
         </table>
