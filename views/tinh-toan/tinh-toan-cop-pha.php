@@ -307,6 +307,68 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="text-align: center;"> q <sup> tt </sup> </td>
                 <td > - </td>
             </tr>
+
+            
+            <tr>
+                <td><strong>Trọng lượng sàn bê tông</strong></td>
+                <td > n<sub>1</sub> = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.2" step="0.1" name="varN1" id="varN1"></td>
+                <td > </td>
+                <td > q <sub> 1 </sub>= </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="6.25" step="0.1" name="varQtc1" id="varQtc1"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="7.5" step="0.1" name="varQtt1" id="varQtt1"></td>
+                <td > <td>  kN/m <sup>2</sup> </td> </td>
+            </tr>
+            <tr>
+                <td><strong>Trọng lượng cốp pha</strong></td>
+                <td > n<sub>2</sub> = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.1" step="0.1" name="varN2" id="varN2"></td>
+                <td > </td>
+                <td > q <sub>2</sub>= </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="60.1" step="0.1" name="varQtc2" id="varQtc2"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.11" step="0.1" name="varQtt2" id="varQtt2"></td>
+                <td > <td>  kN/m <sup>2</sup> </td> </td>
+            </tr>
+            <tr>
+                <td><strong>Tải người và thiết bị</strong></td>
+                <td > n<sub>3</sub> = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.3" step="0.1" name="varN3" id="varN3"></td>
+                <td > </td>
+                <td > q <sub>3</sub>= </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="2.5" step="0.1" name="varQtc3" id="varQtc3"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="3.25" step="0.1" name="varQtt3" id="varQtt3"></td>
+                <td > <td>  kN/m <sup>2</sup> </td> </td>
+            </tr>
+            <tr>
+                <td><strong>Tải trọng do dầm rung</strong></td>
+                <td > n<sub>4</sub> = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.3" step="0.1" name="varN4" id="varN4"></td>
+                <td > </td>
+                <td > q <sub>4</sub>= </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="2.0" step="0.1" name="varQtc4" id="varQtc4"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="2.6" step="0.1" name="varQtt4" id="varQtt4"></td>
+                <td > <td>  kN/m <sup>2</sup> </td> </td>
+            </tr>
+            <tr>
+                <td><strong>Tải trọng động do đổ bê tông</strong></td>
+                <td > n<sub>5</sub> = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.3" step="0.1" name="varN5" id="varN5"></td>
+                <td > </td>
+                <td > q <sub>5</sub>= </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.5" step="0.1" name="varQtc5" id="varQtc5"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.65" step="0.1" name="varQtt5" id="varQtt5"></td>
+                <td > <td>  kN/m <sup>2</sup> </td> </td>
+            </tr>
+            <tr>
+                <td><strong>Tổng</strong></td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > &epsilon;q = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="11.35" step="0.1" name="varSumQtc" id="varSumQtc"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="14.11" step="0.1" name="varSumQtt" id="varSumQtt"></td>
+                <td > <td>  kN/m <sup>2</sup> </td> </td>
+            </tr>
             
         </table>
         <div class="text-center" style="margin-top: 10px">
@@ -363,6 +425,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <script>
     $(document).ready(function() {
+        
         $("#check-tang-ham").change(function() { showItem("#check-tang-ham", ".check-tang-ham-item"); });
     });
 
