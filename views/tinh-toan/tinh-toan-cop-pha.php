@@ -11,16 +11,22 @@ use yii\widgets\Pjax;
 <div class="col-md-9">   
 <table class="input-table">
             <tr>
-                <td style="width: 420px">Cấu kiện </td>
-                <td style="width: 70px"> </td>
-                <td style="width: 200px">
-                    <select id="loai" class="form-control" name="loai">
+
+
+                <td style="width: 30%"> Cấu kiện </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%">
+                <select id="loai" class="form-control" name="loai">
                         <option value="san">Sàn</option>
                         <option value="dam">Dầm</option>
                         <option value="cot">Cột</option>
                     </select>
                 </td>
-                <td></td>
+                <td style="width: 10%"> </td>
             </tr>
            
             
@@ -36,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="tinhtoan-content">
     <div class="col-md-9">    
     <div class="text-center">
-        <h1 class="text-uppercase" style="font-size: 25px;"><?= Html::encode($this->title) ?></h1>
+        <h1 id = "title" class="text-uppercase" style="font-size: 25px;"></h1>
     </div>
         <div id="result">
 
@@ -46,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
         
         
         <h3 class="text-center" style="font-size: 20px;">THÔNG SỐ ĐẦU VÀO</h3>
-        <table class="input-table">
+        <table class="input-table-san">
             <tr>
                 <td><strong>Đặc trưng vật liệu</strong></td>
             </tr>
@@ -61,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="width: 10%"> </td>
                 <td style="width: 10%"> h<sub>s</sub> = </td>
                 <td style="width: 10%">
-                    <input class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="0.25" step="0.01" name="varHs" id="varHs">
+                    <input class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="0.25" step="0.01" name="SvarHs" id="SvarHs">
                 </td>
                 <td style="width: 10%"> m </td>
             </tr>
@@ -73,7 +79,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > &gamma;<sub>b</sub> = </td>
                 <td >
-                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="25" step="0.1" name="varGammab" id="varGammab"> 
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="25" step="0.1" name="SvarGammab" id="SvarGammab"> 
                 </td>
                 <td >  kN/m<sup>3</sup> </td>
             </tr>
@@ -88,7 +94,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > h<sub>1</sub> = </td>
                 <td >
-                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="0.018" step="0.001" name="varH1" id="varH1">
+                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="0.018" step="0.001" name="SvarH1" id="SvarH1">
                 </td>
                 <td > m </td>
             </tr>
@@ -100,7 +106,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > &gamma;'<sub>1</sub> = </td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="7.0" step="0.1" name="varGamma1" id="varGamma1"> 
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="7.0" step="0.1" name="SvarGamma1" id="SvarGamma1"> 
                 </td>
                 <td >kN/m<sup>3</sup> </td>
             </tr>
@@ -112,7 +118,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >b =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="19.0" step="0.1" name="varB" id="varB">
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="19.0" step="0.1" name="SvarB" id="SvarB">
                 </td>
                 <td >m</td>
             </tr>
@@ -124,7 +130,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >I<sub>1</sub> =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="48.6" step="0.1" name="varI1" id="varI1">
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="48.6" step="0.1" name="SvarI1" id="SvarI1">
                 </td>
                 <td >  cm<sup>4</sup> </td>
             </tr>
@@ -136,7 +142,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >W<sub>1 </sub> =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="54" step="0.1" name="varW1" id="varW1"> 
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="54" step="0.1" name="SvarW1" id="SvarW1"> 
                 </td>
                 <td > cm<sup>3</sup> </td>
             </tr>
@@ -148,7 +154,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >[&sigma;<sub>1 </sub>] =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="18000" step="1" name="varSigma1" id="varSigma1"> 
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="18000" step="1" name="SvarSigma1" id="SvarSigma1"> 
                 </td>
                 <td > kN/m<sup>3</sup> </td>
             </tr>
@@ -160,7 +166,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >[E<sub>1 </sub>] = </td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="5000000" step="1000" name="varE1" id="varE1">
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="5000000" step="1000" name="SvarE1" id="SvarE1">
                 </td>
                 <td > kN/m<sup>2</sup> </td>
             </tr>
@@ -177,13 +183,22 @@ $this->params['breadcrumbs'][] = $this->title;
             <tr>
                 <td>Loại Đà</td>
                 <td colspan="3" style="text-align: center;">
-                    <select id="loai" class="form-control" name="loai">
-                        <option value="san">Box steel 50x50x1.5</option>
+                    <select id="S-loai-1" class="form-control" name="loai">
+                        <?php
+                            foreach ($arrI as $key => $value) {
+                                echo "<option value='$key'>$key</option>";
+                            }
+                        ?>
                     </select>
                 </td>
-                <td colspan="4" style="text-align: center;">
-                    <select id="loai" class="form-control" name="loai">
-                        <option value="san">Box steel 50x50x1.5</option>
+                <td> </td>
+                <td colspan="3" style="text-align: center;">
+                    <select id="S-loai-2" class="form-control" name="loai">
+                        <?php
+                            foreach ($arrI as $key => $value) {
+                                echo "<option value='$key'>$key</option>";
+                            }
+                        ?>
                     </select>
                 </td>
             </tr>
@@ -191,51 +206,51 @@ $this->params['breadcrumbs'][] = $this->title;
             <tr>
                 <td>Trọng lượng riêng </td>
                 <td> &gamma;<sub>2</sub> = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="varGamma2" id="varGamma2"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="SvarGamma2" id="SvarGamma2"> </td>
                 <td> kN/m <sup>3</sup> </td>
                 <td> </td>
                 <td> &gamma;<sub>3</sub> = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="varGamma3" id="varGamma3"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="SvarGamma3" id="SvarGamma3"> </td>
                 <td>  kN/m <sup>3</sup> </td>
             </tr>
             <tr>
                 <td>Mô men quán tính </td>
                 <td> I<sub>2</sub> = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="11.42" step="0.1" name="varI2" id="varI2"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="11.42" step="0.1" name="SvarI2" id="SvarI2"> </td>
                 <td> cm <sup>4</sup> </td>
                 <td> </td>
                 <td> I<sub>3</sub> = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="112.11" step="0.1" name="varI3" id="varI3"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="112.11" step="0.1" name="SvarI3" id="SvarI3"> </td>
                 <td>  cm <sup>4</sup> </td>
             </tr>
             <tr>
                 <td>Mô men kháng uốn</td>
                 <td> W<sub>2</sub> = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="4.75" step="0.1" name="varW2" id="varW2"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="4.75" step="0.1" name="SvarW2" id="SvarW2"> </td>
                 <td> cm <sup>3</sup> </td>
                 <td> </td>
                 <td> W<sub>3</sub> = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="24.91" step="0.1" name="varW3" id="varW3"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="24.91" step="0.1" name="SvarW3" id="SvarW3"> </td>
                 <td>  cm <sup>3</sup> </td>
             </tr>
             <tr>
                 <td>Cường độ chịu uốn </td>
                 <td> [&sigma;<sub>2 </sub>] = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="varSigma2" id="varSigma2"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="SvarSigma2" id="SvarSigma2"> </td>
                 <td> kN/m <sup>2</sup> </td>
                 <td> </td>
                 <td> [&sigma;<sub>3 </sub>] = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="varSigma3" id="varSigma3"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="SvarSigma3" id="SvarSigma3"> </td>
                 <td>  kN/m <sup>2</sup> </td>
             </tr>
             <tr>
                 <td>Mô đun đàn hồi </td>
                 <td> E<sub>2</sub> = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="varE2" id="varE2"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="SvarE2" id="SvarE2"> </td>
                 <td> kN/m <sup>2</sup> </td>
                 <td> </td>
                 <td> E<sub>3</sub> = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="varE3" id="varE3"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="SvarE3" id="SvarE3"> </td>
                 <td>  kN/m <sup>2</sup> </td>
             </tr>
 
@@ -249,7 +264,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > S = </td>
                 <td >
-                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="0.4" step="0.1" name="varS" id="varS">
+                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="0.4" step="0.1" name="SvarS" id="SvarS">
                 </td>
                 <td > m<sup>2</sup> </td>
             </tr>
@@ -260,7 +275,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > {P] = </td>
                 <td >
-                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="60" step="0.1" name="varP" id="varP">
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="60" step="0.1" name="SvarP" id="SvarP">
                 </td>
                 <td > m<sup>2</sup> </td>
             </tr>
@@ -271,7 +286,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > L<sub>1</sub> = </td>
                 <td >
-                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.25" step="0.1" name="varL1" id="varL1">
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.25" step="0.1" name="SvarL1" id="SvarL1">
                 </td>
                 <td > m </td>
             </tr>
@@ -282,7 +297,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > L<sub>2</sub> = </td>
                 <td >
-                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.8" step="0.1" name="varL2" id="varL2">
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.8" step="0.1" name="SvarL2" id="SvarL2">
                 </td>
                 <td > m<sup>2</sup> </td>
             </tr>
@@ -293,7 +308,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > L<sub>3</sub> = </td>
                 <td >
-                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.4" step="0.1" name="varL3" id="varL3">
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.4" step="0.1" name="SvarL3" id="SvarL3">
                 </td>
                 <td > m<sup>2</sup> </td>
             </tr>
@@ -310,67 +325,737 @@ $this->params['breadcrumbs'][] = $this->title;
 
             
             <tr>
-                <td><strong>Trọng lượng sàn bê tông</strong></td>
+                <td>Trọng lượng sàn bê tông</td>
                 <td > n<sub>1</sub> = </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.2" step="0.1" name="varN1" id="varN1"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.2" step="0.1" name="SvarN1" id="SvarN1"></td>
                 <td > </td>
                 <td > q <sub> 1 </sub>= </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="6.25" step="0.1" name="varQtc1" id="varQtc1"></td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="7.5" step="0.1" name="varQtt1" id="varQtt1"></td>
-                <td > <td>  kN/m <sup>2</sup> </td> </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="6.25" step="0.1" name="SvarQtc1" id="SvarQtc1"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="7.5" step="0.1" name="SvarQtt1" id="SvarQtt1"></td>
+                <td > kN/m <sup>2</sup>  </td>
             </tr>
             <tr>
-                <td><strong>Trọng lượng cốp pha</strong></td>
+                <td>Trọng lượng cốp pha</td>
                 <td > n<sub>2</sub> = </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.1" step="0.1" name="varN2" id="varN2"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.1" step="0.1" name="SvarN2" id="SvarN2"></td>
                 <td > </td>
                 <td > q <sub>2</sub>= </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="60.1" step="0.1" name="varQtc2" id="varQtc2"></td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.11" step="0.1" name="varQtt2" id="varQtt2"></td>
-                <td > <td>  kN/m <sup>2</sup> </td> </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="60.1" step="0.1" name="SvarQtc2" id="SvarQtc2"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.11" step="0.1" name="SvarQtt2" id="SvarQtt2"></td>
+                <td >   kN/m <sup>2</sup>  </td>
             </tr>
             <tr>
-                <td><strong>Tải người và thiết bị</strong></td>
+                <td>Tải người và thiết bị</td>
                 <td > n<sub>3</sub> = </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.3" step="0.1" name="varN3" id="varN3"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.3" step="0.1" name="SvarN3" id="SvarN3"></td>
                 <td > </td>
                 <td > q <sub>3</sub>= </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="2.5" step="0.1" name="varQtc3" id="varQtc3"></td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="3.25" step="0.1" name="varQtt3" id="varQtt3"></td>
-                <td > <td>  kN/m <sup>2</sup> </td> </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="2.5" step="0.1" name="SvarQtc3" id="SvarQtc3"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="3.25" step="0.1" name="SvarQtt3" id="SvarQtt3"></td>
+                <td >   kN/m <sup>2</sup>  </td>
             </tr>
             <tr>
-                <td><strong>Tải trọng do dầm rung</strong></td>
+                <td>Tải trọng do dầm rung</td>
                 <td > n<sub>4</sub> = </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.3" step="0.1" name="varN4" id="varN4"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.3" step="0.1" name="SvarN4" id="SvarN4"></td>
                 <td > </td>
                 <td > q <sub>4</sub>= </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="2.0" step="0.1" name="varQtc4" id="varQtc4"></td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="2.6" step="0.1" name="varQtt4" id="varQtt4"></td>
-                <td > <td>  kN/m <sup>2</sup> </td> </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="2.0" step="0.1" name="SvarQtc4" id="SvarQtc4"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="2.6" step="0.1" name="SvarQtt4" id="SvarQtt4"></td>
+                <td >   kN/m <sup>2</sup> </td>
             </tr>
             <tr>
-                <td><strong>Tải trọng động do đổ bê tông</strong></td>
+                <td>Tải trọng động do đổ bê tông</td>
                 <td > n<sub>5</sub> = </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.3" step="0.1" name="varN5" id="varN5"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.3" step="0.1" name="SvarN5" id="SvarN5"></td>
                 <td > </td>
                 <td > q <sub>5</sub>= </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.5" step="0.1" name="varQtc5" id="varQtc5"></td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.65" step="0.1" name="varQtt5" id="varQtt5"></td>
-                <td > <td>  kN/m <sup>2</sup> </td> </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.5" step="0.1" name="SvarQtc5" id="SvarQtc5"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.65" step="0.1" name="SvarQtt5" id="SvarQtt5"></td>
+                <td > kN/m <sup>2</sup>  </td>
             </tr>
             <tr>
-                <td><strong>Tổng</strong></td>
+                <td>Tổng</td>
                 <td > </td>
                 <td > </td>
                 <td > </td>
                 <td > &epsilon;q = </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="11.35" step="0.1" name="varSumQtc" id="varSumQtc"></td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="14.11" step="0.1" name="varSumQtt" id="varSumQtt"></td>
-                <td > <td>  kN/m <sup>2</sup> </td> </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="11.35" step="0.1" name="SvarSumQtc" id="SvarSumQtc"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="14.11" step="0.1" name="SvarSumQtt" id="SvarSumQtt"></td>
+                <td >  kN/m <sup>2</sup>  </td>
             </tr>
             
         </table>
+
+
+
+
+        <table class="input-table-dam">
+            <tr>
+                <td><strong>Đặc trưng vật liệu</strong></td>
+            </tr>
+            <tr>
+                <td><i>Dầm bê tông cốt thép</i></td>
+            </tr>
+            <tr>
+                <td style="width: 30%">Chiều cao </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> h<sub>d</sub> = </td>
+                <td style="width: 10%">
+                    <input class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="0.25" step="0.01" name="DvarHd" id="DvarHd">
+                </td>
+                <td style="width: 10%"> m </td>
+            </tr>
+            <tr>
+                <td style="width: 30%">Chiều rộng </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> b<sub>d</sub> = </td>
+                <td style="width: 10%">
+                    <input class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="0.25" step="0.01" name="DvarBd" id="DvarBd">
+                </td>
+                <td style="width: 10%"> m </td>
+            </tr>
+            <tr>
+                <td>Trọng lượng riêng</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > &gamma;<sub>b</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="25" step="0.1" name="DvarGammab" id="DvarGammab"> 
+                </td>
+                <td >  kN/m<sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td><i>Ván ép</i></td>
+            </tr>
+            <tr>
+                <td>Chiều dày</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > h<sub>1</sub> = </td>
+                <td >
+                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="0.018" step="0.001" name="DvarH1" id="DvarH1">
+                </td>
+                <td > m </td>
+            </tr>
+            <tr>
+                <td>Trọng lượng riêng </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > &gamma;'<sub>1</sub> = </td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="0.7" step="0.1" name="DvarGamma1" id="DvarGamma1"> 
+                </td>
+                <td >kN/m<sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td>Bề rộng dải tính toán</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >b =</td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="1.0" step="0.1" name="DvarB" id="DvarB">
+                </td>
+                <td >m</td>
+            </tr>
+            <tr>
+                <td>Mô men quán tính</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >I<sub>1</sub> =</td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="48.6" step="0.1" name="DvarI1" id="DvarI1">
+                </td>
+                <td >  cm<sup>4</sup> </td>
+            </tr>
+            <tr>
+                <td>Mô men kháng uốn</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >W<sub>1 </sub> =</td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="54" step="0.1" name="DvarW1" id="DvarW1"> 
+                </td>
+                <td > cm<sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td>Cường độ vật liệu</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >[&sigma;<sub>1 </sub>] =</td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="18000" step="1" name="DvarSigma1" id="DvarSigma1"> 
+                </td>
+                <td > kN/m<sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td>Mô đun đàn hồi</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >[E<sub>1 </sub>] = </td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="5000000" step="1000" name="DvarE1" id="DvarE1">
+                </td>
+                <td > kN/m<sup>2</sup> </td>
+            </tr>
+
+            <!-- ============ -->
+
+            <tr>
+                <td><i>Đà</i></td>
+                <td colspan="3"  style="text-align: center;"> Đà phụ</td>
+
+                <td colspan="4" style="text-align: center;"> Đà chính </td>
+            </tr>
+
+            <tr>
+                <td>Loại Đà</td>
+                <td colspan="3" style="text-align: center;">
+                    <select id="D-loai-1" class="form-control" name="loai">
+                     <?php
+                            foreach ($arrI as $key => $value) {
+                                echo "<option value='$key'>$key</option>";
+                            }
+                        ?>
+                    </select>
+                </td>
+                <td> </td>
+                <td colspan="3" style="text-align: center;">
+                    <select id="D-loai-2" class="form-control" name="loai">
+                        <?php
+                            foreach ($arrI as $key => $value) {
+                                echo "<option value='$key'>$key</option>";
+                            }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Trọng lượng riêng </td>
+                <td> &gamma;<sub>2</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="DvarGamma2" id="DvarGamma2"> </td>
+                <td> kN/m <sup>3</sup> </td>
+                <td> </td>
+                <td> &gamma;<sub>3</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="DvarGamma3" id="DvarGamma3"> </td>
+                <td>  kN/m <sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td>Mô men quán tính </td>
+                <td> I<sub>2</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="11.42" step="0.1" name="DvarI2" id="DvarI2"> </td>
+                <td> cm <sup>4</sup> </td>
+                <td> </td>
+                <td> I<sub>3</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="112.11" step="0.1" name="DvarI3" id="DvarI3"> </td>
+                <td>  cm <sup>4</sup> </td>
+            </tr>
+            <tr>
+                <td>Mô men kháng uốn</td>
+                <td> W<sub>2</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="4.75" step="0.1" name="DvarW2" id="DvarW2"> </td>
+                <td> cm <sup>3</sup> </td>
+                <td> </td>
+                <td> W<sub>3</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="24.91" step="0.1" name="DvarW3" id="DvarW3"> </td>
+                <td>  cm <sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td>Cường độ chịu uốn </td>
+                <td> [&sigma;<sub>2 </sub>] = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="2100000" step="0.1" name="DvarSigma2" id="DvarSigma2"> </td>
+                <td> kN/m <sup>2</sup> </td>
+                <td> </td>
+                <td> [&sigma;<sub>3 </sub>] = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="2100000" step="0.1" name="DvarSigma3" id="DvarSigma3"> </td>
+                <td>  kN/m <sup>2</sup> </td>
+            </tr>
+            <tr>
+                <td>Mô đun đàn hồi </td>
+                <td> E<sub>2</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="210000000" step="0.1" name="DvarE2" id="DvarE2"> </td>
+                <td> kN/m <sup>2</sup> </td>
+                <td> </td>
+                <td> E<sub>3</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="210000000" step="0.1" name="DvarE3" id="DvarE3"> </td>
+                <td>  kN/m <sup>2</sup> </td>
+            </tr>
+
+
+            <tr>
+                <td><i>Cây chống</i></td>
+            </tr>
+            <tr>
+                <td colspan="3">Diện tích truyền tải lên 1 cây chống</td>
+                <td > </td>
+                <td > </td>
+                <td > S = </td>
+                <td >
+                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="0.4" step="0.1" name="DvarS" id="DvarS">
+                </td>
+                <td > m<sup>2</sup> </td>
+            </tr>
+            <tr>
+                <td colspan="2">Sức chịu nén (1 chống)</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > {P] = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="60" step="0.1" name="DvarP" id="DvarP">
+                </td>
+                <td > m<sup>2</sup> </td>
+            </tr>
+            <tr>
+                <td colspan="2">Khoảng cách đà phụ</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > L<sub>1</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.25" step="0.1" name="DvarL1" id="DvarL1">
+                </td>
+                <td > m </td>
+            </tr>
+            <tr>
+                <td colspan="2">Khoảng cách đà chính</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > L<sub>2</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.8" step="0.1" name="DvarL2" id="DvarL2">
+                </td>
+                <td > m<sup>2</sup> </td>
+            </tr>
+            <tr>
+                <td colspan="2">Khoảng cách cây chống</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > L<sub>3</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.25" step="0.1" name="DvarL3" id="DvarL3">
+                </td>
+                <td > m<sup>2</sup> </td>
+            </tr>
+
+
+            <tr>
+                <td><strong>Tải trọng tác dụng</strong></td>
+                <td colspan="3" > hệ số vượt tải </td>
+                <td > </td>
+                <td style="text-align: center;"> q <sup> tc </sup> </td>
+                <td style="text-align: center;"> q <sup> tt </sup> </td>
+                <td > - </td>
+            </tr>
+
+            
+            <tr>
+                <td>Trọng lượng sàn bê tông</td>
+                <td > n<sub>1</sub> = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.2" step="0.1" name="DvarN1" id="DvarN1"></td>
+                <td > </td>
+                <td > q <sub> 1 </sub>= </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="6.25" step="0.1" name="DvarQtc1" id="DvarQtc1"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="7.5" step="0.1" name="DvarQtt1" id="DvarQtt1"></td>
+                <td > kN/m <sup>2</sup>  </td>
+            </tr>
+            <tr>
+                <td>Trọng lượng cốp pha</td>
+                <td > n<sub>2</sub> = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.1" step="0.1" name="DvarN2" id="DvarN2"></td>
+                <td > </td>
+                <td > q <sub>2</sub>= </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="60.1" step="0.1" name="DvarQtc2" id="DvarQtc2"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.11" step="0.1" name="DvarQtt2" id="DvarQtt2"></td>
+                <td >   kN/m <sup>2</sup>  </td>
+            </tr>
+            <tr>
+                <td>Tải người và thiết bị</td>
+                <td > n<sub>3</sub> = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.3" step="0.1" name="DvarN3" id="DvarN3"></td>
+                <td > </td>
+                <td > q <sub>3</sub>= </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="2.5" step="0.1" name="DvarQtc3" id="DvarQtc3"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="3.25" step="0.1" name="DvarQtt3" id="DvarQtt3"></td>
+                <td >   kN/m <sup>2</sup>  </td>
+            </tr>
+            <tr>
+                <td>Tải trọng do dầm rung</td>
+                <td > n<sub>4</sub> = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.3" step="0.1" name="DvarN4" id="DvarN4"></td>
+                <td > </td>
+                <td > q <sub>4</sub>= </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="2.0" step="0.1" name="DvarQtc4" id="DvarQtc4"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="2.6" step="0.1" name="DvarQtt4" id="DvarQtt4"></td>
+                <td >   kN/m <sup>2</sup> </td>
+            </tr>
+            <tr>
+                <td>Tải trọng động do đổ bê tông</td>
+                <td > n<sub>5</sub> = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.3" step="0.1" name="DvarN5" id="DvarN5"></td>
+                <td > </td>
+                <td > q <sub>5</sub>= </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.5" step="0.1" name="DvarQtc5" id="DvarQtc5"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.65" step="0.1" name="DvarQtt5" id="DvarQtt5"></td>
+                <td > kN/m <sup>2</sup>  </td>
+            </tr>
+            <tr>
+                <td>Tổng</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > &epsilon;q = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="11.35" step="0.1" name="DvarSumQtc" id="DvarSumQtc"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="14.11" step="0.1" name="DvarSumQtt" id="DvarSumQtt"></td>
+                <td >  kN/m <sup>2</sup>  </td>
+            </tr>
+            
+        </table>
+
+
+
+        <table class="input-table-cot">
+            <tr>
+                <td><strong>Đặc trưng vật liệu</strong></td>
+            </tr>
+            <tr>
+                <td><i>Cột bê tông cốt thép</i></td>
+            </tr>
+            <tr>
+                <td style="width: 30%">Chiều cao đổ bê tông</td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> </td>
+                <td style="width: 10%"> h<sub>c</sub> = </td>
+                <td style="width: 10%">
+                    <input class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="0.25" step="0.01" name="CvarHc" id="CvarHc">
+                </td>
+                <td style="width: 10%"> m </td>
+            </tr>
+            <tr>
+                <td>Trọng lượng riêng</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > &gamma;<sub>b</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="25" step="0.1" name="CvarGammab" id="CvarGammab"> 
+                </td>
+                <td >  kN/m<sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td><i>Ván ép</i></td>
+            </tr>
+            <tr>
+                <td>Chiều dày</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > h<sub>1</sub> = </td>
+                <td >
+                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="0.018" step="0.001" name="CvarH1" id="CvarH1">
+                </td>
+                <td > m </td>
+            </tr>
+            <tr>
+                <td>Trọng lượng riêng </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > &gamma;'<sub>1</sub> = </td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="0.7" step="0.1" name="CvarGamma1" id="CvarGamma1"> 
+                </td>
+                <td >kN/m<sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td>Bề rộng dải tính toán</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >b =</td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="1.0" step="0.1" name="CvarB" id="CvarB">
+                </td>
+                <td >m</td>
+            </tr>
+            <tr>
+                <td>Mô men quán tính</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >I<sub>1</sub> =</td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="48.6" step="0.1" name="CvarI1" id="CvarI1">
+                </td>
+                <td >  cm<sup>4</sup> </td>
+            </tr>
+            <tr>
+                <td>Mô men kháng uốn</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >W<sub>1 </sub> =</td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="54" step="0.1" name="CvarW1" id="CvarW1"> 
+                </td>
+                <td > cm<sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td>Cường độ vật liệu</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >[&sigma;<sub>1 </sub>] =</td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="18000" step="1" name="CvarSigma1" id="CvarSigma1"> 
+                </td>
+                <td > kN/m<sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td>Mô đun đàn hồi</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td >[E<sub>1 </sub>] = </td>
+                <td >
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="5000000" step="1000" name="CvarE1" id="CvarE1">
+                </td>
+                <td > kN/m<sup>2</sup> </td>
+            </tr>
+
+            <!-- ============ -->
+
+            <tr>
+                <td><i>Gông</i></td>
+                <td colspan="3"  style="text-align: center;"> Sườn phụ</td>
+
+                <td colspan="4" style="text-align: center;"> Sườn chính </td>
+            </tr>
+
+            <tr>
+                <td>Loại Đà</td>
+                <td colspan="3" style="text-align: center;">
+                    <select id="C-loai-1" class="form-control" name="loai">
+                        <?php
+                            foreach ($arrI as $key => $value) {
+                                echo "<option value='$key'>$key</option>";
+                            }
+                        ?>
+                    </select>
+                </td>
+                <td> </td>
+                <td colspan="3" style="text-align: center;">
+                    <select id="C-loai-1" class="form-control" name="loai">
+                        <?php
+                            foreach ($arrI as $key => $value) {
+                                echo "<option value='$key'>$key</option>";
+                            }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Trọng lượng riêng </td>
+                <td> &gamma;<sub>2</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="CvarGamma2" id="CvarGamma2"> </td>
+                <td> kN/m <sup>3</sup> </td>
+                <td> </td>
+                <td> &gamma;<sub>3</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="CvarGamma3" id="CvarGamma3"> </td>
+                <td>  kN/m <sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td>Mô men quán tính </td>
+                <td> I<sub>2</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="11.42" step="0.1" name="CvarI2" id="CvarI2"> </td>
+                <td> cm <sup>4</sup> </td>
+                <td> </td>
+                <td> I<sub>3</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="112.11" step="0.1" name="CvarI3" id="CvarI3"> </td>
+                <td>  cm <sup>4</sup> </td>
+            </tr>
+            <tr>
+                <td>Mô men kháng uốn</td>
+                <td> W<sub>2</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="4.75" step="0.1" name="CvarW2" id="CvarW2"> </td>
+                <td> cm <sup>3</sup> </td>
+                <td> </td>
+                <td> W<sub>3</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="24.91" step="0.1" name="CvarW3" id="CvarW3"> </td>
+                <td>  cm <sup>3</sup> </td>
+            </tr>
+            <tr>
+                <td>Cường độ chịu uốn </td>
+                <td> [&sigma;<sub>2 </sub>] = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="2100000" step="0.1" name="CvarSigma2" id="CvarSigma2"> </td>
+                <td> kN/m <sup>2</sup> </td>
+                <td> </td>
+                <td> [&sigma;<sub>3 </sub>] = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="2100000" step="0.1" name="CvarSigma3" id="CvarSigma3"> </td>
+                <td>  kN/m <sup>2</sup> </td>
+            </tr>
+            <tr>
+                <td>Mô đun đàn hồi </td>
+                <td> E<sub>2</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="210000000" step="0.1" name="CvarE2" id="CvarE2"> </td>
+                <td> kN/m <sup>2</sup> </td>
+                <td> </td>
+                <td> E<sub>3</sub> = </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="210000000" step="0.1" name="CvarE3" id="CvarE3"> </td>
+                <td>  kN/m <sup>2</sup> </td>
+            </tr>
+
+
+            <tr>
+                <td><i>Ty liên kết</i></td>
+            </tr>
+            <tr>
+                <td colspan="3">Đường kính</td>
+                <td > </td>
+                <td > </td>
+                <td > d = </td>
+                <td >
+                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="16" step="0.1" name="CvarD" id="CvarD">
+                </td>
+                <td > mm </td>
+            </tr>
+            <tr>
+                <td colspan="2">Cường độ tính toán</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > {&sigma;]<sub>4</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="210000" step="0.1" name="CvarSigma4" id="CvarSigma4">
+                </td>
+                <td > kN/m<sup>2</sup> </td>
+            </tr>
+            <tr>
+                <td colspan="2">Mô đun đàn hồi</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > E<sub>2</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.25" step="0.1" name="CvarE22" id="CvarE22">
+                </td>
+                <td > kN/m<sup>2</sup> </td>
+            </tr>
+            <tr>
+                <td colspan="2">Khoảng cách sườn phụ</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > L<sub>1</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.25" step="0.1" name="CvarL1" id="CvarL1">
+                </td>
+                <td > m </td>
+            </tr>
+            <tr>
+                <td colspan="2">Khoảng cách sườn chính</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > L<sub>2</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.5" step="0.1" name="CvarL2" id="CvarL2">
+                </td>
+                <td > m</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Khoảng cách giữa các ty liên kết</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > L<sub>3</sub> = </td>
+                <td >
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.0" step="0.1" name="CvarL3" id="CvarL3">
+                </td>
+                <td > m</td>
+            </tr>
+
+
+            <tr>
+                <td><strong>Tải trọng tác dụng</strong></td>
+                <td colspan="3" > hệ số vượt tải </td>
+                <td > </td>
+                <td style="text-align: center;"> q <sup> tc </sup> </td>
+                <td style="text-align: center;"> q <sup> tt </sup> </td>
+                <td > - </td>
+            </tr>
+
+            
+            <tr>
+                <td>Trọng lượng ngang bê tông</td>
+                <td > n<sub>1</sub> = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.2" step="0.1" name="CvarN1" id="CvarN1"></td>
+                <td > </td>
+                <td > q <sub> 1 </sub>= </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="6.25" step="0.1" name="CvarQtc1" id="CvarQtc1"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="7.5" step="0.1" name="CvarQtt1" id="CvarQtt1"></td>
+                <td > kN/m <sup>2</sup>  </td>
+            </tr>
+            <tr>
+                <td>Tải trọng động do đổ bê tông</td>
+                <td > n<sub>2</sub> = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.1" step="0.1" name="CvarN2" id="CvarN2"></td>
+                <td > </td>
+                <td > q <sub>2</sub>= </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="60.1" step="0.1" name="CvarQtc2" id="CvarQtc2"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.11" step="0.1" name="CvarQtt2" id="CvarQtt2"></td>
+                <td >   kN/m <sup>2</sup>  </td>
+            </tr>
+            <tr>
+                <td>Tổng</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > &epsilon;q = </td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="11.35" step="0.1" name="CvarSumQtc" id="CvarSumQtc"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="14.11" step="0.1" name="CvarSumQtt" id="CvarSumQtt"></td>
+                <td >  kN/m <sup>2</sup>  </td>
+            </tr>
+            
+        </table>
+
         <div class="text-center" style="margin-top: 10px">
             <img src="/images/21/hinh1.jpg" alt="Hình 1. Các trường hợp móng" width="500px">
         </div>
@@ -426,7 +1111,129 @@ $this->params['breadcrumbs'][] = $this->title;
 <script>
     $(document).ready(function() {
         
+        var arrI = <?php echo json_encode($arrI); ?>; 
+        var arrW = <?php echo json_encode($arrW); ?>;
+        var loai1 = $("#S-loai-1").val();
+        console.log(arrI);
+
+                $(".input-table-san").show();
+                $(".input-table-dam").hide();
+                $(".input-table-cot").hide();
+                $("#title").text("TÍNH TOÁN CỐP PHA SÀN");
         $("#check-tang-ham").change(function() { showItem("#check-tang-ham", ".check-tang-ham-item"); });
+
+        $("#loai").change(function() { 
+            if ($("#loai").val() == "san") {
+                $(".input-table-san").show();
+                $(".input-table-dam").hide();
+                $(".input-table-cot").hide();
+                $("#title").text("TÍNH TOÁN CỐP PHA SÀN");
+            } else if($("#loai").val() == "dam") {
+                $(".input-table-san").hide();
+                $(".input-table-dam").show();
+                $(".input-table-cot").hide();
+                $("#title").text("TÍNH TOÁN CỐP PHA DẦM");
+            } else {
+                $(".input-table-san").hide();
+                $(".input-table-dam").hide();
+                $(".input-table-cot").show();
+                $("#title").text("TÍNH TOÁN CỐP PHA CỘT");
+            }
+        });
+
+        $("#SvarH1").change(function() { 
+            $("#SvarI1").val(($("#SvarB").val() * 100 * Math.pow($("#SvarH1").val() *100, 3) ) / 12 );
+            $("#SvarW1").val(($("#SvarB").val() * 100 * Math.pow($("#SvarH1").val() *100, 2) ) / 6 );
+        });
+        $("#SvarB").change(function() { 
+            $("#SvarI1").val(($("#SvarB").val() * 100 * Math.pow($("#SvarH1").val() *100, 3) ) / 12 );
+            $("#SvarW1").val(($("#SvarB").val() * 100 * Math.pow($("#SvarH1").val() *100, 2) ) / 6 );
+        });
+        $("#DvarH1").change(function() { 
+            $("#DvarI1").val(($("#DvarB").val() * 100 * Math.pow($("#DvarH1").val() *100, 3) ) / 12 );
+            $("#DvarW1").val(($("#DvarB").val() * 100 * Math.pow($("#DvarH1").val() *100, 2) ) / 6 );
+        });
+        $("#DvarB").change(function() { 
+            $("#DvarI1").val(($("#DvarB").val() * 100 * Math.pow($("#DvarH1").val() *100, 3) ) / 12 );
+            $("#DvarW1").val(($("#DvarB").val() * 100 * Math.pow($("#DvarH1").val() *100, 2) ) / 6 );
+        });
+        $("#CvarH1").change(function() { 
+            $("#CvarI1").val(($("#CvarB").val() * 100 * Math.pow($("#CvarH1").val() *100, 3) ) / 12 );
+            $("#CvarW1").val(($("#CvarB").val() * 100 * Math.pow($("#CvarH1").val() *100, 2) ) / 6 );
+        });
+        $("#CvarB").change(function() { 
+            $("#CvarI1").val(($("#CvarB").val() * 100 * Math.pow($("#CvarH1").val() *100, 3) ) / 12 );
+            $("#CvarW1").val(($("#CvarB").val() * 100 * Math.pow($("#CvarH1").val() *100, 2) ) / 6 );
+        });
+
+        $("#S-loai-1").change(function() { 
+            $("SvarI2").val($("#S-loai-1").val());
+        });
+
+
+        $("#SvarQtc1").change(function() { 
+            $("#SvarQtt1").val(parseFloat($("#SvarQtc1").val())* parseFloat($("#SvarN1").val()));
+            $("#SvarSumQtc").val( parseFloat($("#SvarQtc1").val())+parseFloat($("#SvarQtc2").val())+parseFloat($("#SvarQtc3").val())+parseFloat($("#SvarQtc4").val())+parseFloat($("#SvarQtc5").val()));
+            $("#SvarSumQtt").val( parseFloat($("#SvarQtt1").val())+parseFloat($("#SvarQtt2").val())+parseFloat($("#SvarQtt3").val())+parseFloat($("#SvarQtt4").val())+parseFloat($("#SvarQtt5").val()));
+
+        });
+        $("#SvarQtc2").change(function() {
+            $("#SvarQtt2").val($("#SvarQtc2").val()* $("#SvarN2").val());
+            $("#SvarSumQtc").val( parseFloat($("#SvarQtc1").val())+parseFloat($("#SvarQtc2").val())+parseFloat($("#SvarQtc3").val())+parseFloat($("#SvarQtc4").val())+parseFloat($("#SvarQtc5").val()));
+            $("#SvarSumQtt").val( parseFloat($("#SvarQtt1").val())+parseFloat($("#SvarQtt2").val())+parseFloat($("#SvarQtt3").val())+parseFloat($("#SvarQtt4").val())+parseFloat($("#SvarQtt5").val()));
+        });
+        $("#SvarQtc3").change(function() { 
+            $("#SvarQtt3").val($("#SvarQtc3").val()* $("#SvarN3").val());
+            $("#SvarSumQtc").val( parseFloat($("#SvarQtc1").val())+parseFloat($("#SvarQtc2").val())+parseFloat($("#SvarQtc3").val())+parseFloat($("#SvarQtc4").val())+parseFloat($("#SvarQtc5").val()));
+            $("#SvarSumQtt").val( parseFloat($("#SvarQtt1").val())+parseFloat($("#SvarQtt2").val())+parseFloat($("#SvarQtt3").val())+parseFloat($("#SvarQtt4").val())+parseFloat($("#SvarQtt5").val()));
+        });
+        $("#SvarQtc4").change(function() { 
+            $("#SvarQtt4").val($("#SvarQtc4").val()* $("#SvarN4").val());
+            $("#SvarSumQtc").val( parseFloat($("#SvarQtc1").val())+parseFloat($("#SvarQtc2").val())+parseFloat($("#SvarQtc3").val())+parseFloat($("#SvarQtc4").val())+parseFloat($("#SvarQtc5").val()));
+            $("#SvarSumQtt").val( parseFloat($("#SvarQtt1").val())+parseFloat($("#SvarQtt2").val())+parseFloat($("#SvarQtt3").val())+parseFloat($("#SvarQtt4").val())+parseFloat($("#SvarQtt5").val()));
+        });
+        $("#SvarQtc5").change(function() { 
+            $("#SvarQtt5").val($("#SvarQtc5").val()* $("#SvarN5").val());
+            $("#SvarSumQtc").val( parseFloat($("#SvarQtc1").val())+parseFloat($("#SvarQtc2").val())+parseFloat($("#SvarQtc3").val())+parseFloat($("#SvarQtc4").val())+parseFloat($("#SvarQtc5").val()));
+            $("#SvarSumQtt").val( parseFloat($("#SvarQtt1").val())+parseFloat($("#SvarQtt2").val())+parseFloat($("#SvarQtt3").val())+parseFloat($("#SvarQtt4").val())+parseFloat($("#SvarQtt5").val()));
+        });
+        $("#DvarQtc1").change(function() { 
+            $("#DvarQtt1").val($("#DvarQtc1").val()* $("#DvarN1").val());
+            $("#DvarSumQtc").val( parseFloat($("DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
+            $("#DvarSumQtt").val( parseFloat($("DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
+        });
+        $("#DvarQtc2").change(function() { 
+            $("#DvarQtt2").val($("#DvarQtc2").val()* $("#DvarN2").val());
+            $("#DvarSumQtc").val( parseFloat($("DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
+            $("#DvarSumQtt").val( parseFloat($("DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
+        });
+        $("#DvarQtc3").change(function() { 
+            $("#DvarQtt3").val($("#DvarQtc3").val()* $("#DvarN3").val());
+            $("#DvarSumQtc").val( parseFloat($("DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
+            $("#DvarSumQtt").val( parseFloat($("DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
+        });
+        $("#DvarQtc4").change(function() { 
+            $("#DvarQtt4").val($("#DvarQtc4").val()* $("#DvarN4").val());
+            $("#DvarSumQtc").val( parseFloat($("DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
+            $("#DvarSumQtt").val( parseFloat($("DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
+        });
+        $("#DvarQtc5").change(function() { 
+            $("#DvarQtt5").val($("#DvarQtc5").val()* $("#DvarN5").val());
+            $("#DvarSumQtc").val( parseFloat($("DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
+            $("#DvarSumQtt").val( parseFloat($("DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
+        });
+
+        $("#CvarQtc1").change(function() { 
+            $("#CvarQtt1").val($("#CvarQtc1").val()* $("#CvarN1").val());
+            $("#CvarSumQtc").val( parseFloat($("CvarQtc1").val())+parseFloat($("#CvarQtc2").val()));
+            $("#CvarSumQtt").val( parseFloat($("CvarQtt1").val())+parseFloat($("#CvarQtt2").val()));
+        });
+        $("#CvarQtc2").change(function() { 
+            $("#CvarQtt2").val($("#CvarQtc2").val()* $("#CvarN2").val());
+            $("#CvarSumQtc").val( parseFloat($("CvarQtc1").val())+parseFloat($("#CvarQtc2").val()));
+            $("#CvarSumQtt").val( parseFloat($("CvarQtt1").val())+parseFloat($("#CvarQtt2").val()));
+        });
+       
     });
 
     function showItem(className, itemName) {
@@ -446,19 +1253,48 @@ $this->params['breadcrumbs'][] = $this->title;
 
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
-        varNII = $('#varNII').val()
-        varPhiII = $('#varPhiII').val()
-        varCII = $('#varCII').val()
-        varGammaII = $('#varGammaII').val()
-        varGammaIIPhay = $('#varGammaIIPhay').val()
-        varGammaII2Phay = $('#varGammaII2Phay').val()
-        varH = $('#varH').val()
-        varB = $('#varB').val()
-        varL = $('#varL').val()
-        varZ = $('#varZ').val()
-        varH1 = $('#varH1').val()
-        varH2 = $('#varH2').val()
-        varM1 = $('#varM1').val()
+        SvarHs = $('#SvarHs').val()
+        SvarGammab = $('#SvarGammab').val()
+        SvarH1 = $('#SvarH1').val()
+        SvarGamma1 = $('#SvarGamma1').val()
+        SvarB = $('#SvarB').val()
+        SvarI1 = $('#SvarI1').val()
+        SvarW1 = $('#SvarW1').val()
+        Svarsigma1 = $('#Svarsigma1').val()
+        SvarE1 = $('#SvarE1').val()
+        SvarGamma2 = $('#SvarGamma2').val()
+        SvarGamma3 = $('#SvarGamma3').val()
+        SvarI2 = $('#SvarI2').val()
+        SvarI3 = $('#SvarI3').val()
+        SvarW2 = $('#SvarI2').val()
+        SvarW3 = $('#SvarI3').val()
+        SvarSigma2 = $('#SvarSigma2').val()
+        SvarSigma3 = $('#SvarSigma3').val()
+        SvarE2 = $('#SvarE2').val()
+        SvarE3 = $('#SvarE3').val()
+        SvarP = $('#SvarP').val()
+        SvarL1 = $('#SvarL1').val()
+        SvarL2 = $('#SvarL2').val()
+        SvarL3 = $('#SvarL3').val()
+        SvarN1 = $('#SvarN1').val()
+        SvarN2 = $('#SvarN2').val()
+        SvarN3 = $('#SvarN3').val()
+        SvarN4 = $('#SvarN4').val()
+        SvarN5 = $('#SvarN5').val()
+        SvarQtc1 = $('#SvarQtc1').val()
+        SvarQtc2 = $('#SvarQtc2').val()
+        SvarQtc3 = $('#SvarQtc3').val()
+        SvarQtc4 = $('#SvarQtc4').val()
+        SvarQtc5 = $('#SvarQtc5').val()
+        SvarQtt1 = $('#SvarQtt1').val()
+        SvarQtt2 = $('#SvarQtt2').val()
+        SvarQtt3 = $('#SvarQtt3').val()
+        SvarQtt4 = $('#SvarQtt4').val()
+        SvarQtt5 = $('#SvarQtt5').val()
+        SvarSumQtc = $('#SvarSumQtc').val()
+        SvarSumQtt = $('#SvarSumQtt').val()
+
+
         varM2 = $('#varM2').val()
         varKtc = $('#varKtc').val()
         check_tang_ham = $("#check-tang-ham").val()
