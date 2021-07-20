@@ -1876,9 +1876,57 @@ class TinhToanController extends \yii\web\Controller
             $dmtt->luot_giai++;
             $dmtt->save();
 
+            // van ep
+            
+            $qtt1 = $input['SvarSumQtt'] * $input['SvarB'];
+            $qtc1 = $input['SvarSumQtc'] * $input['SvarB'];
 
+            $M1 = round (($qtt1 * pow($input['SvarL1'], 2) / 10 ), 3 );
+
+            $sigma1 = round($M1 / ($input['SvarW1'] /1000000) , 3 );
+            $teta2 = round( ($input['SvarSigma1'] - $sigma1 ) *100 / $sigma1, 2 );
+
+            $f1 = round( (5/384) * ($qtc1 * pow($input['SvarL1'], 4)) * 1000 / ($input['SvarE1']  * $input['SvarI1'] / 100000000) , 1);
+            
+            $ghf1 = round((3/1000) * $input['SvarL1'] *1000, 1);
+            $tetaF1 = round((($ghf1 - $f1 ) / $f1 ) * 100, 1);
+           
            
 
+            // da phu
+            
+            $qtt2 = $input['SvarSumQtt'] * $input['SvarL1'];
+            $qtc2 = $input['SvarSumQtc'] * $input['SvarL1'];
+
+            $M2 = round (($qtt2 * pow($input['SvarL2'], 2) / 10 ), 3 );
+
+            $sigma2 = round($M2 / ($input['SvarW2'] /1000000) , 3 );
+            $teta2 = round( ($input['SvarSigma2'] - $sigma2 ) *100 / $sigma2, 2 );
+
+            $f2 = round( (5/384) * ($qtc2 * pow($input['SvarL2'], 4)) * 1000 / ($input['SvarE2'] * $input['SvarI2'] / 100000000) , 1);
+            $ghf2 = round((3/1000) * $input['SvarL2'] *1000, 1);
+            $tetaF2 = round((($ghf2 - $f2 ) / $f2 ) * 100, 1);
+
+            // da chinh
+
+            $qtt3 = $input['SvarSumQtt'] * $input['SvarL2'];
+            $qtc3 = $input['SvarSumQtc'] * $input['SvarL2'];
+
+            $M3 = round (($qtt3 * pow($input['SvarL3'], 2) / 10 ), 3 );
+
+            $sigma3 = round($M3 / ($input['SvarW3'] /1000000) , 3 );
+            $teta3 = round( ($input['SvarSigma3'] - $sigma3 ) *100 / $sigma3, 2 );
+
+            $f3 = round( (5/384) * ($qtc3 * pow($input['SvarL3'], 4)) * 1000 / ($input['SvarE3']  * $input['SvarI3'] / 100000000 ) , 1);
+            $ghf3 = round((3/1000) * $input['SvarL3'] *1000, 1);
+            $tetaF3 = round((($ghf3 - $f3 ) / $f3 ) * 100, 1);
+
+            // cây chống
+
+            $P = round ($input['SvarSumQtt'] * $input['SvarS'], 2 );
+            $tetaP = round(($input['SvarP'] - $P ) * 100 / $P, 0);
+
+           echo  $tetaP; die;
             // $timestamp = date('Ymd_His');
             // $filename = 'tinh-nen-theo-suc-chiu-tai_' . $timestamp . '.docx';
             // $fileStorage = './file-tinh-toan/output/' . $filename;

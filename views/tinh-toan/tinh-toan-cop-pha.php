@@ -118,7 +118,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >b =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="19.0" step="0.1" name="SvarB" id="SvarB">
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="1.0" step="0.1" name="SvarB" id="SvarB">
                 </td>
                 <td >m</td>
             </tr>
@@ -220,7 +220,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td> cm <sup>4</sup> </td>
                 <td> </td>
                 <td> I<sub>3</sub> = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="112.11" step="0.1" name="SvarI3" id="SvarI3"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="56.06" step="0.1" name="SvarI3" id="SvarI3"> </td>
                 <td>  cm <sup>4</sup> </td>
             </tr>
             <tr>
@@ -230,27 +230,27 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td> cm <sup>3</sup> </td>
                 <td> </td>
                 <td> W<sub>3</sub> = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="24.91" step="0.1" name="SvarW3" id="SvarW3"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="12.46" step="0.1" name="SvarW3" id="SvarW3"> </td>
                 <td>  cm <sup>3</sup> </td>
             </tr>
             <tr>
                 <td>Cường độ chịu uốn </td>
                 <td> [&sigma;<sub>2 </sub>] = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="SvarSigma2" id="SvarSigma2"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="210000" step="0.1" name="SvarSigma2" id="SvarSigma2"> </td>
                 <td> kN/m <sup>2</sup> </td>
                 <td> </td>
                 <td> [&sigma;<sub>3 </sub>] = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="SvarSigma3" id="SvarSigma3"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="210000" step="0.1" name="SvarSigma3" id="SvarSigma3"> </td>
                 <td>  kN/m <sup>2</sup> </td>
             </tr>
             <tr>
                 <td>Mô đun đàn hồi </td>
                 <td> E<sub>2</sub> = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="SvarE2" id="SvarE2"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="210000000" step="0.1" name="SvarE2" id="SvarE2"> </td>
                 <td> kN/m <sup>2</sup> </td>
                 <td> </td>
                 <td> E<sub>3</sub> = </td>
-                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="78.5" step="0.1" name="SvarE3" id="SvarE3"> </td>
+                <td> <input class="form-control"  required  pattern="[0-9]*.[0-9]+" value="210000000" step="0.1" name="SvarE3" id="SvarE3"> </td>
                 <td>  kN/m <sup>2</sup> </td>
             </tr>
 
@@ -264,7 +264,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > S = </td>
                 <td >
-                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="0.4" step="0.1" name="SvarS" id="SvarS">
+                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="0.9" step="0.1" name="SvarS" id="SvarS">
                 </td>
                 <td > m<sup>2</sup> </td>
             </tr>
@@ -275,7 +275,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > {P] = </td>
                 <td >
-                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="60" step="0.1" name="SvarP" id="SvarP">
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="25" step="0.1" name="SvarP" id="SvarP">
                 </td>
                 <td > m<sup>2</sup> </td>
             </tr>
@@ -286,7 +286,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > L<sub>1</sub> = </td>
                 <td >
-                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.25" step="0.1" name="SvarL1" id="SvarL1">
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.3" step="0.1" name="SvarL1" id="SvarL1">
                 </td>
                 <td > m </td>
             </tr>
@@ -308,7 +308,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > L<sub>3</sub> = </td>
                 <td >
-                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.4" step="0.1" name="SvarL3" id="SvarL3">
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.25" step="0.1" name="SvarL3" id="SvarL3">
                 </td>
                 <td > m<sup>2</sup> </td>
             </tr>
@@ -340,7 +340,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.1" step="0.1" name="SvarN2" id="SvarN2"></td>
                 <td > </td>
                 <td > q <sub>2</sub>= </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="60.1" step="0.1" name="SvarQtc2" id="SvarQtc2"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.1" step="0.1" name="SvarQtc2" id="SvarQtc2"></td>
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.11" step="0.1" name="SvarQtt2" id="SvarQtt2"></td>
                 <td >   kN/m <sup>2</sup>  </td>
             </tr>
@@ -1253,75 +1253,136 @@ $this->params['breadcrumbs'][] = $this->title;
 
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
-        SvarHs = $('#SvarHs').val()
-        SvarGammab = $('#SvarGammab').val()
-        SvarH1 = $('#SvarH1').val()
-        SvarGamma1 = $('#SvarGamma1').val()
-        SvarB = $('#SvarB').val()
-        SvarI1 = $('#SvarI1').val()
-        SvarW1 = $('#SvarW1').val()
-        Svarsigma1 = $('#Svarsigma1').val()
-        SvarE1 = $('#SvarE1').val()
-        SvarGamma2 = $('#SvarGamma2').val()
-        SvarGamma3 = $('#SvarGamma3').val()
-        SvarI2 = $('#SvarI2').val()
-        SvarI3 = $('#SvarI3').val()
-        SvarW2 = $('#SvarI2').val()
-        SvarW3 = $('#SvarI3').val()
-        SvarSigma2 = $('#SvarSigma2').val()
-        SvarSigma3 = $('#SvarSigma3').val()
-        SvarE2 = $('#SvarE2').val()
-        SvarE3 = $('#SvarE3').val()
-        SvarP = $('#SvarP').val()
-        SvarL1 = $('#SvarL1').val()
-        SvarL2 = $('#SvarL2').val()
-        SvarL3 = $('#SvarL3').val()
-        SvarN1 = $('#SvarN1').val()
-        SvarN2 = $('#SvarN2').val()
-        SvarN3 = $('#SvarN3').val()
-        SvarN4 = $('#SvarN4').val()
-        SvarN5 = $('#SvarN5').val()
-        SvarQtc1 = $('#SvarQtc1').val()
-        SvarQtc2 = $('#SvarQtc2').val()
-        SvarQtc3 = $('#SvarQtc3').val()
-        SvarQtc4 = $('#SvarQtc4').val()
-        SvarQtc5 = $('#SvarQtc5').val()
-        SvarQtt1 = $('#SvarQtt1').val()
-        SvarQtt2 = $('#SvarQtt2').val()
-        SvarQtt3 = $('#SvarQtt3').val()
-        SvarQtt4 = $('#SvarQtt4').val()
-        SvarQtt5 = $('#SvarQtt5').val()
-        SvarSumQtc = $('#SvarSumQtc').val()
-        SvarSumQtt = $('#SvarSumQtt').val()
-
-
-        varM2 = $('#varM2').val()
-        varKtc = $('#varKtc').val()
-        check_tang_ham = $("#check-tang-ham").val()
-
+        
         data= {
                 _token: CSRF_TOKEN,
-                varNII : varNII,
-                varPhiII: varPhiII,
-                varCII: varCII,
-                varGammaII: varGammaII,
-                varGammaIIPhay: varGammaIIPhay,
-                varGammaII2Phay: varGammaII2Phay,
-                varH: varH,
-                varB: varB,
-                varL: varL,
-                varZ: varZ,
-                varH1: varH1,
-                varH2: varH2,
-                varM1: varM1,
-                varM2: varM2,
-                varKtc: varKtc,
-                check_tang_ham: check_tang_ham
+                loai : $("#loai").val(),
+
+                SvarHs : $('#SvarHs').val(),
+                SvarGammab : $('#SvarGammab').val(),
+                SvarH1 : $('#SvarH1').val(),
+                SvarGamma1 : $('#SvarGamma1').val(),
+                SvarB : $('#SvarB').val(),
+                SvarI1 : $('#SvarI1').val(),
+                SvarW1 : $('#SvarW1').val(),
+                SvarSigma1 : $('#SvarSigma1').val(),
+                SvarE1 : $('#SvarE1').val(),
+                SvarGamma2 : $('#SvarGamma2').val(),
+                SvarGamma3 : $('#SvarGamma3').val(),
+                SvarI2 : $('#SvarI2').val(),
+                SvarI3 : $('#SvarI3').val(),
+                SvarW2 : $('#SvarW2').val(),
+                SvarW3 : $('#SvarW3').val(),
+                SvarSigma2 : $('#SvarSigma2').val(),
+                SvarSigma3 : $('#SvarSigma3').val(),
+                SvarE2 : $('#SvarE2').val(),
+                SvarE3 : $('#SvarE3').val(),
+                SvarS : $('#SvarS').val(),
+                SvarP : $('#SvarP').val(),
+                SvarL1 : $('#SvarL1').val(),
+                SvarL2 : $('#SvarL2').val(),
+                SvarL3 : $('#SvarL3').val(),
+                SvarN1 : $('#SvarN1').val(),
+                SvarN2 : $('#SvarN2').val(),
+                SvarN3 : $('#SvarN3').val(),
+                SvarN4 : $('#SvarN4').val(),
+                SvarN5 : $('#SvarN5').val(),
+                SvarQtc1 : $('#SvarQtc1').val(),
+                SvarQtc2 : $('#SvarQtc2').val(),
+                SvarQtc3 : $('#SvarQtc3').val(),
+                SvarQtc4 : $('#SvarQtc4').val(),
+                SvarQtc5 : $('#SvarQtc5').val(),
+                SvarQtt1 : $('#SvarQtt1').val(),
+                SvarQtt2 : $('#SvarQtt2').val(),
+                SvarQtt3 : $('#SvarQtt3').val(),
+                SvarQtt4 : $('#SvarQtt4').val(),
+                SvarQtt5 : $('#SvarQtt5').val(),
+                SvarSumQtc : $('#SvarSumQtc').val(),
+                SvarSumQtt : $('#SvarSumQtt').val(),
+
+                DvarHd : $('#DvarHd').val(),
+                DvarBd : $('#DvarBd').val(),
+                DvarGammab : $('#DvarGammab').val(),
+                DvarH1 : $('#DvarH1').val(),
+                DvarGamma1 : $('#DvarGamma1').val(),
+                DvarB : $('#DvarB').val(),
+                DvarI1 : $('#DvarI1').val(),
+                DvarW1 : $('#DvarW1').val(),
+                DvarSigma1 : $('#DvarSigma1').val(),
+                DvarE1 : $('#DvarE1').val(),
+                DvarGamma2 : $('#DvarGamma2').val(),
+                DvarGamma3 : $('#DvarGamma3').val(),
+                DvarI2 : $('#DvarI2').val(),
+                DvarI3 : $('#DvarI3').val(),
+                DvarW2 : $('#DvarW2').val(),
+                DvarW3 : $('#DvarW3').val(),
+                DvarSigma2 : $('#DvarSigma2').val(),
+                DvarSigma3 : $('#DvarSigma3').val(),
+                DvarE2 : $('#DvarE2').val(),
+                DvarE3 : $('#DvarE3').val(),
+                DvarS : $('#DvarS').val(),
+                DvarP : $('#DvarP').val(),
+                DvarL1 : $('#DvarL1').val(),
+                DvarL2 : $('#DvarL2').val(),
+                DvarL3 : $('#DvarL3').val(),
+                DvarN1 : $('#DvarN1').val(),
+                DvarN2 : $('#DvarN2').val(),
+                DvarN3 : $('#DvarN3').val(),
+                DvarN4 : $('#DvarN4').val(),
+                DvarN5 : $('#DvarN5').val(),
+                DvarQtc1 : $('#DvarQtc1').val(),
+                DvarQtc2 : $('#DvarQtc2').val(),
+                DvarQtc3 : $('#DvarQtc3').val(),
+                DvarQtc4 : $('#DvarQtc4').val(),
+                DvarQtc5 : $('#DvarQtc5').val(),
+                DvarQtt1 : $('#DvarQtt1').val(),
+                DvarQtt2 : $('#DvarQtt2').val(),
+                DvarQtt3 : $('#DvarQtt3').val(),
+                DvarQtt4 : $('#DvarQtt4').val(),
+                DvarQtt5 : $('#DvarQtt5').val(),
+                DvarSumQtc : $('#DvarSumQtc').val(),
+                DvarSumQtt : $('#DvarSumQtt').val(),
+
+
+                CvarHc : $('#CvarHc').val(),
+                CvarGammab : $('#CvarGammab').val(),
+                CvarH1 : $('#CvarH1').val(),
+                CvarGamma1 : $('#CvarGamma1').val(),
+                CvarB : $('#CvarB').val(),
+                CvarI1 : $('#CvarI1').val(),
+                CvarW1 : $('#CvarW1').val(),
+                CvarSigma1 : $('#CvarSigma1').val(),
+                CvarE1 : $('#CvarE1').val(),
+                CvarGamma2 : $('#CvarGamma2').val(),
+                CvarGamma3 : $('#CvarGamma3').val(),
+                CvarI2 : $('#CvarI2').val(),
+                CvarI3 : $('#CvarI3').val(),
+                CvarW2 : $('#CvarW2').val(),
+                CvarW3 : $('#CvarW3').val(),
+                CvarSigma2 : $('#CvarSigma2').val(),
+                CvarSigma3 : $('#CvarSigma3').val(),
+                CvarE2 : $('#CvarE2').val(),
+                CvarE3 : $('#CvarE3').val(),
+                CvarD : $('#CvarD').val(),
+                CvarSigma4 : $('#CvarSigma4').val(),
+                CvarE22 : $('#CvarE22').val(),
+                CvarL1 : $('#CvarL1').val(),
+                CvarL2 : $('#CvarL2').val(),
+                CvarL3 : $('#CvarL3').val(),
+                CvarN1 : $('#CvarN1').val(),
+                CvarN2 : $('#CvarN2').val(),
+                CvarQtc1 : $('#CvarQtc1').val(),
+                CvarQtc2 : $('#CvarQtc2').val(),
+                CvarQtt1 : $('#CvarQtt1').val(),
+                CvarQtt2 : $('#CvarQtt2').val(),
+                CvarSumQtc : $('#CvarSumQtc').val(),
+                CvarSumQtt : $('#CvarSumQtt').val(),
+
             };
         console.log(data);
         $.ajax({
             method: "POST",
-            url: "/tinh-toan/kiem-tra-ung-suat-tai-mai-cua-lop-dat-yeu",
+            url: "/tinh-toan/tinh-toan-cop-pha",
             data: data
         }).done(function(msg) {
             console.log(msg)
