@@ -118,7 +118,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >b =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="1.0" step="0.1" name="SvarB" id="SvarB">
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="1.0" step="0.1" name="SvarB" id="SvarB" disabled>
                 </td>
                 <td >m</td>
             </tr>
@@ -130,7 +130,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >I<sub>1</sub> =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="48.6" step="0.1" name="SvarI1" id="SvarI1">
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="48.6" step="0.1" name="SvarI1" id="SvarI1" disabled>
                 </td>
                 <td >  cm<sup>4</sup> </td>
             </tr>
@@ -142,7 +142,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >W<sub>1 </sub> =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="54" step="0.1" name="SvarW1" id="SvarW1"> 
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="54" step="0.1" name="SvarW1" id="SvarW1" disabled> 
                 </td>
                 <td > cm<sup>3</sup> </td>
             </tr>
@@ -405,7 +405,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="width: 10%"> </td>
                 <td style="width: 10%"> h<sub>d</sub> = </td>
                 <td style="width: 10%">
-                    <input class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="0.25" step="0.01" name="DvarHd" id="DvarHd">
+                    <input class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="1.2" step="0.01" name="DvarHd" id="DvarHd">
                 </td>
                 <td style="width: 10%"> m </td>
             </tr>
@@ -417,7 +417,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="width: 10%"> </td>
                 <td style="width: 10%"> b<sub>d</sub> = </td>
                 <td style="width: 10%">
-                    <input class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="0.25" step="0.01" name="DvarBd" id="DvarBd">
+                    <input class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="1.0" step="0.01" name="DvarBd" id="DvarBd">
                 </td>
                 <td style="width: 10%"> m </td>
             </tr>
@@ -429,7 +429,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > &gamma;<sub>b</sub> = </td>
                 <td >
-                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="25" step="0.1" name="DvarGammab" id="DvarGammab"> 
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="25" step="25" name="DvarGammab" id="DvarGammab"> 
                 </td>
                 <td >  kN/m<sup>3</sup> </td>
             </tr>
@@ -444,7 +444,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > h<sub>1</sub> = </td>
                 <td >
-                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="0.018" step="0.001" name="DvarH1" id="DvarH1">
+                    <input  class="form-control"  pattern="[0-9]*.[0-9]+" value="0.018" step="0.018" name="DvarH1" id="DvarH1">
                 </td>
                 <td > m </td>
             </tr>
@@ -456,7 +456,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > &gamma;'<sub>1</sub> = </td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="0.7" step="0.1" name="DvarGamma1" id="DvarGamma1"> 
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="0.7" step="7.0" name="DvarGamma1" id="DvarGamma1"> 
                 </td>
                 <td >kN/m<sup>3</sup> </td>
             </tr>
@@ -468,7 +468,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >b =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="1.0" step="0.1" name="DvarB" id="DvarB">
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="1.0" step="1.0" name="DvarB" id="DvarB" disabled>
                 </td>
                 <td >m</td>
             </tr>
@@ -480,7 +480,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >I<sub>1</sub> =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="48.6" step="0.1" name="DvarI1" id="DvarI1">
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="48.6" step="0.1" name="DvarI1" id="DvarI1" disabled>
                 </td>
                 <td >  cm<sup>4</sup> </td>
             </tr>
@@ -492,7 +492,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >W<sub>1 </sub> =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="54" step="0.1" name="DvarW1" id="DvarW1"> 
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="54" step="0.1" name="DvarW1" id="DvarW1" disabled> 
                 </td>
                 <td > cm<sup>3</sup> </td>
             </tr>
@@ -680,8 +680,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.2" step="0.1" name="DvarN1" id="DvarN1"></td>
                 <td > </td>
                 <td > q <sub> 1 </sub>= </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="6.25" step="0.1" name="DvarQtc1" id="DvarQtc1"></td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="7.5" step="0.1" name="DvarQtt1" id="DvarQtt1"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="30.0" step="0.1" name="DvarQtc1" id="DvarQtc1"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="36.0" step="0.1" name="DvarQtt1" id="DvarQtt1"></td>
                 <td > kN/m <sup>2</sup>  </td>
             </tr>
             <tr>
@@ -690,7 +690,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.1" step="0.1" name="DvarN2" id="DvarN2"></td>
                 <td > </td>
                 <td > q <sub>2</sub>= </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="60.1" step="0.1" name="DvarQtc2" id="DvarQtc2"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.1" step="0.1" name="DvarQtc2" id="DvarQtc2"></td>
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.11" step="0.1" name="DvarQtt2" id="DvarQtt2"></td>
                 <td >   kN/m <sup>2</sup>  </td>
             </tr>
@@ -730,8 +730,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > </td>
                 <td > &epsilon;q = </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="11.35" step="0.1" name="DvarSumQtc" id="DvarSumQtc"></td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="14.11" step="0.1" name="DvarSumQtt" id="DvarSumQtt"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="35.1" step="0.1" name="DvarSumQtc" id="DvarSumQtc"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="42.61" step="0.1" name="DvarSumQtt" id="DvarSumQtt"></td>
                 <td >  kN/m <sup>2</sup>  </td>
             </tr>
             
@@ -754,7 +754,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td style="width: 10%"> </td>
                 <td style="width: 10%"> h<sub>c</sub> = </td>
                 <td style="width: 10%">
-                    <input class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="0.25" step="0.01" name="CvarHc" id="CvarHc">
+                    <input class="form-control" pattern="[0-9]*.[0-9]+" lang="en" value="2.2" step="0.01" name="CvarHc" id="CvarHc">
                 </td>
                 <td style="width: 10%"> m </td>
             </tr>
@@ -793,7 +793,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > &gamma;'<sub>1</sub> = </td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="0.7" step="0.1" name="CvarGamma1" id="CvarGamma1"> 
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="7.0" step="0.1" name="CvarGamma1" id="CvarGamma1"> 
                 </td>
                 <td >kN/m<sup>3</sup> </td>
             </tr>
@@ -805,7 +805,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >b =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="1.0" step="0.1" name="CvarB" id="CvarB">
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="1.0" step="0.1" name="CvarB" id="CvarB" disabled>
                 </td>
                 <td >m</td>
             </tr>
@@ -817,7 +817,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >I<sub>1</sub> =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="48.6" step="0.1" name="CvarI1" id="CvarI1">
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="48.6" step="0.1" name="CvarI1" id="CvarI1" disabled>
                 </td>
                 <td >  cm<sup>4</sup> </td>
             </tr>
@@ -829,7 +829,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td >W<sub>1 </sub> =</td>
                 <td >
-                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="54" step="0.1" name="CvarW1" id="CvarW1"> 
+                    <input class="form-control"  pattern="[0-9]*.[0-9]+" value="54" step="0.1" name="CvarW1" id="CvarW1" disabled> 
                 </td>
                 <td > cm<sup>3</sup> </td>
             </tr>
@@ -1029,18 +1029,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.2" step="0.1" name="CvarN1" id="CvarN1"></td>
                 <td > </td>
                 <td > q <sub> 1 </sub>= </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="6.25" step="0.1" name="CvarQtc1" id="CvarQtc1"></td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="7.5" step="0.1" name="CvarQtt1" id="CvarQtt1"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="27.50" step="0.1" name="CvarQtc1" id="CvarQtc1"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="33.00" step="0.1" name="CvarQtt1" id="CvarQtt1"></td>
                 <td > kN/m <sup>2</sup>  </td>
             </tr>
             <tr>
                 <td>Tải trọng động do đổ bê tông</td>
                 <td > n<sub>2</sub> = </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.1" step="0.1" name="CvarN2" id="CvarN2"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.3" step="0.1" name="CvarN2" id="CvarN2"></td>
                 <td > </td>
                 <td > q <sub>2</sub>= </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="60.1" step="0.1" name="CvarQtc2" id="CvarQtc2"></td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.11" step="0.1" name="CvarQtt2" id="CvarQtt2"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="4.00" step="0.1" name="CvarQtc2" id="CvarQtc2"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="5.20" step="0.1" name="CvarQtt2" id="CvarQtt2"></td>
                 <td >   kN/m <sup>2</sup>  </td>
             </tr>
             <tr>
@@ -1049,17 +1049,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > </td>
                 <td > &epsilon;q = </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="11.35" step="0.1" name="CvarSumQtc" id="CvarSumQtc"></td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="14.11" step="0.1" name="CvarSumQtt" id="CvarSumQtt"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="31.50" step="0.1" name="CvarSumQtc" id="CvarSumQtc"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="38.20" step="0.1" name="CvarSumQtt" id="CvarSumQtt"></td>
                 <td >  kN/m <sup>2</sup>  </td>
             </tr>
             
         </table>
 
-        <div class="text-center" style="margin-top: 10px">
+        <!-- <div class="text-center" style="margin-top: 10px">
             <img src="/images/21/hinh1.jpg" alt="Hình 1. Các trường hợp móng" width="500px">
         </div>
-        <p class="text-center"><i>Hình 1. Các trường hợp móng</i></p>
+        <p class="text-center"><i>Hình 1. Các trường hợp móng</i></p> -->
 
         <div class="checkbox">
                 <label>

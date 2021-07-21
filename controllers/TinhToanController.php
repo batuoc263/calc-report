@@ -708,7 +708,7 @@ class TinhToanController extends \yii\web\Controller
             $textSumX2 = "";
             $textSumY2 = "";
 
-            // $fa_euro = utf8(html_entity_decode('&#xf153;', 0, 'UTF-8'));
+            // $fa_euro = utf8(html_entity_decode('&xf153;', 0, 'UTF-8'));
             // $section->addText(utf8($fa_euro));
 
             foreach ($input['list'] as $key => $item) {
@@ -721,7 +721,7 @@ class TinhToanController extends \yii\web\Controller
                 if ($key >= 1) {
                     $textSumX .= "+ (" . $item[0] . ") ";
                     $textSumY .= "+ (" . $item[1] . ") ";
-                    $textSumX2 .= "+ (" . $xp . ")2 " . "&#178;" . "";
+                    $textSumX2 .= "+ (" . $xp . ")2 " . "&178;" . "";
                     $textSumY2 .= "+ (" . $yp . ")2 ";
                 } else {
                     $textSumX .= "(" . $item[0] . ") ";
@@ -1875,66 +1875,417 @@ class TinhToanController extends \yii\web\Controller
         if ($input = Yii::$app->request->post()) {
             $dmtt->luot_giai++;
             $dmtt->save();
+            $checkP = 0;
+            if ($input['loai'] == 'san') {
+                // van ep
+                $templateFile = './file-tinh-toan/sample/23_TH1.docx';
+                $qtt1 = $input['SvarSumQtt'] * $input['SvarB'];
+                $qtc1 = $input['SvarSumQtc'] * $input['SvarB'];
 
-            // van ep
+                $M1 = round (($qtt1 * pow($input['SvarL1'], 2) / 10 ), 3 );
+
+                $sigma1 = round($M1 / ($input['SvarW1'] /1000000) , 3 );
+                $teta1 = round( ($input['SvarSigma1'] - $sigma1 ) *100 / $sigma1, 2 );
+
+                $f1 = round( (5/384) * ($qtc1 * pow($input['SvarL1'], 4)) * 1000 / ($input['SvarE1']  * $input['SvarI1'] / 100000000) , 1);
+                
+                $ghf1 = round((3/1000) * $input['SvarL1'] *1000, 1);
+                $tetaF1 = round((($ghf1 - $f1 ) / $f1 ) * 100, 1);
+                if ($f1 <= $ghf1) {
+                    $dau1 = "≤";
+                    $dk1 = "thỏa mãn";
+                } else {
+                    $dau1 = ">";
+                    $dk1 = "không thỏa mãn";
+                }
+                
             
-            $qtt1 = $input['SvarSumQtt'] * $input['SvarB'];
-            $qtc1 = $input['SvarSumQtc'] * $input['SvarB'];
-
-            $M1 = round (($qtt1 * pow($input['SvarL1'], 2) / 10 ), 3 );
-
-            $sigma1 = round($M1 / ($input['SvarW1'] /1000000) , 3 );
-            $teta2 = round( ($input['SvarSigma1'] - $sigma1 ) *100 / $sigma1, 2 );
-
-            $f1 = round( (5/384) * ($qtc1 * pow($input['SvarL1'], 4)) * 1000 / ($input['SvarE1']  * $input['SvarI1'] / 100000000) , 1);
             
-            $ghf1 = round((3/1000) * $input['SvarL1'] *1000, 1);
-            $tetaF1 = round((($ghf1 - $f1 ) / $f1 ) * 100, 1);
-           
-           
 
-            // da phu
+                // da phu
+                
+                $qtt2 = $input['SvarSumQtt'] * $input['SvarL1'];
+                $qtc2 = $input['SvarSumQtc'] * $input['SvarL1'];
+
+                $M2 = round (($qtt2 * pow($input['SvarL2'], 2) / 10 ), 3 );
+
+                $sigma2 = round($M2 / ($input['SvarW2'] /1000000) , 3 );
+                $teta2 = round( ($input['SvarSigma2'] - $sigma2 ) *100 / $sigma2, 2 );
+
+                $f2 = round( (5/384) * ($qtc2 * pow($input['SvarL2'], 4)) * 1000 / ($input['SvarE2'] * $input['SvarI2'] / 100000000) , 1);
+                $ghf2 = round((3/1000) * $input['SvarL2'] *1000, 1);
+                $tetaF2 = round((($ghf2 - $f2 ) / $f2 ) * 100, 1);
+                if ($f2 <= $ghf2) {
+                    $dau2 = "≤";
+                    $dk2 = "thỏa mãn";
+                } else {
+                    $dau2 = ">";
+                    $dk2 = "không thỏa mãn";
+                }
+
+                // da chinh
+
+                $qtt3 = $input['SvarSumQtt'] * $input['SvarL2'];
+                $qtc3 = $input['SvarSumQtc'] * $input['SvarL2'];
+
+                $M3 = round (($qtt3 * pow($input['SvarL3'], 2) / 10 ), 3 );
+
+                $sigma3 = round($M3 / ($input['SvarW3'] /1000000) , 3 );
+                $teta3 = round( ($input['SvarSigma3'] - $sigma3 ) *100 / $sigma3, 2 );
+
+                $f3 = round( (5/384) * ($qtc3 * pow($input['SvarL3'], 4)) * 1000 / ($input['SvarE3']  * $input['SvarI3'] / 100000000 ) , 1);
+                $ghf3 = round((3/1000) * $input['SvarL3'] *1000, 1);
+                $tetaF3 = round((($ghf3 - $f3 ) / $f3 ) * 100, 1);
+                if ($f3 <= $ghf3) {
+                    $dau3 = "≤";
+                    $dk3 = "thỏa mãn";
+                } else {
+                    $dau3 = ">";
+                    $dk3 = "không thỏa mãn";
+                }
+
+                // cây chống
+
+                $P = round ($input['SvarSumQtt'] * $input['SvarS'], 2 );
+                $tetaP = round(($input['SvarP'] - $P ) * 100 / $P, 0);
+                if ($P <= $input['SvarP']) {
+                    $dau4 = "≤";
+                    $dk4 = "thỏa mãn";
+                } else {
+                    $dau4 = ">";
+                    $dk4 = "không thỏa mãn";
+                }
+
+            } elseif ($input['loai'] == 'dam') {
+                // van ep
+                $templateFile = './file-tinh-toan/sample/23_TH2.docx';
+                
+                $qtt1 = $input['DvarSumQtt'] * $input['DvarB'];
+                $qtc1 = $input['DvarSumQtc'] * $input['DvarB'];
+
+                $M1 = round (($qtt1 * pow($input['DvarL1'], 2) / 10 ), 3 );
+
+                $sigma1 = round($M1 / ($input['DvarW1'] /1000000) , 3 );
+                $teta1 = round( ($input['DvarSigma1'] - $sigma1 ) *100 / $sigma1, 2 );
+
+                $f1 = round( (5/384) * ($qtc1 * pow($input['DvarL1'], 4)) * 1000 / ($input['DvarE1']  * $input['DvarI1'] / 100000000) , 2);
+                
+                $ghf1 = round((3/1000) * $input['DvarL1'] *1000, 2);
+                $tetaF1 = round((($ghf1 - $f1 ) / $f1 ) * 100, 0);
+                if ($f1 <= $ghf1) {
+                    $dau1 = "≤";
+                    $dk1 = "thỏa mãn";
+                } else {
+                    $dau1 = ">";
+                    $dk1 = "không thỏa mãn";
+                }
+
+                // da phu
+
+                $qtt2 = $input['DvarSumQtt'] * $input['DvarL1'];
+                $qtc2 = $input['DvarSumQtc'] * $input['DvarL1'];
+
+                $M2 = round (($qtt2 * pow($input['DvarL2'], 2) / 10 ), 3 );
+
+                $sigma2 = round($M2 / ($input['DvarW2'] /1000000) , 3 );
+                $teta2 = round( ($input['DvarSigma2'] - $sigma2 ) *100 / $sigma2, 2 );
+
+                $f2 = round( (5/384) * ($qtc2 * pow($input['DvarL2'], 4)) * 1000 / ($input['DvarE2'] * $input['DvarI2'] / 100000000) , 1);
+                $ghf2 = round((3/1000) * $input['DvarL2'] *1000, 1);
+                $tetaF2 = round((($ghf2 - $f2 ) / $f2 ) * 100, 1);
+                if ($f2 <= $ghf2) {
+                    $dau2 = "≤";
+                    $dk2 = "thỏa mãn";
+                } else {
+                    $dau2 = ">";
+                    $dk2 = "không thỏa mãn";
+                }
+                // da chinh
+
+                $qtt3 = $input['DvarSumQtt'] * $input['DvarL2'] * ($input['DvarBd'] / $input['DvarL3']);
+                $qtc3 = $input['DvarSumQtc'] * $input['DvarL2'] * ($input['DvarBd'] / $input['DvarL3']);
+
+                $M3 = round (($qtt3 * pow($input['DvarL3'], 2) / 10 ), 3 );
+
+                $sigma3 = round($M3 / ($input['DvarW3'] /1000000) , 3 );
+                $teta3 = round( ($input['DvarSigma3'] - $sigma3 ) *100 / $sigma3, 2 );
+
+                $f3 = round( (5/384) * ($qtc3 * pow($input['DvarL3'], 4)) * 1000 / ($input['DvarE3']  * $input['DvarI3'] / 100000000 ) , 1);
+                $ghf3 = round((3/1000) * $input['DvarL3'] *1000, 1);
+                $tetaF3 = round((($ghf3 - $f3 ) / $f3 ) * 100, 0);
+                if ($f3 <= $ghf3) {
+                    $dau3 = "≤";
+                    $dk3 = "thỏa mãn";
+                } else {
+                    $dau3 = ">";
+                    $dk3 = "không thỏa mãn";
+                }
+                 // cây chống
+
+                 $P = round ($input['DvarSumQtt'] * $input['DvarS'], 1 );
+                 $tetaP = round(($input['DvarP'] - $P ) * 100 / $P, 0);
+                 if ($P <= $input['SvarP']) {
+                    $dau4 = "≤";
+                    $dk4 = "thỏa mãn";
+                } else {
+                    $dau4 = ">";
+                    $dk4 = "không thỏa mãn";
+                }
+               
+            } else {
+                // van ep
+                $templateFile = './file-tinh-toan/sample/23_TH3.docx';
+                $qtt1 = $input['CvarSumQtt'] * $input['CvarB'];
+                $qtc1 = $input['CvarSumQtc'] * $input['CvarB'];
+
+                $M1 = round (($qtt1 * pow($input['CvarL1'], 2) / 10 ), 3 );
+
+                $sigma1 = round($M1 / ($input['CvarW1'] /1000000) , 3 );
+                $teta1 = round( ($input['CvarSigma1'] - $sigma1 ) *100 / $sigma1, 2 );
+
+                $f1 = round( (5/384) * ($qtc1 * pow($input['CvarL1'], 4)) * 1000 / ($input['CvarE1']  * $input['CvarI1'] / 100000000) , 2);
+                
+                $ghf1 = round((3/1000) * $input['CvarL1'] *1000, 2);
+                $tetaF1 = round((($ghf1 - $f1 ) / $f1 ) * 100, 0);
+                if ($f1 <= $ghf1) {
+                    $dau1 = "≤";
+                    $dk1 = "thỏa mãn";
+                } else {
+                    $dau1 = ">";
+                    $dk1 = "không thỏa mãn";
+                }
+
+                 // suon phu
+
+                 $qtt2 = $input['CvarSumQtt'] * $input['CvarL1'];
+                 $qtc2 = $input['CvarSumQtc'] * $input['CvarL1'];
+ 
+                 $M2 = round (($qtt2 * pow($input['CvarL2'], 2) / 10 ), 3 );
+ 
+                 $sigma2 = round($M2 / ($input['CvarW2'] /1000000) , 3 );
+                 $teta2 = round( ($input['CvarSigma2'] - $sigma2 ) *100 / $sigma2, 2 );
+ 
+                 $f2 = round( (5/384) * ($qtc2 * pow($input['CvarL2'], 4)) * 1000 / ($input['CvarE2'] * $input['CvarI2'] / 100000000) , 1);
+                 $ghf2 = round((3/1000) * $input['CvarL2'] *1000, 1);
+                 $tetaF2 = round((($ghf2 - $f2 ) / $f2 ) * 100, 1);
+                 if ($f2 <= $ghf2) {
+                    $dau2 = "≤";
+                    $dk2 = "thỏa mãn";
+                } else {
+                    $dau2 = ">";
+                    $dk2 = "không thỏa mãn";
+                }
+                 // da chinh
+
+                $qtt3 = $input['CvarSumQtt'] * $input['CvarL2'] ;
+                $qtc3 = $input['CvarSumQtc'] * $input['CvarL2'] ;
+
+                $M3 = round (($qtt3 * pow($input['CvarL3'], 2) / 10 ), 3 );
+
+                $sigma3 = round($M3 / ($input['CvarW3'] /1000000) , 3 );
+                $teta3 = round( ($input['CvarSigma3'] - $sigma3 ) *100 / $sigma3, 2 );
+
+                $f3 = round( (5/384) * ($qtc3 * pow($input['CvarL3'], 4)) * 1000 / ($input['CvarE3']  * $input['CvarI3'] / 100000000 ) , 1);
+                $ghf3 = round((3/1000) * $input['CvarL3'] *1000, 1);
+                $tetaF3 = round((($ghf3 - $f3 ) / $f3 ) * 100, 0);
+                if ($f3 <= $ghf3) {
+                    $dau3 = "≤";
+                    $dk3 = "thỏa mãn";
+                } else {
+                    $dau3 = ">";
+                    $dk3 = "không thỏa mãn";
+                }
+                 // cây chống
+
+                 $P = round ( $qtt3 * $input['CvarL3'], 1 );
+                 $checkP = round( ((PI() * pow($input['CvarD'] / 1000, 2)) / 4 ) * $input['CvarSigma4'], 2 );
+                 $tetaP = round(($checkP - $P ) * 100 / $P, 0);
+                 if ($P <= $checkP) {
+                    $dau4 = "≤";
+                    $dk4 = "thỏa mãn";
+                } else {
+                    $dau4 = ">";
+                    $dk4 = "không thỏa mãn";
+                }
+            }
+
             
-            $qtt2 = $input['SvarSumQtt'] * $input['SvarL1'];
-            $qtc2 = $input['SvarSumQtc'] * $input['SvarL1'];
+            \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
+            $phpWord = new \PhpOffice\PhpWord\PhpWord();
+            // $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('./file-tinh-toan\sample\15.docx');
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($templateFile);
 
-            $M2 = round (($qtt2 * pow($input['SvarL2'], 2) / 10 ), 3 );
 
-            $sigma2 = round($M2 / ($input['SvarW2'] /1000000) , 3 );
-            $teta2 = round( ($input['SvarSigma2'] - $sigma2 ) *100 / $sigma2, 2 );
+            $templateProcessor->setValues(
+                [
+                'qtt1' => $qtt1,
+                'qtc1' => $qtc1,
+                'M1' => $M1,
+                'sigma1' => $sigma1,
+                'teta1' => $teta1,
+                'f1' => $f1,
+                'ghf1' => $ghf1,
+                'tetaF1' =>  $tetaF1,
+                'dau1' => $dau1,
+                'dk1'  => $dk1 ,
 
-            $f2 = round( (5/384) * ($qtc2 * pow($input['SvarL2'], 4)) * 1000 / ($input['SvarE2'] * $input['SvarI2'] / 100000000) , 1);
-            $ghf2 = round((3/1000) * $input['SvarL2'] *1000, 1);
-            $tetaF2 = round((($ghf2 - $f2 ) / $f2 ) * 100, 1);
+                'qtt2' => $qtt2,
+                'qtc2' => $qtc2,
+                'M2' => $M2,
+                'sigma2' => $sigma2,
+                'teta2' => $teta2,
+                'f2' => $f2,
+                'ghf2' => $ghf2,
+                'tetaF2' =>  $tetaF2,
+                'dau2' => $dau2,
+                'dk2'  => $dk2 ,
 
-            // da chinh
+                'qtt3' => $qtt3,
+                'qtc3' => $qtc3,
+                'M3' => $M3,
+                'sigma3' => $sigma3,
+                'teta3' => $teta3,
+                'f3' => $f3,
+                'ghf3' => $ghf3,
+                'tetaF3' =>  $tetaF3,
+                'dau3' => $dau3,
+                'dk3'  => $dk3,
 
-            $qtt3 = $input['SvarSumQtt'] * $input['SvarL2'];
-            $qtc3 = $input['SvarSumQtc'] * $input['SvarL2'];
+                'P' =>  $P,
+                'tetaP' => $tetaP,
+                'dau4' => $dau4,
+                'dk4'  => $dk4 ,
+                'checkP' =>  $checkP,
 
-            $M3 = round (($qtt3 * pow($input['SvarL3'], 2) / 10 ), 3 );
+                'SvarHs' => $input['SvarHs'],
+                'SvarGammab' => $input['SvarGammab'],
+                'SvarH1' => $input['SvarH1'],
+                'SvarGamma1' => $input['SvarGamma1'],
+                'SvarB' => $input['SvarB'],
+                'SvarI1' => $input['SvarI1'],
+                'SvarW1' => $input['SvarW1'],
+                'SvarSigma1' => $input['SvarSigma1'],
+                'SvarE1' => $input['SvarE1'],
+                'SvarGamma2' => $input['SvarGamma2'],
+                'SvarGamma3' => $input['SvarGamma3'],
+                'SvarI2' => $input['SvarI2'],
+                'SvarI3' => $input['SvarI3'],
+                'SvarW2' => $input['SvarW2'],
+                'SvarW3' => $input['SvarW3'],
+                'SvarSigma2' => $input['SvarSigma2'],
+                'SvarSigma3' => $input['SvarSigma3'],
+                'SvarE2' => $input['SvarE2'],
+                'SvarE3' => $input['SvarE3'],
+                'SvarS' => $input['SvarS'],
+                'SvarP' => $input['SvarP'],
+                'SvarL1' => $input['SvarL1'],
+                'SvarL2' => $input['SvarL2'],
+                'SvarL3' => $input['SvarL3'],
+                'SvarN1' => $input['SvarN1'],
+                'SvarN2' => $input['SvarN2'],
+                'SvarN3' => $input['SvarN3'],
+                'SvarN4' => $input['SvarN4'],
+                'SvarN5' => $input['SvarN5'],
+                'SvarQtc1' => $input['SvarQtc1'],
+                'SvarQtc2' => $input['SvarQtc2'],
+                'SvarQtc3' => $input['SvarQtc3'],
+                'SvarQtc4' => $input['SvarQtc4'],
+                'SvarQtc5' => $input['SvarQtc5'],
+                'SvarQtt1' => $input['SvarQtt1'],
+                'SvarQtt2' => $input['SvarQtt2'],
+                'SvarQtt3' => $input['SvarQtt3'],
+                'SvarQtt4' => $input['SvarQtt4'],
+                'SvarQtt5' => $input['SvarQtt5'],
+                'SvarSumQtc' => $input['SvarSumQtc'],
+                'SvarSumQtt' => $input['SvarSumQtt'],
 
-            $sigma3 = round($M3 / ($input['SvarW3'] /1000000) , 3 );
-            $teta3 = round( ($input['SvarSigma3'] - $sigma3 ) *100 / $sigma3, 2 );
+                'DvarHd' => $input['DvarHd'],
+                'DvarBd' => $input['DvarBd'],
+                'DvarGammab' => $input['DvarGammab'],
+                'DvarH1' => $input['DvarH1'],
+                'DvarGamma1' => $input['DvarGamma1'],
+                'DvarB' => $input['DvarB'],
+                'DvarI1' => $input['DvarI1'],
+                'DvarW1' => $input['DvarW1'],
+                'DvarSigma1' => $input['DvarSigma1'],
+                'DvarE1' => $input['DvarE1'],
+                'DvarGamma2' => $input['DvarGamma2'],
+                'DvarGamma3' => $input['DvarGamma3'],
+                'DvarI2' => $input['DvarI2'],
+                'DvarI3' => $input['DvarI3'],
+                'DvarW2' => $input['DvarW2'],
+                'DvarW3' => $input['DvarW3'],
+                'DvarSigma2' => $input['DvarSigma2'],
+                'DvarSigma3' => $input['DvarSigma3'],
+                'DvarE2' => $input['DvarE2'],
+                'DvarE3' => $input['DvarE3'],
+                'DvarS' => $input['DvarS'],
+                'DvarP' => $input['DvarP'],
+                'DvarL1' => $input['DvarL1'],
+                'DvarL2' => $input['DvarL2'],
+                'DvarL3' => $input['DvarL3'],
+                'DvarN1' => $input['DvarN1'],
+                'DvarN2' => $input['DvarN2'],
+                'DvarN3' => $input['DvarN3'],
+                'DvarN4' => $input['DvarN4'],
+                'DvarN5' => $input['DvarN5'],
+                'DvarQtc1' => $input['DvarQtc1'],
+                'DvarQtc2' => $input['DvarQtc2'],
+                'DvarQtc3' => $input['DvarQtc3'],
+                'DvarQtc4' => $input['DvarQtc4'],
+                'DvarQtc5' => $input['DvarQtc5'],
+                'DvarQtt1' => $input['DvarQtt1'],
+                'DvarQtt2' => $input['DvarQtt2'],
+                'DvarQtt3' => $input['DvarQtt3'],
+                'DvarQtt4' => $input['DvarQtt4'],
+                'DvarQtt5' => $input['DvarQtt5'],
+                'DvarSumQtc' => $input['DvarSumQtc'],
+                'DvarSumQtt' => $input['DvarSumQtt'],
 
-            $f3 = round( (5/384) * ($qtc3 * pow($input['SvarL3'], 4)) * 1000 / ($input['SvarE3']  * $input['SvarI3'] / 100000000 ) , 1);
-            $ghf3 = round((3/1000) * $input['SvarL3'] *1000, 1);
-            $tetaF3 = round((($ghf3 - $f3 ) / $f3 ) * 100, 1);
 
-            // cây chống
+                'CvarHc' => $input['CvarHc'],
+                'CvarGammab' => $input['CvarGammab'],
+                'CvarH1' => $input['CvarH1'],
+                'CvarGamma1' => $input['CvarGamma1'],
+                'CvarB' => $input['CvarB'],
+                'CvarI1' => $input['CvarI1'],
+                'CvarW1' => $input['CvarW1'],
+                'CvarSigma1' => $input['CvarSigma1'],
+                'CvarE1' => $input['CvarE1'],
+                'CvarGamma2' => $input['CvarGamma2'],
+                'CvarGamma3' => $input['CvarGamma3'],
+                'CvarI2' => $input['CvarI2'],
+                'CvarI3' => $input['CvarI3'],
+                'CvarW2' => $input['CvarW2'],
+                'CvarW3' => $input['CvarW3'],
+                'CvarSigma2' => $input['CvarSigma2'],
+                'CvarSigma3' => $input['CvarSigma3'],
+                'CvarE2' => $input['CvarE2'],
+                'CvarE3' => $input['CvarE3'],
+                'CvarD' => $input['CvarD'],
+                'CvarSigma4' => $input['CvarSigma4'],
+                'CvarE22' => $input['CvarE22'],
+                'CvarL1' => $input['CvarL1'],
+                'CvarL2' => $input['CvarL2'],
+                'CvarL3' => $input['CvarL3'],
+                'CvarN1' => $input['CvarN1'],
+                'CvarN2' => $input['CvarN2'],
+                'CvarQtc1' => $input['CvarQtc1'],
+                'CvarQtc2' => $input['CvarQtc2'],
+                'CvarQtt1' => $input['CvarQtt1'],
+                'CvarQtt2' => $input['CvarQtt2'],
+                'CvarSumQtc' => $input['CvarSumQtc'],
+                'CvarSumQtt' => $input['CvarSumQtt'],
 
-            $P = round ($input['SvarSumQtt'] * $input['SvarS'], 2 );
-            $tetaP = round(($input['SvarP'] - $P ) * 100 / $P, 0);
+                ]
+            );
+            $timestamp = date('Ymd_His');
+            $filename = 'tinh_toan_cop_pha_' . $timestamp . '.docx';
+            $fileStorage = './file-tinh-toan/output/' . $filename;
+            $templateProcessor->saveAs($fileStorage);
 
-           echo  $tetaP; die;
-            // $timestamp = date('Ymd_His');
-            // $filename = 'tinh-nen-theo-suc-chiu-tai_' . $timestamp . '.docx';
-            // $fileStorage = './file-tinh-toan/output/' . $filename;
-            // $templateProcessor->saveAs($fileStorage);
-
-            // $filePath = '/' . $fileStorage;
-
-            // echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
+            $filePath = '/' . $fileStorage;
+            echo json_encode(['filePath' => $filePath, 'luot_tinh' => $dmtt->luot_giai]);
             return;
         }
         return $this->render('tinh-toan-cop-pha', [
