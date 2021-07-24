@@ -1886,6 +1886,11 @@ class TinhToanController extends \yii\web\Controller
 
                 $sigma1 = round($M1 / ($input['SvarW1'] /1000000) , 3 );
                 $teta1 = round( ($input['SvarSigma1'] - $sigma1 ) *100 / $sigma1, 2 );
+                if ($sigma1 <= $input['SvarSigma1']) {
+                    $dau12 = "≤";
+                } else {
+                    $dau12 = ">";
+                }
 
                 $f1 = round( (5/384) * ($qtc1 * pow($input['SvarL1'], 4)) * 1000 / ($input['SvarE1']  * $input['SvarI1'] / 100000000) , 1);
                 
@@ -1911,6 +1916,11 @@ class TinhToanController extends \yii\web\Controller
 
                 $sigma2 = round($M2 / ($input['SvarW2'] /1000000) , 3 );
                 $teta2 = round( ($input['SvarSigma2'] - $sigma2 ) *100 / $sigma2, 2 );
+                if ($sigma2 <= $input['SvarSigma2']) {
+                    $dau27 = "≤";
+                } else {
+                    $dau27 = ">";
+                }
 
                 $f2 = round( (5/384) * ($qtc2 * pow($input['SvarL2'], 4)) * 1000 / ($input['SvarE2'] * $input['SvarI2'] / 100000000) , 1);
                 $ghf2 = round((3/1000) * $input['SvarL2'] *1000, 1);
@@ -1932,6 +1942,11 @@ class TinhToanController extends \yii\web\Controller
 
                 $sigma3 = round($M3 / ($input['SvarW3'] /1000000) , 3 );
                 $teta3 = round( ($input['SvarSigma3'] - $sigma3 ) *100 / $sigma3, 2 );
+                if ($sigma3 <= $input['SvarSigma3']) {
+                    $dau312 = "≤";
+                } else {
+                    $dau312 = ">";
+                }
 
                 $f3 = round( (5/384) * ($qtc3 * pow($input['SvarL3'], 4)) * 1000 / ($input['SvarE3']  * $input['SvarI3'] / 100000000 ) , 1);
                 $ghf3 = round((3/1000) * $input['SvarL3'] *1000, 1);
@@ -1968,6 +1983,11 @@ class TinhToanController extends \yii\web\Controller
                 $sigma1 = round($M1 / ($input['DvarW1'] /1000000) , 3 );
                 $teta1 = round( ($input['DvarSigma1'] - $sigma1 ) *100 / $sigma1, 2 );
 
+                if ($sigma1 <= $input['SvarSigma1']) {
+                    $dau12 = "≤";
+                } else {
+                    $dau12 = ">";
+                }
                 $f1 = round( (5/384) * ($qtc1 * pow($input['DvarL1'], 4)) * 1000 / ($input['DvarE1']  * $input['DvarI1'] / 100000000) , 2);
                 
                 $ghf1 = round((3/1000) * $input['DvarL1'] *1000, 2);
@@ -1989,6 +2009,11 @@ class TinhToanController extends \yii\web\Controller
 
                 $sigma2 = round($M2 / ($input['DvarW2'] /1000000) , 3 );
                 $teta2 = round( ($input['DvarSigma2'] - $sigma2 ) *100 / $sigma2, 2 );
+                if ($sigma2 <= $input['SvarSigma2']) {
+                    $dau27 = "≤";
+                } else {
+                    $dau27 = ">";
+                }
 
                 $f2 = round( (5/384) * ($qtc2 * pow($input['DvarL2'], 4)) * 1000 / ($input['DvarE2'] * $input['DvarI2'] / 100000000) , 1);
                 $ghf2 = round((3/1000) * $input['DvarL2'] *1000, 1);
@@ -2009,6 +2034,11 @@ class TinhToanController extends \yii\web\Controller
 
                 $sigma3 = round($M3 / ($input['DvarW3'] /1000000) , 3 );
                 $teta3 = round( ($input['DvarSigma3'] - $sigma3 ) *100 / $sigma3, 2 );
+                if ($sigma3 <= $input['SvarSigma3']) {
+                    $dau312 = "≤";
+                } else {
+                    $dau312 = ">";
+                }
 
                 $f3 = round( (5/384) * ($qtc3 * pow($input['DvarL3'], 4)) * 1000 / ($input['DvarE3']  * $input['DvarI3'] / 100000000 ) , 1);
                 $ghf3 = round((3/1000) * $input['DvarL3'] *1000, 1);
@@ -2043,6 +2073,12 @@ class TinhToanController extends \yii\web\Controller
                 $sigma1 = round($M1 / ($input['CvarW1'] /1000000) , 3 );
                 $teta1 = round( ($input['CvarSigma1'] - $sigma1 ) *100 / $sigma1, 2 );
 
+                if ($sigma1 <= $input['SvarSigma1']) {
+                    $dau12 = "≤";
+                } else {
+                    $dau12 = ">";
+                }
+
                 $f1 = round( (5/384) * ($qtc1 * pow($input['CvarL1'], 4)) * 1000 / ($input['CvarE1']  * $input['CvarI1'] / 100000000) , 2);
                 
                 $ghf1 = round((3/1000) * $input['CvarL1'] *1000, 2);
@@ -2064,6 +2100,11 @@ class TinhToanController extends \yii\web\Controller
  
                  $sigma2 = round($M2 / ($input['CvarW2'] /1000000) , 3 );
                  $teta2 = round( ($input['CvarSigma2'] - $sigma2 ) *100 / $sigma2, 2 );
+                 if ($sigma2 <= $input['SvarSigma2']) {
+                    $dau27 = "≤";
+                } else {
+                    $dau27 = ">";
+                }
  
                  $f2 = round( (5/384) * ($qtc2 * pow($input['CvarL2'], 4)) * 1000 / ($input['CvarE2'] * $input['CvarI2'] / 100000000) , 1);
                  $ghf2 = round((3/1000) * $input['CvarL2'] *1000, 1);
@@ -2084,6 +2125,11 @@ class TinhToanController extends \yii\web\Controller
 
                 $sigma3 = round($M3 / ($input['CvarW3'] /1000000) , 3 );
                 $teta3 = round( ($input['CvarSigma3'] - $sigma3 ) *100 / $sigma3, 2 );
+                if ($sigma3 <= $input['SvarSigma3']) {
+                    $dau312 = "≤";
+                } else {
+                    $dau312 = ">";
+                }
 
                 $f3 = round( (5/384) * ($qtc3 * pow($input['CvarL3'], 4)) * 1000 / ($input['CvarE3']  * $input['CvarI3'] / 100000000 ) , 1);
                 $ghf3 = round((3/1000) * $input['CvarL3'] *1000, 1);
@@ -2151,6 +2197,10 @@ class TinhToanController extends \yii\web\Controller
                 'dau3' => $dau3,
                 'dk3'  => $dk3,
 
+                'dau12' => $dau12,
+                'dau27' => $dau27,
+                'dau312' => $dau312,
+
                 'P' =>  $P,
                 'tetaP' => $tetaP,
                 'dau4' => $dau4,
@@ -2198,6 +2248,8 @@ class TinhToanController extends \yii\web\Controller
                 'SvarQtt5' => $input['SvarQtt5'],
                 'SvarSumQtc' => $input['SvarSumQtc'],
                 'SvarSumQtt' => $input['SvarSumQtt'],
+                'Sloai1' => $input['Sloai1'],
+                'Sloai2' => $input['Sloai2'],
 
                 'DvarHd' => $input['DvarHd'],
                 'DvarBd' => $input['DvarBd'],
@@ -2241,6 +2293,8 @@ class TinhToanController extends \yii\web\Controller
                 'DvarQtt5' => $input['DvarQtt5'],
                 'DvarSumQtc' => $input['DvarSumQtc'],
                 'DvarSumQtt' => $input['DvarSumQtt'],
+                'Dloai1' => $input['Dloai1'],
+                'Dloai2' => $input['Dloai2'],
 
 
                 'CvarHc' => $input['CvarHc'],
@@ -2276,6 +2330,8 @@ class TinhToanController extends \yii\web\Controller
                 'CvarQtt2' => $input['CvarQtt2'],
                 'CvarSumQtc' => $input['CvarSumQtc'],
                 'CvarSumQtt' => $input['CvarSumQtt'],
+                'Cloai1' => $input['Cloai1'],
+                'Cloai2' => $input['Cloai2'],
 
                 ]
             );

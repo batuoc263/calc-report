@@ -880,7 +880,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </td>
                 <td> </td>
                 <td colspan="3" style="text-align: center;">
-                    <select id="C-loai-1" class="form-control" name="loai">
+                    <select id="C-loai-2" class="form-control" name="loai">
                         <?php
                             foreach ($arrI as $key => $value) {
                                 echo "<option value='$key'>$key</option>";
@@ -1167,7 +1167,34 @@ $this->params['breadcrumbs'][] = $this->title;
         });
 
         $("#S-loai-1").change(function() { 
-            $("SvarI2").val($("#S-loai-1").val());
+
+            $("#SvarI2").val(arrI[$("#S-loai-1").val()]);
+            $("#SvarW2").val(arrW[$("#S-loai-1").val()]);
+        });
+        $("#S-loai-2").change(function() { 
+
+            $("#SvarI3").val(arrI[$("#S-loai-2").val()]);
+            $("#SvarW3").val(arrW[$("#S-loai-2").val()]);
+        });
+        $("#D-loai-1").change(function() { 
+
+            $("#DvarI2").val(arrI[$("#D-loai-1").val()]);
+            $("#DvarW2").val(arrW[$("#D-loai-1").val()]);
+        });
+        $("#D-loai-2").change(function() { 
+
+            $("#DvarI3").val(arrI[$("#D-loai-2").val()]);
+            $("#DvarW3").val(arrW[$("#D-loai-2").val()]);
+        });
+        $("#C-loai-1").change(function() { 
+
+            $("#CvarI2").val(arrI[$("#C-loai-1").val()]);
+            $("#CvarW2").val(arrW[$("#C-loai-1").val()]);
+        });
+        $("#C-loai-2").change(function() { 
+
+            $("#CvarI3").val(arrI[$("#C-loai-2").val()]);
+            $("#CvarW3").val(arrW[$("#C-loai-2").val()]);
         });
 
 
@@ -1299,6 +1326,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 SvarQtt5 : $('#SvarQtt5').val(),
                 SvarSumQtc : $('#SvarSumQtc').val(),
                 SvarSumQtt : $('#SvarSumQtt').val(),
+                Sloai1 : $('#S-loai-1').val(),
+                Sloai2 : $('#S-loai-2').val(),
 
                 DvarHd : $('#DvarHd').val(),
                 DvarBd : $('#DvarBd').val(),
@@ -1342,6 +1371,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 DvarQtt5 : $('#DvarQtt5').val(),
                 DvarSumQtc : $('#DvarSumQtc').val(),
                 DvarSumQtt : $('#DvarSumQtt').val(),
+                Dloai1 : $('#D-loai-1').val(),
+                Dloai2 : $('#D-loai-2').val(),
 
 
                 CvarHc : $('#CvarHc').val(),
@@ -1377,6 +1408,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 CvarQtt2 : $('#CvarQtt2').val(),
                 CvarSumQtc : $('#CvarSumQtc').val(),
                 CvarSumQtt : $('#CvarSumQtt').val(),
+                Cloai1 : $('#C-loai-1').val(),
+                Cloai2 : $('#C-loai-2').val(),
 
             };
         console.log(data);
