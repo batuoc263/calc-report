@@ -225,7 +225,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     <ul>
                         <?php foreach ($value['children'] as $child) { ?>
-                            <li><a href="<?= $child['duong_dan'] ?>"><?= $child['ten_bai_toan'] ?></a></li>
+                            <li <?= $child['duong_dan'] == $dmtt->duong_dan ? 'class="active_bt"' : '' ?> ><a href="<?= $child['duong_dan'] ?>"><?= $child['ten_bai_toan'] ?></a></li>
                         <?php } ?>
                     </ul>
 
