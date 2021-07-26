@@ -19,14 +19,14 @@ use yii\widgets\Pjax;
                 <td style="width: 10%"> </td>
                 <td style="width: 10%"> </td>
                 <td style="width: 10%"> </td>
-                <td style="width: 10%">
+                <td style="width: 20%">
                 <select id="loai" class="form-control" name="loai">
                         <option value="san">Sàn</option>
                         <option value="dam">Dầm</option>
                         <option value="cot">Cột</option>
                     </select>
                 </td>
-                <td style="width: 10%"> </td>
+                <td style="width: 0%"> </td>
             </tr>
            
             
