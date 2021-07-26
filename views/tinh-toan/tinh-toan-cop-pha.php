@@ -1165,6 +1165,21 @@ $this->params['breadcrumbs'][] = $this->title;
             $("#CvarI1").val(($("#CvarB").val() * 100 * Math.pow($("#CvarH1").val() *100, 3) ) / 12 );
             $("#CvarW1").val(($("#CvarB").val() * 100 * Math.pow($("#CvarH1").val() *100, 2) ) / 6 );
         });
+        
+
+        $("#SvarI2").val(arrI[$("#S-loai-1").val()]);
+        $("#SvarW2").val(arrW[$("#S-loai-1").val()]);
+        $("#SvarI3").val(arrI[$("#S-loai-2").val()]);
+        $("#SvarW3").val(arrW[$("#S-loai-2").val()]);
+        $("#DvarI2").val(arrI[$("#D-loai-1").val()]);
+        $("#DvarW2").val(arrW[$("#D-loai-1").val()]);
+        $("#DvarI3").val(arrI[$("#D-loai-2").val()]);
+        $("#DvarW3").val(arrW[$("#D-loai-2").val()]);
+        $("#CvarI2").val(arrI[$("#C-loai-1").val()]);
+        $("#CvarW2").val(arrW[$("#C-loai-1").val()]);
+        $("#CvarI3").val(arrI[$("#C-loai-2").val()]);
+        $("#CvarW3").val(arrW[$("#C-loai-2").val()]);
+
 
         $("#S-loai-1").change(function() { 
 
