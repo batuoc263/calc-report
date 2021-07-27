@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\DmNhomBai;
 use app\models\DmNhomBaiSearch;
+use app\models\DmTinhtoan;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -52,8 +53,10 @@ class DmNhomBaiController extends Controller
      */
     public function actionView($id)
     {
+        $ds_bai_toan = DmTinhtoan::findAll(['nhom_id' => $id]);
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'ds_bai_toan' => $ds_bai_toan
         ]);
     }
 

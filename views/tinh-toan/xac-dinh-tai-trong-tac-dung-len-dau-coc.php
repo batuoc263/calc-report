@@ -13,10 +13,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="tinhtoan-content">
-    <div class="col-md-9">    
-    <div class="text-center">
-        <h1 class="text-uppercase" style="font-size: 25px;"><?= Html::encode($this->title) ?></h1>
-    </div>
+    <div class="col-md-9">
+        <div class="text-center">
+            <h1 class="text-uppercase" style="font-size: 25px;"><?= Html::encode($this->title) ?></h1>
+        </div>
         <div id="result">
 
         </div>
@@ -29,14 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td><strong>Tải trọng tác dụng tại cao trình đáy đài </strong></td>
             </tr>
             <tr>
-                <td style="width: 420px">Tải trọng thẳng đứng  </td>
-                <td style="width: 50px"> N   = </td>
+                <td style="width: 420px">Tải trọng thẳng đứng </td>
+                <td style="width: 50px"> N = </td>
                 <td style="width: 200px">
                     <input required pattern="[0-9]*.[0-9]+" lang="en" value="5000" step="0.1" name="varN" id="varN"> kN
                 </td>
             </tr>
             <tr>
-                <td>Mômen uốn, xoay quanh trục  x tại cao trình đáy đài </td>
+                <td>Mômen uốn, xoay quanh trục x tại cao trình đáy đài </td>
                 <td> M<sub>x </sub> = </td>
                 <td>
                     <input required pattern="[0-9]*.[0-9]+" value="120" step="0.1" name="varMx" id="varMx"> kN.m
@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <input required pattern="[0-9]*.[0-9]+" value="150" step="0.1" name="varMy" id="varMy"> kN.m
                 </td>
             </tr>
-            
+
         </table>
         <div class="text-center" style="margin-top: 10px">
             <img src="/images/06/quy-uoc-huong.jpg" alt="Hình 1. Quy ước hướng" width="500px">
@@ -68,14 +68,46 @@ $this->params['breadcrumbs'][] = $this->title;
                             <th>y<sub>i</sub> (m)</th>
                         </tr>
                     </thead>
-                        <tr><td>1</td><td > <input  id="x1" name="x1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01"/> </td><td><input type="text" id="y1" name="y1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01"/></td></tr> 
-                        <tr><td>2</td><td > <input  id="x2" name="x1" required pattern="[0-9]*.[0-9]+" value="3.00" step="0.01"/> </td><td><input type="text" id="y2" name="y1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01"/></td></tr> 
-                        <tr><td>3</td><td > <input  id="x3" name="x1" required pattern="[0-9]*.[0-9]+" value="3.00" step="0.01"/> </td><td><input type="text" id="y3" name="y1" required pattern="[0-9]*.[0-9]+" value="1.80" step="0.01"/></td></tr> 
-                        <tr><td>4</td><td > <input  id="x4" name="x1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01"/> </td><td><input type="text" id="y4" name="y1" required pattern="[0-9]*.[0-9]+" value="1.80" step="0.01"/></td></tr> 
-                        <tr><td>5</td><td > <input  id="x5" name="x1" required pattern="[0-9]*.[0-9]+" value="1.50" step="0.01"/> </td><td><input type="text" id="y5" name="y1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01"/></td></tr> 
-                        <tr><td>6</td><td > <input  id="x6" name="x1" required pattern="[0-9]*.[0-9]+" value="1.50" step="0.01"/> </td><td><input type="text" id="y6" name="y1" required pattern="[0-9]*.[0-9]+" value="1.80" step="0.01"/></td></tr> 
-                        <tr><td>7</td><td > <input  id="x7" name="x1" required pattern="[0-9]*.[0-9]+" value="0.75" step="0.01"/> </td><td><input type="text" id="y7" name="y1" required pattern="[0-9]*.[0-9]+" value="0.90" step="0.01"/></td></tr> 
-                        <tr><td>8</td><td > <input  id="x8" name="x1" required pattern="[0-9]*.[0-9]+" value="2.25" step="0.01"/> </td><td><input type="text" id="y8" name="y1" required pattern="[0-9]*.[0-9]+" value="0.90" step="0.01"/></td></tr> 
+                    <tr>
+                        <td>1</td>
+                        <td> <input id="x1" name="x1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01" /> </td>
+                        <td><input type="text" id="y1" name="y1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01" /></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td> <input id="x2" name="x1" required pattern="[0-9]*.[0-9]+" value="3.00" step="0.01" /> </td>
+                        <td><input type="text" id="y2" name="y1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01" /></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td> <input id="x3" name="x1" required pattern="[0-9]*.[0-9]+" value="3.00" step="0.01" /> </td>
+                        <td><input type="text" id="y3" name="y1" required pattern="[0-9]*.[0-9]+" value="1.80" step="0.01" /></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td> <input id="x4" name="x1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01" /> </td>
+                        <td><input type="text" id="y4" name="y1" required pattern="[0-9]*.[0-9]+" value="1.80" step="0.01" /></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td> <input id="x5" name="x1" required pattern="[0-9]*.[0-9]+" value="1.50" step="0.01" /> </td>
+                        <td><input type="text" id="y5" name="y1" required pattern="[0-9]*.[0-9]+" value="0.00" step="0.01" /></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td> <input id="x6" name="x1" required pattern="[0-9]*.[0-9]+" value="1.50" step="0.01" /> </td>
+                        <td><input type="text" id="y6" name="y1" required pattern="[0-9]*.[0-9]+" value="1.80" step="0.01" /></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td> <input id="x7" name="x1" required pattern="[0-9]*.[0-9]+" value="0.75" step="0.01" /> </td>
+                        <td><input type="text" id="y7" name="y1" required pattern="[0-9]*.[0-9]+" value="0.90" step="0.01" /></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td> <input id="x8" name="x1" required pattern="[0-9]*.[0-9]+" value="2.25" step="0.01" /> </td>
+                        <td><input type="text" id="y8" name="y1" required pattern="[0-9]*.[0-9]+" value="0.90" step="0.01" /></td>
+                    </tr>
                     <tbody id="tbl_posts_body">
 
                     </tbody>
@@ -104,11 +136,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
         <div class="checkbox">
-                <label>
-                    <input type="checkbox" id="newTabResult" value="">
-                    Mở kết quả trên tab mới
-                </label>
-            </div>
+            <label>
+                <input type="checkbox" id="newTabResult" value="">
+                Mở kết quả trên tab mới
+            </label>
+        </div>
         <hr>
         <div class="row">
             <div class="col-md-6">
@@ -127,68 +159,53 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <div class="col-md-3">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><strong>Tên bài toán</strong></div>
-            <div class="panel-body">
-                <?php
-                foreach ($menu as $key => $value) { ?>
-                    <div>
-                        <i class="collapse-btn fa fa-caret-right fa-fw"></i> <strong><?= $value['ten'] ?></strong> 
-                    </div>
-
-                    <ul>
-                        <?php foreach ($value['children'] as $child) { ?>
-                            <li <?= $child['duong_dan'] == $dmtt->duong_dan ? 'class="active_bt"' : '' ?> ><a href="<?= $child['duong_dan'] ?>"><?= $child['ten_bai_toan'] ?></a></li>
-                        <?php } ?>
-                    </ul>
-
-                <?php    }
-                ?>
-            </div>
-        </div>
+        <?= $this->render('_menu_sidebar', [
+            'menu' => $menu,
+            'dmtt' => $dmtt,
+        ]) ?>
     </div>
 
 </div>
 
 <script>
-        let lineNo = 8;
+    let lineNo = 8;
 
-        $(document).ready(function () {
-            $("#add-coc").click(function () {
-                markup = '<tr><td>'+lineNo+'</td><td > <input type="text" id="x'+lineNo+'" name="x'+lineNo+'" /> </td><td><input type="text" id="y'+lineNo+'" name="y'+lineNo+'" /></td></tr> ';
-                tableBody = $("#input-table tbody");
-                tableBody.append(markup);
-                lineNo++;
-            });
+    $(document).ready(function() {
+        $("#add-coc").click(function() {
+            markup = '<tr><td>' + lineNo + '</td><td > <input type="text" id="x' + lineNo + '" name="x' + lineNo + '" /> </td><td><input type="text" id="y' + lineNo + '" name="y' + lineNo + '" /></td></tr> ';
+            tableBody = $("#input-table tbody");
+            tableBody.append(markup);
+            lineNo++;
+        });
 
-            $('#del-coc').on("click", function(){
-                $('#input-table tr:last').remove();
-                lineNo--;
-            })
+        $('#del-coc').on("click", function() {
+            $('#input-table tr:last').remove();
+            lineNo--;
+        })
 
-            var c = document.getElementById("myCanvas");
-            var transX = c.width ,
+        var c = document.getElementById("myCanvas");
+        var transX = c.width,
             transY = c.height;
 
-            var ctx = c.getContext("2d");
-            ctx.transform(1, 0, 0, -1, 0, c.height)
-            
-            for(var i = 1; i <= lineNo; i++) {
-                x = $("#x"+i+"").val();
-                y = $("#y"+i+"").val();
-                ctx.fillRect(x*100 + 30, y*100 + 30,5,5);
-                ctx.fillText(i, x*100 +35, y*100  +35 );
-                ctx.save();
-            }
-            ctx.restore();
+        var ctx = c.getContext("2d");
+        ctx.transform(1, 0, 0, -1, 0, c.height)
+
+        for (var i = 1; i <= lineNo; i++) {
+            x = $("#x" + i + "").val();
+            y = $("#y" + i + "").val();
+            ctx.fillRect(x * 100 + 30, y * 100 + 30, 5, 5);
+            ctx.fillText(i, x * 100 + 35, y * 100 + 35);
+            ctx.save();
+        }
+        ctx.restore();
 
 
-            $("#btn-tinhtoan").click(function() {
-                tinhtoan(lineNo);
-            })
-        }); 
+        $("#btn-tinhtoan").click(function() {
+            tinhtoan(lineNo);
+        })
+    });
 
-   
+
     function tinhtoan(lineNo) {
 
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
@@ -198,18 +215,18 @@ $this->params['breadcrumbs'][] = $this->title;
         varMy = $('#varMy').val()
         lineNo = lineNo
         list = [];
-        for (var i = 1; i<= lineNo; i ++) {
-            list.push([ $("#x"+i).val(), $("#y"+i).val()]);
+        for (var i = 1; i <= lineNo; i++) {
+            list.push([$("#x" + i).val(), $("#y" + i).val()]);
         }
 
-        data= {
-                _token: CSRF_TOKEN,
-                varN: varN,
-                varMx: varMx,
-                varMy: varMy,
-                lineNo: lineNo,
-                list: list
-            };
+        data = {
+            _token: CSRF_TOKEN,
+            varN: varN,
+            varMx: varMx,
+            varMy: varMy,
+            lineNo: lineNo,
+            list: list
+        };
 
         console.log(data);
         $.ajax({
@@ -218,13 +235,14 @@ $this->params['breadcrumbs'][] = $this->title;
             data: data
         }).done(function(msg) {
             console.log(msg)
-            $(window).scrollTop(0); rs = JSON.parse(msg); 
+            $(window).scrollTop(0);
+            rs = JSON.parse(msg);
             newTabResult = $("#newTabResult");
             if (newTabResult[0].checked == false) {
                 $('#result').html('<div class="alert alert-success" role="alert">Báo cáo của bạn đã sẵn sàng để tải xuống. <a href="' + rs.filePath + '">Tải xuống</a></div>')
                 $('#luot_tinh').html(rs.luot_tinh)
             } else {
-                window.open('/tinh-toan/result?filePath='+rs.filePath,'_blank');
+                window.open('/tinh-toan/result?filePath=' + rs.filePath, '_blank');
             }
         });
     }

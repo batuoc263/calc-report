@@ -11,10 +11,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dmtcvn-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="row">
         <div class="col-md-9">
+            <img class="img-responsive" src="/images/dmtcvn/TCQG.png">
+            <img id="tcqg_img" class="img-responsive img-reflection" src="/images/dmtcvn/TCQG_default.jpg">
             <div id="pdfView"></div>
         </div>
         <div class="col-md-3">
@@ -31,5 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <script>
     function showDocument(filename) {
         $("#pdfView").html('<embed width="100%" height="600px" src="uploads/'+filename+'#toolbar=1" frameborder="0" type="application/pdf" />');
+        $("#tcqg_img").hide();
     }
 </script>

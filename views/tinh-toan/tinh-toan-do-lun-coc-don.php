@@ -175,27 +175,11 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <div class="col-md-3">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><strong>Tên bài toán</strong></div>
-            <div class="panel-body">
-                <?php
-                foreach ($menu as $key => $value) { ?>
-                    <div>
-                        <i class="collapse-btn fa fa-caret-right fa-fw"></i> <strong><?= $value['ten'] ?></strong> 
-                    </div>
-
-                    <ul>
-                        <?php foreach ($value['children'] as $child) { ?>
-                            <li <?= $child['duong_dan'] == $dmtt->duong_dan ? 'class="active_bt"' : '' ?> ><a href="<?= $child['duong_dan'] ?>"><?= $child['ten_bai_toan'] ?></a></li>
-                        <?php } ?>
-                    </ul>
-
-                <?php    }
-                ?>
-            </div>
-        </div>
+        <?= $this->render('_menu_sidebar', [
+            'menu' => $menu,
+            'dmtt' => $dmtt,
+        ]) ?>
     </div>
-
 </div>
 
 <script>
