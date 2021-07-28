@@ -104,7 +104,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > </td>
                 <td > </td>
-                <td > &gamma;'<sub>1</sub> = </td>
+                <td > &gamma;<sub>1</sub> = </td>
                 <td >
                     <input class="form-control"  pattern="[0-9]*.[0-9]+" value="7.0" step="0.1" name="SvarGamma1" id="SvarGamma1"> 
                 </td>
@@ -186,7 +186,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     <select id="S-loai-1" class="form-control" name="loai">
                         <?php
                             foreach ($arrI as $key => $value) {
-                                echo "<option value='$key'>$key</option>";
+                                if ($key == "Box steel 50x50x1.5") {
+                                    echo "<option selected value='$key'>$key</option>";
+                                } else {
+                                    echo "<option value='$key'>$key</option>";
+                                }
+                                
                             }
                         ?>
                     </select>
@@ -196,7 +201,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     <select id="S-loai-2" class="form-control" name="loai">
                         <?php
                             foreach ($arrI as $key => $value) {
-                                echo "<option value='$key'>$key</option>";
+                                if ($key == "Box steel 45x90x2.0") {
+                                    echo "<option selected value='$key'>$key</option>";
+                                } else {
+                                    echo "<option value='$key'>$key</option>";
+                                }
                             }
                         ?>
                     </select>
@@ -273,11 +282,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > </td>
                 <td > </td>
-                <td > {P] = </td>
+                <td > [P] = </td>
                 <td >
                     <input class="form-control"   pattern="[0-9]*.[0-9]+" value="25" step="0.1" name="SvarP" id="SvarP">
                 </td>
-                <td > m<sup>2</sup> </td>
+                <td > kN </td>
             </tr>
             <tr>
                 <td colspan="2">Khoảng cách đà phụ</td>
@@ -299,7 +308,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td >
                     <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.8" step="0.1" name="SvarL2" id="SvarL2">
                 </td>
-                <td > m<sup>2</sup> </td>
+                <td > m</td>
             </tr>
             <tr>
                 <td colspan="2">Khoảng cách cây chống</td>
@@ -310,7 +319,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td >
                     <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.25" step="0.1" name="SvarL3" id="SvarL3">
                 </td>
-                <td > m<sup>2</sup> </td>
+                <td > m </td>
             </tr>
 
 
@@ -330,7 +339,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.2" step="0.1" name="SvarN1" id="SvarN1"></td>
                 <td > </td>
                 <td > q <sub> 1 </sub>= </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="6.25" step="0.1" name="SvarQtc1" id="SvarQtc1"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="6.25" step="0.1" name="SvarQtc1" id="SvarQtc1" disabled></td>
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="7.5" step="0.1" name="SvarQtt1" id="SvarQtt1"></td>
                 <td > kN/m <sup>2</sup>  </td>
             </tr>
@@ -379,7 +388,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > </td>
                 <td > </td>
-                <td > &epsilon;q = </td>
+                <td > &Sigma;q = </td>
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="11.35" step="0.1" name="SvarSumQtc" id="SvarSumQtc"></td>
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="14.11" step="0.1" name="SvarSumQtt" id="SvarSumQtt"></td>
                 <td >  kN/m <sup>2</sup>  </td>
@@ -680,7 +689,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.2" step="0.1" name="DvarN1" id="DvarN1"></td>
                 <td > </td>
                 <td > q <sub> 1 </sub>= </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="30.0" step="0.1" name="DvarQtc1" id="DvarQtc1"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="30.0" step="0.1" name="DvarQtc1" id="DvarQtc1" disabled></td>
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="36.0" step="0.1" name="DvarQtt1" id="DvarQtt1"></td>
                 <td > kN/m <sup>2</sup>  </td>
             </tr>
@@ -729,7 +738,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > </td>
                 <td > </td>
-                <td > &epsilon;q = </td>
+                <td > &Sigma;q = </td>
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="35.1" step="0.1" name="DvarSumQtc" id="DvarSumQtc"></td>
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="42.61" step="0.1" name="DvarSumQtt" id="DvarSumQtt"></td>
                 <td >  kN/m <sup>2</sup>  </td>
@@ -973,7 +982,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > E<sub>2</sub> = </td>
                 <td >
-                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="0.25" step="0.1" name="CvarE22" id="CvarE22">
+                    <input class="form-control"   pattern="[0-9]*.[0-9]+" value="210000" step="0.1" name="CvarE22" id="CvarE22">
                 </td>
                 <td > kN/m<sup>2</sup> </td>
             </tr>
@@ -1029,7 +1038,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="1.2" step="0.1" name="CvarN1" id="CvarN1"></td>
                 <td > </td>
                 <td > q <sub> 1 </sub>= </td>
-                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="27.50" step="0.1" name="CvarQtc1" id="CvarQtc1"></td>
+                <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="27.50" step="0.1" name="CvarQtc1" id="CvarQtc1" placeholder="0.5 * hc * yb"></td>
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="33.00" step="0.1" name="CvarQtt1" id="CvarQtt1"></td>
                 <td > kN/m <sup>2</sup>  </td>
             </tr>
@@ -1048,7 +1057,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td > </td>
                 <td > </td>
                 <td > </td>
-                <td > &epsilon;q = </td>
+                <td >&Sigma;q = </td>
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="31.50" step="0.1" name="CvarSumQtc" id="CvarSumQtc"></td>
                 <td > <input class="form-control"   pattern="[0-9]*.[0-9]+" value="38.20" step="0.1" name="CvarSumQtt" id="CvarSumQtt"></td>
                 <td >  kN/m <sup>2</sup>  </td>
@@ -1125,14 +1134,41 @@ $this->params['breadcrumbs'][] = $this->title;
                 $("#title").text("TÍNH TOÁN CỐP PHA CỘT");
             }
         });
+        $("#SvarQtc1").val($("#SvarHs").val()* $("#SvarGammab").val());
+        $("#DvarQtc1").val($("#DvarHd").val()* $("#SvarGammab").val());
+        $("#CvarQtc1").val(0.5 * $("#CvarHc").val()* $("#SvarGammab").val());
+        $("#SvarHs").change(function() { 
+            $("#SvarQtc1").val($("#SvarHs").val()* $("#SvarGammab").val());
+        });
+        $("#SvarGammab").change(function() { 
+            $("#SvarQtc1").val($("#SvarHs").val()* $("#SvarGammab").val());
+        });
+
+        $("#DvarHd").change(function() { 
+            $("#DvarQtc1").val($("#DvarHd").val()* $("#SvarGammab").val());
+        });
+        $("#SvarGammab").change(function() { 
+            $("#DvarQtc1").val($("#DvarHd").val()* $("#SvarGammab").val());
+        });
+        $("#CvarHc").change(function() { 
+            $("#CvarQtc1").val(0.5 * $("#CvarHc").val()* $("#SvarGammab").val());
+        });
+        $("#SvarGammab").change(function() { 
+            $("#CvarQtc1").val(0.5 * $("#CvarHc").val()* $("#SvarGammab").val());
+        });
+
 
         $("#SvarH1").change(function() { 
-            $("#SvarI1").val(($("#SvarB").val() * 100 * Math.pow($("#SvarH1").val() *100, 3) ) / 12 );
-            $("#SvarW1").val(($("#SvarB").val() * 100 * Math.pow($("#SvarH1").val() *100, 2) ) / 6 );
+            var a1 = ($("#SvarB").val() * 100 * Math.pow($("#SvarH1").val() *100, 3) ) / 12 ;
+            var a2 = ($("#SvarB").val() * 100 * Math.pow($("#SvarH1").val() *100, 2) ) / 6;
+            $("#SvarI1").val(a1.toFixed(2));
+            $("#SvarW1").val(a2.toFixed(2));
         });
         $("#SvarB").change(function() { 
-            $("#SvarI1").val(($("#SvarB").val() * 100 * Math.pow($("#SvarH1").val() *100, 3) ) / 12 );
-            $("#SvarW1").val(($("#SvarB").val() * 100 * Math.pow($("#SvarH1").val() *100, 2) ) / 6 );
+            var a3 = ($("#SvarB").val() * 100 * Math.pow($("#SvarH1").val() *100, 3) ) / 12;
+            var a4 = ($("#SvarB").val() * 100 * Math.pow($("#SvarH1").val() *100, 2) ) / 6 ;
+            $("#SvarI1").val(a3.toFixed(2) );
+            $("#SvarW1").val(a4.toFixed(2) );
         });
         $("#DvarH1").change(function() { 
             $("#DvarI1").val(($("#DvarB").val() * 100 * Math.pow($("#DvarH1").val() *100, 3) ) / 12 );
@@ -1151,6 +1187,8 @@ $this->params['breadcrumbs'][] = $this->title;
             $("#CvarW1").val(($("#CvarB").val() * 100 * Math.pow($("#CvarH1").val() *100, 2) ) / 6 );
         });
         
+
+
 
         $("#SvarI2").val(arrI[$("#S-loai-1").val()]);
         $("#SvarW2").val(arrW[$("#S-loai-1").val()]);
@@ -1226,39 +1264,39 @@ $this->params['breadcrumbs'][] = $this->title;
         });
         $("#DvarQtc1").change(function() { 
             $("#DvarQtt1").val($("#DvarQtc1").val()* $("#DvarN1").val());
-            $("#DvarSumQtc").val( parseFloat($("DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
-            $("#DvarSumQtt").val( parseFloat($("DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
+            $("#DvarSumQtc").val( parseFloat($("#DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
+            $("#DvarSumQtt").val( parseFloat($("#DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
         });
         $("#DvarQtc2").change(function() { 
             $("#DvarQtt2").val($("#DvarQtc2").val()* $("#DvarN2").val());
-            $("#DvarSumQtc").val( parseFloat($("DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
-            $("#DvarSumQtt").val( parseFloat($("DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
+            $("#DvarSumQtc").val( parseFloat($("#DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
+            $("#DvarSumQtt").val( parseFloat($("#DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
         });
         $("#DvarQtc3").change(function() { 
             $("#DvarQtt3").val($("#DvarQtc3").val()* $("#DvarN3").val());
-            $("#DvarSumQtc").val( parseFloat($("DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
-            $("#DvarSumQtt").val( parseFloat($("DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
+            $("#DvarSumQtc").val( parseFloat($("#DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
+            $("#DvarSumQtt").val( parseFloat($("#DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
         });
         $("#DvarQtc4").change(function() { 
             $("#DvarQtt4").val($("#DvarQtc4").val()* $("#DvarN4").val());
-            $("#DvarSumQtc").val( parseFloat($("DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
-            $("#DvarSumQtt").val( parseFloat($("DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
+            $("#DvarSumQtc").val( parseFloat($("#DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
+            $("#DvarSumQtt").val( parseFloat($("#DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
         });
         $("#DvarQtc5").change(function() { 
             $("#DvarQtt5").val($("#DvarQtc5").val()* $("#DvarN5").val());
-            $("#DvarSumQtc").val( parseFloat($("DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
-            $("#DvarSumQtt").val( parseFloat($("DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
+            $("#DvarSumQtc").val( parseFloat($("#DvarQtc1").val())+parseFloat($("#DvarQtc2").val())+parseFloat($("#DvarQtc3").val())+parseFloat($("#DvarQtc4").val())+parseFloat($("#DvarQtc5").val()));
+            $("#DvarSumQtt").val( parseFloat($("#DvarQtt1").val())+parseFloat($("#DvarQtt2").val())+parseFloat($("#DvarQtt3").val())+parseFloat($("#DvarQtt4").val())+parseFloat($("#DvarQtt5").val()));
         });
 
         $("#CvarQtc1").change(function() { 
             $("#CvarQtt1").val($("#CvarQtc1").val()* $("#CvarN1").val());
-            $("#CvarSumQtc").val( parseFloat($("CvarQtc1").val())+parseFloat($("#CvarQtc2").val()));
-            $("#CvarSumQtt").val( parseFloat($("CvarQtt1").val())+parseFloat($("#CvarQtt2").val()));
+            $("#CvarSumQtc").val( parseFloat($("#CvarQtc1").val())+parseFloat($("#CvarQtc2").val()));
+            $("#CvarSumQtt").val( parseFloat($("#CvarQtt1").val())+parseFloat($("#CvarQtt2").val()));
         });
         $("#CvarQtc2").change(function() { 
             $("#CvarQtt2").val($("#CvarQtc2").val()* $("#CvarN2").val());
-            $("#CvarSumQtc").val( parseFloat($("CvarQtc1").val())+parseFloat($("#CvarQtc2").val()));
-            $("#CvarSumQtt").val( parseFloat($("CvarQtt1").val())+parseFloat($("#CvarQtt2").val()));
+            $("#CvarSumQtc").val( parseFloat($("#CvarQtc1").val())+parseFloat($("#CvarQtc2").val()));
+            $("#CvarSumQtt").val( parseFloat($("#CvarQtt1").val())+parseFloat($("#CvarQtt2").val()));
         });
        
     });
