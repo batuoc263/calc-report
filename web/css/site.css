@@ -170,3 +170,19 @@ p {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
+
+.text-top-left {
+    position: absolute;
+}
+
+@media screen and (min-width: 900px) {
+    .img-home-mt {
+        margin-top: 130px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .img-home-mt {
+        margin-top: 0px;
+    }
+}
