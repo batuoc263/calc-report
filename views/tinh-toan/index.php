@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Tính toán', 'url' => ['index']];
 
     <div class="col-md-9">
         <div class="text-center bg-primary" style="border-radius: 5px;">
-            <h1 class="text-uppercase" style="font-size: 25px; padding: 10px;">Danh mục tính toán</h1>
+            <h1 class="text-uppercase" style="font-size: 25px; padding: 10px; margin-top: 10px">Danh mục tính toán</h1>
         </div>
         <div class="row">
             <div class="col-md-4">
@@ -51,6 +51,13 @@ $this->params['breadcrumbs'][] = ['label' => 'Tính toán', 'url' => ['index']];
                 </a>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12 bg-primary round-top">
+                <p style="padding-top: 10px;">Trên đây là danh mục hơn 20 nhiệm vụ cơ bản thường hay gặp trong tính toán thiết kế xây dựng bao gồm kết cấu phần ngầm và kết cấu thượng tầng, được thực hiện theo chỉ dẫn của tiêu chuẩn Việt Nam. Hy vọng sẽ giúp các bạn sinh viên củng cố và mở rộng kiến thức đã học để giải quyết những bài toán đặt ra</p>
+            </div>
+            <img width="100%" class="img-reflection" src="/images/tinh-toan/tinhtoan-index.jpg" alt="Khác">
+        </div>
+        
     </div>
     <div class="col-md-3">
         <?php
@@ -62,7 +69,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Tính toán', 'url' => ['index']];
 
             <ul class="nav nav-pills nav-stacked">
                 <?php foreach ($value['children'] as $child) { ?>
-                    <li><a href="<?= $child['duong_dan'] ?>"><?= $child['ten_bai_toan'] ?></a></li>
+                    <li><a href="<?= $child['duong_dan'] ?>"><?= $child['ten_bai_toan'] ?> <span class="badge"><?= $child['luot_giai'] ?></span></a></li>
                 <?php } ?>
             </ul>
 
