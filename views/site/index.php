@@ -6,20 +6,17 @@ $this->title = $model->title;
 ?>
 <div class="site-index">
     <div class="body-content">
+        
         <div class="row">
-            <div class="col-md-2 text-center">
-                <img height="100px" src="/images/home/logo.png" alt="logo">
-            </div>
-            <div class="col-md-10">
-                <h3 style="margin-top: 8px; font-weight: bold">Oxyz.vn</h3>
-                <p>Website này là một nền tảng để thực hiện các tính toán thiết kế điển hình khác nhau về kỹ thuật xây dựng theo hệ thống Tiêu chuẩn Việt Nam (TCVN). Kết quả tính toán là một báo cáo hoàn thiện được trình bày dưới dạng *.docx.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 gioi-thieu">
+            <div class="col-md-12">
+                <p class="text-center">www.oxyz.vn là một nền tảng thực hiện các tính toán thiết kế điển hình khác nhau trong xây dựng dựa theo hệ thống Tiêu chuẩn Việt Nam (TCVN). Kết quả tính toán là một báo cáo hoàn chỉnh và chi tiết được trình bày ở định dạng *.docx.</p>
                 <h4 class="text-center"><strong>GIỚI THIỆU</strong></h4>
-                <p class="p_gioithieu">Hiện nay, trong bối cảnh công nghệ thông tin ngày càng phát triển thì nhu cầu ứng dụng công nghệ thông tin vào công việc của con người cũng được phát triển mạnh mẽ và đa dạng hơn, đặc biệt trong các lĩnh vực kỹ thuật nói chung và xây dựng nói riêng. Nắm bắt được vấn đề này, tác giả đã lập nên website: <a href="www.oxyz.vn"><strong>www.oxyz.vn</strong></a> nhằm phục vụ cho việc học tập của các bạn sinh viên, kỹ sư xây dựng…có thể dễ dàng thao tác và tính toán một cách hiệu quả, nhanh chóng. Một trong những mục tiêu chính của website là trình bày hoàn chỉnh một báo cáo kỹ thuật về kết quả tính toán dựa trên thông số đầu vào của người dùng. Các mẫu tính toán thực hiện theo các tình huống thiết kế được quy định cụ thể bởi văn bản quy phạm kỹ thuật. </p>
-                <p class="p_gioithieu">Các mẫu tính toán này chỉ là một công cụ số học để thuận tiện cho việc tính toán thiết kế và trình bày kết quả. Tất cả các quy định về tính toán, kí hiệu, đơn vị, mô tả, giải thích và quy trình áp dụng chúng cũng sẽ được tìm thấy trong các TCVN liên quan. Bên cạnh đó, lời nhắc ở trang nhập dữ liệu chỉ mang tính hướng dẫn, tham khảo.</p>
+                <p class="p_gioithieu">Các bạn thân mến!</p>
+                <p class="p_gioithieu">Hiện nay, trong bối cảnh công nghệ thông tin ngày càng phát triển thì nhu cầu ứng dụng công nghệ thông tin vào công việc của con người cũng được phát triển mạnh mẽ và đa dạng hơn, đặc biệt trong các lĩnh vực khoa học kỹ thuật nói chung và xây dựng nói riêng, nắm bắt vấn đề này tác giả đã xây dựng một công cụ tính toán số học dạng trực tuyến giúp người dùng có thể dễ dàng thực hiện tính toán thiết kế kết cấu xây dựng dựa trên thông số đầu vào. Mỗi bảng tính là một tình huống thiết kế cụ thể được quy định bởi văn bản quy phạm kỹ thuật, trình tự tính toán, quy ước dấu, kí hiệu, đơn vị, mô tả, giải thích và phạm vi áp dụng chúng cũng sẽ được tìm thấy trong các TCVN liên quan. Cấu trúc mỗi bảng tính gồm có hai phần chính:</p>
+                <ul>
+                    <li>Phần thứ nhất: là thông số đầu vào do người dùng nhập liệu (thực hiện trên giao diện website);</li>
+                    <li>Phần thứ hai: là thuyết minh tính toán (xuất ra file word, có thể xem trực tiếp hoặc tải về).</li>
+                </ul>
             </div>
         </div>
         <div class="row" style="position: relative;">
@@ -27,9 +24,9 @@ $this->title = $model->title;
                 <img src="/images/home/home_qr.jpg" class="img-responsive" alt="Trang chủ">
             </div>
             <div class="col-md-7 text-top-left">
-                <p class="p_gioithieu">Lưu ý không được phép sử dụng các mẫu tính toán này nếu bạn không theo học chuyên ngành xây dựng và chưa nghiên cứu các TCVN. Tác giả từ chối mọi trách nhiệm về các lỗi có thể xảy ra trong các mẫu tính toán. Mọi bảng tính hiển thị trên website đều được thực hiện “nguyên trạng” theo hướng dẫn tính toán của các TCVN. Người sử dụng đưa ra quyết định về khả năng áp dụng, trách nhiệm của mình đối với các tính toán.</p>
-                <p class="p_gioithieu">Hiện tại, các báo cáo được sắp xếp ở định dạng *.docx, sẽ đem lại sự tiện lợi cho người dùng để có thể tiếp cận với bố cục cũng như biểu thức toán học ở thuyết minh tính toán. Đồng thời, định dạng trình bày này sẽ cho phép nhiều chuyên gia đánh giá tính đúng đắn của các bảng tính. Từ đó sẽ đảm bảo loại bỏ các sai sót có thể xảy ra, mang lại các phép tính chính xác và đáng tin cậy.</p>
-                <p class="p_gioithieu">Mặc dù trong quá trình thực hiện tác giả đã hết sức cố gắng nhưng chắc rằng vẫn không thể tránh khỏi những sai sót chủ quan. Rất mong sự góp ý của các chuyên gia, đồng nghiệp, các bạn sinh viên cho tác giả thông qua e-mail: <strong> <a href = "mailto:oxyz@gmail.com">oxyz@gmail.com</a> </strong> để website tiếp tục hoàn thiện hơn. Chân thành cảm ơn!</p>
+                <p class="p_gioithieu">Tất cả các thuyết minh tính toán được sắp xếp ở định dạng *.docx, sẽ đem lại sự tiện lợi cho người dùng để có thể dễ dàng tiếp cận với bố cục cũng như biểu thức toán học. Đồng thời, ở định dạng trình bày này sẽ cho phép nhiều chuyên gia đánh giá tính đúng đắn của trang tính, từ đó sẽ đảm bảo loại bỏ các sai sót có thể xảy ra, mang lại các phép tính chính xác và đáng tin cậy.</p>
+                <p class="p_gioithieu">Để không gây trở ngại trong việc sử dụng các bảng tính yêu cầu người dùng cần có một số kiến thức cơ bản về địa chất công trình, cơ học đất, nền móng, bê tông cốt thép, cơ học kết cấu, sức bền vật liệu, v.v. Người dùng đưa ra quyết định về khả năng áp dụng cũng như trách  nhiệm của mình đối với kết quả tính toán. </p>
+                <p class="p_gioithieu">Trong quá trình thực hiện tác giả đã hết sức cố gắng nhưng chắc rằng vẫn không thể tránh khỏi những sai sót chủ quan. Rất mong sự góp ý của các chuyên gia, đồng nghiệp, các bạn sinh viên cho tác giả thông qua e-mail: <strong> <a href = "mailto:oxyz@gmail.com">oxyz@gmail.com</a> </strong> để website tiếp tục hoàn thiện hơn. Chân thành cảm ơn!</p>
                 <p class="text-right">Tác giả: LÊ VĂN TRỌNG</p>
             </div>
         </div>
