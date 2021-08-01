@@ -2428,15 +2428,15 @@ class TinhToanController extends \yii\web\Controller
     public function actionTinhDienTichCotThep()
     {
         $dmtt = DmTinhtoan::findOne(['duong_dan' => '/tinh-toan/tinh-dien-tich-cot-thep']);
+        $dmtt->luot_giai++;
+        $dmtt->save();
         $menu = DmNhomBai::find()->asArray()->all();
         foreach ($menu as $key => $value) {
             $menu[$key]['children'] = DmTinhtoan::find()->where(['nhom_id' => $value['id']])->asArray()->all();
         }
-        $filePath = '';
 
         return $this->render('tinh-dien-tich-cot-thep', [
             'dmtt' => $dmtt,
-            'filePath' => $filePath,
             'menu' => $menu,
         ]);
     }

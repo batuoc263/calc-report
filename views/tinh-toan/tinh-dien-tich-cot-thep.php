@@ -149,7 +149,8 @@ $this->params['breadcrumbs'][] = $this->title;
         
         <hr>
         <div class="row">
-            <div class="col-md-3 col-md-offset-9 text-right">
+            <div class="col-md-3 col-md-offset-6">Lượt tính: <span id="luot_tinh"><?= $dmtt->luot_giai ?></span></div>
+            <div class="col-md-3 text-right">
                 <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small">
                     <a data-label="Facebook" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="noopener noreferrer nofollow" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="fb-xfbml-parse-ignore">
                         <img src="/images/fbshare.PNG" alt="Share Facebook">
