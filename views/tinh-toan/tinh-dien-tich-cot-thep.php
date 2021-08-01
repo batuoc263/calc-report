@@ -143,7 +143,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div id="rezblock" class="col-md-6 col-md-offset-3">
                 <div id="current_rez"><b id="rez">Chỉ định thông số đầu vào</b></div>
                 <div><b id="cpy"></b></div>
-                <div style="margin-top:7px;"><b id="sum">Σ <i>A<sub>s</sub></i> = <span id="tongAs">0</span></b></div>
+                <div style="margin-top:7px;"><b id="sum">Σ <i>A<sub>s</sub></i> = <span id="tongAs">0</span> mm²</b></div>
             </div>
         </div>
         
