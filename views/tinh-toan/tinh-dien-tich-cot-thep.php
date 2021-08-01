@@ -26,116 +26,129 @@ $this->params['breadcrumbs'][] = $this->title;
         </ul>
         <h3 style="font-size: 20px;" class="text-center">THÔNG SỐ ĐẦU VÀO</h3>
 
-        <div style="margin-top: 15px">Đường kính thanh thép <i>d</i>, mm</div>
-        <table class="diam" id="tb1">
-            <tbody>
-                <tr>
-                    <td class="tddiam">3 </td>
-                    <td class="tddiam">4 </td>
-                    <td class="tddiam">5 </td>
-                    <td class="tddiam">6 </td>
-                    <td class="tddiam">8 </td>
-                    <td class="tddiam">10</td>
-                    <td class="tddiam">12</td>
-                    <td class="tddiam">14</td>
-                    <td class="tddiam">16</td>
-                    <td class="tddiam">18</td>
-                    <td class="tddiam">20</td>
-                    <td class="tddiam">22</td>
-                    <td class="tddiam">25</td>
-                    <td class="tddiam">28</td>
-                    <td class="tddiam">32</td>
-                    <td class="tddiam">36</td>
-                    <td class="tddiam">40</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="text-center">
 
-        <div style="margin-top: 5px">Số lượng thanh thép <i>n</i>, thanh</div>
-        <table class="diam" id="tb2">
-            <tbody>
-                <tr>
-                    <td class="tdkolvo">1 </td>
-                    <td class="tdkolvo">2 </td>
-                    <td class="tdkolvo">3 </td>
-                    <td class="tdkolvo">4 </td>
-                    <td class="tdkolvo">5 </td>
-                    <td class="tdkolvo">6 </td>
-                    <td class="tdkolvo">7 </td>
-                    <td class="tdkolvo">8 </td>
-                    <td class="tdkolvo">9 </td>
-                    <td class="tdkolvo">10</td>
-                </tr>
-                <tr>
-                    <td class="tdkolvo">11</td>
-                    <td class="tdkolvo">12</td>
-                    <td class="tdkolvo">13</td>
-                    <td class="tdkolvo">14</td>
-                    <td class="tdkolvo">15</td>
-                    <td class="tdkolvo">16</td>
-                    <td class="tdkolvo">17</td>
-                    <td class="tdkolvo">18</td>
-                    <td class="tdkolvo">19</td>
-                    <td class="tdkolvo">20</td>
-                </tr>
-                <tr>
-                    <td class="tdkolvo">21</td>
-                    <td class="tdkolvo">22</td>
-                    <td class="tdkolvo">23</td>
-                    <td class="tdkolvo">24</td>
-                    <td class="tdkolvo">25</td>
-                    <td class="tdkolvo">26</td>
-                    <td class="tdkolvo">27</td>
-                    <td class="tdkolvo">28</td>
-                    <td class="tdkolvo">29</td>
-                    <td class="tdkolvo">30</td>
-                </tr>
-                <tr>
-                    <td class="tdkolvo">31</td>
-                    <td class="tdkolvo">32</td>
-                    <td class="tdkolvo">33</td>
-                    <td class="tdkolvo">34</td>
-                    <td class="tdkolvo">35</td>
-                    <td class="tdkolvo">36</td>
-                    <td class="tdkolvo">37</td>
-                    <td class="tdkolvo">38</td>
-                    <td class="tdkolvo">39</td>
-                    <td class="tdkolvo">40</td>
-                </tr>
-                <tr>
-                    <td class="tdkolvo">41</td>
-                    <td class="tdkolvo">42</td>
-                    <td class="tdkolvo">43</td>
-                    <td class="tdkolvo">44</td>
-                    <td class="tdkolvo">45</td>
-                    <td class="tdkolvo">46</td>
-                    <td class="tdkolvo">47</td>
-                    <td class="tdkolvo">48</td>
-                    <td class="tdkolvo">49</td>
-                    <td class="tdkolvo">50</td>
-                </tr>
-            </tbody>
-        </table>
+            <p style="margin-top: 15px">Đường kính thanh thép <i>d</i>, mm</p>
+            <table class="diam" id="tb1">
+                <tbody>
+                    <tr>
+                        <td class="tddiam">6 </td>
+                        <td class="tddiam">8 </td>
+                        <td class="tddiam">10</td>
+                        <td class="tddiam">12</td>
+                        <td class="tddiam">14</td>
+                        <td class="tddiam">16</td>
+                        <td class="tddiam">18</td>
+                        <td class="tddiam">20</td>
+                        <td class="tddiam">22</td>
+                        <td class="tddiam">25</td>
+                        <td class="tddiam">28</td>
+                        <td class="tddiam">32</td>
+                        <td class="tddiam">36</td>
+                        <td class="tddiam">40</td>
+                        <td class="tddiam">50</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <p style="margin-top: 15px">Số lượng thanh thép <i>n</i>, thanh</p>
+            <table class="diam" id="tb2">
+                <tbody>
+                    <tr>
+                        <td class="tdkolvo">1 </td>
+                        <td class="tdkolvo">2 </td>
+                        <td class="tdkolvo">3 </td>
+                        <td class="tdkolvo">4 </td>
+                        <td class="tdkolvo">5 </td>
+                        <td class="tdkolvo">6 </td>
+                        <td class="tdkolvo">7 </td>
+                        <td class="tdkolvo">8 </td>
+                        <td class="tdkolvo">9 </td>
+                        <td class="tdkolvo">10</td>
+                        <td class="tdkolvo">11</td>
+                        <td class="tdkolvo">12</td>
+                        <td class="tdkolvo">13</td>
+                        <td class="tdkolvo">14</td>
+                        <td class="tdkolvo">15</td>
+                    </tr>
+                    <tr>
+                        <td class="tdkolvo">16</td>
+                        <td class="tdkolvo">17</td>
+                        <td class="tdkolvo">18</td>
+                        <td class="tdkolvo">19</td>
+                        <td class="tdkolvo">20</td>
+                        <td class="tdkolvo">21</td>
+                        <td class="tdkolvo">22</td>
+                        <td class="tdkolvo">23</td>
+                        <td class="tdkolvo">24</td>
+                        <td class="tdkolvo">25</td>
+                        <td class="tdkolvo">26</td>
+                        <td class="tdkolvo">27</td>
+                        <td class="tdkolvo">28</td>
+                        <td class="tdkolvo">29</td>
+                        <td class="tdkolvo">30</td>
+                    </tr>
+                    <tr>
+                        <td class="tdkolvo">31</td>
+                        <td class="tdkolvo">32</td>
+                        <td class="tdkolvo">33</td>
+                        <td class="tdkolvo">34</td>
+                        <td class="tdkolvo">35</td>
+                        <td class="tdkolvo">36</td>
+                        <td class="tdkolvo">37</td>
+                        <td class="tdkolvo">38</td>
+                        <td class="tdkolvo">39</td>
+                        <td class="tdkolvo">40</td>
+                        <td class="tdkolvo">41</td>
+                        <td class="tdkolvo">42</td>
+                        <td class="tdkolvo">43</td>
+                        <td class="tdkolvo">44</td>
+                        <td class="tdkolvo">45</td>
+                    </tr>
+                    <tr>
+                        <td class="tdkolvo">46</td>
+                        <td class="tdkolvo">47</td>
+                        <td class="tdkolvo">48</td>
+                        <td class="tdkolvo">49</td>
+                        <td class="tdkolvo">50</td>
+                        <td class="tdkolvo">51</td>
+                        <td class="tdkolvo">52</td>
+                        <td class="tdkolvo">53</td>
+                        <td class="tdkolvo">54</td>
+                        <td class="tdkolvo">55</td>
+                        <td class="tdkolvo">56</td>
+                        <td class="tdkolvo">57</td>
+                        <td class="tdkolvo">58</td>
+                        <td class="tdkolvo">59</td>
+                        <td class="tdkolvo">60</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <p style="margin-top: 15px">Bước thép/1m <i>@</i>, mm</p>
+            <table class="diam" id="tb3">
+                <tbody>
+                    <tr>
+                        <td class="tdkolvo">50 </td>
+                        <td class="tdkolvo">100</td>
+                        <td class="tdkolvo">150</td>
+                        <td class="tdkolvo">200</td>
+                        <td class="tdkolvo">250</td>
+                        <td class="tdkolvo">300</td>
+                        <td class="tdkolvo">350</td>
+                        <td class="tdkolvo">400</td>
+                        <td class="tdkolvo">450</td>
+                        <td class="tdkolvo">500</td>
+                        <td class="tdkolvo">550</td>
+                        <td class="tdkolvo">600</td>
+                        <td class="tdkolvo">650</td>
+                        <td class="tdkolvo">700</td>
+                        <td class="tdkolvo">750</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <div style="margin-top: 5px">Bước thép/1m <i>@</i>, mm</div>
-        <table class="diam" id="tb3">
-            <tbody>
-                <tr>
-                    <td class="tdkolvo">50 </td>
-                    <td class="tdkolvo">100</td>
-                    <td class="tdkolvo">150</td>
-                    <td class="tdkolvo">200</td>
-                    <td class="tdkolvo">250</td>
-                    <td class="tdkolvo">300</td>
-                    <td class="tdkolvo">350</td>
-                    <td class="tdkolvo">400</td>
-                    <td class="tdkolvo">450</td>
-                    <td class="tdkolvo">500</td>
-                    <td class="tdkolvo">550</td>
-                    <td class="tdkolvo">600</td>
-                </tr>
-            </tbody>
-        </table>
 
         <h3 style="font-size: 20px;" class="text-center">KẾT QUẢ TÍNH TOÁN</h3>
 

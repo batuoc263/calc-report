@@ -201,7 +201,7 @@ p {
     border-style: solid;
     border-color: blue;
     border-width: 1px;
-    width: 30px;
+    width: 50px;
     text-align: center;
     cursor: pointer;
 }
@@ -210,7 +210,7 @@ p {
     border-style: solid;
     border-color: blue;
     border-width: 1px;
-    width: 30px;
+    width: 50px;
     text-align: center;
     background-color: DarkBlue;
     color: white;
@@ -230,7 +230,7 @@ p {
     border-style: solid;
     border-color: blue;
     border-width: 1px;
-    width: 30px;
+    width: 50px;
     text-align: center;
     cursor: pointer;
 }
@@ -239,7 +239,7 @@ p {
     border-style: solid;
     border-color: blue;
     border-width: 1px;
-    width: 30px;
+    width: 50px;
     text-align: center;
     background-color: DarkBlue;
     color: white;
