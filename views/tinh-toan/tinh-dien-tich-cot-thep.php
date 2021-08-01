@@ -7,172 +7,148 @@ use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Tính nền theo sức chịu tải';
+$this->title = 'Tính diện tích cốt thép';
 $this->params['breadcrumbs'][] = ['label' => 'Tính toán', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="tinhtoan-content">
-    <div class="col-md-9">    
-    <div class="text-center">
-        <h1 class="text-uppercase" style="font-size: 25px;"><?= Html::encode($this->title) ?></h1>
-    </div>
-        <div id="result">
-
+    <div class="col-md-9">
+        <div class="text-center">
+            <h1 class="text-uppercase" style="font-size: 25px;"><?= Html::encode($this->title) ?></h1>
         </div>
 
-        <p class="text-center"><i>Phương pháp tính toán dựa theo TCVN 9362-2012 Thiết kế nền nhà và công trình, mục 4.7</i></p>
-        <p class="text-center"><i>Tính nền theo sức chịu tải.</i></p>
-        <p class="text-justify">Mục đích tính nền theo sức chịu tải (theo nhóm trạng thái) giới hạn thứ nhất là đảm bảo độ bền của nền và tính ổn định của nền đất (không phải đá), cũng như không cho phép móng trượt theo đáy và không cho phép lật vì sẽ dẫn đến sự chuyển vị đáng kể của từng móng hoặc của toàn bộ công trình và do đó công trình không thể sử dụng được.</p>
-
+        <p class="text-justify">Trang tính này hỗ trợ tính toán diện tích cốt thép trong mặt cắt ngang của cấu kiện bê tông cốt thép.</p>
+        <p>Yêu cầu chỉ định:</p>
+        <ul>
+            <li>Đường kính thanh thép và Số lượng thanh</li>
+            <li>Đường kính thanh thép và Bước cốt thép/1m</li>
+        </ul>
         <h3 style="font-size: 20px;" class="text-center">THÔNG SỐ ĐẦU VÀO</h3>
-        <table class="input-table">
-            <tr>
-                <td><strong>Tải trọng tác dụng tại đáy móng (tính theo TTGH I)</strong></td>
-            </tr>
-            <tr>
-                <td>Lực thẳng đứng </td>
-                <td> F<sub>v</sub> = </td>
-                <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="1100" name="varFv" id="varFv">
-                </td>
-                <td> kN </td>
-            </tr>
-            <tr>
-                <td>Lực ngang </td>
-                <td> F<sub>h</sub> = </td>
-                <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="70" name="varFh" id="varFh">
-                </td>
-                <td> kN </td>
-            </tr>
-            <tr>
-                <td>Momen uốn, xoay quanh cạnh b</td>
-                <td> M<sub>b</sub> = </td>
-                <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="0" name="varMb" id="varMb">
-                </td>
-                <td> kNm </td>
-            </tr>
-            <tr>
-                <td>Momen uốn, xoay quanh cạnh l</td>
-                <td> M<sub>l</sub> = </td>
-                <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="88" name="varMl" id="varMl">
-                </td>
-                <td> kNm </td>
-            </tr>
-            <tr>
-                <td><strong>Đặc trưng đất nền </strong></td>
-            </tr>
-            <tr>
-                <td>Góc ma sát trong </td>
-                <td> &phi;<sub>I</sub> =  </td>
-                <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="15.0" name="varphiI" id="varphiI">
-                </td>
-                <td> độ </td>
-            </tr>
-            <tr>
-                <td>Lực dính đơn vị của đất nằm trực tiếp dưới đáy móng</td>
-                <td> c<sub>I</sub> = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="6.0" step="1" name="varCI" id="varCI"> 
-                </td>
-                <td> kN/m<sup>2</sup> </td>
-            </tr>
-            <tr>
-                <td>Trọng lượng thể tích của đất trên đáy móng </td>
-                <td> &gamma;'<sub> I </sub> = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="17.0" step="0.1" name="varGammaIPhay" id="varGammaIPhay"> 
-                </td>
-                <td> kN/m<sup>3</sup> </td>
-            </tr>
-            <tr>
-                <td>Trọng lượng thể tích của đất dưới đáy móng </td>
-                <td> &gamma;<sub>I</sub> = </td>
-                <td>
-                    <input required class="form-control" pattern="[0-9]*.[0-9]+" value="19.0" step="0.1" name="varGammaI" id="varGammaI"> 
-                </td>
-                <td> kN/m<sup>3</sup> </td>
-            </tr>
-            <tr>
-                <td>Chiều sâu mực nước ngầm </td>
-                <td> MNN = </td>
-                <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="1.5" name="varMNN" id="varMNN">
-                </td>
-                <td> m </td>
-            </tr>
-            <!-- ============ -->
-            <tr>
-                <td><strong>Đặc trưng hình học móng</strong></td>
-            </tr>
-            <tr>
-                <td>Chiều rộng đáy móng </td>
-                <td> b = </td>
-                <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="2.40" name="varb" id="varb">
-                </td>
-                <td> m </td>
-            </tr>
-            <tr>
-                <td>Chiều dài đáy móng </td>
-                <td> l = </td>
-                <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="3.00" name="varl" id="varl">
-                </td>
-                <td> m </td>
-            </tr>
-            <tr>
-                <td>Chiều sâu đặt móng (phía áp lực đất bị động) </td>
-                <td> h = </td>
-                <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="1.00" name="varh" id="varh">
-                </td>
-                <td> m </td>
-            </tr>
-            <tr>
-                <td>Chiều sâu đặt móng (phía áp lực đất chủ động) </td>
-                <td> h<sub>1</sub> = </td>
-                <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="1.30" name="varh1" id="varh1">
-                </td>
-                <td> m </td>
-            </tr>
-            <!-- ============ -->
-            <tr>
-                <td><strong>Đặc trưng hình học móng</strong></td>
-            </tr>
-            <tr>
-                <td>Hệ số tin cậy do cơ quan thiết kế quy định </td>
-                <td> k<sub>tc</sub> = </td>
-                <td>
-                    <input class="form-control" required pattern="[0-9]*.[0-9]+" value="1.2" name="varktc" id="varktc" data-toggle="tooltip" data-html="true" data-container="body" title="Quy định tùy theo tính chất quan trọng của nhà hoặc công trình, ý nghĩa của nhà hoặc công trình khi tận dụng hết sức chịu tải của nền, mức độ nghiên cứu điều kiện đất đai và lấy không nhỏ hơn 1.2">
-                </td>
-                <td> - </td>
-            </tr>
-        </table>
-        <div class="text-center" style="margin-top: 10px">
-            <img src="/images/25/h1.png" alt="Hình 1. Sơ đồ tính sức chịu tải của nền" width="500px">
-        </div>
-        <p class="text-center"><i>Hình 1. Sơ đồ tính sức chịu tải của nền</i></p>
-     
 
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" id="newTabResult" value="">
-                Mở kết quả trên tab mới
-            </label>
+        <div style="margin-top: 15px">Đường kính thanh thép <i>d</i>, mm</div>
+        <table class="diam" id="tb1">
+            <tbody>
+                <tr>
+                    <td class="tddiam">3 </td>
+                    <td class="tddiam">4 </td>
+                    <td class="tddiam">5 </td>
+                    <td class="tddiam">6 </td>
+                    <td class="tddiam">8 </td>
+                    <td class="tddiam">10</td>
+                    <td class="tddiam">12</td>
+                    <td class="tddiam">14</td>
+                    <td class="tddiam">16</td>
+                    <td class="tddiam">18</td>
+                    <td class="tddiam">20</td>
+                    <td class="tddiam">22</td>
+                    <td class="tddiam">25</td>
+                    <td class="tddiam">28</td>
+                    <td class="tddiam">32</td>
+                    <td class="tddiam">36</td>
+                    <td class="tddiam">40</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 5px">Số lượng thanh thép <i>n</i>, thanh</div>
+        <table class="diam" id="tb2">
+            <tbody>
+                <tr>
+                    <td class="tdkolvo">1 </td>
+                    <td class="tdkolvo">2 </td>
+                    <td class="tdkolvo">3 </td>
+                    <td class="tdkolvo">4 </td>
+                    <td class="tdkolvo">5 </td>
+                    <td class="tdkolvo">6 </td>
+                    <td class="tdkolvo">7 </td>
+                    <td class="tdkolvo">8 </td>
+                    <td class="tdkolvo">9 </td>
+                    <td class="tdkolvo">10</td>
+                </tr>
+                <tr>
+                    <td class="tdkolvo">11</td>
+                    <td class="tdkolvo">12</td>
+                    <td class="tdkolvo">13</td>
+                    <td class="tdkolvo">14</td>
+                    <td class="tdkolvo">15</td>
+                    <td class="tdkolvo">16</td>
+                    <td class="tdkolvo">17</td>
+                    <td class="tdkolvo">18</td>
+                    <td class="tdkolvo">19</td>
+                    <td class="tdkolvo">20</td>
+                </tr>
+                <tr>
+                    <td class="tdkolvo">21</td>
+                    <td class="tdkolvo">22</td>
+                    <td class="tdkolvo">23</td>
+                    <td class="tdkolvo">24</td>
+                    <td class="tdkolvo">25</td>
+                    <td class="tdkolvo">26</td>
+                    <td class="tdkolvo">27</td>
+                    <td class="tdkolvo">28</td>
+                    <td class="tdkolvo">29</td>
+                    <td class="tdkolvo">30</td>
+                </tr>
+                <tr>
+                    <td class="tdkolvo">31</td>
+                    <td class="tdkolvo">32</td>
+                    <td class="tdkolvo">33</td>
+                    <td class="tdkolvo">34</td>
+                    <td class="tdkolvo">35</td>
+                    <td class="tdkolvo">36</td>
+                    <td class="tdkolvo">37</td>
+                    <td class="tdkolvo">38</td>
+                    <td class="tdkolvo">39</td>
+                    <td class="tdkolvo">40</td>
+                </tr>
+                <tr>
+                    <td class="tdkolvo">41</td>
+                    <td class="tdkolvo">42</td>
+                    <td class="tdkolvo">43</td>
+                    <td class="tdkolvo">44</td>
+                    <td class="tdkolvo">45</td>
+                    <td class="tdkolvo">46</td>
+                    <td class="tdkolvo">47</td>
+                    <td class="tdkolvo">48</td>
+                    <td class="tdkolvo">49</td>
+                    <td class="tdkolvo">50</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 5px">Bước thép/1m <i>@</i>, mm</div>
+        <table class="diam" id="tb3">
+            <tbody>
+                <tr>
+                    <td class="tdkolvo">50 </td>
+                    <td class="tdkolvo">100</td>
+                    <td class="tdkolvo">150</td>
+                    <td class="tdkolvo">200</td>
+                    <td class="tdkolvo">250</td>
+                    <td class="tdkolvo">300</td>
+                    <td class="tdkolvo">350</td>
+                    <td class="tdkolvo">400</td>
+                    <td class="tdkolvo">450</td>
+                    <td class="tdkolvo">500</td>
+                    <td class="tdkolvo">550</td>
+                    <td class="tdkolvo">600</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="font-size: 20px;" class="text-center">KẾT QUẢ TÍNH TOÁN</h3>
+
+        <div id="rezblock" class="text-center">
+            <p id="current_rez"><b id="rez">Chỉ định thông số đầu vào</b></p>
+            <p><b id="cpy"></b></p>
+            <p style="margin-top:7px;"><b id="sum">Σ <i>A<sub>s</sub></i> = <span id="tongAs">0</span></b></p>
         </div>
+
         <hr>
         <div class="row">
-            <div class="col-md-6">
-                <button onclick="tinhtoan()" class="btn btn-primary">Tính toán</button>
-            </div>
-            <div class="col-md-3">Lượt tính: <span id="luot_tinh"><?= $dmtt->luot_giai ?></span></div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-md-offset-6">Lượt tính: <span id="luot_tinh"><?= $dmtt->luot_giai ?></span></div>
+            <div class="col-md-3 text-right">
 
                 <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small">
                     <a data-label="Facebook" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="noopener noreferrer nofollow" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="fb-xfbml-parse-ignore">
@@ -193,50 +169,51 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <script>
+    $("#tb1").on("click", "td", function() {
+        $('td').removeClass('tddiamblue');
+        $(this).addClass("tddiamblue");
+
+        tinhtoan();
+    });
+    $("#tb2").on("click", "td", function() {
+        $('td').removeClass('tdkolvoblue');
+        $(this).addClass("tdkolvoblue");
+
+        tinhtoan();
+    });
+    $("#tb3").on("click", "td", function() {
+        $('td').removeClass('tdkolvoblue');
+        $(this).addClass("tdkolvoblue");
+
+        tinhtoan();
+    });
 
     function tinhtoan() {
+        b1 = $('.tddiamblue')
+        if (b1.length == 0) {
+            console.log('Chọn đường kính thanh thép');
+            $('#rez').html('<b>Chọn đường kính thanh thép </b>')
+        }
 
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-
-        data = {
-            _token: CSRF_TOKEN,
-            varFv: $('#varFv').val(),
-            varFh: $('#varFh').val(),
-            varMb: $('#varMb').val(),
-            varMl: $('#varMl').val(),
-            varphiI: $('#varphiI').val(),
-            varCI: $('#varCI').val(),
-            varGammaIPhay: $('#varGammaIPhay').val(),
-            varGammaI: $('#varGammaI').val(),
-            varMNN: $('#varMNN').val(),
-            varb: $('#varb').val(),
-            varl: $('#varl').val(),
-            varh: $('#varh').val(),
-            varh1: $('#varh1').val(),
-            varktc: $('#varktc').val()
-        };
-
-        console.log(data);
-
-        $.ajax({
-            method: "POST",
-            url: "/tinh-toan/tinh-nen-theo-suc-chiu-tai",
-            data: data
-        }).done(function(msg) {
-            $(window).scrollTop(0); rs = JSON.parse(msg); 
-            newTabResult = $("#newTabResult");
-            if (newTabResult[0].checked == false) {
-                $('#result').html('<div class="alert alert-success" role="alert">Báo cáo của bạn đã sẵn sàng để tải xuống. <a href="' + rs.filePath + '">Tải xuống</a></div>')
-                $('#luot_tinh').html(rs.luot_tinh)
+        b2 = $('.tdkolvoblue')
+        if (b2.length == 0) {
+            console.log('Chọn số lượng thanh thép hoặc bước cốt thép');
+            $('#rez').html('<b>Chọn số lượng thanh thép hoặc bước cốt thép </b>')
+        }
+        if (b1.length != 0 && b2.length != 0) {
+            b1Val = b1[0].innerText
+            b2Val = b2[0].innerText
+            dientich = 0.25 * Math.PI * Math.pow(b1Val, 2)
+            
+            console.log('b1 = '+ b1Val+', b2 = '+b2Val+', dientich = '+dientich);
+            cachTinh = b2[0].closest('table').id
+            if (cachTinh == 'tb2') {
+                As = dientich * b2Val;
+                $('#current_rez').html('<b id="rez"><i>A<sub>s</sub></i> = ' + dientich.toFixed(2) + ' × ' + b2Val + ' = <span class="kqAs">' + As.toFixed(1) + '</span> mm² ('+b2Val+'d'+b1Val+') </b><span class="plus" title="Thêm">+</span>')
             } else {
-                window.open('/tinh-toan/result?filePath=' + rs.filePath, '_blank');
+                As = dientich * 1000/b2Val;
+                $('#current_rez').html('<b id="rez"><i>A<sub>s</sub></i> = ' + dientich.toFixed(2) + ' × ' + (1000/b2Val).toFixed(2) + ' = <span class="kqAs">' + As.toFixed(1) + '</span> mm² (d'+b1Val+'@'+b2Val+') </b><span class="plus" title="Thêm">+</span>')
             }
-        });
-    }
-
-    window.onload = function() {
-        $('#varktc').popover({
-            trigger: 'focus hover'
-        });
+        }
     }
 </script>

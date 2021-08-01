@@ -190,3 +190,64 @@ p {
 #ns2c td {
     padding: 5px;
 }
+
+.diam {
+    border-style: solid;
+    border-collapse: collapse;
+    border-width: 1px;
+}
+
+.tddiam {
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
+    width: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tddiamblue {
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
+    width: 40px;
+    text-align: center;
+    background-color: DarkBlue;
+    color: white;
+}
+
+.tdkolvo {
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
+    width: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tdkolvoblue {
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
+    width: 40px;
+    text-align: center;
+    background-color: DarkBlue;
+    color: white;
+}
+
+#rez {
+    background-color: LightSkyBlue;
+    padding: 3px 12px 3px 10px;
+}
+
+#rezblock {
+    line-height: 1.8;
+}
+
+.plus {
+    background-color: MediumSpringGreen;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 3px 10px 3px 10px;
+}
