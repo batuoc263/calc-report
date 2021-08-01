@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Công cụ nội suy online';
+$this->title = 'Nội suy tuyến tính';
 $this->params['breadcrumbs'][] = ['label' => 'Tính toán', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -21,14 +21,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </div>
 
-        <p class="text-justify">Phần mềm nội suy, công thức nội suy có thể là 1 phần không thể thiếu trong bất kể lĩnh vực, môn học, công việc nào của anh em sinh viên chúng ta. Nhằm tạo sự thuận tiện cho anh em, không cần tải phần mềm hay dùng file excel rườm rà, hôm nay công cụ này có sẳn trực tuyến trên Oxyz.vn</p>
+        <p class="text-justify">Nội suy là một công cụ toán học cơ bản được ứng dụng rộng rãi trong nhiều ngành như công nghệ thông tin, kinh tế, tài chính, xây dựng, y học và những ngành cần xử lý dữ liệu số khác, v.v. Do đó bảng tính nội suy trực tuyến dưới đây nhằm hỗ trợ một phần nào đó cho các bạn sinh viên, kỹ sư xây dựng trong công việc</p>
 
-        <h3 style="font-size: 20px;" class="text-center">Công cụ nội suy 1 chiều</h3>
+        <h3 style="font-size: 20px;" class="text-center">Nội suy 1 chiều</h3>
         <div class="entry-content entry clearfix">
 
             <div class="row" style="margin-top: 5px">
                 <div class="col-xs-4">
-                    <input type="text" style="border-color: green" class="form-control" oninput="reset('x11')" id="x11" value="20" placeholder="X11">
+                    <input type="text" style="border-color: green" class="form-control" oninput="reset('x11')" id="x11" value="10" placeholder="X11">
                 </div>
 
                 <div class="col-xs-4 text-center">
@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <div class="col-xs-4">
-                    <input type="text" style="border-color: green" class="form-control" oninput="reset('x12')" id="x12" value="300" placeholder="X12">
+                    <input type="text" style="border-color: green" class="form-control" oninput="reset('x12')" id="x12" value="100" placeholder="X12">
 
                 </div>
                 <div style="clear: both;"></div>
@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="row" style="margin-top: 5px">
                 <div class="col-xs-4">
-                    <input type="text" style="border-color: green" class="form-control" oninput="reset('x31')" id="x31" value="30" placeholder="X31">
+                    <input type="text" style="border-color: green" class="form-control" oninput="reset('x31')" id="x31" value="20" placeholder="X31">
                 </div>
 
                 <div class="col-xs-4 text-center">
@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <div class="col-xs-4">
-                    <input type="text" style="border-color: green" class="form-control" oninput="reset('x32')" id="x32" value="900" placeholder="X32">
+                    <input type="text" style="border-color: green" class="form-control" oninput="reset('x32')" id="x32" value="200" placeholder="X32">
 
                 </div>
                 <div style="clear: both;"></div>
@@ -78,7 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <br>
             <br>
 
-            <h3 style="font-size: 20px;" class="text-center">Công cụ nội suy 2 chiều</h3>
+            <h3 style="font-size: 20px;" class="text-center">Nội suy 2 chiều</h3>
             <div class="entry-content entry clearfix">
                 <div class="table-is-responsive">
                     <table id="ns2c">
