@@ -201,7 +201,7 @@ p {
     border-style: solid;
     border-color: blue;
     border-width: 1px;
-    width: 40px;
+    width: 30px;
     text-align: center;
     cursor: pointer;
 }
@@ -210,8 +210,18 @@ p {
     border-style: solid;
     border-color: blue;
     border-width: 1px;
-    width: 40px;
+    width: 30px;
     text-align: center;
+    background-color: DarkBlue;
+    color: white;
+}
+
+.tddiam:hover {
+    background-color: DodgerBlue;
+    color: white;
+}
+
+.tddiamblue:hover {
     background-color: DarkBlue;
     color: white;
 }
@@ -220,7 +230,7 @@ p {
     border-style: solid;
     border-color: blue;
     border-width: 1px;
-    width: 40px;
+    width: 30px;
     text-align: center;
     cursor: pointer;
 }
@@ -229,10 +239,30 @@ p {
     border-style: solid;
     border-color: blue;
     border-width: 1px;
-    width: 40px;
+    width: 30px;
     text-align: center;
     background-color: DarkBlue;
     color: white;
+}
+
+.tdkolvo:hover {
+    background-color: DodgerBlue;
+    color: white;
+}
+
+.tdkolvoblue:hover {
+    background-color: DarkBlue;
+    color: white;
+}
+
+
+/*==== Прочие специальные стили ====================*/
+
+#sum {
+    border-style: solid;
+    border-color: silver;
+    border-width: 1px 0px 0px 0px;
+    padding: 3px 12px 3px 10px;
 }
 
 #rez {
@@ -241,7 +271,25 @@ p {
 }
 
 #rezblock {
+    /* margin-left: 50px; */
     line-height: 1.8;
+}
+
+p #cpy b {
+    padding: 3px 12px 3px 10px;
+}
+
+.close {
+    color: silver;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0px 7px 0px 7px;
+    background-color: rgb(240, 113, 113);
+}
+
+.close:hover {
+    background-color: rgb(247, 1, 1);
+    color: white;
 }
 
 .plus {
@@ -250,4 +298,9 @@ p {
     font-weight: bold;
     cursor: pointer;
     padding: 3px 10px 3px 10px;
+}
+
+.plus:hover {
+    color: white;
+    background-color: LimeGreen;
 }

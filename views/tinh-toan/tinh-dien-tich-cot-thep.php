@@ -139,17 +139,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <h3 style="font-size: 20px;" class="text-center">KẾT QUẢ TÍNH TOÁN</h3>
 
-        <div id="rezblock" class="text-center">
-            <p id="current_rez"><b id="rez">Chỉ định thông số đầu vào</b></p>
-            <p><b id="cpy"></b></p>
-            <p style="margin-top:7px;"><b id="sum">Σ <i>A<sub>s</sub></i> = <span id="tongAs">0</span></b></p>
+        <div class="row">
+            <div id="rezblock" class="col-md-6 col-md-offset-3">
+                <div id="current_rez"><b id="rez">Chỉ định thông số đầu vào</b></div>
+                <div><b id="cpy"></b></div>
+                <div style="margin-top:7px;"><b id="sum">Σ <i>A<sub>s</sub></i> = <span id="tongAs">0</span></b></div>
+            </div>
         </div>
-
+        
         <hr>
         <div class="row">
-            <div class="col-md-3 col-md-offset-6">Lượt tính: <span id="luot_tinh"><?= $dmtt->luot_giai ?></span></div>
-            <div class="col-md-3 text-right">
-
+            <div class="col-md-3 col-md-offset-9 text-right">
                 <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small">
                     <a data-label="Facebook" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="noopener noreferrer nofollow" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="fb-xfbml-parse-ignore">
                         <img src="/images/fbshare.PNG" alt="Share Facebook">
@@ -169,6 +169,8 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <script>
+    var closebutton = "<span class=close onClick='jclose(this)'>&times;</span>";
+    var plusbutton = "<span class=plus onClick='addNew()'>&plus;</span>";
     $("#tb1").on("click", "td", function() {
         $('td').removeClass('tddiamblue');
         $(this).addClass("tddiamblue");
@@ -204,16 +206,39 @@ $this->params['breadcrumbs'][] = $this->title;
             b1Val = b1[0].innerText
             b2Val = b2[0].innerText
             dientich = 0.25 * Math.PI * Math.pow(b1Val, 2)
-            
-            console.log('b1 = '+ b1Val+', b2 = '+b2Val+', dientich = '+dientich);
+
+            console.log('b1 = ' + b1Val + ', b2 = ' + b2Val + ', dientich = ' + dientich);
             cachTinh = b2[0].closest('table').id
             if (cachTinh == 'tb2') {
                 As = dientich * b2Val;
-                $('#current_rez').html('<b id="rez"><i>A<sub>s</sub></i> = ' + dientich.toFixed(2) + ' × ' + b2Val + ' = <span class="kqAs">' + As.toFixed(1) + '</span> mm² ('+b2Val+'d'+b1Val+') </b><span class="plus" title="Thêm">+</span>')
+                $('#current_rez').html('<b id="rez"><i>A<sub>s</sub></i> = ' + dientich.toFixed(2) + ' × ' + b2Val + ' = <span class="kqAs">' + As.toFixed(1) + '</span> mm² (' + b2Val + 'd' + b1Val + ') </b>' + plusbutton)
             } else {
-                As = dientich * 1000/b2Val;
-                $('#current_rez').html('<b id="rez"><i>A<sub>s</sub></i> = ' + dientich.toFixed(2) + ' × ' + (1000/b2Val).toFixed(2) + ' = <span class="kqAs">' + As.toFixed(1) + '</span> mm² (d'+b1Val+'@'+b2Val+') </b><span class="plus" title="Thêm">+</span>')
+                As = dientich * 1000 / b2Val;
+                $('#current_rez').html('<b id="rez"><i>A<sub>s</sub></i> = ' + dientich.toFixed(2) + ' × ' + (1000 / b2Val).toFixed(2) + ' = <span class="kqAs">' + As.toFixed(1) + '</span> mm² (d' + b1Val + '@' + b2Val + ') </b>' + plusbutton)
             }
+            var sum = 0;
+            $('.kqAs').each(function() {
+                sum += parseFloat($(this).text());
+            });
+            $('#tongAs').html(sum)
         }
+    }
+
+    function addNew() {
+        $("#cpy").prepend("<b>" + $("#rez").html() + closebutton + "<br></b>");
+        $('#current_rez').html('<b id="rez">Chỉ định thông số đầu vào</b>')
+        $('td').removeClass('tddiamblue');
+        $('td').removeClass('tdkolvoblue');
+    }
+
+    function jclose(el) {
+        el.parentNode.remove()
+        $('td').removeClass('tddiamblue');
+        $('td').removeClass('tdkolvoblue');
+        sum = 0;
+        $('.kqAs').each(function() {
+            sum += parseFloat($(this).text());
+        });
+        $('#tongAs').html(sum.toFixed(1))
     }
 </script>
