@@ -225,10 +225,10 @@ $this->params['breadcrumbs'][] = $this->title;
             cachTinh = b2[0].closest('table').id
             if (cachTinh == 'tb2') {
                 As = dientich * b2Val;
-                $('#current_rez').html('<b id="rez"><i>A<sub>s</sub></i> = ' + dientich.toFixed(2) + ' × ' + b2Val + ' = <span class="kqAs">' + As.toFixed(1) + '</span> mm² (' + b2Val + 'd' + b1Val + ') </b>' + plusbutton)
+                $('#current_rez').html('<b id="rez"><i>A<sub>s</sub></i> = ' + dientich.toFixed(0) + ' × ' + b2Val + ' = <span class="kqAs">' + As.toFixed(0) + '</span> mm² (' + b2Val + 'd' + b1Val + ') </b>' + plusbutton)
             } else {
                 As = dientich * 1000 / b2Val;
-                $('#current_rez').html('<b id="rez"><i>A<sub>s</sub></i> = ' + dientich.toFixed(2) + ' × ' + (1000 / b2Val).toFixed(2) + ' = <span class="kqAs">' + As.toFixed(1) + '</span> mm² (d' + b1Val + '@' + b2Val + ') </b>' + plusbutton)
+                $('#current_rez').html('<b id="rez"><i>A<sub>s</sub></i> = ' + dientich.toFixed(0) + ' × ' + (1000 / b2Val).toFixed(0) + ' = <span class="kqAs">' + As.toFixed(0) + '</span> mm² (d' + b1Val + '@' + b2Val + ') </b>' + plusbutton)
             }
             var sum = 0;
             $('.kqAs').each(function() {
@@ -253,6 +253,6 @@ $this->params['breadcrumbs'][] = $this->title;
         $('.kqAs').each(function() {
             sum += parseFloat($(this).text());
         });
-        $('#tongAs').html(sum.toFixed(1))
+        $('#tongAs').html(sum.toFixed(0))
     }
 </script>
