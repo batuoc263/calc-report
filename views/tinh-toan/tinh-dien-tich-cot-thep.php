@@ -234,7 +234,7 @@ $this->params['breadcrumbs'][] = $this->title;
             $('.kqAs').each(function() {
                 sum += parseFloat($(this).text());
             });
-            $('#tongAs').html(sum)
+            $('#tongAs').html(sum.toFixed(0))
         }
     }
 
